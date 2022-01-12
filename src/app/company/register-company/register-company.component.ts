@@ -13,13 +13,11 @@ import {CityService} from "../../service/city/city.service";
 export class RegisterCompanyComponent implements OnInit {
 
   data: any = {
-    avatar: ""
+    avatar: '',
+    password: ''
   };
-  // @ts-ignore
   account: Account;
-  // @ts-ignore
   company: Company;
-  // @ts-ignore
   idAccount: number;
   cities: any = [];
   status: string = "";
