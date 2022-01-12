@@ -87,8 +87,8 @@
         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
           <ul class="navbar-nav text-left">
             <li class="nav-item">
-              <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Home</a>
-              <a *ngIf="checkRole == 'USER'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Home</a>
+              <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Trang chủ</a>
+              <a *ngIf="checkRole == 'USER'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Trang chủ</a>
             </li>
             <li class="nav-item">
               <a href="about.html" class="nav-link">Việc làm</a>
@@ -176,14 +176,17 @@
             </button>
           </form>
         </div>
-        <div class="nav-btn dropdown">
+        <div *ngIf="!checkLogin">
+            <a routerLink="/login" class="box-btn">Đăng nhập</a>
+        </div>
+        <div *ngIf="checkLogin" class="nav-btn dropdown">
           <button class="btn btn-secondary dropdown-toggle box-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown button
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Quản lý hồ sơ</a></li>
+            <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
           </ul>
         </div>
       </nav>
