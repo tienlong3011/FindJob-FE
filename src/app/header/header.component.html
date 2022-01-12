@@ -80,122 +80,116 @@
         </a>
     </div>
 
-    <div class="main-nav" style="background: #051242">
-        <div class="container">
-            <nav class="navbar navbar-expand-md navbar-light">
-                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav text-left">
-                        <li class="nav-item">
-                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"
-                               class="nav-link dropdown-toggle active">Home</a>
-                            <a *ngIf="checkRole == 'USER'" routerLink="list-recruitmentnew-company"
-                               class="nav-link dropdown-toggle active">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="about.html" class="nav-link">Việc làm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Solutions</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="solutions.html" class="nav-link">Solutions</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="solutions-details.html" class="nav-link">Solutions Details</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Tạo CV</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="case.html" class="nav-link">Case Studies</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="case-details.html" class="nav-link">Case Studies Details</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="blog.html" class="nav-link">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="blog-details.html" class="nav-link">Blog Details</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="team.html" class="nav-link">Team</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pricing.html" class="nav-link">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="gallery.html" class="nav-link">Gallery</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="testimonials.html" class="nav-link">Testimonials</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="singnup.html" class="nav-link">Sign Up</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="signin.html" class="nav-link">Sign In</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="404.html" class="nav-link">Error 404</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="faq.html" class="nav-link">FAQ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="terms-condition.html" class="nav-link">Terms & Conditions</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="privecy.html" class="nav-link">Privacy Policy</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contact.html" class="nav-link">Contact </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav-right">
-                    <form>
-                        <div class="input-group">
-                            <input type="text" class="form-control search" placeholder="Search...">
-                        </div>
-                        <button type="submit">
-                            <i class="bx bx-search"></i>
-                        </button>
-                    </form>
-                </div>
-                <div class="nav-btn">
-                    <a href="solutions.html" routerLink="/register-company" class="box-btn">Đăng ký</a></div>
 
-                <div class="nav-btn">
-                    <a href="solutions.html" routerLink="/login" class="box-btn">Đăng nhập</a></div>
-
-
-                <div class="nav-btn dropdown">
-                    <button class="btn btn-secondary dropdown-toggle box-btn" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-            </nav>
+  <div class="main-nav"  style="background: #051242">
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-light">
+        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+          <ul class="navbar-nav text-left">
+            <li class="nav-item">
+              <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Trang chủ</a>
+              <a *ngIf="checkRole == 'USER'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">Việc làm</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link dropdown-toggle">Solutions</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a href="solutions.html" class="nav-link">Solutions</a>
+                </li>
+                <li class="nav-item">
+                  <a href="solutions-details.html" class="nav-link">Solutions Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link dropdown-toggle">Tạo CV</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a href="case.html" class="nav-link">Case Studies</a>
+                </li>
+                <li class="nav-item">
+                  <a href="case-details.html" class="nav-link">Case Studies Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link dropdown-toggle">Blog</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a href="blog-details.html" class="nav-link">Blog Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link dropdown-toggle">Pages</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a href="team.html" class="nav-link">Team</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a href="gallery.html" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                  <a href="testimonials.html" class="nav-link">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                  <a href="singnup.html" class="nav-link">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                  <a href="signin.html" class="nav-link">Sign In</a>
+                </li>
+                <li class="nav-item">
+                  <a href="404.html" class="nav-link">Error 404</a>
+                </li>
+                <li class="nav-item">
+                  <a href="faq.html" class="nav-link">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a href="terms-condition.html" class="nav-link">Terms & Conditions</a>
+                </li>
+                <li class="nav-item">
+                  <a href="privecy.html" class="nav-link">Privacy Policy</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact </a>
+            </li>
+          </ul>
         </div>
+        <div class="nav-right">
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control search" placeholder="Search...">
+            </div>
+            <button type="submit">
+              <i class="bx bx-search"></i>
+            </button>
+          </form>
+        </div>
+        <div *ngIf="!checkLogin">
+            <a routerLink="/login" class="box-btn">Đăng nhập</a>
+        </div>
+        <div *ngIf="checkLogin" class="nav-btn dropdown">
+          <button class="btn btn-secondary dropdown-toggle box-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Quản lý hồ sơ</a></li>
+            <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+          </ul>
+        </div>
+        </nav></div>
     </div>
 </div>
 <!-- End Navbar Area -->
