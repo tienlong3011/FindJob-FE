@@ -33,6 +33,7 @@ import {ListRecruitmentnewCompanyComponent} from "./company/recruitmentnew/list-
 import {RegisterCompanyComponent} from "./company/register-company/register-company.component";
 import {UploadImageComponent} from "./upload/upload-image/upload-image.component";
 import {CompanyService} from "./company/service/company.service";
+import { UpdateRecruitmentnewCompanyComponent } from './company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component';
 
 export const appRoutes: Routes = [
     {path: 'register-company', component: RegisterCompanyComponent},
@@ -52,6 +53,7 @@ export const appRoutes: Routes = [
         ListRecruitmentnewCompanyComponent,
         RegisterCompanyComponent,
         UploadImageComponent,
+        UpdateRecruitmentnewCompanyComponent,
     ],
     imports: [
         FormsModule,
