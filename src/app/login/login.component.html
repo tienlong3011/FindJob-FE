@@ -1,41 +1,3 @@
-<!--&lt;!&ndash; Start Page Title Area &ndash;&gt;-->
-<!--<div class="page-title-area">-->
-<!--  <div class="container">-->
-<!--    <div class="page-title-content">-->
-<!--      <h2>Sign In</h2>-->
-<!--      <ul>-->
-<!--        <li>-->
-<!--          <a href="index.html">-->
-<!--            Home-->
-<!--          </a>-->
-<!--        </li>-->
-
-<!--        <li>Pages</li>-->
-
-<!--        <li class="active">Sign In</li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="page-shape">-->
-<!--    <div class="shape1">-->
-<!--      <img src="assets\images\shape\1.png" alt="shape">-->
-<!--    </div>-->
-<!--    <div class="shape3">-->
-<!--      <img src="assets\images\shape\3.png" alt="shape">-->
-<!--    </div>-->
-<!--    <div class="shape4">-->
-<!--      <img src="assets\images\shape\4.png" alt="shape">-->
-<!--    </div>-->
-<!--    <div class="shape5">-->
-<!--      <img src="assets\images\shape\5.png" alt="shape">-->
-<!--    </div>-->
-<!--    <div class="shape6">-->
-<!--      <img src="assets\images\shape\6.png" alt="shape">-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--&lt;!&ndash; End Page Title Area &ndash;&gt;-->
-
 <!-- SignUp -->
 <section class="signup-area ptb-100">
   <div class="container">
@@ -43,58 +5,43 @@
       <div class="col-12">
         <div class="signup-form">
           <div class="section-tittle text-center">
-            <h2>Sign In</h2>
-            <p>With your social network</p>
+            <h2>Đăng nhập</h2>
+            <p>Với tài khoản mạng xã hội</p>
           </div>
-          <form>
+          <form #f="ngForm" (ngSubmit)="f.form.valid && onLogin()">
             <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                <a class="box-btn google" href="#" target="_blank">
-                  <i class='bx bxl-google'></i> Google
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                <a class="box-btn facebook" href="#" target="_blank">
-                  <i class='bx bxl-facebook'></i> Facebook
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                <a class="box-btn twitter" href="#" target="_blank">
-                  <i class='bx bxl-twitter'></i> Twitter
-                </a>
-              </div>
               <div class="col-md-12 col-sm-12">
                 <div class="form-group">
-                  <input class="form-control" type="text" name="name" placeholder="User Name">
+                  <mat-form-field style="width: 100%" appearance="outline">
+                    <mat-label>Email:</mat-label>
+                    <input matInput placeholder="Email ..." name="username" [(ngModel)]="form.username" [formControl]="emailFormControl" required>
+                    <mat-icon color="accent" matSuffix>email</mat-icon>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">Bắt buộc phải nhập email!</mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('email')">Email không đúng định dạng!</mat-error>
+                  </mat-form-field>
                 </div>
               </div>
               <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                  <input class="form-control" type="email" name="email" placeholder="Email">
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                  <input class="form-control" type="text" name="password" placeholder="Password">
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="privecy-txt">
-                  <input type="checkbox" id="chb1">
-                  <label>
-                    Remember me
-                  </label>
-                </div>
+                  <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Nhập mật khẩu của bạn</mat-label>
+                      <input name="password" [(ngModel)]="form.password" #password="ngModel" matInput
+                             [type]="hide ? 'password' : 'text'" required>
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="hide">
+                          <mat-icon color="accent">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      <mat-error *ngIf="password.hasError('required')">Bắt buộc phải nhập mật khẩu!</mat-error>
+                  </mat-form-field>
               </div>
               <div class="col-12 text-center">
-                <a class="box-btn signup-btn" href="">
-                  Sign In
-                </a>
+                <button class="box-btn signup-btn">
+                  Đăng nhập
+                </button>
               </div>
               <div class="col-12 text-center">
                 <p class="al-acc">
-                  Not a Member
-                  <a href="singnup.html"> Sign Up</a>
+                  Bạn chưa có tài khoản?
+                  <a routerLink=""> Đăng ký</a>
                 </p>
               </div>
             </div>

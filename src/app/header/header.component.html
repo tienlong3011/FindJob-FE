@@ -87,18 +87,8 @@
         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
           <ul class="navbar-nav text-left">
             <li class="nav-item">
-              <a href="#" class="nav-link dropdown-toggle active">Home</a>
-              <ul class="dropdown-menu">
-                <li class="nav-item">
-                  <a href="index.html" class="nav-link active">Home One</a>
-                </li>
-                <li class="nav-item">
-                  <a href="index-2.html" class="nav-link">Home Two</a>
-                </li>
-                <li class="nav-item">
-                  <a href="index-3.html" class="nav-link">Home Three</a>
-                </li>
-              </ul>
+              <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Trang chủ</a>
+              <a *ngIf="checkRole == 'USER'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Trang chủ</a>
             </li>
             <li class="nav-item">
               <a href="about.html" class="nav-link">Việc làm</a>
@@ -178,8 +168,18 @@
             </button>
           </form>
         </div>
-        <div class="nav-btn">
-          <a href="solutions.html" routerLink="login" class="box-btn">Get Started</a>
+        <div *ngIf="!checkLogin">
+            <a routerLink="/login" class="box-btn">Đăng nhập</a>
+        </div>
+        <div *ngIf="checkLogin" class="nav-btn dropdown">
+          <button class="btn btn-secondary dropdown-toggle" style="background: #007bff" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Công ty {{name}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" routerLink="detail-company">Quản lý hồ sơ</a></li>
+            <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+            <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>
+          </ul>
         </div>
       </nav>
     </div>
