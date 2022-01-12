@@ -1,0 +1,6 @@
+<div>
+  <input type="file" (change)="onFileChanged($event)">
+  <mat-spinner *ngIf="checkUpLoadFile"></mat-spinner>
+  <button *ngIf="downloadURL? !selectFile : selectFile" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Upload</button>
+  <img *ngIf="downloadURL" style="width: 300px" [src]="downloadURL">
+</div>

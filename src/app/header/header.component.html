@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">FindJob</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Việc làm</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Công ty</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tạo CV</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <button *ngIf="!checkLogin" class="btn btn-outline-success" routerLink="login" style="margin-left: 10px" type="submit">Login</button>
+      <button *ngIf="!checkLogin" class="btn btn-outline-success" routerLink="register-company" style="margin-left: 10px;" type="submit">Register</button>
+      <button *ngIf="checkLogin" class="btn btn-outline-success" routerLink="detail-company" style="margin-left: 10px;" type="submit">{{name}}</button>
+    </div>
+  </div>
+</nav>
