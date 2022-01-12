@@ -5,6 +5,7 @@ import {SignInForm} from "./SignInForm";
 import {Observable} from "rxjs";
 import {JwtResponse} from "./JwtResponses";
 import {Company} from "../model/company";
+import {ChangePassword} from '../service/account/changePassword';
 
 @Injectable({
     providedIn: 'root'
@@ -26,4 +27,8 @@ export class AuthService {
     registerCompany(company: Company): Observable<any> {
         return this.http.post<any>(`${this.apiServerUrl}/company`, company)
     }
+    changePassword(changePassword: ChangePassword): Observable<any>{
+        return this.http.put(`${this.apiServerUrl}/change-password`,changePassword)
+    }
+    
 }

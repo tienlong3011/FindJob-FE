@@ -33,12 +33,14 @@ import {ListRecruitmentnewCompanyComponent} from "./company/recruitmentnew/list-
 import {RegisterCompanyComponent} from "./company/register-company/register-company.component";
 import {UploadImageComponent} from "./upload/upload-image/upload-image.component";
 import {CompanyService} from "./company/service/company.service";
+import { ChangePasswordComponent } from './account/change-password/change-password.component';
 
 export const appRoutes: Routes = [
     {path: 'register-company', component: RegisterCompanyComponent},
     {path: 'login', component: LoginComponent},
     {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
     {path: 'detail-company', component: DetailCompanyComponent},
+    {path: 'change-password', component: ChangePasswordComponent},
     // {path: '', redirectTo: 'register-company', pathMatch: 'full'}
 ];
 
@@ -52,6 +54,7 @@ export const appRoutes: Routes = [
         ListRecruitmentnewCompanyComponent,
         RegisterCompanyComponent,
         UploadImageComponent,
+        ChangePasswordComponent,
     ],
     imports: [
         FormsModule,
