@@ -10,7 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatCardModule} from '@angular/material/card'
+import {MatCardModule} from '@angular/material/card';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxAudioPlayerModule} from 'projects/ngx-audio-player/src/public_api';
 import {MatButtonModule} from '@angular/material/button';
@@ -24,22 +24,26 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
-import {httpInterceptorProvider} from "./security/auth.interceptor";
-import {HeaderComponent} from "./header/header.component";
-import {FooterComponent} from "./footer/footer.component";
+import {httpInterceptorProvider} from './security/auth.interceptor';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
 import {LoginComponent} from "./login/login.component";
 import {DetailCompanyComponent} from "./company/detail-company/detail-company.component";
 import {ListRecruitmentnewCompanyComponent} from "./company/recruitmentnew/list-recruitmentnew-company/list-recruitmentnew-company.component";
 import {RegisterCompanyComponent} from "./company/register-company/register-company.component";
 import {UploadImageComponent} from "./upload/upload-image/upload-image.component";
 import {CompanyService} from "./company/service/company.service";
-import { UpdateRecruitmentnewCompanyComponent } from './company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component';
+import {UpdateRecruitmentnewCompanyComponent} from './company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component';
+import {CreateRecruitmentnewComponent} from './company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 export const appRoutes: Routes = [
     {path: 'register-company', component: RegisterCompanyComponent},
     {path: 'login', component: LoginComponent},
     {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
     {path: 'detail-company', component: DetailCompanyComponent},
+    {path: 'create-recruitmentnew', component: CreateRecruitmentnewComponent},
     // {path: '', redirectTo: 'register-company', pathMatch: 'full'}
 ];
 
@@ -54,6 +58,7 @@ export const appRoutes: Routes = [
         RegisterCompanyComponent,
         UploadImageComponent,
         UpdateRecruitmentnewCompanyComponent,
+        CreateRecruitmentnewComponent
     ],
     imports: [
         FormsModule,
@@ -71,7 +76,7 @@ export const appRoutes: Routes = [
         NgxAudioPlayerModule,
         AngularFireStorageModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule
+        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule
     ],
     providers: [httpInterceptorProvider],
     bootstrap: [AppComponent]
