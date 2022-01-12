@@ -29,7 +29,7 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {LoginComponent} from "./login/login.component";
 import {DetailCompanyComponent} from "./company/detail-company/detail-company.component";
-import {ListRecruitmentnewCompanyComponent} from "./company/list-recruitmentnew-company/list-recruitmentnew-company.component";
+import {ListRecruitmentnewCompanyComponent} from "./company/recruitmentnew/list-recruitmentnew-company/list-recruitmentnew-company.component";
 import {RegisterCompanyComponent} from "./company/register-company/register-company.component";
 import {UploadImageComponent} from "./upload/upload-image/upload-image.component";
 import {CompanyService} from "./company/service/company.service";
