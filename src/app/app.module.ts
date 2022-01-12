@@ -33,7 +33,8 @@ import {ListRecruitmentnewCompanyComponent} from "./company/recruitmentnew/list-
 import {RegisterCompanyComponent} from "./company/register-company/register-company.component";
 import {UploadImageComponent} from "./upload/upload-image/upload-image.component";
 import {CompanyService} from "./company/service/company.service";
-import { CreateRecruitmentnewComponent } from './company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component';
+import {UpdateRecruitmentnewCompanyComponent} from './company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component';
+import {CreateRecruitmentnewComponent} from './company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
@@ -56,7 +57,12 @@ export const appRoutes: Routes = [
         ListRecruitmentnewCompanyComponent,
         RegisterCompanyComponent,
         UploadImageComponent,
+<<<<<<< HEAD
         CreateRecruitmentnewComponent,
+=======
+        UpdateRecruitmentnewCompanyComponent,
+        CreateRecruitmentnewComponent
+>>>>>>> 68acec43811e90cfbb8f4b2d154c3dbea06f2292
     ],
     imports: [
         FormsModule,
