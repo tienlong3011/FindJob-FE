@@ -13,10 +13,5 @@ export class DetailCompanyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logOut() {
-    window.sessionStorage.clear();
-    this.router.navigate(['login']).then(()=>{
-      window.location.reload();
-    })
-  }
+
 }

@@ -180,13 +180,13 @@
             <a routerLink="/login" class="box-btn">Đăng nhập</a>
         </div>
         <div *ngIf="checkLogin" class="nav-btn dropdown">
-          <button class="btn btn-secondary dropdown-toggle box-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown button
+          <button class="btn btn-secondary dropdown-toggle" style="background: #007bff" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Công ty {{name}}
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Quản lý hồ sơ</a></li>
+            <li><a class="dropdown-item" routerLink="detail-company">Quản lý hồ sơ</a></li>
             <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
-            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+            <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>
           </ul>
         </div>
         </nav></div>

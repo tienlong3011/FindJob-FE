@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../security/token.service";
 import {CompanyService} from "../company/service/company.service";
 import {Company} from "../model/company";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -23,7 +24,8 @@ export class HeaderComponent implements OnInit {
   company: Company;
 
   constructor(private tokenService: TokenService,
-              private companyService: CompanyService) { }
+              private companyService: CompanyService,
+              private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenService.getTokenKey()) {
@@ -41,5 +43,12 @@ export class HeaderComponent implements OnInit {
         // CÒN USER CHƯA LÀM
       }
     }
+  }
+
+  logOut() {
+    window.sessionStorage.clear();
+    this.router.navigate(['login']).then(()=>{
+      window.location.reload();
+    })
   }
 }
