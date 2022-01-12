@@ -87,18 +87,8 @@
         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
           <ul class="navbar-nav text-left">
             <li class="nav-item">
-              <a href="#" class="nav-link dropdown-toggle active">Home</a>
-              <ul class="dropdown-menu">
-                <li class="nav-item">
-                  <a href="index.html" class="nav-link active">Home One</a>
-                </li>
-                <li class="nav-item">
-                  <a href="index-2.html" class="nav-link">Home Two</a>
-                </li>
-                <li class="nav-item">
-                  <a href="index-3.html" class="nav-link">Home Three</a>
-                </li>
-              </ul>
+              <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Home</a>
+              <a *ngIf="checkRole == 'USER'" routerLink="list-recruitmentnew-company" class="nav-link dropdown-toggle active">Home</a>
             </li>
             <li class="nav-item">
               <a href="about.html" class="nav-link">Việc làm</a>
@@ -186,8 +176,18 @@
             </button>
           </form>
         </div>
-        <div class="nav-btn">
-          <a href="solutions.html" routerLink="login" class="box-btn">Get Started</a>
+<!--        <div class="nav-btn">-->
+<!--          <a routerLink="login" class="box-btn">Get Started</a>-->
+<!--        </div>-->
+        <div class="nav-btn dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
         </div>
       </nav>
     </div>
