@@ -36,7 +36,6 @@ import {CompanyService} from "./company/service/company.service";
 import { CreateRecruitmentnewComponent } from './company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { WorkingTimeComponent } from './service/workingTime/working-time/working-time.component';
 
 export const appRoutes: Routes = [
     {path: 'register-company', component: RegisterCompanyComponent},
@@ -58,7 +57,6 @@ export const appRoutes: Routes = [
         RegisterCompanyComponent,
         UploadImageComponent,
         CreateRecruitmentnewComponent,
-        WorkingTimeComponent,
     ],
     imports: [
         FormsModule,
