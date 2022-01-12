@@ -11,6 +11,8 @@ import {Company} from "../model/company";
 export class HeaderComponent implements OnInit {
   checkLogin = false;
 
+  checkRole: string;
+
   // @ts-ignore
   name: string
 
@@ -32,6 +34,7 @@ export class HeaderComponent implements OnInit {
           this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
             console.log(data);
             this.company = data;
+            this.checkRole = "COMPANY";
             this.name = this.company.name;
           })
         }
