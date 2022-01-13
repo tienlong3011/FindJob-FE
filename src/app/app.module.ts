@@ -39,6 +39,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {CreateRecruitmentnewComponent} from "./company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component";
 import {UpdateRecruitmentnewCompanyComponent} from "./company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component";
 import {MatNativeDateModule} from "@angular/material/core";
+import { DialogComponent } from './dialog/dialog.component';
 
 
 export const appRoutes: Routes = [
@@ -64,7 +65,8 @@ export const appRoutes: Routes = [
         UploadImageComponent,
         CreateRecruitmentnewComponent,
         UpdateRecruitmentnewCompanyComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
+        DialogComponent
     ],
     imports: [
         MatDatepickerModule,
