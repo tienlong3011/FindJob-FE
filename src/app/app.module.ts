@@ -34,10 +34,11 @@ import {RegisterCompanyComponent} from "./company/register-company/register-comp
 import {UploadImageComponent} from "./upload/upload-image/upload-image.component";
 import {CompanyService} from "./company/service/company.service";
 import { ChangePasswordComponent } from './account/change-password/change-password.component';
-import { CreateRecruitmentnewComponent } from './company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component';
-import {UpdateRecruitmentnewCompanyComponent} from './company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {CreateRecruitmentnewComponent} from "./company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component";
+import {UpdateRecruitmentnewCompanyComponent} from "./company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 export const appRoutes: Routes = [
@@ -62,11 +63,11 @@ export const appRoutes: Routes = [
         UploadImageComponent,
         CreateRecruitmentnewComponent,
         UpdateRecruitmentnewCompanyComponent,
-        ChangePasswordComponent,
-        CreateRecruitmentnewComponent,
-        UpdateRecruitmentnewCompanyComponent,
+        ChangePasswordComponent
     ],
     imports: [
+        MatDatepickerModule,
+        MatNativeDateModule,
         FormsModule,
         HttpClientModule,
         BrowserModule,
