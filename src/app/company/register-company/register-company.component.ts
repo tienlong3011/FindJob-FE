@@ -62,7 +62,6 @@ export class RegisterCompanyComponent implements OnInit {
     this.company = new Company(this.data.name, this.data.avatar, this.data.description, this.data.address, this.data.employeeQuantity, city, this.data.linkMap, this.data.phone, account11)
     console.log(this.company)
     this.authService.registerCompany(this.company).subscribe(data2 => {
-
       console.log(data2)
     })
   }

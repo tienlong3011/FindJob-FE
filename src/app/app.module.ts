@@ -42,7 +42,7 @@ import {MatNativeDateModule} from "@angular/material/core";
 
 
 export const appRoutes: Routes = [
-    {path: 'login/register-company', component: RegisterCompanyComponent},
+    {path: 'register-company', component: RegisterCompanyComponent},
     {path: 'login', component: LoginComponent},
     {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
     {path: 'detail-company', component: DetailCompanyComponent},

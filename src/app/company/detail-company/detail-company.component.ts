@@ -3,6 +3,8 @@ import {Router} from "@angular/router";
 import {CompanyService} from '../service/company.service';
 import {Company} from '../../model/company';
 import {TokenService} from '../../security/token.service';
+import {HttpHeaders} from '@angular/common/http';
+import {EditCompany} from '../../model/editCompany';
 
 @Component({
   selector: 'app-detail-company',
@@ -10,8 +12,10 @@ import {TokenService} from '../../security/token.service';
   styleUrls: ['./detail-company.component.scss']
 })
 export class DetailCompanyComponent implements OnInit {
+  check = true;
   idCustom: number;
-  companyCurrent: Company ;
+  companyCurrent: any ;
+  editCompany: EditCompany;
   constructor(private router: Router,private companyService: CompanyService,private tokenService: TokenService) {
     this.idCustom = tokenService.getIdGuest()
     this.companyService.getCompanyNameById(this.idCustom).subscribe(data => {
@@ -20,7 +24,20 @@ export class DetailCompanyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 
+  ngSubmit(form: any) {
+    console.log(this.companyCurrent);
+    this.editCompany = new EditCompany(this.companyCurrent.name,this.companyCurrent.avatar,this.companyCurrent.description,this.companyCurrent.address,this.companyCurrent.employeeQuantity,this.companyCurrent.linkMap,this.companyCurrent.phone)
+    console.log(this.editCompany);
+    this.companyService.editCompany(this.idCustom ,this.editCompany).subscribe(data =>{
+      console.log(data);
+    })
+  }
+
+  onUpLoadAvatar(event) {
+    this.companyCurrent.avatar  = event;
+  }
 }
