@@ -41,7 +41,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 export const appRoutes: Routes = [
-    {path: 'register-company', component: RegisterCompanyComponent},
+    {path: 'login/register-company', component: RegisterCompanyComponent},
     {path: 'login', component: LoginComponent},
     {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
     {path: 'detail-company', component: DetailCompanyComponent},
