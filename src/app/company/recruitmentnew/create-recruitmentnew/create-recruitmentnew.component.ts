@@ -41,6 +41,9 @@ export class CreateRecruitmentnewComponent implements OnInit {
   error1:any = {
     message: "no_quantity"
   }
+  error2:any = {
+    message: "no_salary"
+  }
   success:any = {
     message: "yes"
   }
@@ -121,7 +124,11 @@ export class CreateRecruitmentnewComponent implements OnInit {
       console.log(data)
       if (JSON.stringify(data) == JSON.stringify(this.error1)) {
         // @ts-ignore
-        this.status = 'Vui lòng nhập số lương người cần tuyển!';
+        this.status = 'Vui lòng nhập số lượng người cần tuyển!';
+      }
+      if (JSON.stringify(data) == JSON.stringify(this.error2)) {
+        // @ts-ignore
+        this.status = 'Vui lòng nhập mức lương!';
       }
       if(JSON.stringify(data)==JSON.stringify(this.success)){
         // @ts-ignore

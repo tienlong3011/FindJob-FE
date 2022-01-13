@@ -21,11 +21,12 @@ export class CompanyService {
   getCompanyNameById(id: number): Observable<Company> {
     return this.http.get<Company>(`${this.apiServerUrl}/company/${id}`);
   }
-  editCompany(id: number, company: EditCompany){
+
+  editCompany(id: number, company: EditCompany) {
     // const httpOptions = { headers: new HttpHeaders({ 'Content-Type':'application/json','Access-Control-Allow-Origins':'*'})};
     // @ts-ignore
-    return this.http.put(`${this.apiServerUrl}/company/${id}`,company)
+    return this.http.put(`${this.apiServerUrl}/company/${id}`, company)
   }
-
-  // updateRecruitment(id: number, recruitment: RecruitmentNew)
 }
+
+

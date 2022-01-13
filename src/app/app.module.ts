@@ -49,6 +49,7 @@ export const appRoutes: Routes = [
     {path: 'detail-company', component: DetailCompanyComponent},
     {path: 'change-password', component: ChangePasswordComponent},
     {path: 'create-recruitmentnew', component: CreateRecruitmentnewComponent},
+    {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
     // {path: '', redirectTo: 'register-company', pathMatch: 'full'}
 ];
 
