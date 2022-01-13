@@ -15,4 +15,14 @@ export class RecruitmentNewService {
   createRecruitmentNew(recruitmentNew: RecruitmentNew): Observable<any>{
     return this.http.post(`${this.apiServerUrl}/recruitment`,recruitmentNew)
   }
+
+
+  showAllListRecruitmentNew(id:number): Observable<any>{
+    return this.http.get(`${this.apiServerUrl}/recruitment/showAll/${id}`)
+  }
+
+
+  deleteRecruitmentNewById(id: number): Observable<any>{
+    return this.http.delete(`${this.apiServerUrl}/recruitment/${id}`);
+  }
 }
