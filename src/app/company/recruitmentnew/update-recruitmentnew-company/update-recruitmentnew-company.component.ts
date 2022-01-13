@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {City} from "../../../model/city";
 
 @Component({
   selector: 'app-update-recruitmentnew-company',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-recruitmentnew-company.component.scss']
 })
 export class UpdateRecruitmentnewCompanyComponent implements OnInit {
+  recruitmentNew: City;
 
   constructor() { }
 
