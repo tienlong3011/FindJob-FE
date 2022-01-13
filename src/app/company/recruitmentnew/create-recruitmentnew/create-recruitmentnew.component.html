@@ -73,43 +73,41 @@
                             </div>
 
                             <!--Thời Gian Làm Việc-->
-                            <div class="col-md-12 col-sm-12 ">
+
+                            <mat-form-field appearance="outline">
                                 <mat-label>Thời Gian Làm Việc</mat-label>
-                                <select class="form-select text-center" name="workingTime"
-                                        [(ngModel)]="form.workingTime" style="width: 350px; margin-left: 370px">
-                                    <option *ngFor="let workingTime of workingTimes"
-                                            [value]="workingTime.id">{{workingTime.name}}</option>
-                                </select>
-                            </div>
+                                <mat-select [(ngModel)]="form.workingTime" style="width: 100%" name="workingTime">
+                                    <mat-option *ngFor="let workingTime of workingTimes"
+                                                [value]="workingTime.id">{{workingTime.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
 
                             <!--Lĩnh Vực Công Việc-->
-                            <div class="col-md-12 col-sm-12">
+                            <mat-form-field appearance="outline">
                                 <mat-label>Lĩnh Vực Công Việc</mat-label>
-                                <select class="form-select text-center" name="workingTime" [(ngModel)]="form.field"
-                                        style="width: 350px; margin-left: 370px">
-                                    <option *ngFor="let field of fields" [value]="field.id">{{field.name}}</option>
-                                </select>
-                            </div>
+                                <mat-select [(ngModel)]="form.field" style="width: 100%" name="field">
+                                    <mat-option *ngFor="let field of fields"
+                                                [value]="field.id">{{field.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
 
                             <!-- Vị Trí Tuyển Dụng-->
-                            <div class="col-md-12 col-sm-12">
+                            <mat-form-field appearance="outline">
                                 <mat-label>Vị Trí Tuyển Dụng</mat-label>
-                                <select class="form-select text-center" name="workingTime" [(ngModel)]="form.vacancies"
-                                        style="width: 350px; margin-left: 370px">
-                                    <option *ngFor="let vacancies of vacancies1"
-                                            [value]="vacancies.id">{{vacancies.name}}</option>
-                                </select>
-                            </div>
+                                <mat-select [(ngModel)]="form.vacancies" style="width: 100%" name="vacancies">
+                                    <mat-option *ngFor="let vacancies of vacancies1"
+                                                [value]="vacancies.id">{{vacancies.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
 
                             <!--hạn nộp hồ sơ-->
-                            <div class="col-md-12 col-sm-12">
-                                <mat-form-field appearance="outline">
-                                    <mat-label>Hạn nộp hồ sơ</mat-label>
-                                    <input matInput [matDatepicker]="picker" [(ngModel)]="form.expDate">
-                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker></mat-datepicker>
-                                </mat-form-field>
-                            </div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Hạn nộp hồ sơ</mat-label>
+                                <input matInput [matDatepicker]="picker" [(ngModel)]="form.expDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
 
                             <!--description-->
                             <div class="col-md-12 col-sm-12">
@@ -119,7 +117,21 @@
                                            [(ngModel)]="form.description"
                                            #description="ngModel" required>
                                     <mat-icon color="#051242" matSuffix>description</mat-icon>
-                                    <mat-error *ngIf="quantity.hasError('required')">Viết mô tả và chú thích công việc
+                                    <mat-error *ngIf="description.hasError('required')">Viết mô tả và chú thích công
+                                        việc
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <!--mức lương -->
+                            <div class="col-md-12 col-sm-12">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Mức Lương:</mat-label>
+                                    <input matInput placeholder="Mức Lương..." name="description"
+                                           [(ngModel)]="form.salary"
+                                           #salary="ngModel" required>
+                                    <mat-icon color="#051242" matSuffix>money</mat-icon>
+                                    <mat-error *ngIf="salary.hasError('required')">Viết mức lương
                                     </mat-error>
                                 </mat-form-field>
                             </div>
@@ -139,20 +151,21 @@
                             </div>
 
                             <!--giới tính-->
-                            <div class="col-12 text-center">
-                                <select class="form-select text-center" name="gender" [(ngModel)]="form.gender"
-                                        style="width: 350px; margin-left: 370px">
-                                    <option *ngFor="let gen of gender" [value]="gen.id">{{gen.name}}</option>
-                                </select>
-                            </div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Giới Tính Tuyển Dụng</mat-label>
+                                <mat-select [(ngModel)]="form.gender" style="width: 100%" name="gender">
+                                    <mat-option *ngFor="let gen of gender" [value]="gen.id">{{gen.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
 
                             <!--nơi làm việc-->
-                            <div class="col-md-12 col-sm-12">
-                                <select class="form-select text-center" name="city" [(ngModel)]="form.city"
-                                        style="width: 350px; margin-left: 370px">
-                                    <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
-                                </select>
-                            </div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nơi Làm Việc</mat-label>
+                                <mat-select [(ngModel)]="form.city" style="width: 100%" name="city">
+                                    <mat-option *ngFor="let city of cities" [value]="city.id">{{city.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
 
                         </div>
                         <button type="submit" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">

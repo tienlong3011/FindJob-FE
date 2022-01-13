@@ -4,6 +4,10 @@ import {FieldService} from '../../../service/field/field.service';
 import {Vacancies} from '../../../model/vacancies';
 import {VacanciesService} from '../../../service/vacancies/vacancies.service';
 import {CityService} from '../../../service/city/city.service';
+import {RecruitmentNew} from '../../../model/recruitmentNew';
+import {AuthService} from '../../../security/auth.service';
+import {TokenService} from '../../../security/token.service';
+import {RecruitmentNewService} from '../../../service/recruitmentNew/recruitment-new.service';
 
 @Component({
   selector: 'app-create-recruitmentnew',
@@ -18,6 +22,7 @@ export class CreateRecruitmentnewComponent implements OnInit {
   vacancies1: any = [];
   cities: any = [];
   status: string = "";
+  recruitmentNew : RecruitmentNew;
   gender: any = [
     {
       id: 1,
@@ -32,10 +37,19 @@ export class CreateRecruitmentnewComponent implements OnInit {
       name: "Nam và Nữ"
     }
   ]
+
+  error1:any = {
+    message: "no_quantity"
+  }
+  success:any = {
+    message: "yes"
+  }
   constructor(private workingTimeService: WorkingTimeService,
               private fieldService: FieldService,
               private vacanciesService: VacanciesService,
-              private cityService: CityService) {
+              private cityService: CityService,
+              private recruitmentNewService: RecruitmentNewService,
+              private token: TokenService) {
     this.showAllWorkingTime()
     this.showAllField()
     this.showAllVacancies()
@@ -73,6 +87,46 @@ export class CreateRecruitmentnewComponent implements OnInit {
   }
 
   ngSubmit() {
-    return false;
+    const city = {
+      id: this.form.city
+    }
+    const workingTime = {
+      id: this.form.workingTime
+    }
+    const vacancies = {
+      id: this.form.vacancies
+    }
+    const field = {
+      id: this.form.field
+    }
+    const company = {
+      id: this.token.getIdGuest()
+    }
+
+    this.recruitmentNew = new RecruitmentNew(
+      this.form.title,
+      workingTime,
+      field,
+      company,
+      vacancies,
+      this.form.expDate,
+      this.form.description,
+      city,
+      this.form.quantity,
+      this.form.gender,
+      this.form.salary
+    )
+    console.log(this.recruitmentNew)
+    this.recruitmentNewService.createRecruitmentNew(this.recruitmentNew).subscribe(data =>{
+      console.log(data)
+      if (JSON.stringify(data) == JSON.stringify(this.error1)) {
+        // @ts-ignore
+        this.status = 'Vui lòng nhập số lương người cần tuyển!';
+      }
+      if(JSON.stringify(data)==JSON.stringify(this.success)){
+        // @ts-ignore
+        this.status = 'Tạo mới tin tuyển dụng thành công!'
+      }
+    })
   }
 }
