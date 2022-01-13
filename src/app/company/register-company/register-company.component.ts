@@ -37,7 +37,7 @@ export class RegisterCompanyComponent implements OnInit {
   }
 
 
-  ngSubmit() {
+  ngSubmit(form: any) {
     console.log()
     const roles: string[] = ['company']
     // @ts-ignore
@@ -46,6 +46,7 @@ export class RegisterCompanyComponent implements OnInit {
       console.log(data1)
       this.idAccount = data1.id;
       this.create()
+      form.reset()
     })
   }
 
