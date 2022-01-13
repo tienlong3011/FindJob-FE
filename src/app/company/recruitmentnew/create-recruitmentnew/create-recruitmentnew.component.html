@@ -140,7 +140,10 @@
 
                             <!--giới tính-->
                             <div class="col-12 text-center">
-
+                                <select class="form-select text-center" name="gender" [(ngModel)]="form.gender"
+                                        style="width: 350px; margin-left: 370px">
+                                    <option *ngFor="let gen of gender" [value]="gen.id">{{gen.name}}</option>
+                                </select>
                             </div>
 
                             <!--nơi làm việc-->

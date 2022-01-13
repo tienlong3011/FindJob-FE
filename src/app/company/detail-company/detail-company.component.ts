@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {CompanyService} from '../service/company.service';
+import {Company} from '../../model/company';
+import {TokenService} from '../../security/token.service';
 
 @Component({
   selector: 'app-detail-company',
@@ -7,8 +10,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./detail-company.component.scss']
 })
 export class DetailCompanyComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  idCustom: number;
+  companyCurrent: Company ;
+  constructor(private router: Router,private companyService: CompanyService,private tokenService: TokenService) {
+    this.idCustom = tokenService.getIdGuest()
+    this.companyService.getCompanyNameById(this.idCustom).subscribe(data => {
+      this.companyCurrent = data;
+    })
+  }
 
   ngOnInit(): void {
   }

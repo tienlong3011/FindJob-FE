@@ -18,6 +18,20 @@ export class CreateRecruitmentnewComponent implements OnInit {
   vacancies1: any = [];
   cities: any = [];
   status: string = "";
+  gender: any = [
+    {
+      id: 1,
+      name: "Nam"
+    },
+    {
+      id: 2,
+      name: "Nữ"
+    },
+    {
+      id: 3,
+      name: "Nam và Nữ"
+    }
+  ]
   constructor(private workingTimeService: WorkingTimeService,
               private fieldService: FieldService,
               private vacanciesService: VacanciesService,
@@ -58,4 +72,7 @@ export class CreateRecruitmentnewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngSubmit() {
+    return false;
+  }
 }

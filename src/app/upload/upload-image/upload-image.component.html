@@ -1,6 +1,11 @@
 <div>
-  <input type="file" (change)="onFileChanged($event)">
-  <mat-spinner *ngIf="checkUpLoadFile"></mat-spinner>
-  <button *ngIf="downloadURL? !selectFile : selectFile" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Upload</button>
-  <img *ngIf="downloadURL" style="width: 300px" [src]="downloadURL">
+  <div class="input-group mb-3" style="width: 350px;margin-left: 40px">
+    <label class="input-group-text" for="inputGroupFile01">Ảnh</label>
+    <input type="file" class="form-control" id="inputGroupFile01" (change)="onFileChanged($event)">
+    <mat-spinner style="30px" class="text-center" *ngIf="checkUpLoadFile"></mat-spinner>
+<!--    <button *ngIf="downloadURL? !selectFile : selectFile" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Upload</button>-->
+<!--    <img *ngIf="downloadURL" style="width: 300px" [src]="downloadURL">-->
+  </div>
+<!--  <input type="file" >-->
+
 </div>
