@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {JwtResponse} from "../../security/JwtResponses";
 import {HttpClient} from "@angular/common/http";
 import {Company} from "../../model/company";
+import {RecruitmentNew} from "../../model/recruitmentNew";
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +19,6 @@ export class CompanyService {
   getCompanyNameById(id: number): Observable<Company> {
     return this.http.get<Company>(`${this.apiServerUrl}/company/${id}`);
   }
+
+  // updateRecruitment(id: number, recruitment: RecruitmentNew)
 }

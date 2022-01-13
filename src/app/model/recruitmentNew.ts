@@ -1,21 +1,21 @@
 import {WorkingTime} from './workingTime';
 
 export class RecruitmentNew {
-  title : string;
+  title: string;
   workingTime: any;
   field: any;
   company: any;
-  vacancies:any;
+  vacancies: any;
   expDate: string;
   description: string;
   city: any;
   quantity: number;
   gender: number;
-  status: number;
+  status?: number;
   salary: number;
 
 
-  constructor(title: string, workingTime: any, field: any, company: any, vacancies: any, expDate: string, description: string, quantity: number, gender: number, status: number) {
+  constructor(title: string, workingTime: any, field: any, company: any, vacancies: any, expDate: string, description: string, city: any, quantity: number, gender: number, salary: number) {
     this.title = title;
     this.workingTime = workingTime;
     this.field = field;
@@ -23,8 +23,9 @@ export class RecruitmentNew {
     this.vacancies = vacancies;
     this.expDate = expDate;
     this.description = description;
+    this.city = city;
     this.quantity = quantity;
     this.gender = gender;
-    this.status = status;
+    this.salary = salary;
   }
 }
