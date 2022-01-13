@@ -57,12 +57,8 @@ export const appRoutes: Routes = [
         ListRecruitmentnewCompanyComponent,
         RegisterCompanyComponent,
         UploadImageComponent,
-<<<<<<< HEAD
         CreateRecruitmentnewComponent,
-=======
         UpdateRecruitmentnewCompanyComponent,
-        CreateRecruitmentnewComponent
->>>>>>> 68acec43811e90cfbb8f4b2d154c3dbea06f2292
     ],
     imports: [
         FormsModule,
