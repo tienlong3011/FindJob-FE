@@ -34,6 +34,7 @@ export class DetailCompanyComponent implements OnInit {
     console.log(this.editCompany);
     this.companyService.editCompany(this.idCustom ,this.editCompany).subscribe(data =>{
       console.log(data);
+      this.check = true;
     })
   }
 
