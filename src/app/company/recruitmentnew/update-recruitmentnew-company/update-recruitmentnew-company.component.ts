@@ -7,7 +7,7 @@ import {VacanciesService} from "../../../service/vacancies/vacancies.service";
 import {CityService} from "../../../service/city/city.service";
 import {RecruitmentNewService} from "../../../service/recruitmentNew/recruitment-new.service";
 import {TokenService} from "../../../security/token.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-update-recruitmentnew-company',
@@ -57,7 +57,8 @@ export class UpdateRecruitmentnewCompanyComponent implements OnInit {
               private cityService: CityService,
               private recruitmentNewService: RecruitmentNewService,
               private token: TokenService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
     this.showAllWorkingTime()
     this.showAllField()
     this.showAllVacancies()
