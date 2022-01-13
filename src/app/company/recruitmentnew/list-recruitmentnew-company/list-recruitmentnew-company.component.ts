@@ -6,6 +6,7 @@ import {TokenService} from '../../../security/token.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../../../dialog/dialog.component';
+import {CompanyService} from '../../service/company.service';
 
 @Component({
   selector: 'app-list-recruitmentnew-company',
@@ -15,15 +16,20 @@ import {DialogComponent} from '../../../dialog/dialog.component';
 export class ListRecruitmentnewCompanyComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'expDate','status','edit','delete'];
   dataSource: any;
+  nameCompany: string;
+  descriptionCompany: string;
   recruitmentNews: RecruitmentNew[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private recruitmentNewService: RecruitmentNewService,
               private token: TokenService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private companyService: CompanyService
+  ) { }
 
   ngOnInit(): void {
     this.getListRecruitmentNew()
+    this.getNameByID()
   }
 
   getListRecruitmentNew() {
@@ -32,6 +38,13 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
       this.dataSource = new MatTableDataSource<RecruitmentNew>(this.recruitmentNews);
       this.dataSource.paginator = this.paginator;
     });
+  }
+  getNameByID(){
+    const idGuest = this.token.getIdGuest();
+    this.companyService.getCompanyNameById(idGuest).subscribe(data => {
+      this.nameCompany = data.name;
+      this.descriptionCompany = data.description;
+    })
   }
 
   deleteRecruitmentNew(id: number) {
