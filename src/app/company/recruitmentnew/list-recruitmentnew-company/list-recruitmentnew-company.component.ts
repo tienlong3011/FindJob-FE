@@ -7,6 +7,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../../../dialog/dialog.component';
 import {CompanyService} from '../../service/company.service';
+import {DetailRecruitmentnewComponent} from '../detail-recruitmentnew/detail-recruitmentnew.component';
 
 @Component({
   selector: 'app-list-recruitmentnew-company',
@@ -62,6 +63,18 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
         this.deleteRecruitmentNew(id);
       }
       console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogDetails(id) {
+    const dialogRef = this.dialog.open(DetailRecruitmentnewComponent, {
+      data : {
+        id: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getListRecruitmentNew();
+      console.log('The dialog was closed');
     });
   }
 }
