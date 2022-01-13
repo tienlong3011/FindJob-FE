@@ -12,7 +12,15 @@ export class RecruitmentNewService {
 
   constructor(private http: HttpClient) { }
 
+  getRecruitmentNewById(id: number): Observable<RecruitmentNew> {
+    return this.http.get<RecruitmentNew>(`${this.apiServerUrl}/recruitment/${id}`);
+  }
+
   createRecruitmentNew(recruitmentNew: RecruitmentNew): Observable<any>{
     return this.http.post(`${this.apiServerUrl}/recruitment`,recruitmentNew)
+  }
+
+  updateRecruitment(id: number, recruitment: RecruitmentNew): Observable<any> {
+    return this.http.put(`${this.apiServerUrl}/recruitment/${id}`, recruitment)
   }
 }

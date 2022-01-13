@@ -19,6 +19,4 @@ export class CompanyService {
   getCompanyNameById(id: number): Observable<Company> {
     return this.http.get<Company>(`${this.apiServerUrl}/company/${id}`);
   }
-
-  // updateRecruitment(id: number, recruitment: RecruitmentNew)
 }
