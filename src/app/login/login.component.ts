@@ -32,6 +32,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openRegisterOption() {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+
+  }
+
   onLogin() {
     this.signInForm = new SignInForm(
       this.form.username,

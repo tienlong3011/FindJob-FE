@@ -40,9 +40,11 @@ import {CreateRecruitmentnewComponent} from "./company/recruitmentnew/create-rec
 import {UpdateRecruitmentnewCompanyComponent} from "./company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component";
 import {MatNativeDateModule} from "@angular/material/core";
 import { DialogComponent } from './dialog/dialog.component';
+import {RegisterUserComponent} from "./user/register-user/register-user.component";
 
 
 export const appRoutes: Routes = [
+    {path: 'register-user', component: RegisterUserComponent},
     {path: 'register-company', component: RegisterCompanyComponent},
     {path: 'login', component: LoginComponent},
     {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
