@@ -7,7 +7,12 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../../../dialog/dialog.component';
 import {CompanyService} from '../../service/company.service';
+
+import {StatusRequest} from '../../../model/statusRequest';
+import {any} from 'codelyzer/util/function';
+
 import {DetailRecruitmentnewComponent} from '../detail-recruitmentnew/detail-recruitmentnew.component';
+
 
 @Component({
   selector: 'app-list-recruitmentnew-company',
@@ -15,22 +20,27 @@ import {DetailRecruitmentnewComponent} from '../detail-recruitmentnew/detail-rec
   styleUrls: ['./list-recruitmentnew-company.component.scss']
 })
 export class ListRecruitmentnewCompanyComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'title', 'expDate','status','edit','delete'];
+  displayedColumns: string[] = ['id', 'title', 'expDate', 'status', 'edit', 'delete', 'editStatus'];
   dataSource: any;
   nameCompany: string;
   descriptionCompany: string;
   recruitmentNews: RecruitmentNew[] = [];
+  statusRequest: StatusRequest;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  form: any = {};
+  status:boolean;
   constructor(private recruitmentNewService: RecruitmentNewService,
               private token: TokenService,
               private dialog: MatDialog,
               private companyService: CompanyService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    this.getListRecruitmentNew()
-    this.getNameByID()
+    this.getListRecruitmentNew();
+    this.getNameByID();
+
   }
 
   getListRecruitmentNew() {
@@ -38,14 +48,17 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
       this.recruitmentNews = listRN;
       this.dataSource = new MatTableDataSource<RecruitmentNew>(this.recruitmentNews);
       this.dataSource.paginator = this.paginator;
+      console.log(listRN)
+
     });
   }
-  getNameByID(){
+
+  getNameByID() {
     const idGuest = this.token.getIdGuest();
     this.companyService.getCompanyNameById(idGuest).subscribe(data => {
       this.nameCompany = data.name;
       this.descriptionCompany = data.description;
-    })
+    });
   }
 
   deleteRecruitmentNew(id: number) {
@@ -66,6 +79,18 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
     });
   }
 
+
+
+  changeStatus(idRecrui: number) {
+    this.recruitmentNewService.changeStatusById(idRecrui).subscribe(data=>{
+      this.getListRecruitmentNew()
+    })
+  }
+
+
+
+
+
   openDialogDetails(id) {
     const dialogRef = this.dialog.open(DetailRecruitmentnewComponent, {
       data : {
@@ -77,4 +102,5 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
 }

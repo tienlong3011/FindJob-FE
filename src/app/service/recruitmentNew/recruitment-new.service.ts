@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {RecruitmentNew} from '../../model/recruitmentNew';
 import {Observable} from 'rxjs';
+import {StatusRequest} from '../../model/statusRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,10 @@ export class RecruitmentNewService {
   pageRecruitmentNew(request) {
     const params = request;
     return this.http.get(`${this.apiServerUrl}/recruitment/showPageRecuitmentNew`, {params});
+  }
+
+  changeStatusById(id: number): Observable<any> {
+    // @ts-ignore
+    return this.http.put(`${this.apiServerUrl}/recruitment/editStatus/${id}`);
   }
 }
