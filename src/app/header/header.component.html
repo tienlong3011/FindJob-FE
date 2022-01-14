@@ -51,16 +51,16 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav text-left">
                         <li class="nav-item">
-                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"
-                               class="nav-link dropdown-toggle active">Trang chủ</a>
-                            <a *ngIf="checkRole == 'USER'" routerLink="list-recruitmentnew-user"
+<!--                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"-->
+<!--                               class="nav-link dropdown-toggle active">Trang chủ</a>-->
+                            <a  routerLink="list-recruitmentnew-user"
                                class="nav-link dropdown-toggle active">Trang chủ</a>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
                             <a routerLink="/list-recruitmentnew-user" class="nav-link">Việc làm</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
-                            <a routerLink="/list-recruitmentnew-user" class="nav-link">Việc làm</a>
+                            <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">Tạo Job</a>
