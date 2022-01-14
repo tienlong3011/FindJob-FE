@@ -1,6 +1,7 @@
 import {WorkingTime} from './workingTime';
 
 export class RecruitmentNew {
+  id?: number;
   title: string;
   workingTime: any;
   field: any;
@@ -11,8 +12,9 @@ export class RecruitmentNew {
   city: any;
   quantity: number;
   gender: number;
-  status?: number;
+  status?: number | string;
   salary: number;
+
 
 
   constructor(title: string, workingTime: any, field: any, company: any, vacancies: any, expDate: string, description: string, city: any, quantity: number, gender: number, salary: number) {

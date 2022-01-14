@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {RecruitmentNew} from '../../model/recruitmentNew';
 import {Observable} from 'rxjs';
+import {StatusRequest} from '../../model/statusRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,11 @@ export class RecruitmentNewService {
 
   deleteRecruitmentNewById(id: number): Observable<any> {
     return this.http.delete(`${this.apiServerUrl}/recruitment/${id}`);
+  }
+
+
+  changeStatusById(id: number): Observable<any>{
+    // @ts-ignore
+    return this.http.put(`${this.apiServerUrl}/recruitment/editStatus/${id}`);
   }
 }
