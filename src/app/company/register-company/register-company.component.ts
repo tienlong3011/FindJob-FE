@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Account} from "../../model/account";
-import {AuthService} from "../../security/auth.service";
-import {Company} from "../../model/company";
-import {CityService} from "../../service/city/city.service";
+import {Account} from '../../model/account';
+import {AuthService} from '../../security/auth.service';
+import {Company} from '../../model/company';
+import {CityService} from '../../service/city/city.service';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class RegisterCompanyComponent implements OnInit {
   company: Company;
   idAccount: number;
   cities: any = [];
-  status: string = "";
+  status = '';
 
   constructor(private authService: AuthService, private cityService: CityService) {
     this.showAllCity();
@@ -29,8 +29,8 @@ export class RegisterCompanyComponent implements OnInit {
   showAllCity() {
     this.cityService.showAll().subscribe(data3 => {
       this.cities = data3;
-      console.log(data3)
-    })
+      console.log(data3);
+    });
   }
 
   ngOnInit(): void {
@@ -38,32 +38,33 @@ export class RegisterCompanyComponent implements OnInit {
 
 
   ngSubmit(form: any) {
-    console.log()
-    const roles: string[] = ['company']
+    console.log();
+    const roles: string[] = ['company'];
     // @ts-ignore
-    this.account = new Account(this.data.username, this.data.password, roles)
+    this.account = new Account(this.data.username, this.data.password, roles);
     this.authService.signUp(this.account).subscribe(data1 => {
-      console.log(data1)
+      console.log(data1);
       this.idAccount = data1.id;
-      this.create()
-      form.reset()
-    })
+      this.create();
+      form.reset();
+    }, error => alert(error));
   }
 
   create() {
     const city = {
       id: this.data.city
-    }
-    console.log(city)
+    };
+    console.log(city);
     this.account.id = this.idAccount;
     const account11 = {
       id: this.idAccount
-    }
-    this.company = new Company(this.data.name, this.data.avatar, this.data.description, this.data.address, this.data.employeeQuantity, city, this.data.linkMap, this.data.phone, account11)
-    console.log(this.company)
+    };
+    this.company = new Company(this.data.name, this.data.avatar, this.data.description,
+      this.data.address, this.data.employeeQuantity, city, this.data.linkMap, this.data.phone, account11);
+    console.log(this.company);
     this.authService.registerCompany(this.company).subscribe(data2 => {
-      console.log(data2)
-    })
+      console.log(data2);
+    });
   }
 
   onUpLoadAvatar(event: any) {
