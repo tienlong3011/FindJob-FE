@@ -21,7 +21,7 @@ export class CreateRecruitmentnewComponent implements OnInit {
   fields: any = [];
   vacancies1: any = [];
   cities: any = [];
-  status: string = "";
+  status: string = "Mời bạn nhập thông tin bài viết";
   recruitmentNew : RecruitmentNew;
   gender: any = [
     {

@@ -19,7 +19,8 @@ export class RegisterUserComponent implements OnInit {
   account: Account;
   idAccount: number;
   user: User;
-
+  hide = true;
+  hide1 = true;
   constructor(private authService: AuthService) {
   }
 

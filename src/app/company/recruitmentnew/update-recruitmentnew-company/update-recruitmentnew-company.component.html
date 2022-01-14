@@ -47,7 +47,7 @@
                     </div>
                     <form (ngSubmit)="onUpdate()" novalidate>
                         <div class="row">
-                            <mat-error class="alert alert-primary">{{status}}</mat-error>
+                            <mat-error class="alert alert-primary" style="text-align: center">{{status}}</mat-error>
 
                             <!--tiêu đề-->
                             <div class="col-md-12 col-sm-12">
@@ -60,22 +60,26 @@
                             </div>
 
                             <!--Thời Gian Làm Việc-->
-                            <mat-form-field appearance="outline">
-                                <mat-label>Thời Gian Làm Việc</mat-label>
-                                <mat-select [(value)]="recruitmentNew.workingTime.id">
-                                    <mat-option *ngFor="let workingTime of workingTimes"
-                                                [value]="workingTime.id">{{workingTime.name}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <div class="col-md-6 col-sm-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Thời Gian Làm Việc</mat-label>
+                                    <mat-select [(value)]="recruitmentNew.workingTime.id">
+                                        <mat-option *ngFor="let workingTime of workingTimes"
+                                                    [value]="workingTime.id">{{workingTime.name}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
 
                             <!--Lĩnh Vực Công Việc-->
-                            <mat-form-field appearance="outline">
-                                <mat-label>Lĩnh Vực Công Việc</mat-label>
-                                <mat-select [(value)]="recruitmentNew.field.id">
-                                    <mat-option *ngFor="let field of fields"
-                                                [value]="field.id">{{field.name}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <div class="col-md-6 col-sm-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Lĩnh Vực Công Việc</mat-label>
+                                    <mat-select [(value)]="recruitmentNew.field.id">
+                                        <mat-option *ngFor="let field of fields"
+                                                    [value]="field.id">{{field.name}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
 
                             <!-- Vị Trí Tuyển Dụng-->
                             <mat-form-field appearance="outline">
@@ -96,14 +100,14 @@
 
                             <!--description-->
                             <mat-form-field style="width: 100%" appearance="outline">
-                                <mat-label>Tiêu Đề:</mat-label>
-                                <input matInput placeholder="Tiêu đề ..." name="title"
+                                <mat-label>Mô tả:</mat-label>
+                                <input matInput placeholder="Mô tả ..." name="title"
                                        [(ngModel)]="recruitmentNew.description">
                                 <mat-icon color="#051242" matSuffix>subtitles</mat-icon>
                             </mat-form-field>
 
                             <!--số lượng nhân sự -->
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-6 col-sm-6">
                                 <mat-form-field style="width: 100%" appearance="outline">
                                     <mat-label>Số Lượng Ứng Tuyển :</mat-label>
                                     <input matInput placeholder="Số lượng ..." name="quantity"
@@ -117,7 +121,7 @@
                             </div>
 
                             <!--mức lương -->
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-6 col-sm-6">
                                 <mat-form-field style="width: 100%" appearance="outline">
                                     <mat-label>Mức Lương:</mat-label>
                                     <input matInput placeholder="Mức Lương..." name="description"
@@ -147,10 +151,13 @@
                             </mat-form-field>
 
                         </div>
-                        <button type="submit" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">
-                            Cập nhật
-                            <mat-icon matSuffix>edit</mat-icon>
-                        </button>
+                        <div class="col-12 text-center">
+                            <button type="submit" mat-stroked-button
+                                    class="mat-button-toggle-group btn-outline-primary">
+                                Cập nhật
+                                <mat-icon matSuffix>edit</mat-icon>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

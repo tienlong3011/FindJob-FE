@@ -57,7 +57,10 @@
                                class="nav-link dropdown-toggle active">Trang chủ</a>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
-                            <a href="about.html" class="nav-link">Việc làm</a>
+                            <a routerLink="/list-recruitmentnew-user" class="nav-link">Việc làm</a>
+                        </li>
+                        <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
+                            <a routerLink="/list-recruitmentnew-user" class="nav-link">Việc làm</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">Tạo Job</a>
