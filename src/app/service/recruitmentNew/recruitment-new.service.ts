@@ -32,4 +32,9 @@ export class RecruitmentNewService {
   deleteRecruitmentNewById(id: number): Observable<any> {
     return this.http.delete(`${this.apiServerUrl}/recruitment/${id}`);
   }
+
+  pageRecruitmentNew(request) {
+    const params = request;
+    return this.http.get(`${this.apiServerUrl}/recruitment/showPageRecuitmentNew`, {params});
+  }
 }

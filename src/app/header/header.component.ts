@@ -3,6 +3,8 @@ import {TokenService} from "../security/token.service";
 import {CompanyService} from "../company/service/company.service";
 import {Company} from "../model/company";
 import {Router} from "@angular/router";
+import {User} from "../model/user";
+import {UserService} from "../user/service/user.service";
 
 @Component({
   selector: 'app-header',
@@ -23,8 +25,11 @@ export class HeaderComponent implements OnInit {
   // @ts-ignore
   company: Company;
 
+  user: User;
+
   constructor(private tokenService: TokenService,
               private companyService: CompanyService,
+              private userService: UserService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -40,7 +45,14 @@ export class HeaderComponent implements OnInit {
             this.name = this.company.name;
           })
         }
-        // CÒN USER CHƯA LÀM
+        if (this.tokenService.getRoleKey()[i] == "USER") {
+          this.userService.getUserById(this.idGuest).subscribe(data => {
+            console.log(data);
+            this.user = data;
+            this.checkRole = "USER";
+            this.name = this.user.name;
+          })
+        }
       }
     }
   }

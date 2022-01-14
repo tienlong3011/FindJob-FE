@@ -41,6 +41,7 @@ import {UpdateRecruitmentnewCompanyComponent} from "./company/recruitmentnew/upd
 import {MatNativeDateModule} from "@angular/material/core";
 import { DialogComponent } from './dialog/dialog.component';
 import {RegisterUserComponent} from "./user/register-user/register-user.component";
+import { ListRecruitmentUserComponent } from './user/recruitmentnew/list-recruitment-user/list-recruitment-user.component';
 
 
 export const appRoutes: Routes = [
@@ -48,11 +49,13 @@ export const appRoutes: Routes = [
     {path: 'register-company', component: RegisterCompanyComponent},
     {path: 'login', component: LoginComponent},
     {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
+    {path: 'list-recruitmentnew-user', component: ListRecruitmentUserComponent},
     {path: 'detail-company', component: DetailCompanyComponent},
     {path: 'change-password', component: ChangePasswordComponent},
     {path: 'create-recruitmentnew', component: CreateRecruitmentnewComponent},
     {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
-    // {path: '', redirectTo: 'register-company', pathMatch: 'full'}
+    {path: 'register-user', component: RegisterUserComponent},
+    {path: '', redirectTo: 'list-recruitmentnew-user', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -68,7 +71,9 @@ export const appRoutes: Routes = [
         CreateRecruitmentnewComponent,
         UpdateRecruitmentnewCompanyComponent,
         ChangePasswordComponent,
-        DialogComponent
+        DialogComponent,
+        RegisterUserComponent,
+        ListRecruitmentUserComponent
     ],
     imports: [
         MatDatepickerModule,

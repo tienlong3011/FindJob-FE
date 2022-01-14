@@ -32,13 +32,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openRegisterOption() {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-
-  }
-
   onLogin() {
     this.signInForm = new SignInForm(
       this.form.username,
@@ -58,7 +51,7 @@ export class LoginComponent implements OnInit {
             })
           }
           if (this.tokenService.getRoleKey()[i] == "USER") {
-            this.router.navigate(['']).then(() => {
+            this.router.navigate(['list-recruitmentnew-user']).then(() => {
               window.location.reload();
             })
           }
