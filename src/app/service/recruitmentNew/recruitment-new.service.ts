@@ -34,8 +34,12 @@ export class RecruitmentNewService {
     return this.http.delete(`${this.apiServerUrl}/recruitment/${id}`);
   }
 
+  pageRecruitmentNew(request) {
+    const params = request;
+    return this.http.get(`${this.apiServerUrl}/recruitment/showPageRecuitmentNew`, {params});
+  }
 
-  changeStatusById(id: number): Observable<any>{
+  changeStatusById(id: number): Observable<any> {
     // @ts-ignore
     return this.http.put(`${this.apiServerUrl}/recruitment/editStatus/${id}`);
   }

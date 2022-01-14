@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
             })
           }
           if (this.tokenService.getRoleKey()[i] == "USER") {
-            this.router.navigate(['']).then(() => {
+            this.router.navigate(['list-recruitmentnew-user']).then(() => {
               window.location.reload();
             })
           }

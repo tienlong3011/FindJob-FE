@@ -15,7 +15,7 @@
                   <mat-form-field style="width: 100%" appearance="outline">
                     <mat-label>Email:</mat-label>
                     <input matInput placeholder="Email ..." name="username" [(ngModel)]="form.username" [formControl]="emailFormControl" required>
-                    <mat-icon color="accent" matSuffix>email</mat-icon>
+                    <mat-icon color="black" matSuffix>email</mat-icon>
                     <mat-error *ngIf="emailFormControl.hasError('required')">Bắt buộc phải nhập email!</mat-error>
                     <mat-error *ngIf="emailFormControl.hasError('email')">Email không đúng định dạng!</mat-error>
                   </mat-form-field>
@@ -28,7 +28,7 @@
                              [type]="hide ? 'password' : 'text'" required>
                       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                               [attr.aria-pressed]="hide">
-                          <mat-icon color="accent">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          <mat-icon color="black">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>
                       <mat-error *ngIf="password.hasError('required')">Bắt buộc phải nhập mật khẩu!</mat-error>
                   </mat-form-field>
@@ -41,7 +41,9 @@
               <div class="col-12 text-center">
                 <p class="al-acc">
                   Bạn chưa có tài khoản?
-                  <a routerLink="/register-company"> Đăng ký</a>
+                  <a type="button" style="color: #083bec; text-decoration: underline" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Đăng ký
+                  </a>
                 </p>
               </div>
             </div>
@@ -59,3 +61,24 @@
   <i class='bx bx-chevrons-up'></i>
 </div>
 <!-- End Go Top Area -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bạn muốn đăng ký ... ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="margin: 0 auto">
+        <a type="button" routerLink="/register-user" data-bs-dismiss="modal" mat-button>Đăng ký ứng viên</a>
+        <br>
+        <a type="button" routerLink="/register-company" data-bs-dismiss="modal" mat-button>Đăng ký công ty</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
