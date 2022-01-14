@@ -7,6 +7,7 @@ import {JwtResponse} from "./JwtResponses";
 import {Company} from "../model/company";
 import {ChangePassword} from '../service/account/changePassword';
 import {RecruitmentNew} from '../model/recruitmentNew';
+import {User} from '../model/user';
 
 @Injectable({
     providedIn: 'root'
@@ -30,6 +31,9 @@ export class AuthService {
     }
     changePassword(changePassword: ChangePassword): Observable<any>{
         return this.http.put(`${this.apiServerUrl}/change-password`,changePassword)
+    }
+    registerUser(user: User): Observable<any>{
+        return this.http.post<any>(`${this.apiServerUrl}/user`,user)
     }
 
 
