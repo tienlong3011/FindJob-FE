@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ChangePassword} from '../../service/account/changePassword';
 import {AuthService} from '../../security/auth.service';
 
@@ -8,18 +8,38 @@ import {AuthService} from '../../security/auth.service';
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent implements OnInit {
-  newPassword: string;
+  hide = true;
+  hide1 = true;
   changePassword: ChangePassword;
-  constructor(private authService: AuthService) { }
+  data: any = {
+    newPassword: '',
+    confirmPassword: ''
+  };
+  status :string;
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit(): void {
   }
 
   ngSubmit(form: any) {
-    this.changePassword = new ChangePassword(this.newPassword);
-    console.log(this.changePassword);
-    this.authService.changePassword(this.changePassword).subscribe(data =>{
-      console.log(data);
-    })
+    if (this.checkPassword()) {
+      this.changePassword = new ChangePassword(this.data.newPassword);
+      console.log(this.changePassword);
+      this.authService.changePassword(this.changePassword).subscribe(data => {
+        if(data == "yes"){
+          this.status = "Đổi mật khẩu thành công !"
+        }
+      });
+    }
+
+  }
+
+  checkPassword() {
+    if (this.data.newPassword == this.data.confirmPassword && this.data.newPassword != '') {
+      return true;
+    } else if (this.data.newPassword != this.data.confirmPassword && this.data.newPassword != '' && this.data.confirmPassword != '') {
+      return false;
+    }
   }
 }

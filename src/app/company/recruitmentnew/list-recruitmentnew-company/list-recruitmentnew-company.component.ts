@@ -48,7 +48,7 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
       this.recruitmentNews = listRN;
       this.dataSource = new MatTableDataSource<RecruitmentNew>(this.recruitmentNews);
       this.dataSource.paginator = this.paginator;
-      console.log(listRN)
+      console.log(listRN);
 
     });
   }
@@ -83,8 +83,8 @@ export class ListRecruitmentnewCompanyComponent implements OnInit {
 
   changeStatus(idRecrui: number) {
     this.recruitmentNewService.changeStatusById(idRecrui).subscribe(data=>{
-      this.getListRecruitmentNew()
-    })
+      this.getListRecruitmentNew();
+    });
   }
 
 

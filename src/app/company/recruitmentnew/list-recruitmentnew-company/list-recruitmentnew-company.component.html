@@ -68,7 +68,7 @@
                         <!-- Name Column -->
                         <ng-container matColumnDef="title">
                             <th mat-header-cell *matHeaderCellDef>Tiêu đề</th>
-                            <td mat-cell *matCellDef="let element"><a (click)="openDialogDetails(element.id)"><span style="color: blue">{{element.title}}</span></a>  </td>
+                            <td mat-cell *matCellDef="let element"><a (click)="openDialogDetails(element.id)"><span class="btn btn-link">{{element.title}}</span></a>  </td>
                         </ng-container>
 
                         <!-- Name Column -->
@@ -80,7 +80,8 @@
                         <!-- Name Column -->
                         <ng-container matColumnDef="status">
                             <th mat-header-cell *matHeaderCellDef>Trạng thái</th>
-                            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                            <td mat-cell *matCellDef="let element"> <span *ngIf="element.status">UNLOCK</span></td>
+                            <td mat-cell *matCellDef="let element"> <span *ngIf="element.status == false">LOCK</span> </td>
                         </ng-container>
 
                         <!--             Symbol Column -->
@@ -88,7 +89,7 @@
                             <th mat-header-cell *matHeaderCellDef> Edit</th>
                             <td mat-cell *matCellDef="let element">
                                 <button [routerLink]="['/update-recruitmentnew/',element.id]" mat-icon-button color="primary"
-                                        aria-label="Example icon button with a heart icon">
+                                        aria-label="Example icon button with a heart icon" class="btn btn-primary">
                                     <mat-icon color="primary">edit</mat-icon>
                                 </button>
                             </td>
@@ -96,7 +97,7 @@
                         <ng-container matColumnDef="delete">
                             <th mat-header-cell *matHeaderCellDef> Delete</th>
                             <td mat-cell *matCellDef="let element">
-                                <button (click)="openDialog(element.id)" mat-icon-button color="warn">
+                                <button (click)="openDialog(element.id)" mat-icon-button class="btn btn-danger">
                                     <mat-icon color="warn">delete</mat-icon>
                                 </button>
                             </td>
@@ -104,8 +105,8 @@
                         <ng-container matColumnDef="editStatus">
                             <th mat-header-cell *matHeaderCellDef> UnLock/Lock </th>
                             <td mat-cell *matCellDef="let element">
-                                <button (click) = changeStatus(element.id) *ngIf="element.status" mat-icon-button color="warn"><mat-icon>Unlocked</mat-icon></button>
-                                <button (click) = changeStatus(element.id) *ngIf="!element.status"><mat-icon>lock</mat-icon></button>
+                                <button (click) = changeStatus(element.id) *ngIf="element.status" mat-icon-button class="btn btn-danger"><mat-icon>lock_open</mat-icon></button>
+                                <button (click) = changeStatus(element.id) *ngIf="!element.status" mat-icon-button class="btn btn-success"><mat-icon>lock</mat-icon></button>
                             </td>
                         </ng-container>
 

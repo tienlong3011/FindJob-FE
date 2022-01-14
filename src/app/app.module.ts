@@ -41,6 +41,7 @@ import {UpdateRecruitmentnewCompanyComponent} from "./company/recruitmentnew/upd
 import {MatNativeDateModule} from "@angular/material/core";
 import { DialogComponent } from './dialog/dialog.component';
 import {RegisterUserComponent} from './user/register-user/register-user.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 export const appRoutes: Routes = [
@@ -90,7 +91,7 @@ export const appRoutes: Routes = [
         NgxAudioPlayerModule,
         AngularFireStorageModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule
+        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule
     ],
     providers: [httpInterceptorProvider],
     bootstrap: [AppComponent]

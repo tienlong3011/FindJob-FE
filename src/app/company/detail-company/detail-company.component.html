@@ -4,7 +4,7 @@
             <h2>Thông tin tài khoản</h2>
             <ul>
                 <li>
-                    <a href="index.html">
+                    <a routerLink="/list-recruitmentnew-company">
                         Home
                     </a>
                 </li>
@@ -152,7 +152,7 @@
                                     <input type="text" name="phone"  class="form-control" required="" [(ngModel)]="companyCurrent.phone"  >
                                     <div class="help-block with-errors"></div>
                                 </div>
-                            </div><div class="col-lg-12 col-sm-12">
+                            </div><div class="col-lg-12 col-sm-12" >
                                 <div class="form-group">
                                     <app-upload-image (giveURLtoCreate)="onUpLoadAvatar($event)">Ảnh</app-upload-image>
                                 </div>
