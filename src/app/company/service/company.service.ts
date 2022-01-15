@@ -7,6 +7,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Company} from "../../model/company";
 import {RecruitmentNew} from "../../model/recruitmentNew";
 import {EditCompany} from '../../model/editCompany';
+import {Field} from '../../model/field';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class CompanyService {
     // const httpOptions = { headers: new HttpHeaders({ 'Content-Type':'application/json','Access-Control-Allow-Origins':'*'})};
     // @ts-ignore
     return this.http.put(`${this.apiServerUrl}/company/${id}`, company)
+  }
+
+  getAllCompany(): Observable<Company []> {
+    return this.http.get<Company []>(`${this.apiServerUrl}/company/list`)
   }
 }
 
