@@ -63,10 +63,10 @@
                             <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Tạo Job</a>
+                            <a href="#" class="nav-link dropdown-toggle">Bài Đăng</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a routerLink="/create-recruitmentnew" class="nav-link">Tạo bài đăng</a>
+                                    <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="case-details.html" class="nav-link">Case Studies Details</a>
@@ -74,10 +74,10 @@
                             </ul>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Tạo CV</a>
+                            <a href="#" class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="case.html" class="nav-link">Case Studies</a>
+                                    <a routerLink="create-cv" class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="case-details.html" class="nav-link">Case Studies Details</a>

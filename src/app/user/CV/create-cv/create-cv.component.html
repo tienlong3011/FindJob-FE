@@ -1,0 +1,125 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area" style="height: 439px">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Hồ Sơ Ứng Tuyển</h2>
+            <ul>
+                <li>
+                    <a routerLink="list-recruitmentnew-user">
+                        Home
+                    </a>
+                </li>
+
+                <li>Pages</li>
+
+                <li class="active">FAQ</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-shape">
+        <div class="shape1">
+            <img src="assets/images/shape/1.png" alt="shape">
+        </div>
+        <div class="shape3">
+            <img src="assets/images/shape/3.png" alt="shape">
+        </div>
+        <div class="shape4">
+            <img src="assets/images/shape/4.png" alt="shape">
+        </div>
+        <div class="shape5">
+            <img src="assets/images/shape/5.png" alt="shape">
+        </div>
+        <div class="shape6">
+            <img src="assets/images/shape/6.png" alt="shape">
+        </div>
+    </div>
+</div>
+<!-- End Page Title Area -->
+
+
+<p></p>
+
+<!-- Home Contact Area -->
+<section class="home-contact-area home-2-contact pb-100">
+    <div class="container">
+        <div class="section-title">
+            <span></span>
+            <h2>Hãy Bắt Đầu Tạo CV Ngay Hôm Nay!</h2>
+            <p style="color: red">{{status}}</p>
+        </div>
+        <div class="content">
+            <form id="contactForm">
+                <div class="row">
+                    <form class="create-category" #form="ngForm"
+                          (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate></form>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <mat-form-field style="width: 100%" appearance="outline">
+                            <mat-label>Năm kinh nghiệm</mat-label>
+                            <input matInput placeholder="Nhập năm kinh nghiệm" name="expYear"
+                                   [(ngModel)]="data.expYear" #expYear="ngModel" required>
+                            <mat-icon color="black" matSuffix>business_center</mat-icon>
+                            <mat-error *ngIf="expYear?.hasError('required')">Không được bỏ trống
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <mat-form-field style="width: 100%" appearance="outline">
+                            <mat-label>Lương mong muốn</mat-label>
+                            <input matInput placeholder="Nhập lương mong muốn" name="salaryExpectation"
+                                   [(ngModel)]="data.salaryExpectation" #salaryExpectation="ngModel" required>
+                            <mat-icon color="black" matSuffix>monetization_on</mat-icon>
+                            <mat-error *ngIf="salaryExpectation?.hasError('required')">Không được bỏ trống
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-12 col-sm-12">
+                        <mat-form-field style="width: 100%" appearance="outline">
+                            <mat-label>Kỹ năng làm việc</mat-label>
+                            <input matInput placeholder="Nhập kỹ năng làm việc" name="name"
+                                   [(ngModel)]="data.name" #salaryExpectation="ngModel" required>
+                            <mat-icon color="black" matSuffix>stream</mat-icon>
+                            <mat-error *ngIf="salaryExpectation?.hasError('required')">Không được bỏ trống
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Ngày bắt đầu công việc</mat-label>
+                            <input matInput [matDatepicker]="picker" [(ngModel)]="data.startDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Ngày kết thúc công việc</mat-label>
+                            <input matInput [matDatepicker]="picker" [(ngModel)]="data.startDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" id="message" cols="30" rows="5" required=""
+                                      data-error="Write your message" placeholder="Your Message"></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12">
+                        <button type="submit" class="default-btn page-btn box-btn">
+                            Submit
+                        </button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
