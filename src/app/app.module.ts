@@ -47,7 +47,7 @@ import { CreateCvComponent } from './user/CV/create-cv/create-cv.component';
 import { ApplyRecruitmentnewComponent } from './user/apply-recruitmentnew/apply-recruitmentnew.component';
 import { DialogApplyFailComponent } from './dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
 import { DialogApplyComponent } from './dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
-
+import {EditCvComponent} from "./user/CV/edit-cv/edit-cv.component";
 
 
 export const appRoutes: Routes = [
@@ -59,6 +59,7 @@ export const appRoutes: Routes = [
     {path: 'detail-company', component: DetailCompanyComponent},
     {path: 'change-password', component: ChangePasswordComponent},
     {path: 'create-cv', component: CreateCvComponent},
+    {path: 'update-cv', component: EditCvComponent},
     {path: 'create-recruitmentnew', component: CreateRecruitmentnewComponent},
     {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
     {path: 'register-user', component: RegisterUserComponent},
@@ -84,7 +85,8 @@ export const appRoutes: Routes = [
         CreateCvComponent,
         ApplyRecruitmentnewComponent,
         DialogApplyFailComponent,
-        DialogApplyComponent
+        DialogApplyComponent,
+        EditCvComponent
     ],
     imports: [
         MatDatepickerModule,
