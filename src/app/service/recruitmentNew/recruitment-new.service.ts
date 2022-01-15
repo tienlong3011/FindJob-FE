@@ -4,6 +4,7 @@ import {environment} from '../../../environments/environment';
 import {RecruitmentNew} from '../../model/recruitmentNew';
 import {Observable} from 'rxjs';
 import {StatusRequest} from '../../model/statusRequest';
+import {SearchJob} from '../../model/SearchJob';
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +43,8 @@ export class RecruitmentNewService {
   changeStatusById(id: number): Observable<any> {
     // @ts-ignore
     return this.http.put(`${this.apiServerUrl}/recruitment/editStatus/${id}`);
+  }
+  searchByObj(searchJob: SearchJob): Observable<any>{
+    return this.http.post(`${this.apiServerUrl}/recruitment/findByObj`,searchJob);
   }
 }
