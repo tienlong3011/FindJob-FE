@@ -44,6 +44,9 @@ import {RegisterUserComponent} from './user/register-user/register-user.componen
 import {MatBadgeModule} from '@angular/material/badge';
 import { ListRecruitmentUserComponent } from './user/recruitmentnew/list-recruitment-user/list-recruitment-user.component';
 import { CreateCvComponent } from './user/CV/create-cv/create-cv.component';
+import { ApplyRecruitmentnewComponent } from './user/apply-recruitmentnew/apply-recruitmentnew.component';
+import { DialogApplyFailComponent } from './dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
+import { DialogApplyComponent } from './dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
 
 
 
@@ -78,7 +81,10 @@ export const appRoutes: Routes = [
         DialogComponent,
         RegisterUserComponent,
         ListRecruitmentUserComponent,
-        CreateCvComponent
+        CreateCvComponent,
+        ApplyRecruitmentnewComponent,
+        DialogApplyFailComponent,
+        DialogApplyComponent
     ],
     imports: [
         MatDatepickerModule,
