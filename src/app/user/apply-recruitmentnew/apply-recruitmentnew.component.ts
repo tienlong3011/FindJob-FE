@@ -24,7 +24,7 @@ export class ApplyRecruitmentnewComponent implements OnInit {
               public dialogRef: MatDialogRef<ApplyRecruitmentnewComponent>,
               private tokenService: TokenService,
               private applyService: ApplyService,
-              public dialog: MatDialog
+              public dialog: MatDialog,
               ) {
     this.idRcm = data.id;
     this.rcms.getRecruitmentNewById(data.id).subscribe(data =>{
@@ -43,29 +43,37 @@ export class ApplyRecruitmentnewComponent implements OnInit {
   }
 
   applyRecruitmentNewNow() {
-    const apply: Apply = new Apply(this.idRcm,this.tokenService.getIdGuest());
-    this.applyService.createCV(apply).subscribe(data2 =>{
-      console.log(data2);
-      if(data2.message == "CREATE"){
-        this.dialogRef.close();
-        const dialogRef1 = this.dialog.open(DialogApplyComponent);
-        dialogRef1.afterClosed().subscribe(result => {
-          console.log('ressult sau khi bam nut --> ', result);
-          if (result == false) {
+    if(!this.tokenService.getTokenKey()){
+      this.dialogRef.close()
+      // @ts-ignore
+      this.router.navigate(['login']).then(this.dialogRef.close())
+    }
+    else {
+      const apply: Apply = new Apply(this.idRcm,this.tokenService.getIdGuest());
+      this.applyService.createCV(apply).subscribe(data2 =>{
+        console.log(data2);
+        if(data2.message == "CREATE"){
+          this.dialogRef.close();
+          const dialogRef1 = this.dialog.open(DialogApplyComponent);
+          dialogRef1.afterClosed().subscribe(result => {
+            console.log('ressult sau khi bam nut --> ', result);
+            if (result == false) {
 
-          }
+            }
+          })
+        }
+        else if(data2.message == "CREATE_FAIL"){
+          this.dialogRef.close();
+          const dialogRef1 = this.dialog.open(DialogApplyFailComponent);
+          dialogRef1.afterClosed().subscribe(result => {
+            console.log('ressult sau khi bam nut --> ', result);
+            if (result == false) {
+
+            }
+          });
+        }
       })
-      }
-      else if(data2.message == "CREATE_FAIL"){
-        this.dialogRef.close();
-        const dialogRef1 = this.dialog.open(DialogApplyFailComponent);
-        dialogRef1.afterClosed().subscribe(result => {
-          console.log('ressult sau khi bam nut --> ', result);
-          if (result == false) {
+    }
 
-          }
-        });
-      }
-    })
   }
 }

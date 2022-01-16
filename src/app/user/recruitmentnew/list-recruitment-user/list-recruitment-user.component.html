@@ -184,10 +184,10 @@
                             </div>
                         </div>
                         <div class="job-right my-4 flex-shrink-0">
-                            <button mat-stroked-button color="primary">Ứng tuyển</button>
+                            <button *ngIf="checkUser" mat-stroked-button color="primary">Ứng tuyển</button>
                         </div>
                         <div class="job-right my-4 flex-shrink-0">
-                            <button mat-stroked-button color="primary" (click)="openDialogApplyNow(rcm.id)">Ứng tuyển ngay</button>
+                            <button *ngIf="checkUser" mat-stroked-button color="primary" (click)="openDialogApplyNow(rcm.id)">Ứng tuyển ngay</button>
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ import {WorkingTime} from '../../../model/workingTime';
 import {TokenService} from '../../../security/token.service';
 import {ApplyRecruitmentnewComponent} from '../../apply-recruitmentnew/apply-recruitmentnew.component';
 import {MatDialog} from '@angular/material/dialog';
+import {UserService} from '../../service/user.service';
 
 @Component({
   selector: 'app-list-recruitment-user',
@@ -30,6 +31,8 @@ export class ListRecruitmentUserComponent implements OnInit {
   pageSize: number = 3;
   totalSize: number = 3;
   check: boolean = false;
+  checkUser: boolean = false;
+  idGuest: number;
 
   city: City[] = [];
   fields: Field[] = [];
@@ -46,7 +49,8 @@ export class ListRecruitmentUserComponent implements OnInit {
               private vacanciesService: VacanciesService,
               private workingTimeService: WorkingTimeService,
               private tokenService: TokenService,
-              public dialog: MatDialog
+              public dialog: MatDialog,
+              private userService: UserService,
               ) {
     this.searchJob = new SearchJob(null, null, null, null, null, null, 0, 3);
     this.recruitmentNewService.searchByObj(this.searchJob).subscribe(data => {
@@ -58,6 +62,29 @@ export class ListRecruitmentUserComponent implements OnInit {
     this.getAllCompany();
     this.getAllVacancies();
     this.getAllWorkingTime();
+  }
+  checkUserCurrent(){
+    if(this.tokenService.getTokenKey()){
+      this.idGuest = this.tokenService.getIdGuest();
+      for (let i = 0; i < this.tokenService.getRoleKey().length; i++){
+        console.log(this.tokenService.getRoleKey()[i]);
+        if (this.tokenService.getRoleKey()[i] == "USER") {
+          this.userService.getUserById(this.idGuest).subscribe(data => {
+            if(data){
+              console.log("hello");
+              this.checkUser = true
+              console.log(data);
+            }
+          })
+        }
+        else {
+          this.checkUser = false;
+        }
+      }
+    }
+    else {
+      this.checkUser = true;
+    }
   }
 
   getAllCity() {
@@ -92,6 +119,7 @@ export class ListRecruitmentUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLogin();
+    this.checkUserCurrent();
   }
 
   pagination() {
