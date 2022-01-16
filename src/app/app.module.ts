@@ -67,7 +67,7 @@ export const appRoutes: Routes = [
   {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'home', component: HomepageComponent},
-  {path: '', redirectTo: 'list-recruitmentnew-user', pathMatch: 'full'}
+  {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
