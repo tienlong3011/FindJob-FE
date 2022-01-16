@@ -84,7 +84,7 @@
                         </mat-form-field>
                     </div>
 
-<!--                    //------------------------------------------------------------------------>
+                    <!--                    //------------------------------------------------------------------------>
                     <p style="text-align: center;color: red">Kinh nghiệm bản thân</p>
 
                     <div class="col-lg-4 col-sm-4">
@@ -124,10 +124,17 @@
                         </mat-form-field>
                     </div>
 
-<!------------------------------------------------------------------------------------------------------------------->
-                    <app-upload-image (giveURLtoCreate)="onUpLoadAvatar($event)">
-                        Ảnh CV
-                    </app-upload-image>
+                    <!------------------------------------------------------------------------------------------------------------------->
+                    <div class="col-lg-12 col-sm-12">
+                        <mat-form-field appearance="outline" style="width: 50%">
+                            <input matInput
+                                   hidden
+                                   placeholder="Placeholder">
+                            <app-upload-image  style="width: 100%" (giveURLtoCreate)="onUpLoadAvatar($event)"></app-upload-image >
+                            <mat-icon color="black" matSuffix>add_photo_alternate</mat-icon>
+                        </mat-form-field>
+                    </div>
+
 
                     <button class="default-btn page-btn box-btn">
                         Submit

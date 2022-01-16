@@ -81,7 +81,7 @@ export const appRoutes: Routes = [
         RegisterUserComponent,
         ListRecruitmentUserComponent,
         CreateCvComponent,
-        EditCvComponent
+        EditCvComponent,
     ],
     imports: [
         MatDatepickerModule,
