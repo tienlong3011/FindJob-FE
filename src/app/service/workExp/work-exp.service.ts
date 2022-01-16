@@ -16,4 +16,8 @@ export class WorkExpService {
   createWorkExp(workExp: WorkExp): Observable<any> {
     return this.http.post(`${this.apiServerUrl}/WorkExp`, workExp)
   }
+
+  findAllByCvId(id: number): Observable<any> {
+    return this.http.get(`${this.apiServerUrl}/WorkExp/cv/${id}`)
+  }
 }

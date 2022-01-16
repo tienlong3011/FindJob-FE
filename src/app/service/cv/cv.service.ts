@@ -17,4 +17,8 @@ export class CVService {
   createCV(cv: Cv): Observable<any> {
     return this.http.post(`${this.apiServerUrl}/CV`, cv)
   }
+
+  findByUserId(id: number): Observable<any> {
+    return this.http.get(`${this.apiServerUrl}/CV/user/${id}`)
+  }
 }

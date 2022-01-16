@@ -33,35 +33,38 @@ import {ListRecruitmentnewCompanyComponent} from "./company/recruitmentnew/list-
 import {RegisterCompanyComponent} from "./company/register-company/register-company.component";
 import {UploadImageComponent} from "./upload/upload-image/upload-image.component";
 import {CompanyService} from "./company/service/company.service";
-import { ChangePasswordComponent } from './account/change-password/change-password.component';
+import {ChangePasswordComponent} from './account/change-password/change-password.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {CreateRecruitmentnewComponent} from "./company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component";
 import {UpdateRecruitmentnewCompanyComponent} from "./company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component";
 import {MatNativeDateModule} from "@angular/material/core";
-import { DialogComponent } from './dialog/dialog.component';
+import {DialogComponent} from './dialog/dialog.component';
 import {RegisterUserComponent} from './user/register-user/register-user.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ListRecruitmentUserComponent } from './user/recruitmentnew/list-recruitment-user/list-recruitment-user.component';
 import { CreateCvComponent } from './user/CV/create-cv/create-cv.component';
+import { ApplyRecruitmentnewComponent } from './user/apply-recruitmentnew/apply-recruitmentnew.component';
+import { DialogApplyFailComponent } from './dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
+import { DialogApplyComponent } from './dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
 import {EditCvComponent} from "./user/CV/edit-cv/edit-cv.component";
-
-
+import {DetailCvComponent} from "./user/CV/detail-cv/detail-cv.component";
 
 export const appRoutes: Routes = [
-    {path: 'register-user', component: RegisterUserComponent},
-    {path: 'register-company', component: RegisterCompanyComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
-    {path: 'list-recruitmentnew-user', component: ListRecruitmentUserComponent},
-    {path: 'detail-company', component: DetailCompanyComponent},
-    {path: 'change-password', component: ChangePasswordComponent},
-    {path: 'create-cv', component: CreateCvComponent},
-    {path: 'update-cv', component: EditCvComponent},
-    {path: 'create-recruitmentnew', component: CreateRecruitmentnewComponent},
-    {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
-    {path: 'register-user', component: RegisterUserComponent},
-    {path: '', redirectTo: 'list-recruitmentnew-user', pathMatch: 'full'}
+  {path: 'register-user', component: RegisterUserComponent},
+  {path: 'register-company', component: RegisterCompanyComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
+  {path: 'list-recruitmentnew-user', component: ListRecruitmentUserComponent},
+  {path: 'detail-company', component: DetailCompanyComponent},
+  {path: 'change-password', component: ChangePasswordComponent},
+  {path: 'create-cv', component: CreateCvComponent},
+  {path: 'update-cv/:id', component: EditCvComponent},
+  {path: 'detail-cv/:id', component: DetailCvComponent},
+  {path: 'create-recruitmentnew', component: CreateRecruitmentnewComponent},
+  {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
+  {path: 'register-user', component: RegisterUserComponent},
+  {path: '', redirectTo: 'list-recruitmentnew-user', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -82,6 +85,10 @@ export const appRoutes: Routes = [
         ListRecruitmentUserComponent,
         CreateCvComponent,
         EditCvComponent,
+        ApplyRecruitmentnewComponent,
+        DialogApplyFailComponent,
+        DialogApplyComponent,
+        EditCvComponent
     ],
     imports: [
         MatDatepickerModule,

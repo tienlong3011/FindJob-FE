@@ -16,4 +16,8 @@ export class SkillService {
   createSkill(skill: Skill): Observable<any> {
     return this.http.post(`${this.apiServerUrl}/Skill`, skill)
   }
+
+  findAllByCvId(id: number): Observable<any> {
+    return this.http.get(`${this.apiServerUrl}/Skill/cv/${id}`)
+  }
 }

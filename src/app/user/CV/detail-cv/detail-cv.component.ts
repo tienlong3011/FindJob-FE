@@ -1,29 +1,28 @@
-import {Component, OnInit} from '@angular/core';
-import {TokenService} from "../../../security/token.service";
-import {User} from "../../../model/user";
-import {UserService} from "../../service/user.service";
-import {Skill} from "../../../model/skill";
-import {SkillService} from "../../../service/skill/skill.service";
-import {ActivatedRoute} from "@angular/router";
-import {CVService} from "../../../service/cv/cv.service";
+import { Component, OnInit } from '@angular/core';
 import {Cv} from "../../../model/cv";
+import {User} from "../../../model/user";
+import {Skill} from "../../../model/skill";
+import {TokenService} from "../../../security/token.service";
+import {UserService} from "../../service/user.service";
+import {SkillService} from "../../../service/skill/skill.service";
+import {CVService} from "../../../service/cv/cv.service";
+import {ActivatedRoute} from "@angular/router";
 import {WorkExp} from "../../../model/workExp";
 import {WorkExpService} from "../../../service/workExp/work-exp.service";
 
 @Component({
-  selector: 'app-edit-cv',
-  templateUrl: './edit-cv.component.html',
-  styleUrls: ['./edit-cv.component.scss']
+  selector: 'app-detail-cv',
+  templateUrl: './detail-cv.component.html',
+  styleUrls: ['./detail-cv.component.scss']
 })
-export class EditCvComponent implements OnInit {
+export class DetailCvComponent implements OnInit {
   cv: Cv;
 
   user: User;
 
-  workExps: WorkExp[];
-  workExp: WorkExp;
-
   skills: Skill[];
+
+  workExps: WorkExp[];
 
   idUser: number;
 
@@ -33,8 +32,7 @@ export class EditCvComponent implements OnInit {
               private cvService: CVService,
               private workExpService: WorkExpService,
               private route: ActivatedRoute
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
     this.idUser = this.route.snapshot.params['id'];
@@ -49,9 +47,6 @@ export class EditCvComponent implements OnInit {
       })
       this.workExpService.findAllByCvId(this.cv.id).subscribe(data => {
         this.workExps = data;
-        for (let i; i < this.workExps.length; i++) {
-          this.workExp = i;
-        }
       })
     })
   }
