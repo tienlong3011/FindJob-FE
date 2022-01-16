@@ -32,7 +32,7 @@ import {DetailCompanyComponent} from "./company/detail-company/detail-company.co
 import {ListRecruitmentnewCompanyComponent} from "./company/recruitmentnew/list-recruitmentnew-company/list-recruitmentnew-company.component";
 import {RegisterCompanyComponent} from "./company/register-company/register-company.component";
 import {UploadImageComponent} from "./upload/upload-image/upload-image.component";
-import {CompanyService} from "./company/service/company.service";
+import {CompanyService} from "./service/company/company.service";
 import {ChangePasswordComponent} from './account/change-password/change-password.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -52,6 +52,7 @@ import {EditCvComponent} from "./user/CV/edit-cv/edit-cv.component";
 import {DetailRecruitmentnewComponent} from "./company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component";
 import { HomepageComponent } from './homepage/homepage.component';
 import { DialogCreateCompanyComponent } from './dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
+import { ListCompanyComponent } from './company/list-company/list-company.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -59,6 +60,7 @@ export const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
   {path: 'list-recruitmentnew-user', component: ListRecruitmentUserComponent},
+  {path: 'list-company', component: ListCompanyComponent},
   {path: 'detail-company', component: DetailCompanyComponent},
   {path: 'change-password', component: ChangePasswordComponent},
   {path: 'create-cv', component: CreateCvComponent},
@@ -95,7 +97,8 @@ export const appRoutes: Routes = [
     DetailCvComponent,
     DetailRecruitmentnewComponent,
     HomepageComponent,
-    DialogCreateCompanyComponent
+    DialogCreateCompanyComponent,
+    ListCompanyComponent
   ],
   imports: [
     MatDatepickerModule,

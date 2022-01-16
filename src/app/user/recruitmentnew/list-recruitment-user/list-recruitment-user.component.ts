@@ -7,7 +7,7 @@ import {City} from '../../../model/city';
 import {CityService} from '../../../service/city/city.service';
 import {FieldService} from '../../../service/field/field.service';
 import {Field} from '../../../model/field';
-import {CompanyService} from '../../../company/service/company.service';
+import {CompanyService} from '../../../service/company/company.service';
 import {Company} from '../../../model/company';
 import {VacanciesService} from '../../../service/vacancies/vacancies.service';
 import {Vacancies} from '../../../model/vacancies';
