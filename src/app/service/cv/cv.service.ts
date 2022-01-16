@@ -4,6 +4,7 @@ import {RecruitmentNew} from '../../model/recruitmentNew';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Cv} from '../../model/cv';
+import {CvDTO} from "../../model/dto/cv-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class CVService {
     return this.http.post(`${this.apiServerUrl}/CV`, cv)
   }
 
-  findByUserId(id: number): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/CV/user/${id}`)
+  findByUserId(id: number): Observable<CvDTO> {
+    return this.http.get<CvDTO>(`${this.apiServerUrl}/CV/user/${id}`)
   }
 }

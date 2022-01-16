@@ -9,6 +9,7 @@ import {CVService} from "../../../service/cv/cv.service";
 import {ActivatedRoute} from "@angular/router";
 import {WorkExp} from "../../../model/workExp";
 import {WorkExpService} from "../../../service/workExp/work-exp.service";
+import {CvDTO} from "../../../model/dto/cv-dto";
 
 @Component({
   selector: 'app-detail-cv',
@@ -16,13 +17,7 @@ import {WorkExpService} from "../../../service/workExp/work-exp.service";
   styleUrls: ['./detail-cv.component.scss']
 })
 export class DetailCvComponent implements OnInit {
-  cv: Cv;
-
-  user: User;
-
-  skills: Skill[];
-
-  workExps: WorkExp[];
+  cv: CvDTO;
 
   idUser: number;
 
@@ -36,18 +31,8 @@ export class DetailCvComponent implements OnInit {
 
   ngOnInit(): void {
     this.idUser = this.route.snapshot.params['id'];
-    this.userService.getUserById(this.idUser).subscribe(data => {
-      this.user = data;
-    })
-    this.cvService.findByUserId(this.idUser).subscribe(data => {
+    this.cvService.findByUserId(this.idUser).subscribe((data: CvDTO) => {
       this.cv = data;
-      this.skillService.findAllByCvId(this.cv.id).subscribe(data => {
-        console.log(data);
-        this.skills = data;
-      })
-      this.workExpService.findAllByCvId(this.cv.id).subscribe(data => {
-        this.workExps = data;
-      })
-    })
+    });
   }
 }

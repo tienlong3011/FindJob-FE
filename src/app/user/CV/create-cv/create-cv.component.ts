@@ -104,7 +104,7 @@ export class CreateCvComponent implements OnInit {
       id: this.idCV
     };
 
-    this.skill = new Skill(this.data.name,cvID)
+    // this.skill = new Skill(this.data.name,cvID)
     this.skillService.createSkill(this.skill).subscribe(data3 =>{
 
       if (JSON.stringify(data3) == JSON.stringify(this.errorSkill1)) {

@@ -46,12 +46,12 @@ export class LoginComponent implements OnInit {
         this.tokenService.setRoleKey(data.roles);
         for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
           if (this.tokenService.getRoleKey()[i] == "COMPANY") {
-            this.router.navigate(['list-recruitmentnew-company']).then(() => {
+            this.router.navigate(['home']).then(() => {
               window.location.reload();
             })
           }
           if (this.tokenService.getRoleKey()[i] == "USER") {
-            this.router.navigate(['list-recruitmentnew-user']).then(() => {
+            this.router.navigate(['home']).then(() => {
               window.location.reload();
             })
           }
