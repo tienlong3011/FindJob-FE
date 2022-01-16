@@ -53,7 +53,7 @@
                         <li class="nav-item">
 <!--                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"-->
 <!--                               class="nav-link dropdown-toggle active">Trang chủ</a>-->
-                            <a  routerLink="list-recruitmentnew-user"
+                            <a  routerLink="home"
                                class="nav-link dropdown-toggle active">Trang chủ</a>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
@@ -94,8 +94,14 @@
                     <button class="btn btn-secondary dropdown-toggle" style="background: #007bff" type="button"
                             id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">{{name}}
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'COMPANY'" >
                         <li><a class="dropdown-item" routerLink="detail-company">Quản lý hồ sơ</a></li>
+                        <li><a class="dropdown-item" routerLink="change-password">Đổi mật khẩu</a></li>
+                        <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>
+                    </ul>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'USER'" >
+                        <li><a class="dropdown-item" routerLink="detail-user">Quản lý hồ sơ</a></li>
                         <li><a class="dropdown-item" routerLink="change-password">Đổi mật khẩu</a></li>
                         <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>
                     </ul>

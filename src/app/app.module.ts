@@ -115,9 +115,6 @@ export const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule
   ],
-  // entryComponents: [
-  //   DetailRecruitmentnewComponent
-  // ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]
 })
