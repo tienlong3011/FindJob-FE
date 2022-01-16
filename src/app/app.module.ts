@@ -42,13 +42,16 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {DialogComponent} from './dialog/dialog.component';
 import {RegisterUserComponent} from './user/register-user/register-user.component';
 import {MatBadgeModule} from '@angular/material/badge';
-import { ListRecruitmentUserComponent } from './user/recruitmentnew/list-recruitment-user/list-recruitment-user.component';
-import { CreateCvComponent } from './user/CV/create-cv/create-cv.component';
-import { ApplyRecruitmentnewComponent } from './user/apply-recruitmentnew/apply-recruitmentnew.component';
-import { DialogApplyFailComponent } from './dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
-import { DialogApplyComponent } from './dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
-import {EditCvComponent} from "./user/CV/edit-cv/edit-cv.component";
+import {ListRecruitmentUserComponent} from './user/recruitmentnew/list-recruitment-user/list-recruitment-user.component';
+import {CreateCvComponent} from './user/CV/create-cv/create-cv.component';
+import {ApplyRecruitmentnewComponent} from './user/apply-recruitmentnew/apply-recruitmentnew.component';
+import {DialogApplyFailComponent} from './dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
+import {DialogApplyComponent} from './dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
 import {DetailCvComponent} from "./user/CV/detail-cv/detail-cv.component";
+import {EditCvComponent} from "./user/CV/edit-cv/edit-cv.component";
+import {DetailRecruitmentnewComponent} from "./company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component";
+import { HomepageComponent } from './homepage/homepage.component';
+import { DialogCreateCompanyComponent } from './dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -64,54 +67,58 @@ export const appRoutes: Routes = [
   {path: 'create-recruitmentnew', component: CreateRecruitmentnewComponent},
   {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
   {path: 'register-user', component: RegisterUserComponent},
+  {path: 'home', component: HomepageComponent},
   {path: '', redirectTo: 'list-recruitmentnew-user', pathMatch: 'full'}
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
-        LoginComponent,
-        DetailCompanyComponent,
-        ListRecruitmentnewCompanyComponent,
-        RegisterCompanyComponent,
-        UploadImageComponent,
-        CreateRecruitmentnewComponent,
-        UpdateRecruitmentnewCompanyComponent,
-        ChangePasswordComponent,
-        DialogComponent,
-        RegisterUserComponent,
-        ListRecruitmentUserComponent,
-        CreateCvComponent,
-        EditCvComponent,
-        ApplyRecruitmentnewComponent,
-        DialogApplyFailComponent,
-        DialogApplyComponent,
-        EditCvComponent
-    ],
-    imports: [
-        MatDatepickerModule,
-        MatNativeDateModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatRadioModule,
-        MatCheckboxModule,
-        MatSlideToggleModule,
-        MatButtonModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        NgxAudioPlayerModule,
-        AngularFireStorageModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule
-    ],
-    providers: [httpInterceptorProvider],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    DetailCompanyComponent,
+    ListRecruitmentnewCompanyComponent,
+    RegisterCompanyComponent,
+    UploadImageComponent,
+    CreateRecruitmentnewComponent,
+    UpdateRecruitmentnewCompanyComponent,
+    ChangePasswordComponent,
+    DialogComponent,
+    RegisterUserComponent,
+    ListRecruitmentUserComponent,
+    CreateCvComponent,
+    ApplyRecruitmentnewComponent,
+    DialogApplyFailComponent,
+    DialogApplyComponent,
+    EditCvComponent,
+    DetailCvComponent,
+    DetailRecruitmentnewComponent,
+    HomepageComponent,
+    DialogCreateCompanyComponent
+  ],
+  imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    NgxAudioPlayerModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule
+  ],
+  providers: [httpInterceptorProvider],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

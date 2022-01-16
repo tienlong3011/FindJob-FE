@@ -9,6 +9,7 @@
             <p>Với tài khoản mạng xã hội</p>
           </div>
           <form #f="ngForm" (ngSubmit)="f.form.valid && onLogin()">
+            <mat-error  style="text-align: center">{{status}}</mat-error>
             <div class="row">
               <div class="col-md-12 col-sm-12">
                 <div class="form-group">

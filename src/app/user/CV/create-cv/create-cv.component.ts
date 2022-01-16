@@ -113,4 +113,20 @@ export class CreateCvComponent implements OnInit {
   //   })
   // }
 
+  //tạo mới skil vào cv
+    createSkill(){
+      this.cv.id = this.idCV;
+      const cvID = {
+      id: this.idCV
+    };
+
+    // this.skill = new Skill(this.data.name,cvID)
+    this.skillService.createSkill(this.skill).subscribe(data3 =>{
+
+      if (JSON.stringify(data3) == JSON.stringify(this.errorSkill1)) {
+        this.status = 'Vui lòng nhập kinh nghiệm làm việc!';
+      }
+    })
+  }
+
 }

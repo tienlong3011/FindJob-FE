@@ -149,7 +149,7 @@ export class ListRecruitmentUserComponent implements OnInit {
     this.start = 0 ;
     this.pageCurrent = 0;
     this.pagination();
-    form.reset;
+    form.reset();
   }
 
 

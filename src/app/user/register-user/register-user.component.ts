@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Account} from '../../model/account';
 import {AuthService} from '../../security/auth.service';
 import {User} from '../../model/user';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogCreateCompanyComponent} from '../../dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
 
 
 @Component({
@@ -21,7 +23,12 @@ export class RegisterUserComponent implements OnInit {
   user: User;
   hide = true;
   hide1 = true;
-  constructor(private authService: AuthService) {
+  success: any = {
+    message: 'yes'
+  };
+
+  constructor(private authService: AuthService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -37,6 +44,7 @@ export class RegisterUserComponent implements OnInit {
         console.log(data1);
         this.idAccount = data1.id;
         this.createUser();
+        form.reset();
       });
     }
   }
@@ -49,7 +57,14 @@ export class RegisterUserComponent implements OnInit {
     this.user = new User(this.data.name, this.data.phone, account11);
     console.log(this.user);
     this.authService.registerUser(this.user).subscribe(data2 => {
-      console.log(data2);
+      if (JSON.stringify(data2) == JSON.stringify(this.success)) {
+        // @ts-ignore
+        const dialogRef1 = this.dialog.open(DialogCreateCompanyComponent);
+        dialogRef1.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+
+        });
+      }
     });
   }
 

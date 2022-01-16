@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   form: any = {};
 
-  status = 'Please fill in the form to Login!';
+  status = '';
 
   emailFormControl = new FormControl('', [
     Validators.email, Validators.required
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.form.password
     )
     this.authService.signIn(this.signInForm).subscribe(data => {
-      if (data.token != undefined) {
+        if (data.token != undefined) {
         this.tokenService.setIdAccount(data.idAccount);
         this.tokenService.setIdGuest(data.idGuest);
         this.tokenService.setTokenKey(data.token);
@@ -46,17 +46,18 @@ export class LoginComponent implements OnInit {
         this.tokenService.setRoleKey(data.roles);
         for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
           if (this.tokenService.getRoleKey()[i] == "COMPANY") {
-            this.router.navigate(['list-recruitmentnew-company']).then(() => {
+            this.router.navigate(['home']).then(() => {
               window.location.reload();
             })
           }
           if (this.tokenService.getRoleKey()[i] == "USER") {
-            this.router.navigate(['list-recruitmentnew-user']).then(() => {
+            this.router.navigate(['home']).then(() => {
               window.location.reload();
             })
           }
         }
       }
     })
+    this.status = "Bạn nhập sai tài khoản hoặc mật khẩu!"
   }
 }

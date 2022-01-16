@@ -9,6 +9,10 @@ import {CVService} from "../../../service/cv/cv.service";
 import {Cv} from "../../../model/cv";
 import {WorkExp} from "../../../model/workExp";
 import {WorkExpService} from "../../../service/workExp/work-exp.service";
+import {CvDTO} from "../../../model/dto/cv-dto";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../../../dialog/dialog.component";
+import {WorkExpDTO} from "../../../model/dto/work-exp-dto";
 
 @Component({
   selector: 'app-edit-cv',
@@ -16,14 +20,7 @@ import {WorkExpService} from "../../../service/workExp/work-exp.service";
   styleUrls: ['./edit-cv.component.scss']
 })
 export class EditCvComponent implements OnInit {
-  cv: Cv;
-
-  user: User;
-
-  workExps: WorkExp[];
-  workExp: WorkExp;
-
-  skills: Skill[];
+  cv: CvDTO;
 
   idUser: number;
 
@@ -32,27 +29,25 @@ export class EditCvComponent implements OnInit {
               private skillService: SkillService,
               private cvService: CVService,
               private workExpService: WorkExpService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private dialog: MatDialog
   ) {
   }
 
   ngOnInit(): void {
     this.idUser = this.route.snapshot.params['id'];
-    this.userService.getUserById(this.idUser).subscribe(data => {
-      this.user = data;
-    })
-    this.cvService.findByUserId(this.idUser).subscribe(data => {
+    this.cvService.findByUserId(this.idUser).subscribe((data: CvDTO) => {
       this.cv = data;
-      this.skillService.findAllByCvId(this.cv.id).subscribe(data => {
-        console.log(data);
-        this.skills = data;
-      })
-      this.workExpService.findAllByCvId(this.cv.id).subscribe(data => {
-        this.workExps = data;
-        for (let i; i < this.workExps.length; i++) {
-          this.workExp = i;
-        }
-      })
-    })
+    });
+  }
+
+  addWorkExp() {
+    const workExp: WorkExpDTO = {content: "aaaa", cvId: this.cv.id, endDate: null, id: null, startDate: null, title: ""};
+    this.cv.workExps.push(workExp);
+  }
+
+  deleteWorkExp(index: number) {
+    const workExpDel = this.cv.workExps.splice(index, 1);
+    // const dialog = this.dialog.openDialogs(DialogComponent);
   }
 }
