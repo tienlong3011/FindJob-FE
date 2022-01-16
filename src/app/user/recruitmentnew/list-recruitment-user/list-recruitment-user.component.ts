@@ -13,6 +13,9 @@ import {VacanciesService} from '../../../service/vacancies/vacancies.service';
 import {Vacancies} from '../../../model/vacancies';
 import {WorkingTimeService} from '../../../service/workingTime/working-time.service';
 import {WorkingTime} from '../../../model/workingTime';
+import {TokenService} from '../../../security/token.service';
+import {ApplyRecruitmentnewComponent} from '../../apply-recruitmentnew/apply-recruitmentnew.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-list-recruitment-user',
@@ -26,6 +29,7 @@ export class ListRecruitmentUserComponent implements OnInit {
   start: number = 0;
   pageSize: number = 3;
   totalSize: number = 3;
+  check: boolean = false;
 
   city: City[] = [];
   fields: Field[] = [];
@@ -40,7 +44,10 @@ export class ListRecruitmentUserComponent implements OnInit {
               private fieldService: FieldService,
               private companyService: CompanyService,
               private vacanciesService: VacanciesService,
-              private workingTimeService: WorkingTimeService) {
+              private workingTimeService: WorkingTimeService,
+              private tokenService: TokenService,
+              public dialog: MatDialog
+              ) {
     this.searchJob = new SearchJob(null, null, null, null, null, null, 0, 3);
     this.recruitmentNewService.searchByObj(this.searchJob).subscribe(data => {
       this.recruitmentNews = data.data;
@@ -84,7 +91,7 @@ export class ListRecruitmentUserComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.checkLogin();
   }
 
   pagination() {
@@ -101,6 +108,11 @@ export class ListRecruitmentUserComponent implements OnInit {
     if (this.pageCurrent != 0) {
       this.pageCurrent = this.pageCurrent - 1;
       this.pagination();
+    }
+  }
+  checkLogin(){
+    if(this.tokenService.getTokenKey()){
+      this.check = true;
     }
   }
 
@@ -138,5 +150,17 @@ export class ListRecruitmentUserComponent implements OnInit {
     this.pageCurrent = 0;
     this.pagination();
     form.reset;
+  }
+
+
+  openDialogApplyNow(id) {
+    const dialogRef = this.dialog.open(ApplyRecruitmentnewComponent, {
+      data : {
+        id: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
