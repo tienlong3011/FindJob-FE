@@ -35,6 +35,12 @@ export class AuthService {
     registerUser(user: User): Observable<any>{
         return this.http.post<any>(`${this.apiServerUrl}/user`,user)
     }
+    activeStatus(id: number): Observable<any>{
+        return this.http.get(this.apiServerUrl + `/verify/${id}`);
+    }
+    findById(id: number): Observable<any>{
+        return this.http.get(`${this.apiServerUrl}/${id}`)
+    }
 
 
     

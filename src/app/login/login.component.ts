@@ -51,6 +51,14 @@ export class LoginComponent implements OnInit {
             })
           }
           if (this.tokenService.getRoleKey()[i] == "USER") {
+            this.authService.findById(this.tokenService.getIdAccount()).subscribe(data =>{
+              if(data == "NON_ACTIVE"){
+                window.sessionStorage.clear();
+                this.router.navigate(['login']).then(() =>{
+                  window.location.reload();
+                })
+              }
+            })
             this.router.navigate(['home']).then(() => {
               window.location.reload();
             })
