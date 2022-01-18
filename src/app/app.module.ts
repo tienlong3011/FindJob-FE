@@ -55,6 +55,7 @@ import { DialogCreateCompanyComponent } from './dialog/dialogCreateCompany/dialo
 import { ListCompanyComponent } from './company/list-company/list-company.component';
 import { ActiveStatusComponent } from './user/active-status/active-status.component';
 import { ApplyNowComponent } from './dialog/apply-now/apply-now.component';
+import { WebCompanyComponent } from './company/web-company/web-company.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -73,6 +74,7 @@ export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'active-status/:id', component: ActiveStatusComponent},
   {path: 'home', component: HomepageComponent},
+  {path: 'web-company/:id', component: WebCompanyComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
@@ -103,7 +105,8 @@ export const appRoutes: Routes = [
     DialogCreateCompanyComponent,
     ListCompanyComponent,
     ActiveStatusComponent,
-    ApplyNowComponent
+    ApplyNowComponent,
+    WebCompanyComponent
   ],
   imports: [
     MatDatepickerModule,
