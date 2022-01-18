@@ -6,6 +6,7 @@ import {RecruitmentNew} from '../../model/recruitmentNew';
 import {MatTableDataSource} from '@angular/material/table';
 import {DetailRecruitmentnewComponent} from '../recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
 import {MatDialog} from '@angular/material/dialog';
+import {Company} from '../../model/company';
 
 @Component({
   selector: 'app-web-company',
@@ -15,7 +16,7 @@ import {MatDialog} from '@angular/material/dialog';
 export class WebCompanyComponent implements OnInit {
   idCustom: number;
   emailCompany
-  companyCurrent: any ;
+  companyCurrent: Company ;
   recruitmentNews: RecruitmentNew[] = [];
   constructor( private companyService: CompanyService,
                private tokenService: TokenService,
