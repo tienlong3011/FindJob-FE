@@ -68,9 +68,10 @@
                     <div class="content">
                         <h3><i class="flaticon-info"></i> {{comhot.name}}</h3>
                         <div class="arrow">
-                            <a><i class="flaticon-next-1"></i></a>
+                            <a [routerLink]="['/web-company/', comhot.id]"><i class="flaticon-next-1"></i></a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -93,7 +94,7 @@
                         <h3>Tên công ty: {{rnn.name}}</h3>
                         <h3>Số lượng vị trí cần tuyển: {{rnn.count}}</h3>
                         <div class="arrow">
-                            <a><i class="flaticon-next-1"></i></a>
+                            <a [routerLink]="['/web-company/', rnn.id]"><i class="flaticon-next-1"></i></a>
                         </div>
                     </div>
                 </div>

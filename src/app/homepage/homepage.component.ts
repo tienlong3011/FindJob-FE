@@ -21,7 +21,7 @@ import {ApplyService} from '../service/apply/apply.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  companyHot: Company[] = [];
+  companyHot: any[] = [];
   recruimentNew: RecruitmentNew[] = [];
   RecuitmentNewNeed: any[] = [];
   totalElements: number = 0;
