@@ -54,6 +54,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { DialogCreateCompanyComponent } from './dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
 import { ListCompanyComponent } from './company/list-company/list-company.component';
 import { ActiveStatusComponent } from './user/active-status/active-status.component';
+import { ApplyNowComponent } from './dialog/apply-now/apply-now.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -101,7 +102,8 @@ export const appRoutes: Routes = [
     HomepageComponent,
     DialogCreateCompanyComponent,
     ListCompanyComponent,
-    ActiveStatusComponent
+    ActiveStatusComponent,
+    ApplyNowComponent
   ],
   imports: [
     MatDatepickerModule,
