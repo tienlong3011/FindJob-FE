@@ -10,8 +10,8 @@
             <div class="col-lg-8 col-sm-8 text-right pr-0">
                 <div class="header-content-right">
                     <ul class="header-contact">
-                        <li><a href="tel:+1123456789"><i class="bx bxs-phone-call"></i> +1 123 456 789</a></li>
-                        <li><a href="mailto:hello@paso.com"><i class="bx bxs-envelope"></i> hello@paso.com</a></li>
+                        <li><a href="tel:+1123456789"><i class="bx bxs-phone-call"></i> 024 62538829</a></li>
+                        <li><a href="mailto:hello@paso.com"><i class="bx bxs-envelope"></i> info@codegym.vn</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,9 +51,9 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav text-left">
                         <li class="nav-item">
-<!--                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"-->
-<!--                               class="nav-link dropdown-toggle active">Trang chủ</a>-->
-                            <a  routerLink="home"
+                            <!--                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"-->
+                            <!--                               class="nav-link dropdown-toggle active">Trang chủ</a>-->
+                            <a routerLink="home"
                                class="nav-link dropdown-toggle active">Trang chủ</a>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
@@ -63,7 +63,7 @@
                             <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Bài Đăng</a>
+                            <a class="nav-link dropdown-toggle">Bài Đăng</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
                                     <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>
@@ -74,13 +74,24 @@
                             </ul>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
+                            <a class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
                                     <a routerLink="create-cv" class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
                                 </li>
                                 <li class="nav-item">
                                     <a [routerLink]="['/detail-cv/', idGuest]" class="nav-link">Hồ sơ của bạn</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
+                            <a routerLink="list-recruitmentnew-user" class="nav-link">Việc làm</a>
+                        </li>
+                        <li *ngIf="checkRole == 'USER'||'COMPANY'" class="nav-item">
+                            <a class="nav-link dropdown-toggle">Công ty</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="list-company" class="nav-link">Danh sách công ty</a>
                                 </li>
                             </ul>
                         </li>
@@ -95,12 +106,12 @@
                             id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">{{name}}
                     </button>
 
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'COMPANY'" >
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'COMPANY'">
                         <li><a class="dropdown-item" routerLink="detail-company">Quản lý hồ sơ</a></li>
                         <li><a class="dropdown-item" routerLink="change-password">Đổi mật khẩu</a></li>
                         <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>
                     </ul>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'USER'" >
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'USER'">
                         <li><a class="dropdown-item" routerLink="detail-user">Quản lý hồ sơ</a></li>
                         <li><a class="dropdown-item" routerLink="change-password">Đổi mật khẩu</a></li>
                         <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>

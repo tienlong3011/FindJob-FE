@@ -15,28 +15,6 @@ import {CvDTO} from "../../../model/dto/cv-dto";
 export class CreateCvComponent implements OnInit {
   status: string = "Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản."
 
-  errorCV1: any = {
-    message: "no_file_cv"
-  }
-  errorCV2: any = {
-    message: "no_SalaryExpectation_cv"
-  }
-  errorSkill1: any = {
-    message: "no_name_skill"
-  }
-  errorWorkExp1: any = {
-    message: "no_title"
-  }
-  errorWorkExp2: any = {
-    message: "no_start_date"
-  }
-  errorWorkExp3: any = {
-    message: "no_end_date"
-  }
-  success: any = {
-    message: "yes"
-  }
-
   constructor(private cvService: CVService,
               private workExpService: WorkExpService,
               private skillService: SkillService,

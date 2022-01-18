@@ -6,7 +6,7 @@ import {TokenService} from '../../../security/token.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../../../dialog/dialog.component';
-import {CompanyService} from '../../service/company.service';
+import {CompanyService} from '../../../service/company/company.service';
 
 import {StatusRequest} from '../../../model/statusRequest';
 import {any} from 'codelyzer/util/function';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {CompanyService} from '../service/company.service';
+import {CompanyService} from '../../service/company/company.service';
 import {Company} from '../../model/company';
 import {TokenService} from '../../security/token.service';
 import {HttpHeaders} from '@angular/common/http';
@@ -16,7 +16,9 @@ export class DetailCompanyComponent implements OnInit {
   idCustom: number;
   companyCurrent: any ;
   editCompany: EditCompany;
-  constructor(private router: Router,private companyService: CompanyService,private tokenService: TokenService) {
+  constructor(private router: Router,
+              private companyService: CompanyService,
+              private tokenService: TokenService) {
     this.idCustom = tokenService.getIdGuest()
     this.companyService.getCompanyNameById(this.idCustom).subscribe(data => {
       this.companyCurrent = data;

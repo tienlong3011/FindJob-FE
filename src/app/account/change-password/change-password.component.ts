@@ -15,20 +15,23 @@ export class ChangePasswordComponent implements OnInit {
     newPassword: '',
     confirmPassword: ''
   };
-  status :string;
+  status = "";
+  success:any = {
+    message: "yes"
+  }
   constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
   }
-
   ngSubmit(form: any) {
     if (this.checkPassword()) {
       this.changePassword = new ChangePassword(this.data.newPassword);
       console.log(this.changePassword);
       this.authService.changePassword(this.changePassword).subscribe(data => {
-        if(data == "yes"){
-          this.status = "Đổi mật khẩu thành công !"
+        if (JSON.stringify(data) == JSON.stringify(this.success)) {
+          // @ts-ignore
+          this.status = 'Đổi mật khẩu thành công !';
         }
       });
     }

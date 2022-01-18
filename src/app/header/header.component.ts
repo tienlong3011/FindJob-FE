@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../security/token.service";
-import {CompanyService} from "../company/service/company.service";
+import {CompanyService} from "../service/company/company.service";
 import {Company} from "../model/company";
 import {Router} from "@angular/router";
 import {User} from "../model/user";

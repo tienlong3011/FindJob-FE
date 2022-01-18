@@ -7,7 +7,7 @@ import {City} from '../../../model/city';
 import {CityService} from '../../../service/city/city.service';
 import {FieldService} from '../../../service/field/field.service';
 import {Field} from '../../../model/field';
-import {CompanyService} from '../../../company/service/company.service';
+import {CompanyService} from '../../../service/company/company.service';
 import {Company} from '../../../model/company';
 import {VacanciesService} from '../../../service/vacancies/vacancies.service';
 import {Vacancies} from '../../../model/vacancies';
@@ -15,7 +15,15 @@ import {WorkingTimeService} from '../../../service/workingTime/working-time.serv
 import {WorkingTime} from '../../../model/workingTime';
 import {TokenService} from '../../../security/token.service';
 import {ApplyRecruitmentnewComponent} from '../../apply-recruitmentnew/apply-recruitmentnew.component';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {UserService} from '../../service/user.service';
+import {DetailRecruitmentnewComponent} from '../../../company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
+import {ApplyNowComponent} from '../../../dialog/apply-now/apply-now.component';
+import {Router} from '@angular/router';
+import {Apply} from '../../../model/apply';
+import {ApplyService} from '../../../service/apply/apply.service';
+import {DialogApplyComponent} from '../../../dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
+import {DialogApplyFailComponent} from '../../../dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
 
 @Component({
   selector: 'app-list-recruitment-user',
@@ -30,6 +38,8 @@ export class ListRecruitmentUserComponent implements OnInit {
   pageSize: number = 3;
   totalSize: number = 3;
   check: boolean = false;
+  checkUser: boolean = false;
+  idGuest: number;
 
   city: City[] = [];
   fields: Field[] = [];
@@ -46,7 +56,10 @@ export class ListRecruitmentUserComponent implements OnInit {
               private vacanciesService: VacanciesService,
               private workingTimeService: WorkingTimeService,
               private tokenService: TokenService,
-              public dialog: MatDialog
+              public dialog: MatDialog,
+              private userService: UserService,
+              private router: Router,
+              private applyService: ApplyService
               ) {
     this.searchJob = new SearchJob(null, null, null, null, null, null, 0, 3);
     this.recruitmentNewService.searchByObj(this.searchJob).subscribe(data => {
@@ -58,6 +71,29 @@ export class ListRecruitmentUserComponent implements OnInit {
     this.getAllCompany();
     this.getAllVacancies();
     this.getAllWorkingTime();
+  }
+  checkUserCurrent(){
+    if(this.tokenService.getTokenKey()){
+      this.idGuest = this.tokenService.getIdGuest();
+      for (let i = 0; i < this.tokenService.getRoleKey().length; i++){
+        console.log(this.tokenService.getRoleKey()[i]);
+        if (this.tokenService.getRoleKey()[i] == "USER") {
+          this.userService.getUserById(this.idGuest).subscribe(data => {
+            if(data){
+              console.log("hello");
+              this.checkUser = true
+              console.log(data);
+            }
+          })
+        }
+        else {
+          this.checkUser = false;
+        }
+      }
+    }
+    else {
+      this.checkUser = true;
+    }
   }
 
   getAllCity() {
@@ -92,6 +128,7 @@ export class ListRecruitmentUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLogin();
+    this.checkUserCurrent();
   }
 
   pagination() {
@@ -153,13 +190,51 @@ export class ListRecruitmentUserComponent implements OnInit {
   }
 
 
-  openDialogApplyNow(id) {
+  openDialogApply(id) {
     const dialogRef = this.dialog.open(ApplyRecruitmentnewComponent, {
       data : {
         id: id
       }
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openDialogApplyNow(id) {
+    const dialogRef = this.dialog.open(ApplyNowComponent, {
+      data : {
+        id: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        if (!this.tokenService.getTokenKey()) {
+          this.router.navigate(['login']).then(window.location.reload)
+        } else {
+          const apply: Apply = new Apply(id, this.tokenService.getIdGuest());
+          this.applyService.createCV(apply).subscribe(data2 => {
+            if(data2.message == "CREATE") {
+              const dialogRef1 = this.dialog.open(DialogApplyComponent);
+              dialogRef1.afterClosed().subscribe(result => {
+                console.log('ressult sau khi bam nut --> ', result);
+                if (result == false) {
+
+                }
+              })
+            }
+            else if(data2.message == "CREATE_FAIL"){
+              const dialogRef1 = this.dialog.open(DialogApplyFailComponent);
+              dialogRef1.afterClosed().subscribe(result => {
+                console.log('ressult sau khi bam nut --> ', result);
+                if (result == false) {
+
+                }
+              });
+            }
+          })
+        }
+      }
       console.log('The dialog was closed');
     });
   }

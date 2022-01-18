@@ -32,7 +32,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <mat-card class="text-center">
-                                    <form  #form="ngForm"
+                                    <form #form="ngForm"
                                           (ngSubmit)="form.form.valid && ngSubmit(form)" novalidate>
                                         <!--                                        <mat-error class="alert alert-primary">{{status}}</mat-error>-->
                                         <mat-form-field style="width: 350px" appearance="outline">
@@ -87,15 +87,14 @@
                                             <mat-icon color="black" matSuffix>location_on</mat-icon>
                                         </mat-form-field>
                                         <br>
-                                        <div style="display: flex">
-                                            <select class="form-select text-center" aria-label="Default select example"
-                                                    name="city" [(ngModel)]="data.city"
-                                                    style="width: 350px; margin-left: 40px">
-                                                <option selected>Chọn thành phố</option>
-                                                <option *ngFor="let city of cities"
-                                                        [value]="city.id">{{city.name}}</option>
-                                            </select>
-                                        </div>
+                                        <mat-form-field appearance="outline" style="width: 350px">
+                                            <mat-label>Chọn thành phố</mat-label>
+                                            <mat-select [(ngModel)]="data.city" name="city">
+                                                <mat-option *ngFor="let city of cities"
+                                                            [value]="city.id">{{city.name}}</mat-option>
+                                            </mat-select>
+                                            <mat-icon color="black" matSuffix>apartment</mat-icon>
+                                        </mat-form-field>
                                         <br>
                                         <mat-form-field style="width: 350px" appearance="outline">
                                             <mat-label>Số điện thoại</mat-label>
