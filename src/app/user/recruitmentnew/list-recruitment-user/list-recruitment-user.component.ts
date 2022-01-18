@@ -17,6 +17,7 @@ import {TokenService} from '../../../security/token.service';
 import {ApplyRecruitmentnewComponent} from '../../apply-recruitmentnew/apply-recruitmentnew.component';
 import {MatDialog} from '@angular/material/dialog';
 import {UserService} from '../../service/user.service';
+import {DetailRecruitmentnewComponent} from '../../../company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
 
 @Component({
   selector: 'app-list-recruitment-user',
@@ -188,6 +189,18 @@ export class ListRecruitmentUserComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openDialogDetails(id) {
+    const dialogRef = this.dialog.open(DetailRecruitmentnewComponent, {
+      data : {
+        id: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+
       console.log('The dialog was closed');
     });
   }
