@@ -76,6 +76,32 @@
         </div>
     </div>
 </div>
+
+<div class="info-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>CÁC CÔNG TY CÓ NHU CẦU TUYỂN DỤNG CAO NHẤT</h2>
+            <p>Các công ty hiện tai đang cần tuyển dùng cao nhất</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6" *ngFor="let rnn of RecuitmentNewNeed">
+                <div class="single-info">
+                    <div class="info-img">
+                        <img width="400px" src="{{rnn.avatar}}">
+                    </div>
+                    <div class="content">
+                        <h3>Tên công ty: {{rnn.name}}</h3>
+                        <h3>Số lượng vị trí cần tuyển: {{rnn.count}}</h3>
+                        <div class="arrow">
+                            <a><i class="flaticon-next-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="testimonials-area ptb-100">
     <div class="container">
         <div class="row">
