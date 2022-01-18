@@ -16,7 +16,9 @@ export class DetailCompanyComponent implements OnInit {
   idCustom: number;
   companyCurrent: any ;
   editCompany: EditCompany;
-  constructor(private router: Router,private companyService: CompanyService,private tokenService: TokenService) {
+  constructor(private router: Router,
+              private companyService: CompanyService,
+              private tokenService: TokenService) {
     this.idCustom = tokenService.getIdGuest()
     this.companyService.getCompanyNameById(this.idCustom).subscribe(data => {
       this.companyCurrent = data;
