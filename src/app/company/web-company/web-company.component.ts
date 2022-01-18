@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CompanyService} from '../../service/company/company.service';
 import {TokenService} from '../../security/token.service';
 import {RecruitmentNewService} from '../../service/recruitmentNew/recruitment-new.service';
@@ -7,6 +7,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {DetailRecruitmentnewComponent} from '../recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
 import {MatDialog} from '@angular/material/dialog';
 import {Company} from '../../model/company';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-web-company',
@@ -15,19 +17,25 @@ import {Company} from '../../model/company';
 })
 export class WebCompanyComponent implements OnInit {
   idCustom: number;
-  emailCompany
-  companyCurrent: Company ;
+  emailCompany;
+  companyCurrent: Company;
   recruitmentNews: RecruitmentNew[] = [];
-  constructor( private companyService: CompanyService,
-               private tokenService: TokenService,
-               private recruitmentNewService: RecruitmentNewService,
-               private dialog: MatDialog) {
-    this.idCustom = tokenService.getIdGuest()
-    this.emailCompany = tokenService.getNameKey()
-    this.companyService.getCompanyNameById(this.idCustom).subscribe(data => {
-      console.log(data);
-      this.companyCurrent = data;
-    })
+  id: number = 0;
+  sub: Subscription;
+
+  constructor(private companyService: CompanyService,
+              private tokenService: TokenService,
+              private activeRouter: ActivatedRoute,
+              private recruitmentNewService: RecruitmentNewService,
+              private dialog: MatDialog) {
+    this.sub = this.activeRouter.paramMap.subscribe((paramMap: ParamMap) => {
+      this.id = Number(paramMap.get('id'));
+      this.emailCompany = tokenService.getNameKey();
+      this.companyService.getCompanyNameById(this.id).subscribe(data => {
+        console.log(data);
+        this.companyCurrent = data;
+      });
+    });
   }
 
   ngOnInit(): void {
@@ -35,7 +43,7 @@ export class WebCompanyComponent implements OnInit {
   }
 
   getListRecruitmentNew() {
-    this.recruitmentNewService.showAllListRecruitmentNew(this.idCustom).subscribe(listRN => {
+    this.recruitmentNewService.showAllListRecruitmentNew(this.id).subscribe(listRN => {
       this.recruitmentNews = listRN;
       console.log(listRN);
 
@@ -45,7 +53,7 @@ export class WebCompanyComponent implements OnInit {
 
   openDialogDetails(id) {
     const dialogRef = this.dialog.open(DetailRecruitmentnewComponent, {
-      data : {
+      data: {
         id: id
       }
     });
