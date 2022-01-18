@@ -110,8 +110,13 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="testimonials-foot">
-                        <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent" (click)="openDialogApplyNow(ctg.id)">Xem chi tiêt</button>
+                    <div style="display: flex">
+                        <div class="testimonials-foot" style="margin-right: 10px">
+                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent" (click)="openDialogApply(ctg.id)">Xem chi tiêt</button>
+                        </div>
+                        <div class="testimonials-foot">
+                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent" (click)="openDialogApplyNow(ctg.id)">Ứng tuyển ngay</button>
+                        </div>
                     </div>
                 </div>
             </div>
