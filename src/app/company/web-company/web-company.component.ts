@@ -6,6 +6,7 @@ import {RecruitmentNew} from '../../model/recruitmentNew';
 import {MatTableDataSource} from '@angular/material/table';
 import {DetailRecruitmentnewComponent} from '../recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
 import {MatDialog} from '@angular/material/dialog';
+import {ApplyRecruitmentnewComponent} from '../../user/apply-recruitmentnew/apply-recruitmentnew.component';
 
 @Component({
   selector: 'app-web-company',
@@ -42,16 +43,15 @@ export class WebCompanyComponent implements OnInit {
   }
 
 
-  openDialogDetails(id) {
-    const dialogRef = this.dialog.open(DetailRecruitmentnewComponent, {
+
+  openDialogApply(id) {
+    const dialogRef = this.dialog.open(ApplyRecruitmentnewComponent, {
       data : {
         id: id
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.getListRecruitmentNew();
       console.log('The dialog was closed');
     });
   }
-
 }

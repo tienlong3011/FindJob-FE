@@ -28,6 +28,7 @@ export class HomepageComponent implements OnInit {
   checkLogin: boolean = false;
   checkUser: boolean = false;
   idGuest: number;
+  searchKey: string = "";
 
   constructor(private companyService: CompanyService,
               private rcms: RecruitmentNewService,
@@ -147,5 +148,18 @@ export class HomepageComponent implements OnInit {
       }
       console.log('The dialog was closed');
     });
+  }
+
+
+
+  ngSubmit(f: any) {
+    console.log(f.value);
+    this.searchKey = f.value.searchKey;
+    if(this.searchKey == ""){
+      this.router.navigate([`list-recruitmentnew-user/xxx`])
+    }
+    else {
+      this.router.navigate([`list-recruitmentnew-user/${this.searchKey}`])
+    }
   }
 }

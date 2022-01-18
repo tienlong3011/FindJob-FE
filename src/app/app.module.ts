@@ -56,13 +56,14 @@ import { ListCompanyComponent } from './company/list-company/list-company.compon
 import { ActiveStatusComponent } from './user/active-status/active-status.component';
 import { ApplyNowComponent } from './dialog/apply-now/apply-now.component';
 import { WebCompanyComponent } from './company/web-company/web-company.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'register-company', component: RegisterCompanyComponent},
   {path: 'login', component: LoginComponent},
   {path: 'list-recruitmentnew-company', component: ListRecruitmentnewCompanyComponent},
-  {path: 'list-recruitmentnew-user', component: ListRecruitmentUserComponent},
+  {path: 'list-recruitmentnew-user/:id', component: ListRecruitmentUserComponent},
   {path: 'list-company', component: ListCompanyComponent},
   {path: 'detail-company', component: DetailCompanyComponent},
   {path: 'change-password', component: ChangePasswordComponent},
@@ -126,7 +127,7 @@ export const appRoutes: Routes = [
     NgxAudioPlayerModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule
   ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]

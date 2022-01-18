@@ -13,9 +13,19 @@
                                 bạn, Hãy đến với chúng tôi.
                             </p>
                             <div class="banner-btn">
-                                <a href="contact.html" class="box-btn" routerLink="/list-recruitmentnew-user">Tìm kiếm
-                                    việc làm</a>
-                                <a href="about.html" class="box-btn border-btn">Xem danh sách công việc</a>
+<!--                                <a href="contact.html" class="box-btn" routerLink="/list-recruitmentnew-user">Tìm kiếm-->
+<!--                                    việc làm</a>-->
+                                <form class="newsletter-form" data-toggle="validator" #f="ngForm" (ngSubmit)="ngSubmit(f)" novalidate >
+                                    <div style="display: flex">
+                                        <input style="width: 300px; margin-right: 10px" name="searchKey" ngModel class="form-control" placeholder="Nhập vào tên công việc, tên công ty..."
+                                               required="" autocomplete="off">
+                                        <button class="box-btn" type="submit">
+                                            Tìm kiếm việc làm
+                                        </button>
+                                    </div>
+                                    <div id="validator-newsletter" class="form-result"></div>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -139,10 +149,14 @@
                     <hr>
                     <div style="display: flex">
                         <div class="testimonials-foot" style="margin-right: 10px">
-                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent" (click)="openDialogApply(ctg.id)">Xem chi tiêt</button>
+                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent"
+                                    (click)="openDialogApply(ctg.id)">Xem chi tiêt
+                            </button>
                         </div>
                         <div class="testimonials-foot">
-                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent" (click)="openDialogApplyNow(ctg.id)">Ứng tuyển ngay</button>
+                            <button *ngIf="checkUser" class="text-center" mat-stroked-button color="accent"
+                                    (click)="openDialogApplyNow(ctg.id)">Ứng tuyển ngay
+                            </button>
                         </div>
                     </div>
                 </div>
