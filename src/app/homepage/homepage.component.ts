@@ -23,6 +23,7 @@ import {ApplyService} from '../service/apply/apply.service';
 export class HomepageComponent implements OnInit {
   companyHot: Company[] = [];
   recruimentNew: RecruitmentNew[] = [];
+  RecuitmentNewNeed: any[] = [];
   totalElements: number = 0;
   checkLogin: boolean = false;
   checkUser: boolean = false;
@@ -37,9 +38,9 @@ export class HomepageComponent implements OnInit {
               private applyService: ApplyService
               ) {
     this.companyService.fidAllCompanyByStatus(4).subscribe(data => {
-      console.log(data);
+
       this.companyHot = data;
-      console.log(this.companyHot);
+
     });
     this.checklogin();
   }
@@ -48,13 +49,12 @@ export class HomepageComponent implements OnInit {
     if(this.tokenService.getTokenKey()){
       this.idGuest = this.tokenService.getIdGuest();
       for (let i = 0; i < this.tokenService.getRoleKey().length; i++){
-        console.log(this.tokenService.getRoleKey()[i]);
         if (this.tokenService.getRoleKey()[i] == "USER") {
           this.userService.getUserById(this.idGuest).subscribe(data => {
             if(data){
-              console.log("hello");
+
               this.checkUser = true
-              console.log(data);
+
             }
           })
         }
@@ -67,10 +67,17 @@ export class HomepageComponent implements OnInit {
       this.checkUser = true;
     }
   }
+  findByRecuitmentNewNeed(){
+    this.companyService.findByRecuitmentNewNeed().subscribe(data =>{
+      this.RecuitmentNewNeed = data;
+      console.log(this.RecuitmentNewNeed);
+    })
+  }
 
   ngOnInit(): void {
     this.pageRecruiment({page: 0, size: 4});
     this.checkUserCurrent();
+    this.findByRecuitmentNewNeed();
   }
 
   checklogin() {
@@ -82,14 +89,11 @@ export class HomepageComponent implements OnInit {
   pageRecruiment(nextPage) {
     this.rcms.pageRecruitmentNew(nextPage).subscribe(data => {
       this.recruimentNew = data['content'];
-      console.log(this.recruimentNew);
       this.totalElements = data['totalElements'];
-      console.log(this.totalElements);
     });
   }
 
   nextPage(event: PageEvent) {
-    console.log(event);
     const request = {};
     request['page'] = event.pageIndex.toString();
     request['size'] = event.pageSize.toString();
