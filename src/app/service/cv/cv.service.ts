@@ -15,8 +15,8 @@ export class CVService {
   constructor(private http: HttpClient) { }
 
 
-  createCV(cv: Cv): Observable<any> {
-    return this.http.post(`${this.apiServerUrl}/CV`, cv)
+  createCV(cv: CvDTO): Observable<CvDTO> {
+    return this.http.post<CvDTO>(`${this.apiServerUrl}/CV/createCV`, cv)
   }
 
   findByUserId(id: number): Observable<CvDTO> {
