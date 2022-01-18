@@ -110,6 +110,7 @@ export const appRoutes: Routes = [
     WebCompanyComponent
   ],
   imports: [
+    ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
