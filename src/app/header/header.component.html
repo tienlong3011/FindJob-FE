@@ -57,7 +57,7 @@
                                class="nav-link dropdown-toggle active">Trang chủ</a>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
-                            <a routerLink="/list-recruitmentnew-user" class="nav-link">Việc làm</a>
+                            <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
                             <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
@@ -82,10 +82,13 @@
                                 <li class="nav-item">
                                     <a [routerLink]="['/detail-cv/', idGuest]" class="nav-link">Hồ sơ của bạn</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a routerLink="apply-list" class="nav-link">Dách sách ứng tuyển</a>
+                                </li>
                             </ul>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
-                            <a routerLink="list-recruitmentnew-user" class="nav-link">Việc làm</a>
+                            <a routerLink="list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
                         </li>
                         <li *ngIf="checkRole == 'USER'||'COMPANY'" class="nav-item">
                             <a class="nav-link dropdown-toggle">Công ty</a>

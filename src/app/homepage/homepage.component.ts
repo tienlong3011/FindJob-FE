@@ -14,6 +14,8 @@ import {DialogApplyComponent} from '../dialog/dialogApplyFail/dialog-apply/dialo
 import {DialogApplyFailComponent} from '../dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
 import {Router} from '@angular/router';
 import {ApplyService} from '../service/apply/apply.service';
+import {ForwardApply} from '../model/forwardApply';
+import {ForwardApplyService} from '../service/apply/forward-apply.service';
 
 @Component({
   selector: 'app-homepage',
@@ -28,6 +30,10 @@ export class HomepageComponent implements OnInit {
   checkLogin: boolean = false;
   checkUser: boolean = false;
   idGuest: number;
+  searchKey: string = "";
+  forwardApply:ForwardApply;
+  recruitmentNew: RecruitmentNew;
+
 
   constructor(private companyService: CompanyService,
               private rcms: RecruitmentNewService,
@@ -35,7 +41,9 @@ export class HomepageComponent implements OnInit {
               public dialog: MatDialog,
               private userService: UserService,
               private router: Router,
-              private applyService: ApplyService
+              private applyService: ApplyService,
+              private forwardApplyService : ForwardApplyService,
+              private recruitmentNewService: RecruitmentNewService
               ) {
     this.companyService.fidAllCompanyByStatus(4).subscribe(data => {
 
@@ -127,6 +135,13 @@ export class HomepageComponent implements OnInit {
             if(data2.message == "CREATE") {
               const dialogRef1 = this.dialog.open(DialogApplyComponent);
               dialogRef1.afterClosed().subscribe(result => {
+                this.recruitmentNewService.getRecruitmentNewById(id).subscribe(data3 =>{
+                  this.recruitmentNew = data3;
+                  this.forwardApply = new ForwardApply(this.tokenService.getIdGuest(),Number(this.recruitmentNew.company.id))
+                  this.forwardApplyService.forwardApply(this.forwardApply).subscribe(data4=>{
+                    console.log('sau khi bam nut--->',data4);
+                  });
+                })
                 console.log('ressult sau khi bam nut --> ', result);
                 if (result == false) {
 
@@ -147,5 +162,18 @@ export class HomepageComponent implements OnInit {
       }
       console.log('The dialog was closed');
     });
+  }
+
+
+
+  ngSubmit(f: any) {
+    console.log(f.value);
+    this.searchKey = f.value.searchKey;
+    if(this.searchKey == ""){
+      this.router.navigate([`list-recruitmentnew-user/xxx`])
+    }
+    else {
+      this.router.navigate([`list-recruitmentnew-user/${this.searchKey}`])
+    }
   }
 }

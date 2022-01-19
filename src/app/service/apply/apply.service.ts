@@ -15,4 +15,9 @@ export class ApplyService {
   createCV(apply: Apply): Observable<any> {
     return this.http.post(`${this.apiServerUrl}/applies`, apply)
   }
+
+  pageApply(nextPage,id : number){
+    const params = nextPage;
+    return  this.http.get(`${this.apiServerUrl}/applies/showAllApply/${id}`,{params})
+  }
 }
