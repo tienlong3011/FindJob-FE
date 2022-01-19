@@ -16,9 +16,7 @@ export class ApplyService {
   createCV(apply: Apply): Observable<any> {
     return this.http.post(`${this.apiServerUrl}/applies`, apply)
   }
-  // showAllForCompanyID(id: number): Observable<any []>{
-  //   return this.http.get<any []>(`${this.apiServerUrl}/applies/findAllByCompanyID/${id}`)
-  // }
+
   pageCompany(request,id){
     const params = request;
     return this.http.get(`${this.apiServerUrl}/applies/findAllByCompanyID/${id}`,{params})
@@ -26,6 +24,11 @@ export class ApplyService {
 
   apply(changeStatusApply: ChangeStatusApply): Observable<any>{
     return this.http.post<any>("http://localhost:8080/applies/changeStatusApply",changeStatusApply);
+  }
+
+  pageApply(nextPage,id : number){
+    const params = nextPage;
+    return  this.http.get(`${this.apiServerUrl}/applies/showAllApply/${id}`,{params})
   }
 
 }
