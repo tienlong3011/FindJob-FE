@@ -13,6 +13,7 @@ import {CvDTO} from "../../../model/dto/cv-dto";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../../../dialog/dialog.component";
 import {WorkExpDTO} from "../../../model/dto/work-exp-dto";
+import {FormArray, FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-cv',
@@ -20,9 +21,20 @@ import {WorkExpDTO} from "../../../model/dto/work-exp-dto";
   styleUrls: ['./edit-cv.component.scss']
 })
 export class EditCvComponent implements OnInit {
-  cv: CvDTO;
+  user: User;
 
   idUser: number;
+
+  id: number;
+
+  cvForm = this.fb.group({
+    expYear: [],
+    salaryExpectation: [],
+    fileCV: [],
+    userId: this.token.getIdGuest(),
+    skills: this.fb.array([]),
+    workExps: this.fb.array([])
+  })
 
   constructor(private tokenService: TokenService,
               private userService: UserService,
@@ -30,24 +42,70 @@ export class EditCvComponent implements OnInit {
               private cvService: CVService,
               private workExpService: WorkExpService,
               private route: ActivatedRoute,
-              private dialog: MatDialog
+              private dialog: MatDialog,
+              private fb: FormBuilder,
+              private token: TokenService
   ) {
+  }
+
+  get skills() {
+    return this.cvForm.get('skills') as FormArray;
+  }
+
+  get workExps() {
+    return this.cvForm.get("workExps") as FormArray;
   }
 
   ngOnInit(): void {
     this.idUser = this.route.snapshot.params['id'];
+
+    this.userService.getUserById(this.idUser).subscribe(data => {
+      this.user = data;
+    })
+
     this.cvService.findByUserId(this.idUser).subscribe((data: CvDTO) => {
-      this.cv = data;
+      data.skills.forEach(item => {
+        this.skills.push(this.fb.group({
+          name: [''],
+          proficiency: ['']
+        }));
+      })
+      data.workExps.forEach(item => {
+        this.workExps.push(this.fb.group({
+          title: [''],
+          startDate: [''],
+          endDate: [''],
+          content: ['']
+        }))
+      })
+      this.cvForm.patchValue(data);
+      console.log("data", data);
     });
   }
 
-  addWorkExp() {
-    const workExp: WorkExpDTO = {content: "aaaa", cvId: this.cv.id, endDate: null, id: null, startDate: null, title: ""};
-    this.cv.workExps.push(workExp);
-  }
-
-  deleteWorkExp(index: number) {
-    const workExpDel = this.cv.workExps.splice(index, 1);
-    // const dialog = this.dialog.openDialogs(DialogComponent);
-  }
+  // addSkill() {
+  //   const skillForm = this.fb.group({
+  //     name: [''],
+  //     proficiency: ['50%']
+  //   })
+  //   this.skills.push(skillForm);
+  // }
+  //
+  // deleteSkill(index: number) {
+  //   this.skills.removeAt(index);
+  // }
+  //
+  // addWorkExp() {
+  //   const workExpForm = this.fb.group({
+  //     title: [''],
+  //     startDate: [''],
+  //     endDate: [''],
+  //     content: ['']
+  //   })
+  //   this.workExps.push(workExpForm);
+  // }
+  //
+  // deleteWorkExp(index: number) {
+  //   this.workExps.removeAt(index);
+  // }
 }
