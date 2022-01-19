@@ -60,6 +60,18 @@
                             <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
+                            <a class="nav-link dropdown-toggle">Việc làm</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Danh sách việc làm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/apply-company" class="nav-link">Danh sách ứng tuyển</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
                             <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
