@@ -47,7 +47,7 @@
             <h2>Hãy Bắt Đầu Tạo CV Ngay Hôm Nay!</h2>
             <p style="color: red">{{status}}</p>
         </div>
-        <div class="content">
+        <div class="content" style="margin-left: 130px;margin-right: 130px;">
             <form [formGroup]="cvForm" (ngSubmit)="ngSubmit()" id="contactForm" class="create-category"
                   novalidate>
                 <div id="container" class="row">
@@ -60,7 +60,7 @@
                             <mat-icon color="black" matSuffix>business_center</mat-icon>
                         </mat-form-field>
                     </div>
-                                                            <!--LƯƠNG MONG MUỐN-->
+                    <!--LƯƠNG MONG MUỐN-->
                     <div class="col-lg-6 col-sm-6">
                         <mat-form-field style="width: 100%" appearance="outline">
                             <mat-label>Lương mong muốn</mat-label>
@@ -71,7 +71,7 @@
                     </div>
 
                     <!--                    KĨ NĂNG CÁ NHÂN-->
-                    <p style="text-align: center;color: red">Kỹ năng cá nhân</p>
+                    <p style="text-align: center;color: #3e8acc">Kỹ năng cá nhân</p>
                     <div formArrayName="skills">
                         <div style="border: 1px solid black">
                             <ng-container formArrayName="skills">
@@ -102,20 +102,21 @@
                             </ng-container>
                         </div>
 
-                        <button style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px" type="button" (click)="addSkill()"
+                        <button style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px" type="button"
+                                (click)="addSkill()"
                                 mat-raised-button>
                             Thêm kỹ năng mới
                         </button>
                     </div>
 
                     <!--                    //------------------------------------------------------------------------>
-                    <p style="text-align: center;color: red">Kinh nghiệm bản thân</p>
+                    <p style="text-align: center;color: #3e8acc">Kinh nghiệm bản thân</p>
                     <div formArrayName="workExps">
                         <div style="border: 1px solid black">
                             <ng-container formControlName="workExps">
                                 <ng-container *ngFor="let workExpForm of workExps.controls; let i = index">
                                     <div [formGroup]="workExpForm">
-                                        <div class="col-lg-4 col-sm-4">
+                                        <div class="col-lg-12 col-sm-12">
                                             <mat-form-field style="width: 100%" appearance="outline">
                                                 <mat-label>Công việc</mat-label>
                                                 <input formControlName="title" matInput
@@ -123,7 +124,7 @@
                                                 <mat-icon color="black" matSuffix>workspace_premium</mat-icon>
                                             </mat-form-field>
                                         </div>
-                                        <div class="col-lg-4 col-sm-4">
+                                        <div class="col-lg-12 col-sm-12">
                                             <mat-form-field appearance="outline" style="width: 100%">
                                                 <mat-label>Ngày bắt đầu công việc</mat-label>
                                                 <input formControlName="startDate" matInput [matDatepicker]="picker">
@@ -131,7 +132,7 @@
                                                 <mat-datepicker #picker></mat-datepicker>
                                             </mat-form-field>
                                         </div>
-                                        <div class="col-lg-4 col-sm-4">
+                                        <div class="col-lg-12 col-sm-12">
                                             <mat-form-field appearance="outline" style="width: 100%">
                                                 <mat-label>Ngày kết thúc công việc</mat-label>
                                                 <input formControlName="endDate" matInput [matDatepicker]="picker1">

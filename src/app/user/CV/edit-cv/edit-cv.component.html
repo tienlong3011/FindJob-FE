@@ -19,9 +19,10 @@
                             <h3>Thông tin cá nhân</h3>
                             <ul class="personal-list">
                                 <li><i class="fas fa-briefcase "></i><span
-                                        formControlName="expYear">Năm kinh nghiệm: {{cvForm.value.expYear}}</span></li>
+                                        formControlName="expYear"><b>Năm kinh nghiệm:</b> {{cvForm.value.expYear}}</span>
+                                </li>
                                 <li><i class="fas fa-map-marker-alt "></i><span
-                                        formControlName="salaryExpectation">Lương mong muốn: {{cvForm.value.salaryExpectation}}</span>
+                                        formControlName="salaryExpectation"><b>Lương mong muốn:</b> {{cvForm.value.salaryExpectation}}</span>
                                 </li>
                                 <li><i class="far fa-envelope "></i><span>{{user.account.username}}</span></li>
                                 <li><i class="fas fa-mobile "></i><span>{{user.phone}}</span></li>
@@ -29,17 +30,17 @@
                         </div>
 
                         <h3>Kỹ năng</h3>
-<!--                        <div formArrayName="skills">-->
-                            <ng-container formArrayName="skills">
-                                <ng-container *ngFor="let skillForm of skills.controls; let i = index">
-                                    <div [formGroup]="skillForm">
-                                        <p formControlName="name">{{skillForm.value.name}}</p>
-                                        <input type="text" formControlName="proficiency"
-                                               [value]="skillForm.value.proficiency">
-                                    </div>
-                                </ng-container>
+                        <!--                                                <div formArrayName="skills">-->
+                        <ng-container formArrayName="skills">
+                            <ng-container *ngFor="let skillForm of skills.controls; let i = index">
+                                <div [formGroup]="skillForm">
+                                    <p formControlName="name">{{skillForm.value.name}}</p>
+                                    <input type="text" formControlName="proficiency"
+                                           [value]="skillForm.value.proficiency">
+                                </div>
                             </ng-container>
-<!--                        </div>-->
+                        </ng-container>
+                        <!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -52,25 +53,28 @@
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                  aria-labelledby="pills-home-tab">
-<!--                                <div formArrayName="workExps">-->
-                                    <ng-container formArrayName="workExps">
-                                        <ng-container *ngFor="let workExpForm of workExps.controls; let i = index">
-                                            <div [formGroup]="workExpForm">
-                                                <h3 formControlName="title">{{workExpForm.value.title}}</h3>
-                                                <h4>
-                                                    <i class="far fa-calendar-alt"></i>
-                                                    <span formControlName="startDate" [contentEditable]="true">{{workExpForm.value.startDate}}</span>
-                                                    to
-                                                    <span class="badge badge-info">
+                                <!--                                <div formArrayName="workExps">-->
+                                <ng-container formArrayName="workExps">
+                                    <ng-container *ngFor="let workExpForm of workExps.controls; let i = index">
+                                        <div [formGroup]="workExpForm">
+                                            <h3 formControlName="title">{{workExpForm.value.title}}</h3>
+                                            <h4>
+                                                <i class="far fa-calendar-alt"></i>
+                                                <span formControlName="startDate"
+                                                      [contentEditable]="true">{{workExpForm.value.startDate}}</span>
+                                                to
+                                                <span class="badge badge-info">
                                                         <span style="outline: none" formControlName="endDate"
-                                                        [contentEditable]="true">{{workExpForm.value.endDate}}</span>
+                                                              [contentEditable]="true">{{workExpForm.value.endDate}}</span>
                                                     </span>
-                                                </h4>
-                                                <p formControlName="content">{{workExpForm.value.content}}</p>
-                                            </div>
-                                        </ng-container>
+                                            </h4>
+                                            <p formControlName="content">{{workExpForm.value.content}}</p>
+
+                                        </div>
+                                        <hr>
                                     </ng-container>
-<!--                                </div>-->
+                                </ng-container>
+                                <!--                                </div>-->
                             </div>
                         </div>
                     </div>
