@@ -57,6 +57,7 @@ import { ActiveStatusComponent } from './user/active-status/active-status.compon
 import { ApplyNowComponent } from './dialog/apply-now/apply-now.component';
 import { WebCompanyComponent } from './company/web-company/web-company.component';
 import {MatSliderModule} from '@angular/material/slider';
+import { ApplyListComponent } from './user/apply-list/apply-list.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -74,6 +75,7 @@ export const appRoutes: Routes = [
   {path: 'update-recruitmentnew/:id', component: UpdateRecruitmentnewCompanyComponent},
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'active-status/:id', component: ActiveStatusComponent},
+  {path: 'apply-list', component: ApplyListComponent},
   {path: 'home', component: HomepageComponent},
   {path: 'web-company/:id', component: WebCompanyComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
@@ -107,7 +109,8 @@ export const appRoutes: Routes = [
     ListCompanyComponent,
     ActiveStatusComponent,
     ApplyNowComponent,
-    WebCompanyComponent
+    WebCompanyComponent,
+    ApplyListComponent
   ],
   imports: [
     ReactiveFormsModule,

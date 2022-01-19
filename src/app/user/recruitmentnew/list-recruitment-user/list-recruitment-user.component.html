@@ -19,8 +19,8 @@
                             <input type="text" name="title" class="form-control" placeholder="Nhập vào tên công việc, tên công ty, tên thành phố..." id="keywords" [(ngModel)]="searchJob.title">
                         </div>
                     </div>
-                    <button mat-raised-button color="warn" *ngIf="!advancedForm" (click)=" advancedForm = !advancedForm" >Tìm kiếm nâng cao</button>
-                    <button mat-raised-button color="warn" *ngIf="advancedForm" (click)=" advancedForm = !advancedForm" >Đóng</button>
+                    <a class="btn btn-link"  style="color:#4e63d7;margin-left: -450px" *ngIf="!advancedForm" (click)=" advancedForm = !advancedForm" >Tìm kiếm nâng cao</a>
+                    <a class="btn btn-link"  style="color:#4e63d7;margin-left: -490px" *ngIf="advancedForm" (click)=" advancedForm = !advancedForm" >Đóng</a>
                     <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-6 col-lg-6 my-3">
                         <mat-label>Thành phố</mat-label>
                         <select matNativeControl ngModel name="cityId">
@@ -62,7 +62,7 @@
                             name="salary"
                             aria-label="units"></mat-slider>
                     <div class="col-md-6 col-lg-3 my-3" style="margin-left: 350px">
-                        <button type="submit" class="btn btn-lg btn-block btn-light btn-custom btn-outline-info"
+                        <button type="submit" class="btn btn-lg btn-block btn-light btn-custom btn-outline-primary"
                                 id="contact-submit" style="margin-top: 10px;">
                             Search
                         </button>
