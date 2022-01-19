@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {TokenService} from "../security/token.service";
-import {CompanyService} from "../service/company/company.service";
-import {Company} from "../model/company";
-import {Router} from "@angular/router";
-import {User} from "../model/user";
-import {UserService} from "../user/service/user.service";
+import {Component, OnInit} from '@angular/core';
+import {TokenService} from '../security/token.service';
+import {CompanyService} from '../service/company/company.service';
+import {Company} from '../model/company';
+import {Router} from '@angular/router';
+import {User} from '../model/user';
+import {UserService} from '../user/service/user.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   checkRole: string;
 
   // @ts-ignore
-  name: string
+  name: string;
 
   // @ts-ignore
   idGuest: number;
@@ -30,28 +30,32 @@ export class HeaderComponent implements OnInit {
   constructor(private tokenService: TokenService,
               private companyService: CompanyService,
               private userService: UserService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     if (this.tokenService.getTokenKey()) {
       this.checkLogin = true;
       this.idGuest = this.tokenService.getIdGuest();
       for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
-        if (this.tokenService.getRoleKey()[i] == "COMPANY") {
+        if (this.tokenService.getRoleKey()[i] == 'COMPANY') {
           this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
             console.log(data);
             this.company = data;
-            this.checkRole = "COMPANY";
+            this.checkRole = 'COMPANY';
             this.name = this.company.name;
-          })
+          });
         }
-        if (this.tokenService.getRoleKey()[i] == "USER") {
+        if (this.tokenService.getRoleKey()[i] == 'USER') {
           this.userService.getUserById(this.idGuest).subscribe(data => {
             console.log(data);
             this.user = data;
-            this.checkRole = "USER";
+            this.checkRole = 'USER';
             this.name = this.user.name;
-          })
+          });
+        }
+        if (this.tokenService.getTokenKey()[i] == 'ADMIN') {
+          this.checkRole = 'ADMIN';
         }
       }
     }
@@ -59,8 +63,9 @@ export class HeaderComponent implements OnInit {
 
   logOut() {
     window.sessionStorage.clear();
-    this.router.navigate(['login']).then(()=>{
+    this.router.navigate(['login']).then(() => {
       window.location.reload();
-    })
+    });
   }
 }
+

@@ -54,6 +54,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { DialogCreateCompanyComponent } from './dialog/dialogCreateCompany/dialog-create-company/dialog-create-company.component';
 import { ListCompanyComponent } from './company/list-company/list-company.component';
 import { ActiveStatusComponent } from './user/active-status/active-status.component';
+// @ts-ignore
+import { ListCompomentAdminComponent } from './admin/list-company-admin/list-compoment-admin.component';
+import { ListAccountComponent } from './admin/list-account/list-account.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -72,7 +75,8 @@ export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
   {path: 'active-status/:id', component: ActiveStatusComponent},
   {path: 'home', component: HomepageComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'}
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'list-account', component: ListAccountComponent}
 ];
 
 @NgModule({
@@ -101,7 +105,8 @@ export const appRoutes: Routes = [
     HomepageComponent,
     DialogCreateCompanyComponent,
     ListCompanyComponent,
-    ActiveStatusComponent
+    ActiveStatusComponent,
+    ListAccountComponent,
   ],
   imports: [
     MatDatepickerModule,
