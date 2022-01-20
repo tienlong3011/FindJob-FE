@@ -35,9 +35,9 @@ export class CompanyService {
   fidAllCompanyByStatus(status: number): Observable<Company []>{
     return this.http.get<Company []>(`${this.apiServerUrl}/company/findByStatus/${status}`);
   }
-  // changeStatusCompany(id:number): Observable<any>{
-  //
-  // }
+  findByRecuitmentNewNeed(): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/company/findByRecuitmentNewNeed`);
+  }
 }
 
 

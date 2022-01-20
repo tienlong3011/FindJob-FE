@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActiveStatusComponent } from './active-status.component';
+import { DialogEditCvComponent } from './dialog-edit-cv.component';
 
-describe('ActiveStatusComponent', () => {
-  let component: ActiveStatusComponent;
-  let fixture: ComponentFixture<ActiveStatusComponent>;
+describe('DialogEditCvComponent', () => {
+  let component: DialogEditCvComponent;
+  let fixture: ComponentFixture<DialogEditCvComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ActiveStatusComponent ]
+      declarations: [ DialogEditCvComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ActiveStatusComponent);
+    fixture = TestBed.createComponent(DialogEditCvComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

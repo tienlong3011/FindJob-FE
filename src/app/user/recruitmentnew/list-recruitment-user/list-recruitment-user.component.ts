@@ -15,8 +15,17 @@ import {WorkingTimeService} from '../../../service/workingTime/working-time.serv
 import {WorkingTime} from '../../../model/workingTime';
 import {TokenService} from '../../../security/token.service';
 import {ApplyRecruitmentnewComponent} from '../../apply-recruitmentnew/apply-recruitmentnew.component';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {UserService} from '../../service/user.service';
+import {DetailRecruitmentnewComponent} from '../../../company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
+import {ApplyNowComponent} from '../../../dialog/apply-now/apply-now.component';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {Apply} from '../../../model/apply';
+import {ApplyService} from '../../../service/apply/apply.service';
+import {DialogApplyComponent} from '../../../dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
+import {DialogApplyFailComponent} from '../../../dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
+import {Subscription} from 'rxjs';
+import {DialogMatchComponent} from '../../../dialog/dialog-match/dialog-match.component';
 
 @Component({
   selector: 'app-list-recruitment-user',
@@ -33,12 +42,16 @@ export class ListRecruitmentUserComponent implements OnInit {
   check: boolean = false;
   checkUser: boolean = false;
   idGuest: number;
+  advancedForm:boolean = false;
+  sub: Subscription;
+  searchKey: string;
 
   city: City[] = [];
   fields: Field[] = [];
   company: any[] = [];
   vacancies: Vacancies[] = [];
   workingTime: WorkingTime[] = [];
+
 
 
 
@@ -51,10 +64,21 @@ export class ListRecruitmentUserComponent implements OnInit {
               private tokenService: TokenService,
               public dialog: MatDialog,
               private userService: UserService,
+              private router: Router,
+              private applyService: ApplyService,
+              private activeRouter: ActivatedRoute
               ) {
-    this.searchJob = new SearchJob(null, null, null, null, null, null, 0, 3);
+    this.sub = this.activeRouter.paramMap.subscribe((paramMap: ParamMap)=> {
+      this.searchKey = (paramMap.get('id'));
+      if(paramMap.get('id') == "xxx"){
+        this.searchKey = null;
+      }
+      console.log(this.searchKey);
+    })
+    this.searchJob = new SearchJob(this.searchKey, null, null, null, null, null, 0, 3,null);
     this.recruitmentNewService.searchByObj(this.searchJob).subscribe(data => {
       this.recruitmentNews = data.data;
+      this.totalSize = data.totalRecord;
       console.log(this.recruitmentNews);
     });
     this.getAllCity();
@@ -62,6 +86,12 @@ export class ListRecruitmentUserComponent implements OnInit {
     this.getAllCompany();
     this.getAllVacancies();
     this.getAllWorkingTime();
+  }
+  formatLabel(value: number) {
+    if (value >= 1000000) {
+      return Math.round(value / 1000000) + 'tr';
+    }
+    return value;
   }
   checkUserCurrent(){
     if(this.tokenService.getTokenKey()){
@@ -125,7 +155,8 @@ export class ListRecruitmentUserComponent implements OnInit {
   pagination() {
     this.start = this.pageCurrent * this.pageSize;
     console.log(this.start);
-    this.searchJob = new SearchJob(this.searchJob.title, this.searchJob.cityId, this.searchJob.fieldId, this.searchJob.companyId, this.searchJob.vacancies, this.searchJob.workingTimeId, this.start, this.totalSize);
+    this.searchJob = new SearchJob(this.searchJob.title, this.searchJob.cityId, this.searchJob.fieldId, this.searchJob.companyId, this.searchJob.vacancies, this.searchJob.workingTimeId, this.start, this.pageSize,this.searchJob.salary);
+    console.log(this.searchJob);
     this.recruitmentNewService.searchByObj(this.searchJob).subscribe(data => {
       this.recruitmentNews = data.data;
       console.log(this.recruitmentNews);
@@ -145,8 +176,13 @@ export class ListRecruitmentUserComponent implements OnInit {
   }
 
   rightPage() {
-    this.pageCurrent = this.pageCurrent + 1;
-    this.pagination();
+    if(this.pageCurrent * this.pageSize >= this.totalSize){
+
+    }
+    else {
+      this.pageCurrent = this.pageCurrent + 1;
+      this.pagination();
+    }
   }
 
   ngSubmit(form) {
@@ -168,12 +204,17 @@ export class ListRecruitmentUserComponent implements OnInit {
     if(form.value.workingTimeId == ""){
       form.value.workingTimeId = null;
     }
+    if(form.value.salary == 0){
+      form.value.salary = null;
+    }
+    console.log(form.value);
     this.searchJob.title = form.value.title;
     this.searchJob.cityId = form.value.cityId;
     this.searchJob.fieldId = form.value.fieldId;
     this.searchJob.companyId = form.value.companyId;
     this.searchJob.vacancies = form.value.vacancies;
     this.searchJob.workingTimeId = form.value.workingTime;
+    this.searchJob.salary = form.value.salary;
     this.start = 0 ;
     this.pageCurrent = 0;
     this.pagination();
@@ -181,13 +222,57 @@ export class ListRecruitmentUserComponent implements OnInit {
   }
 
 
-  openDialogApplyNow(id) {
+  openDialogApply(id) {
     const dialogRef = this.dialog.open(ApplyRecruitmentnewComponent, {
       data : {
         id: id
       }
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openDialogApplyNow(id) {
+    const dialogRef = this.dialog.open(ApplyNowComponent, {
+      data : {
+        id: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        if (!this.tokenService.getTokenKey()) {
+          this.router.navigate(['login']).then(window.location.reload)
+        } else {
+          const apply: Apply = new Apply(id, this.tokenService.getIdGuest());
+          this.applyService.createCV(apply).subscribe(data2 => {
+            if(data2.message == "CREATE") {
+              const dialogRef1 = this.dialog.open(DialogApplyComponent);
+              dialogRef1.afterClosed().subscribe(result => {
+                console.log('ressult sau khi bam nut --> ', result);
+                if (result == false) {
+
+                }
+              })
+            }
+            else if(data2.message == "CREATE_FAIL"){
+              const dialogRef1 = this.dialog.open(DialogApplyFailComponent);
+              dialogRef1.afterClosed().subscribe(result => {
+                console.log('ressult sau khi bam nut --> ', result);
+                if (result == false) {
+
+                }
+              });
+            }
+            else if(data2.message == "MATCH"){
+              const dialogRef2 = this.dialog.open(DialogMatchComponent);
+              dialogRef2.afterClosed().subscribe(result => {
+
+              })
+            }
+          })
+        }
+      }
       console.log('The dialog was closed');
     });
   }

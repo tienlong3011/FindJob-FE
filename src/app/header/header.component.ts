@@ -59,7 +59,6 @@ export class HeaderComponent implements OnInit {
               this.name = this.user.name;
             });
           }
-
         }
       }
 

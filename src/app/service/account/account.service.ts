@@ -20,6 +20,10 @@ export class AccountService {
     // @ts-ignore
     return this.http.put(`${this.apiServerUrl}/editStatusAccount/${id}`);
   }
+  changeStatusById2(id: number): Observable<any> {
+    // @ts-ignore
+    return this.http.put(`${this.apiServerUrl}/recruitment/editStatus/${id}`);
+  }
 
   showAllAdminRecruitment(): Observable<any> {
     return this.http.get(`${environment.apiBaseUrl}/recruitment/list`)

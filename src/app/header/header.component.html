@@ -57,40 +57,56 @@
                                class="nav-link dropdown-toggle active">Trang chủ</a>
                         </li>
                         <li *ngIf="checkRole == 'ADMIN'" class="nav-item">
+                            <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
+                        </li>
+                        <li *ngIf="checkRole == 'ADMIN'" class="nav-item">
                             <a routerLink="/list-account" class="nav-link">Quản lý tài khoản</a>
                         </li>
                         <li *ngIf="checkRole == 'ADMIN'" class="nav-item">
                             <a routerLink="/lockUnlockAdmin" class="nav-link">Quản lý tin tuyển dụng</a>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
-                            <a routerLink="/list-recruitmentnew-user" class="nav-link">Việc làm</a>
+                            <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
                         </li>
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
-                            <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
+                            <a class="nav-link dropdown-toggle">Việc làm</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Danh sách việc làm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/apply-company" class="nav-link">Danh sách ứng tuyển</a>
+                                </li>
+                            </ul>
                         </li>
+
+
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
                             <a class="nav-link dropdown-toggle">Bài Đăng</a>
                             <ul class="dropdown-menu">
+                                <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
+                                    <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
+                                </li>
                                 <li class="nav-item">
                                     <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="case-details.html" class="nav-link">Case Studies Details</a>
-                                </li>
+
                             </ul>
                         </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
                             <a class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a routerLink="create-cv" class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
+                                    <a routerLink="create-cv"  class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
                                 </li>
                                 <li class="nav-item">
                                     <a [routerLink]="['/detail-cv/', idGuest]" class="nav-link">Hồ sơ của bạn</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a routerLink="apply-list" class="nav-link">Dách sách ứng tuyển</a>
+                                </li>
                             </ul>
                         </li>
-
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
                             <a routerLink="list-recruitmentnew-user" class="nav-link">Việc làm</a>
                         </li>
@@ -119,7 +135,7 @@
                         <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>
                     </ul>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'USER'">
-                        <li><a class="dropdown-item" routerLink="detail-user">Quản lý hồ sơ</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/detail-cv/', idGuest]" >Quản lý hồ sơ</a></li>
                         <li><a class="dropdown-item" routerLink="change-password">Đổi mật khẩu</a></li>
                         <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>
                     </ul>
