@@ -1,5 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import en from '@angular/common/locales/en';
+registerLocaleData(en);
 import {Routes, RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
@@ -70,6 +72,7 @@ import {UploadFileComponent} from './upload/upload-file/upload-file.component';
 import {ApplyCompanyComponent} from './company/apply-company/apply-company.component';
 import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-create.component';
 import { DialogMatchComponent } from './dialog/dialog-match/dialog-match.component';
+import {registerLocaleData} from '@angular/common';
 
 
 export const appRoutes: Routes = [
@@ -158,7 +161,7 @@ export const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule
   ],
-  providers: [httpInterceptorProvider],
+  providers: [httpInterceptorProvider,{provide: LOCALE_ID, useValue: "en-US"}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
