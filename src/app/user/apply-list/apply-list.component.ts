@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {any} from 'codelyzer/util/function';
 import {ApplyService} from '../../service/apply/apply.service';
 import {TokenService} from '../../security/token.service';
 import {PageEvent} from '@angular/material/paginator';
-import {RecruitmentNewService} from '../../service/recruitmentNew/recruitment-new.service';
-import {RecruitmentNew} from '../../model/recruitmentNew';
 import {DetailRecruitmentnewComponent} from '../../company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
 import {MatDialog} from '@angular/material/dialog';
 
@@ -32,10 +29,6 @@ export class ApplyListComponent implements OnInit {
     this.applyService.pageApply(nextPage, this.idGuest).subscribe(data => {
       this.applis = data['content'];
       this.totalElements = data['totalElements'];
-      // this.recruitmentNewService.getRecruitmentNewById(this.applis.recuitmentNew.id).subscribe(data2 =>{
-      //   console.log('new',data2);
-      //   this.recruitmentNew1 = data2;
-      // })
       console.log(data);
     });
   }
