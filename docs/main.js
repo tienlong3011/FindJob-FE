@@ -68,7 +68,7 @@ var SecondsToMinutesPipe = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchJob", function() { return SearchJob; });
 var SearchJob = /** @class */ (function () {
-    function SearchJob(title, cityId, fieldId, companyId, vacancies, workingTimeId, start, pageSize) {
+    function SearchJob(title, cityId, fieldId, companyId, vacancies, workingTimeId, start, pageSize, salary) {
         this.title = title;
         this.cityId = cityId;
         this.fieldId = fieldId;
@@ -77,8 +77,55 @@ var SearchJob = /** @class */ (function () {
         this.workingTimeId = workingTimeId;
         this.start = start;
         this.pageSize = pageSize;
+        this.salary = salary;
     }
     return SearchJob;
+}());
+
+
+
+/***/ }),
+
+/***/ "/Vn9":
+/*!**************************************************************************!*\
+  !*** ./src/app/dialog/CV/dialog-create-cv/dialog-create-cv.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: DialogCreateCvComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogCreateCvComponent", function() { return DialogCreateCvComponent; });
+/* harmony import */ var _raw_loader_dialog_create_cv_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./dialog-create-cv.component.html */ "Yd1Z");
+/* harmony import */ var _dialog_create_cv_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dialog-create-cv.component.scss */ "m1uw");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DialogCreateCvComponent = /** @class */ (function () {
+    function DialogCreateCvComponent() {
+    }
+    DialogCreateCvComponent.prototype.ngOnInit = function () {
+    };
+    DialogCreateCvComponent.ctorParameters = function () { return []; };
+    DialogCreateCvComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-dialog-create-cv',
+            template: _raw_loader_dialog_create_cv_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+            styles: [_dialog_create_cv_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogCreateCvComponent);
+    return DialogCreateCvComponent;
 }());
 
 
@@ -94,6 +141,19 @@ var SearchJob = /** @class */ (function () {
 
 module.exports = __webpack_require__(/*! D:\M6-FindJob-Frontend\src\main.ts */"zUnb");
 
+
+/***/ }),
+
+/***/ "0eJw":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/dialog/CV/dialog-no-create/dialog-no-create.component.html ***!
+  \******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-12\" style=\"margin-top: 20px\">\r\n            <mat-card style=\"margin: 50px 0\">\r\n                <h4 class=\"alert alert-dark\">Bạn đã có CV!</h4>\r\n                <button mat-raised-button color=\"warn\" [mat-dialog-close]=\"false\">Đóng</button>\r\n            </mat-card>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -173,6 +233,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../service/apply/apply.service */ "j6QF");
 /* harmony import */ var _dialog_dialogApplyFail_dialog_apply_dialog_apply_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../dialog/dialogApplyFail/dialog-apply/dialog-apply.component */ "pA9W");
 /* harmony import */ var _dialog_dialogApplyFail_dialog_apply_fail_dialog_apply_fail_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../../dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component */ "NUjO");
+/* harmony import */ var _dialog_dialog_match_dialog_match_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../../dialog/dialog-match/dialog-match.component */ "erfy");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -202,8 +263,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ListRecruitmentUserComponent = /** @class */ (function () {
-    function ListRecruitmentUserComponent(recruitmentNewService, cityService, fieldService, companyService, vacanciesService, workingTimeService, tokenService, dialog, userService, router, applyService) {
+    function ListRecruitmentUserComponent(recruitmentNewService, cityService, fieldService, companyService, vacanciesService, workingTimeService, tokenService, dialog, userService, router, applyService, activeRouter) {
         var _this = this;
         this.recruitmentNewService = recruitmentNewService;
         this.cityService = cityService;
@@ -216,20 +278,30 @@ var ListRecruitmentUserComponent = /** @class */ (function () {
         this.userService = userService;
         this.router = router;
         this.applyService = applyService;
+        this.activeRouter = activeRouter;
         this.pageCurrent = 0;
         this.start = 0;
         this.pageSize = 3;
         this.totalSize = 3;
         this.check = false;
         this.checkUser = false;
+        this.advancedForm = false;
         this.city = [];
         this.fields = [];
         this.company = [];
         this.vacancies = [];
         this.workingTime = [];
-        this.searchJob = new _model_SearchJob__WEBPACK_IMPORTED_MODULE_4__["SearchJob"](null, null, null, null, null, null, 0, 3);
+        this.sub = this.activeRouter.paramMap.subscribe(function (paramMap) {
+            _this.searchKey = (paramMap.get('id'));
+            if (paramMap.get('id') == "xxx") {
+                _this.searchKey = null;
+            }
+            console.log(_this.searchKey);
+        });
+        this.searchJob = new _model_SearchJob__WEBPACK_IMPORTED_MODULE_4__["SearchJob"](this.searchKey, null, null, null, null, null, 0, 3, null);
         this.recruitmentNewService.searchByObj(this.searchJob).subscribe(function (data) {
             _this.recruitmentNews = data.data;
+            _this.totalSize = data.totalRecord;
             console.log(_this.recruitmentNews);
         });
         this.getAllCity();
@@ -238,6 +310,12 @@ var ListRecruitmentUserComponent = /** @class */ (function () {
         this.getAllVacancies();
         this.getAllWorkingTime();
     }
+    ListRecruitmentUserComponent.prototype.formatLabel = function (value) {
+        if (value >= 1000000) {
+            return Math.round(value / 1000000) + 'tr';
+        }
+        return value;
+    };
     ListRecruitmentUserComponent.prototype.checkUserCurrent = function () {
         var _this = this;
         if (this.tokenService.getTokenKey()) {
@@ -300,7 +378,8 @@ var ListRecruitmentUserComponent = /** @class */ (function () {
         var _this = this;
         this.start = this.pageCurrent * this.pageSize;
         console.log(this.start);
-        this.searchJob = new _model_SearchJob__WEBPACK_IMPORTED_MODULE_4__["SearchJob"](this.searchJob.title, this.searchJob.cityId, this.searchJob.fieldId, this.searchJob.companyId, this.searchJob.vacancies, this.searchJob.workingTimeId, this.start, this.totalSize);
+        this.searchJob = new _model_SearchJob__WEBPACK_IMPORTED_MODULE_4__["SearchJob"](this.searchJob.title, this.searchJob.cityId, this.searchJob.fieldId, this.searchJob.companyId, this.searchJob.vacancies, this.searchJob.workingTimeId, this.start, this.pageSize, this.searchJob.salary);
+        console.log(this.searchJob);
         this.recruitmentNewService.searchByObj(this.searchJob).subscribe(function (data) {
             _this.recruitmentNews = data.data;
             console.log(_this.recruitmentNews);
@@ -318,8 +397,12 @@ var ListRecruitmentUserComponent = /** @class */ (function () {
         }
     };
     ListRecruitmentUserComponent.prototype.rightPage = function () {
-        this.pageCurrent = this.pageCurrent + 1;
-        this.pagination();
+        if (this.pageCurrent * this.pageSize >= this.totalSize) {
+        }
+        else {
+            this.pageCurrent = this.pageCurrent + 1;
+            this.pagination();
+        }
     };
     ListRecruitmentUserComponent.prototype.ngSubmit = function (form) {
         if (form.value.title == "") {
@@ -340,12 +423,17 @@ var ListRecruitmentUserComponent = /** @class */ (function () {
         if (form.value.workingTimeId == "") {
             form.value.workingTimeId = null;
         }
+        if (form.value.salary == 0) {
+            form.value.salary = null;
+        }
+        console.log(form.value);
         this.searchJob.title = form.value.title;
         this.searchJob.cityId = form.value.cityId;
         this.searchJob.fieldId = form.value.fieldId;
         this.searchJob.companyId = form.value.companyId;
         this.searchJob.vacancies = form.value.vacancies;
         this.searchJob.workingTimeId = form.value.workingTime;
+        this.searchJob.salary = form.value.salary;
         this.start = 0;
         this.pageCurrent = 0;
         this.pagination();
@@ -392,6 +480,11 @@ var ListRecruitmentUserComponent = /** @class */ (function () {
                                 }
                             });
                         }
+                        else if (data2.message == "MATCH") {
+                            var dialogRef2 = _this.dialog.open(_dialog_dialog_match_dialog_match_component__WEBPACK_IMPORTED_MODULE_20__["DialogMatchComponent"]);
+                            dialogRef2.afterClosed().subscribe(function (result) {
+                            });
+                        }
                     });
                 }
             }
@@ -409,7 +502,8 @@ var ListRecruitmentUserComponent = /** @class */ (function () {
         { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialog"] },
         { type: _service_user_service__WEBPACK_IMPORTED_MODULE_13__["UserService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_15__["Router"] },
-        { type: _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_17__["ApplyService"] }
+        { type: _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_17__["ApplyService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_15__["ActivatedRoute"] }
     ]; };
     ListRecruitmentUserComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -427,7 +521,8 @@ var ListRecruitmentUserComponent = /** @class */ (function () {
             _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialog"],
             _service_user_service__WEBPACK_IMPORTED_MODULE_13__["UserService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_15__["Router"],
-            _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_17__["ApplyService"]])
+            _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_17__["ApplyService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_15__["ActivatedRoute"]])
     ], ListRecruitmentUserComponent);
     return ListRecruitmentUserComponent;
 }());
@@ -462,6 +557,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "1vL1":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/dialog/CV/dialog-edit-cv/dialog-edit-cv.component.html ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-12\" style=\"margin-top: 20px\">\r\n            <mat-card style=\"margin: 50px 0\">\r\n                <h4 class=\"alert alert-dark\">Hồ sơ của bạn đã cập nhật thành công!</h4>\r\n                <button mat-raised-button color=\"warn\" [mat-dialog-close]=\"false\">Đóng</button>\r\n            </mat-card>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+
+/***/ }),
+
 /***/ "2dVa":
 /*!***************************************************************************************************!*\
   !*** ./src/app/company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component.scss ***!
@@ -484,7 +592,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" style=\"margin-top: 100px\">\r\n    <div class=\"row\">\r\n        <div class=\"col-lg-3 \">\r\n            <div class=\"card left-profile-card\">\r\n                <div class=\"card-body\">\r\n                    <div class=\"text-center\">\r\n                        <img src=\"https://bootdey.com/img/Content/avatar/avatar2.png\" alt=\"\" class=\"user-profile\">\r\n                        <h3>{{cv.fullName}}</h3>\r\n                        <div class=\"d-flex align-items-center justify-content-center mb-3\">\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"personal-info\">\r\n                        <h3>Thông tin cá nhân</h3>\r\n                        <ul class=\"personal-list\">\r\n                            <li><i class=\"fas fa-briefcase \"></i><span>{{cv.expYear}}</span></li>\r\n                            <li><i class=\"fas fa-map-marker-alt \"></i><span>{{cv.salaryExpectation}}</span></li>\r\n                            <li><i class=\"far fa-envelope \"></i><span>{{cv.username}}</span></li>\r\n                            <li><i class=\"fas fa-mobile \"></i><span>{{cv.phone}}</span></li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"skill\">\r\n                        <h3>Kỹ năng</h3>\r\n                        <div *ngFor=\"let skill of cv.skills\">\r\n                            <p>{{skill.name}}</p>\r\n                            <div class=\"progress mb-3\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [style.width]=\"skill.proficiency\"\r\n                                     [style.background]=\"'rgb(5 18 66)'\" aria-valuenow=\"50\" aria-valuemin=\"0\"\r\n                                     aria-valuemax=\"100\"></div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-lg-9\">\r\n            <div class=\"card right-profile-card\">\r\n                <div class=\"card-header alert-primary d-flex\">\r\n                    <h2>Kinh nghiệm cá nhân</h2>\r\n                    <button (click)=\"addWorkExp()\">Thêm mới</button>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div class=\"tab-content\" id=\"pills-tabContent\">\r\n                        <div class=\"tab-pane fade show active\" id=\"pills-home\" role=\"tabpanel\"\r\n                             aria-labelledby=\"pills-home-tab\">\r\n                            <div *ngFor=\"let workExp of cv.workExps; index as i\" class=\"work-container\">\r\n                                <h3>{{workExp.title}}</h3>\r\n                                <button (click)=\"deleteWorkExp(i)\">Xóa</button>\r\n                                <h4><i class=\"far fa-calendar-alt\"></i><span [contentEditable]=\"true\">{{workExp.startDate}}</span> to <span\r\n                                        class=\"badge badge-info\"><span style=\"outline: none\" [contentEditable]=\"true\">{{workExp.endDate}}</span></span></h4>\r\n                                <p>{{workExp.content}}</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h2 class=\"text-center\" style=\"margin-top: 120px\">Sửa hồ sơ của bạn</h2>\r\n<div class=\"container\" style=\"margin-top: 50px\">\r\n    <form [formGroup]=\"cvForm\" (ngSubmit)=\"onUpdate()\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-3 \">\r\n                <div class=\"card left-profile-card\">\r\n                    <div class=\"card-body\">\r\n                        <div class=\"text-center\">\r\n                            <img src=\"https://bootdey.com/img/Content/avatar/avatar2.png\" alt=\"\" class=\"user-profile\">\r\n                            <h3>{{user.name}}</h3>\r\n                            <div class=\"d-flex align-items-center justify-content-center mb-3\">\r\n                                <i class=\"fas fa-star text-info\"></i>\r\n                                <i class=\"fas fa-star text-info\"></i>\r\n                                <i class=\"fas fa-star text-info\"></i>\r\n                                <i class=\"fas fa-star text-info\"></i>\r\n                                <i class=\"fas fa-star text-info\"></i>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"personal-info\">\r\n                            <h3>Thông tin cá nhân</h3>\r\n                            <ul class=\"personal-list\">\r\n                                <li><h6>Năm kinh nghiệm</h6></li>\r\n                                <li>\r\n                                    <i class=\"fas fa-briefcase \"></i>\r\n                                    <input formControlName=\"expYear\">\r\n                                <li><h6>Lương mong muốn</h6></li>\r\n                                <li>\r\n                                    <i class=\"fas fa-money-bill-wave\"></i>\r\n                                    <input formControlName=\"salaryExpectation\">\r\n                                </li>\r\n                                <li><i class=\"far fa-envelope \"></i><span>{{user?.account?.username}}</span></li>\r\n                                <li><i class=\"fas fa-mobile \"></i><span>{{user?.phone}}</span></li>\r\n                            </ul>\r\n                        </div>\r\n                        <h3 style=\"margin-bottom: 5px\">Kỹ năng</h3>\r\n                        <ng-container formArrayName=\"skills\">\r\n                            <ng-container *ngFor=\"let skillForm of skills.controls; let i = index\">\r\n                                <div class=\"d-flex justify-content-between\">\r\n                                    <h6 style=\"margin-top: 10px\">Kỹ năng {{i + 1}}</h6>\r\n                                    <button style=\"width: 50px; height: 50px; padding: 0; margin-bottom: 20px\"\r\n                                            (click)=\"deleteSkill(i)\" mat-raised-button>\r\n                                        Xóa\r\n                                    </button>\r\n                                </div>\r\n                                <div [formGroup]=\"skillForm\">\r\n                                    <div class=\"form-group\">\r\n                                        <input type=\"text\" formControlName=\"name\" class=\"form-control\">\r\n                                    </div>\r\n                                    <div class=\"form-group\">\r\n                                        <input type=\"text\" formControlName=\"proficiency\" class=\"form-control\">\r\n                                    </div>\r\n                                </div>\r\n                            </ng-container>\r\n                        </ng-container>\r\n                        <button color=\"primary\" style=\"width: 200px; height: 50px; padding: 0; margin: 0 auto\"\r\n                                type=\"button\"\r\n                                (click)=\"addSkill()\"\r\n                                mat-raised-button>\r\n                            Thêm kỹ năng mới\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-9\">\r\n                <div class=\"card right-profile-card\">\r\n                    <div class=\"card-header alert-primary d-flex justify-content-between\">\r\n                        <h2>Kinh nghiệm cá nhân</h2>\r\n                        <a color=\"#f8f9fa\" style=\"font-size: 16px\" mat-raised-button [routerLink]=\"['/detail-cv/', tokenService.getIdGuest()]\">Quay lại</a>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <div class=\"tab-content\" id=\"pills-tabContent\">\r\n                            <div class=\"tab-pane fade show active\" id=\"pills-home\" role=\"tabpanel\"\r\n                                 aria-labelledby=\"pills-home-tab\">\r\n                                <ng-container formArrayName=\"workExps\">\r\n                                    <ng-container *ngFor=\"let workExpForm of workExps.controls; let i = index\">\r\n                                        <div [formGroup]=\"workExpForm\" class=\"form-group\">\r\n                                            <div class=\"d-flex justify-content-between\">\r\n                                                <h2>Kinh nghiệm {{i + 1}}</h2>\r\n                                                <button style=\"width: 50px; height: 50px; padding: 0; margin-bottom: 20px\"\r\n                                                        (click)=\"deleteWorkExp(i)\" mat-raised-button>\r\n                                                    Xóa\r\n                                                </button>\r\n                                            </div>\r\n                                            <mat-form-field style=\"width: 50%\" appearance=\"fill\">\r\n                                                <mat-label>Tiêu đề</mat-label>\r\n                                                <input formControlName=\"title\" matInput>\r\n                                            </mat-form-field>\r\n                                            <h4>\r\n                                                <h6 style=\"margin-right: 10px\">Ngày bắt đầu</h6>\r\n                                                <input type=\"date\" formControlName=\"startDate\">\r\n                                                <br>\r\n                                                <br>\r\n                                                <h6 style=\"margin-right: 10px\">Ngày kết thúc</h6>\r\n                                                <input type=\"date\" formControlName=\"endDate\">\r\n                                            </h4>\r\n                                            <mat-form-field style=\"width: 100%\" appearance=\"fill\">\r\n                                                <mat-label>Nội dung</mat-label>\r\n                                                <textarea formControlName=\"content\" matInput\r\n                                                          placeholder=\"...\"></textarea>\r\n                                            </mat-form-field>\r\n                                        </div>\r\n                                    </ng-container>\r\n                                </ng-container>\r\n                                <div class=\"text-center\">\r\n                                    <button color=\"primary\" type=\"button\"\r\n                                            style=\"width: 200px; height: 50px; padding: 0; margin-bottom: 20px\"\r\n                                            (click)=\"addWorkExp()\"\r\n                                            mat-raised-button>\r\n                                        Thêm kinh nghiệm mới\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"file-cv col-lg-12 col-sm-12\" style=\"border: 1px #f0f0f0 solid\">\r\n                        <h2>File hồ sơ</h2>\r\n                        <mat-form-field appearance=\"outline\" style=\"width: 50%\">\r\n                            <input matInput\r\n                                   hidden\r\n                                   placeholder=\"Placeholder\">\r\n                            <app-upload-file formControlName=\"fileCV\" style=\"width: 100%\"\r\n                                             (giveURLtoCreate)=\"onUpLoadAvatar($event)\"></app-upload-file>\r\n                            <mat-icon color=\"black\" matSuffix>add_photo_alternate</mat-icon>\r\n                        </mat-form-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\" style=\"margin: 10px 0\">\r\n            <button mat-raised-button color=\"primary\" type=\"submit\"\r\n                    style=\"width: 200px; height: 50px; padding: 0; margin-bottom: 20px\">\r\n                Cập nhật\r\n            </button>\r\n        </div>\r\n    </form>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -589,6 +697,13 @@ var DetailCvComponent = /** @class */ (function () {
         this.cvService.findByUserId(this.idUser).subscribe(function (data) {
             _this.cv = data;
         });
+        for (var i = 0; i < this.tokenService.getRoleKey().length; i++) {
+            if (this.tokenService.getRoleKey()[i] == "USER") {
+                this.userService.getUserById(this.tokenService.getIdGuest()).subscribe(function (data) {
+                    _this.checkRole = "USER";
+                });
+            }
+        }
     };
     DetailCvComponent.ctorParameters = function () { return [
         { type: _security_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"] },
@@ -890,6 +1005,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _model_apply__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../model/apply */ "IU9o");
 /* harmony import */ var _dialog_dialogApplyFail_dialog_apply_fail_dialog_apply_fail_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component */ "NUjO");
 /* harmony import */ var _dialog_dialogApplyFail_dialog_apply_dialog_apply_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../dialog/dialogApplyFail/dialog-apply/dialog-apply.component */ "pA9W");
+/* harmony import */ var _model_forwardApply__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../model/forwardApply */ "pm72");
+/* harmony import */ var _service_apply_forward_apply_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../service/apply/forward-apply.service */ "9wQv");
+/* harmony import */ var _dialog_dialog_match_dialog_match_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../dialog/dialog-match/dialog-match.component */ "erfy");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -910,8 +1028,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var ApplyRecruitmentnewComponent = /** @class */ (function () {
-    function ApplyRecruitmentnewComponent(rcms, router, data, dialogRef, tokenService, applyService, dialog) {
+    function ApplyRecruitmentnewComponent(rcms, router, data, dialogRef, tokenService, applyService, dialog, recruitmentNewService, forwardApplyService) {
         var _this = this;
         this.rcms = rcms;
         this.router = router;
@@ -920,7 +1041,8 @@ var ApplyRecruitmentnewComponent = /** @class */ (function () {
         this.tokenService = tokenService;
         this.applyService = applyService;
         this.dialog = dialog;
-        this.checkLogin = false;
+        this.recruitmentNewService = recruitmentNewService;
+        this.forwardApplyService = forwardApplyService;
         this.idRcm = data.id;
         this.rcms.getRecruitmentNewById(data.id).subscribe(function (data) {
             _this.recruitmentNew = data;
@@ -932,8 +1054,23 @@ var ApplyRecruitmentnewComponent = /** @class */ (function () {
             this.checkLogin = true;
         }
     };
+    ApplyRecruitmentnewComponent.prototype.checkUserWithToken = function () {
+        if (this.tokenService.getTokenKey()) {
+            this.checkLogin = true;
+            this.idGuest = this.tokenService.getIdGuest();
+            for (var i = 0; i < this.tokenService.getRoleKey().length; i++) {
+                if (this.tokenService.getRoleKey()[i] == 'COMPANY') {
+                    this.checkUser = false;
+                }
+                if (this.tokenService.getRoleKey()[i] == 'USER') {
+                    this.checkUser = true;
+                }
+            }
+        }
+    };
     ApplyRecruitmentnewComponent.prototype.ngOnInit = function () {
         this.checkLoginWithToken();
+        this.checkUserWithToken();
     };
     ApplyRecruitmentnewComponent.prototype.applyRecruitmentNewNow = function () {
         var _this = this;
@@ -946,22 +1083,34 @@ var ApplyRecruitmentnewComponent = /** @class */ (function () {
             var apply = new _model_apply__WEBPACK_IMPORTED_MODULE_8__["Apply"](this.idRcm, this.tokenService.getIdGuest());
             this.applyService.createCV(apply).subscribe(function (data2) {
                 console.log(data2);
-                if (data2.message == "CREATE") {
+                if (data2.message == 'CREATE') {
                     _this.dialogRef.close();
                     var dialogRef1 = _this.dialog.open(_dialog_dialogApplyFail_dialog_apply_dialog_apply_component__WEBPACK_IMPORTED_MODULE_10__["DialogApplyComponent"]);
                     dialogRef1.afterClosed().subscribe(function (result) {
-                        console.log('ressult sau khi bam nut --> ', result);
-                        if (result == false) {
-                        }
+                        _this.recruitmentNewService.getRecruitmentNewById(_this.idRcm).subscribe(function (data3) {
+                            _this.recruitmentNew = data3;
+                            _this.forwardApply = new _model_forwardApply__WEBPACK_IMPORTED_MODULE_11__["ForwardApply"](_this.tokenService.getIdGuest(), Number(_this.recruitmentNew.company.id));
+                            _this.forwardApplyService.forwardApply(_this.forwardApply).subscribe(function (data4) {
+                                console.log('sau khi bam nut--->', data4);
+                            });
+                            console.log('ressult sau khi bam nut --> ', result);
+                            if (result == false) {
+                            }
+                        });
                     });
                 }
-                else if (data2.message == "CREATE_FAIL") {
+                else if (data2.message == 'CREATE_FAIL') {
                     _this.dialogRef.close();
                     var dialogRef1 = _this.dialog.open(_dialog_dialogApplyFail_dialog_apply_fail_dialog_apply_fail_component__WEBPACK_IMPORTED_MODULE_9__["DialogApplyFailComponent"]);
                     dialogRef1.afterClosed().subscribe(function (result) {
                         console.log('ressult sau khi bam nut --> ', result);
                         if (result == false) {
                         }
+                    });
+                }
+                else if (data2.message == 'MATCH') {
+                    var dialogRef2 = _this.dialog.open(_dialog_dialog_match_dialog_match_component__WEBPACK_IMPORTED_MODULE_13__["DialogMatchComponent"]);
+                    dialogRef2.afterClosed().subscribe(function (result) {
                     });
                 }
             });
@@ -974,7 +1123,9 @@ var ApplyRecruitmentnewComponent = /** @class */ (function () {
         { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogRef"] },
         { type: _security_token_service__WEBPACK_IMPORTED_MODULE_6__["TokenService"] },
         { type: _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_7__["ApplyService"] },
-        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] }
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
+        { type: _service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_3__["RecruitmentNewService"] },
+        { type: _service_apply_forward_apply_service__WEBPACK_IMPORTED_MODULE_12__["ForwardApplyService"] }
     ]; };
     ApplyRecruitmentnewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -985,7 +1136,9 @@ var ApplyRecruitmentnewComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_3__["RecruitmentNewService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], Object, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogRef"],
             _security_token_service__WEBPACK_IMPORTED_MODULE_6__["TokenService"],
             _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_7__["ApplyService"],
-            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
+            _service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_3__["RecruitmentNewService"],
+            _service_apply_forward_apply_service__WEBPACK_IMPORTED_MODULE_12__["ForwardApplyService"]])
     ], ApplyRecruitmentnewComponent);
     return ApplyRecruitmentnewComponent;
 }());
@@ -1034,7 +1187,53 @@ var RecruitmentNew = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"banner-area\">\r\n    <div class=\"d-table\">\r\n        <div class=\"d-table-cell\">\r\n            <div class=\"container-fluid\">\r\n                <div class=\"row align-items-center\">\r\n                    <div class=\"col-lg-6\">\r\n                        <div class=\"banner-content\">\r\n                            <h1>\r\n                                Chào mừng bạn đã đến với Paso.vn\r\n                            </h1>\r\n                            <p>\r\n                                Cơ hội vàng nằm gọn trong tay bạn. Bất cứ khi nào bạn muốn tìm công việc phù hợp với\r\n                                bạn, Hãy đến với chúng tôi.\r\n                            </p>\r\n                            <div class=\"banner-btn\">\r\n                                <a href=\"contact.html\" class=\"box-btn\" routerLink=\"/list-recruitmentnew-user\">Tìm kiếm\r\n                                    việc làm</a>\r\n                                <a href=\"about.html\" class=\"box-btn border-btn\">Xem danh sách công việc</a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-lg-6\">\r\n                        <div class=\"banner-img\">\r\n                            <img src=\"../../../../assets/images/home-bg-1-img.png\" alt=\"banner-img\">\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"home-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"../../../../assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape2\">\r\n            <img src=\"../../../../assets/images/shape/2.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"../../../../assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"../../../../assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"../../../../assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"../../../../assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</section>\r\n<!-- End Banner Area -->\r\n\r\n\r\n<!-- Info Area -->\r\n<div class=\"info-area pt-100 pb-70\">\r\n    <div class=\"container\">\r\n        <div class=\"section-title\">\r\n            <h2>CÁC CÔNG TY ĐANG HOT</h2>\r\n            <p>Các công ty hiện tai đang được nhiều người đăng ký tuyển dụng</p>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-4 col-sm-6\" *ngFor=\"let comhot of companyHot\">\r\n                <div class=\"single-info\">\r\n                    <div class=\"info-img\">\r\n                        <img width=\"400px\" src=\"{{comhot.avatar}}\">\r\n                    </div>\r\n                    <div class=\"content\">\r\n                        <h3><i class=\"flaticon-info\"></i> {{comhot.name}}</h3>\r\n                        <div class=\"arrow\">\r\n                            <a><i class=\"flaticon-next-1\"></i></a>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"testimonials-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"section-title\">\r\n                    <h2>TIN TUYỂN DỤNG, VIỆC LÀM TỐT NHẤT</h2>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-6\" *ngFor=\"let ctg of recruimentNew\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"{{ctg.company.avatar}}\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 139px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>{{ctg.title}}</h2>\r\n                                    <span *ngIf=\"checkLogin == true\">Tiền lương: {{ctg.salary}}</span>\r\n                                    <span *ngIf=\"checkLogin == false\">Tiền lương: Bạn cần đăng nhập để xem</span>\r\n                                    <div>Địa điểm: {{ctg.company.address}}</div>\r\n                                    <p>Tuyển dụng đến: {{ctg.expDate}}</p>\r\n\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div style=\"display: flex\">\r\n                        <div class=\"testimonials-foot\" style=\"margin-right: 10px\">\r\n                            <button *ngIf=\"checkUser\" class=\"text-center\" mat-stroked-button color=\"accent\" (click)=\"openDialogApply(ctg.id)\">Xem chi tiêt</button>\r\n                        </div>\r\n                        <div class=\"testimonials-foot\">\r\n                            <button *ngIf=\"checkUser\" class=\"text-center\" mat-stroked-button color=\"accent\" (click)=\"openDialogApplyNow(ctg.id)\">Ứng tuyển ngay</button>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <mat-paginator [length]=\"totalElements\"\r\n                       [pageSize]=\"4\"\r\n                       [pageSizeOptions]=\"[4, 8, 12, 16]\"\r\n                       (page)=\"nextPage($event)\"\r\n                       aria-label=\"Select page\">\r\n        </mat-paginator>\r\n    </div>\r\n</div>>\r\n\r\n<!-- End Info Area -->\r\n<!--<div class=\"container\">-->\r\n<!--    <div class=\"row\">-->\r\n<!--        <div class=\"col-12\" style=\"margin-top: 20px\">-->\r\n<!--            <mat-card style=\"margin: 50px 0\">-->\r\n<!--                <table class=\"table\">-->\r\n<!--                    <thead>-->\r\n<!--                    <tr>-->\r\n<!--                        <th scope=\"col\">Tên sách</th>-->\r\n<!--                        <th scope=\"col\">Anh</th>-->\r\n<!--                    </tr>-->\r\n<!--                    </thead>-->\r\n<!--                    <tbody>-->\r\n<!--                    <tr *ngFor=\"let ctg of recruimentNew\" style=\"align-items: center\">-->\r\n<!--                        <td>-->\r\n<!--                            <i style=\"font-size: 1.5vw;color: crimson\">{{ctg.title}}</i>-->\r\n<!--                        </td>-->\r\n<!--                        <td>-->\r\n<!--                            <img style=\"width: 50px;height: 50px\" src=\"{{ctg.company.avatar}}\">-->\r\n<!--                        </td>-->\r\n<!--                        <td>-->\r\n<!--                            <button mat-icon-button color=\"accent\" routerLink=\"/update-category/{{ctg.id}}\">-->\r\n<!--                                <mat-icon color=\"primary\">edit</mat-icon>-->\r\n<!--                            </button>-->\r\n<!--                        </td>-->\r\n<!--                        <td>-->\r\n\r\n<!--                        </td>-->\r\n<!--                    </tr>-->\r\n<!--                    <mat-paginator [length]=\"totalElements\"-->\r\n<!--                                   [pageSize]=\"3\"-->\r\n<!--                                   [pageSizeOptions]=\"[3, 6, 9, 12]\"-->\r\n<!--                                   (page)=\"nextPage($event)\"-->\r\n<!--                                   aria-label=\"Select page\">-->\r\n<!--                    </mat-paginator>-->\r\n<!--                    </tbody>-->\r\n<!--                </table>-->\r\n<!--            </mat-card>-->\r\n<!--        </div>-->\r\n<!--    </div>-->\r\n<!--</div>-->\r\n\r\n\r\n<!-- Testimonials -->\r\n<div class=\"testimonials-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"section-title\">\r\n                    <h2>Team Members</h2>\r\n                    <p>People Who are Behind the Achievements</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/111.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 139px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Tiến Long</h2>\r\n                                    <span>Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>If you don’t do wild things while you’re young, you will have nothing to smile about when\r\n                            you’re old.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/222.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 140px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Đỗ Nam Khánh</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>It’s better to cross the line and suffer the consequences than to just stare at the line for\r\n                            the rest of your life.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/333.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 155px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Đình Lộc</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>Learn from yesterday, live for today, hope for tomorrow. The important is to not stop\r\n                            questioning.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/444.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: auto\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Văn Định</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>Don’t cry over the past, it’s gone. Don’t stress about the future, it hasn’t arrived. Live in\r\n                            the present and make it beautiful.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"page-navigation-area\">\r\n                    <nav aria-label=\"Page navigation example text-center\">\r\n                        <ul class=\"pagination\">\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link page-links\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-left'></i>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"page-item active\">\r\n                                <a class=\"page-link\" href=\"#\">1</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">2</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">3</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-right'></i>\r\n                                </a>\r\n                            </li>\r\n                        </ul>\r\n                    </nav>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Testimonials -->\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"banner-area\">\r\n    <div class=\"d-table\">\r\n        <div class=\"d-table-cell\">\r\n            <div class=\"container-fluid\">\r\n                <div class=\"row align-items-center\">\r\n                    <div class=\"col-lg-6\">\r\n                        <div class=\"banner-content\">\r\n                            <h1>\r\n                                Chào mừng bạn đã đến với Paso.vn\r\n                            </h1>\r\n                            <p>\r\n                                Cơ hội vàng nằm gọn trong tay bạn. Bất cứ khi nào bạn muốn tìm công việc phù hợp với\r\n                                bạn, Hãy đến với chúng tôi.\r\n                            </p>\r\n                            <div class=\"banner-btn\">\r\n<!--                                <a href=\"contact.html\" class=\"box-btn\" routerLink=\"/list-recruitmentnew-user\">Tìm kiếm-->\r\n<!--                                    việc làm</a>-->\r\n                                <form class=\"newsletter-form\" data-toggle=\"validator\" #f=\"ngForm\" (ngSubmit)=\"ngSubmit(f)\" novalidate >\r\n                                    <div style=\"display: flex\">\r\n                                        <input style=\"width: 300px; margin-right: 10px\" name=\"searchKey\" ngModel class=\"form-control\" placeholder=\"Nhập vào tên công việc, tên công ty...\"\r\n                                               required=\"\" autocomplete=\"off\">\r\n                                        <button class=\"box-btn\" type=\"submit\">\r\n                                            Tìm kiếm việc làm\r\n                                        </button>\r\n                                    </div>\r\n                                    <div id=\"validator-newsletter\" class=\"form-result\"></div>\r\n                                </form>\r\n\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-lg-6\">\r\n                        <div class=\"banner-img\">\r\n                            <img src=\"../../../../assets/images/home-bg-1-img.png\" alt=\"banner-img\">\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"home-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"../../../../assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape2\">\r\n            <img src=\"../../../../assets/images/shape/2.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"../../../../assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"../../../../assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"../../../../assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"../../../../assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</section>\r\n<!-- End Banner Area -->\r\n\r\n\r\n<!-- Info Area -->\r\n<div class=\"info-area pt-100 pb-70\">\r\n    <div class=\"container\">\r\n        <div class=\"section-title\">\r\n            <h2>CÁC CÔNG TY ĐANG HOT</h2>\r\n            <p>Các công ty hiện tai đang được nhiều người đăng ký tuyển dụng</p>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-4 col-sm-6\" *ngFor=\"let comhot of companyHot\">\r\n                <div class=\"single-info\">\r\n                    <div class=\"info-img\">\r\n                        <img width=\"400px\" src=\"{{comhot.avatar}}\">\r\n                    </div>\r\n                    <div class=\"content\">\r\n                        <h3><i class=\"flaticon-info\"></i> {{comhot.name}}</h3>\r\n                        <div class=\"arrow\">\r\n                            <a [routerLink]=\"['/web-company/', comhot.id]\"><i class=\"flaticon-next-1\"></i></a>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"info-area pt-100 pb-70\">\r\n    <div class=\"container\">\r\n        <div class=\"section-title\">\r\n            <h2>CÁC CÔNG TY CÓ NHU CẦU TUYỂN DỤNG CAO NHẤT</h2>\r\n            <p>Các công ty hiện tai đang cần tuyển dùng cao nhất</p>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-4 col-sm-6\" *ngFor=\"let rnn of RecuitmentNewNeed\">\r\n                <div class=\"single-info\">\r\n                    <div class=\"info-img\">\r\n                        <img width=\"400px\" src=\"{{rnn.avatar}}\">\r\n                    </div>\r\n                    <div class=\"content\">\r\n                        <h3>Tên công ty: {{rnn.name}}</h3>\r\n                        <h3>Số lượng vị trí cần tuyển: {{rnn.count}}</h3>\r\n                        <div class=\"arrow\">\r\n                            <a [routerLink]=\"['/web-company/', rnn.id]\"><i class=\"flaticon-next-1\"></i></a>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"testimonials-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"section-title\">\r\n                    <h2>TIN TUYỂN DỤNG, VIỆC LÀM TỐT NHẤT</h2>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-6\" *ngFor=\"let ctg of recruimentNew\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"{{ctg.company.avatar}}\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 139px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>{{ctg.title}}</h2>\r\n                                    <span *ngIf=\"checkLogin == true\">Tiền lương: {{ctg.salary}}</span>\r\n                                    <span *ngIf=\"checkLogin == false\">Tiền lương: Bạn cần đăng nhập để xem</span>\r\n                                    <div>Địa điểm: {{ctg.company.address}}</div>\r\n                                    <p>Tuyển dụng đến: {{ctg.expDate}}</p>\r\n\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div style=\"display: flex\">\r\n                        <div class=\"testimonials-foot\" style=\"margin-right: 10px\">\r\n                            <button *ngIf=\"checkUser\" class=\"text-center\" mat-stroked-button color=\"accent\"\r\n                                    (click)=\"openDialogApply(ctg.id)\">Xem chi tiêt\r\n                            </button>\r\n                        </div>\r\n                        <div class=\"testimonials-foot\">\r\n                            <button *ngIf=\"checkUser\" class=\"text-center\" mat-stroked-button color=\"accent\"\r\n                                    (click)=\"openDialogApplyNow(ctg.id)\">Ứng tuyển ngay\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <mat-paginator [length]=\"totalElements\"\r\n                       [pageSize]=\"4\"\r\n                       [pageSizeOptions]=\"[4, 8, 12, 16]\"\r\n                       (page)=\"nextPage($event)\"\r\n                       aria-label=\"Select page\">\r\n        </mat-paginator>\r\n    </div>\r\n</div>>\r\n\r\n<!-- End Info Area -->\r\n<!--<div class=\"container\">-->\r\n<!--    <div class=\"row\">-->\r\n<!--        <div class=\"col-12\" style=\"margin-top: 20px\">-->\r\n<!--            <mat-card style=\"margin: 50px 0\">-->\r\n<!--                <table class=\"table\">-->\r\n<!--                    <thead>-->\r\n<!--                    <tr>-->\r\n<!--                        <th scope=\"col\">Tên sách</th>-->\r\n<!--                        <th scope=\"col\">Anh</th>-->\r\n<!--                    </tr>-->\r\n<!--                    </thead>-->\r\n<!--                    <tbody>-->\r\n<!--                    <tr *ngFor=\"let ctg of recruimentNew\" style=\"align-items: center\">-->\r\n<!--                        <td>-->\r\n<!--                            <i style=\"font-size: 1.5vw;color: crimson\">{{ctg.title}}</i>-->\r\n<!--                        </td>-->\r\n<!--                        <td>-->\r\n<!--                            <img style=\"width: 50px;height: 50px\" src=\"{{ctg.company.avatar}}\">-->\r\n<!--                        </td>-->\r\n<!--                        <td>-->\r\n<!--                            <button mat-icon-button color=\"accent\" routerLink=\"/update-category/{{ctg.id}}\">-->\r\n<!--                                <mat-icon color=\"primary\">edit</mat-icon>-->\r\n<!--                            </button>-->\r\n<!--                        </td>-->\r\n<!--                        <td>-->\r\n\r\n<!--                        </td>-->\r\n<!--                    </tr>-->\r\n<!--                    <mat-paginator [length]=\"totalElements\"-->\r\n<!--                                   [pageSize]=\"3\"-->\r\n<!--                                   [pageSizeOptions]=\"[3, 6, 9, 12]\"-->\r\n<!--                                   (page)=\"nextPage($event)\"-->\r\n<!--                                   aria-label=\"Select page\">-->\r\n<!--                    </mat-paginator>-->\r\n<!--                    </tbody>-->\r\n<!--                </table>-->\r\n<!--            </mat-card>-->\r\n<!--        </div>-->\r\n<!--    </div>-->\r\n<!--</div>-->\r\n\r\n\r\n<!-- Testimonials -->\r\n<div class=\"testimonials-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"section-title\">\r\n                    <h2>Team Members</h2>\r\n                    <p>People Who are Behind the Achievements</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/111.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 139px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Tiến Long</h2>\r\n                                    <span>Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>If you don’t do wild things while you’re young, you will have nothing to smile about when\r\n                            you’re old.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/222.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 140px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Đỗ Nam Khánh</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>It’s better to cross the line and suffer the consequences than to just stare at the line for\r\n                            the rest of your life.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/333.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 155px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Đình Lộc</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>Learn from yesterday, live for today, hope for tomorrow. The important is to not stop\r\n                            questioning.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/444.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: auto\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Văn Định</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>Don’t cry over the past, it’s gone. Don’t stress about the future, it hasn’t arrived. Live in\r\n                            the present and make it beautiful.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"page-navigation-area\">\r\n                    <nav aria-label=\"Page navigation example text-center\">\r\n                        <ul class=\"pagination\">\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link page-links\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-left'></i>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"page-item active\">\r\n                                <a class=\"page-link\" href=\"#\">1</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">2</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">3</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-right'></i>\r\n                                </a>\r\n                            </li>\r\n                        </ul>\r\n                    </nav>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Testimonials -->\r\n\r\n");
+
+/***/ }),
+
+/***/ "81uI":
+/*!**************************************************************************!*\
+  !*** ./src/app/dialog/CV/dialog-no-create/dialog-no-create.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: DialogNoCreateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogNoCreateComponent", function() { return DialogNoCreateComponent; });
+/* harmony import */ var _raw_loader_dialog_no_create_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./dialog-no-create.component.html */ "0eJw");
+/* harmony import */ var _dialog_no_create_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dialog-no-create.component.scss */ "e6NR");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DialogNoCreateComponent = /** @class */ (function () {
+    function DialogNoCreateComponent() {
+    }
+    DialogNoCreateComponent.prototype.ngOnInit = function () {
+    };
+    DialogNoCreateComponent.ctorParameters = function () { return []; };
+    DialogNoCreateComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-dialog-no-create',
+            template: _raw_loader_dialog_no_create_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+            styles: [_dialog_no_create_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogNoCreateComponent);
+    return DialogNoCreateComponent;
+}());
+
+
 
 /***/ }),
 
@@ -1047,7 +1246,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"row\" style=\"margin-top: 20px\">\r\n        <div class=\"col-12\">\r\n            <h2 style=\"text-align: center; color: royalblue\">Chi tiết tin tuyển dụng</h2>\r\n            <div style=\"width: 700px\">\r\n                <p><b>Tên tin tuyển dụng:</b> {{recruitmentNew.title}}</p>\r\n                <p><b>Thời gian làm việc:</b> {{recruitmentNew.workingTime.name}} </p>\r\n                <p><b>Lĩnh Vực:</b> {{recruitmentNew.field.name}} </p>\r\n                <p><b>Công ty đăng tuyển:</b> {{recruitmentNew.company.name}} </p>\r\n                <p><b>Mức độ nổi tiếng của công ty đăng tuyển</b>: {{recruitmentNew.company.statusCompany}} </p>\r\n                <p><b>Vị trí cần tuyển dụng:</b> {{recruitmentNew.vacancies.name}} </p>\r\n                <p><b>Ngày kết thúc:</b> {{recruitmentNew.expDate}} </p>\r\n                <p><b>Mô tả công việc:</b> {{recruitmentNew.description}} </p>\r\n                <p><b>Số lượng cần tuyển:</b> {{recruitmentNew.quantity}} </p>\r\n                <p *ngIf=\"checkLogin == true\" ><b>Lương một tháng:</b> {{recruitmentNew.salary}} </p>\r\n                <p *ngIf=\"checkLogin == false\" ><b>Lương một tháng:</b> Cần đăng nhập </p>\r\n                <p><b>Địa điểm làm việc:</b> {{recruitmentNew.city.name}} </p>\r\n                <p><b>Trạng thái tin tuyển dụng:</b> {{recruitmentNew.status}} </p>\r\n                <button mat-button mat-dialog-close=\"\" color=\"warn\" style=\"margin-right: 10px\">Thoát</button>\r\n                <button mat-raised-button color=\"accent\" (click)=\"applyRecruitmentNewNow()\">Ứng tuyển</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"row\" style=\"margin-top: 20px\">\r\n        <div class=\"col-12\">\r\n            <h2 style=\"text-align: center; color: royalblue\">Chi tiết tin tuyển dụng</h2>\r\n            <div style=\"width: 700px\">\r\n                <p><b>Tên tin tuyển dụng:</b> {{recruitmentNew.title}}</p>\r\n                <p><b>Thời gian làm việc:</b> {{recruitmentNew.workingTime.name}} </p>\r\n                <p><b>Lĩnh Vực:</b> {{recruitmentNew.field.name}} </p>\r\n                <p><b>Công ty đăng tuyển:</b> {{recruitmentNew.company.name}} </p>\r\n                <p><b>Mức độ nổi tiếng của công ty đăng tuyển</b>: {{recruitmentNew.company.statusCompany}} </p>\r\n                <p><b>Vị trí cần tuyển dụng:</b> {{recruitmentNew.vacancies.name}} </p>\r\n                <p><b>Ngày kết thúc:</b> {{recruitmentNew.expDate}} </p>\r\n                <p><b>Mô tả công việc:</b> {{recruitmentNew.description}} </p>\r\n                <p><b>Số lượng cần tuyển:</b> {{recruitmentNew.quantity}} </p>\r\n                <p *ngIf=\"checkLogin == true\" ><b>Lương một tháng:</b> {{recruitmentNew.salary}} </p>\r\n                <p *ngIf=\"checkLogin == false\" ><b>Lương một tháng:</b> Cần đăng nhập </p>\r\n                <p><b>Địa điểm làm việc:</b> {{recruitmentNew.city.name}} </p>\r\n                <p><b>Trạng thái tin tuyển dụng:</b> {{recruitmentNew.status}} </p>\r\n                <button mat-button mat-dialog-close=\"\" color=\"warn\" style=\"margin-right: 10px\">Thoát</button>\r\n                <button mat-raised-button color=\"accent\" *ngIf=\"checkLogin && checkUser\" (click)=\"applyRecruitmentNewNow()\">Ứng tuyển</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -1074,6 +1273,55 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJoZWFkZXIuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "9wQv":
+/*!********************************************************!*\
+  !*** ./src/app/service/apply/forward-apply.service.ts ***!
+  \********************************************************/
+/*! exports provided: ForwardApplyService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForwardApplyService", function() { return ForwardApplyService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../environments/environment */ "AytR");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ForwardApplyService = /** @class */ (function () {
+    function ForwardApplyService(http) {
+        this.http = http;
+        this.apiServerUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiBaseUrl;
+    }
+    ForwardApplyService.prototype.forwardApply = function (forwardApply) {
+        return this.http.post(this.apiServerUrl + "/applies/forward", forwardApply);
+    };
+    ForwardApplyService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    ]; };
+    ForwardApplyService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], ForwardApplyService);
+    return ForwardApplyService;
+}());
+
+
 
 /***/ }),
 
@@ -1138,6 +1386,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjaGFuZ2UtcGFzc3dvcmQuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "CZ5x":
+/*!************************************************************************!*\
+  !*** ./src/app/dialog/CV/dialog-edit-cv/dialog-edit-cv.component.scss ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkaWFsb2ctZWRpdC1jdi5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1240,7 +1501,7 @@ var UploadImageComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"banner-area\">\r\n    <div class=\"d-table\">\r\n        <div class=\"d-table-cell\">\r\n            <div class=\"container-fluid\">\r\n                <div class=\"row align-items-center\">\r\n                    <div class=\"col-lg-6\">\r\n                        <div class=\"banner-content\">\r\n                            <h1>\r\n                                Awesome App For Your Modern Lifestyle\r\n                            </h1>\r\n                            <p>\r\n                                Never frown, even when you are sad, because you never know who is falling in love with\r\n                                your smile\r\n                            </p>\r\n                            <div class=\"banner-btn\">\r\n                                <a href=\"contact.html\" class=\"box-btn\">Contact Us</a>\r\n                                <a href=\"about.html\" class=\"box-btn border-btn\">Know More</a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-lg-6\">\r\n                        <div class=\"banner-img\">\r\n                            <img src=\"../../../../assets/images/home-bg-1-img.png\" alt=\"banner-img\">\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"home-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"../../../../assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape2\">\r\n            <img src=\"../../../../assets/images/shape/2.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"../../../../assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"../../../../assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"../../../../assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"../../../../assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</section>\r\n<!-- End Banner Area -->\r\n\r\n<div class=\"container\">\r\n    <div style=\"margin-top: 155px\" class=\"row\">\r\n        <div class=\"col-lg-10 mx-auto mb-4\">\r\n            <div class=\"section-title text-center \">\r\n                <h3 style=\"font-size: 50px\" class=\"top-c-sep\">Danh sách việc làm</h3>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-lg-10 mx-auto\">\r\n            <form class=\"career-form\" #form=\"ngForm\"\r\n                  (ngSubmit)=\"ngSubmit(form)\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12 col-lg-12 my-3\">\r\n                        <div class=\"input-group position-relative\" style=\"margin-top: 10px;\">\r\n                            <input type=\"text\" name=\"title\" class=\"form-control\" placeholder=\"Nhập vào từ khóa...\"\r\n                                   id=\"keywords\" ngModel>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <mat-form-field appearance=\"outline\" class=\"col-md-6 col-lg-6 my-3\">\r\n                        <mat-label>Thành phố</mat-label>\r\n                        <select matNativeControl ngModel name=\"cityId\">\r\n                            <option *ngFor=\"let ct of city\" [value]=\"ct.id\">{{ct.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-form-field appearance=\"outline\" class=\"col-md-6 col-lg-6 my-3\">\r\n                        <mat-label>Lĩnh vực</mat-label>\r\n                        <select matNativeControl ngModel name=\"fieldId\">\r\n                            <option *ngFor=\"let field of fields\" [value]=\"field.id\">{{field.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-form-field appearance=\"outline\" class=\"col-md-4 col-lg-4 my-3\">\r\n                        <mat-label>Tên công ty</mat-label>\r\n                        <select matNativeControl ngModel name=\"companyId\">\r\n                            <option *ngFor=\"let com of company\" [value]=\"com.id\">{{com.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-form-field appearance=\"outline\" class=\"col-md-4 col-lg-4 my-3\">\r\n                        <mat-label>Vị trí tuyển dụng</mat-label>\r\n                        <select matNativeControl ngModel name=\"vacancies\">\r\n                            <option *ngFor=\"let vc of vacancies\" [value]=\"vc.id\">{{vc.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-form-field appearance=\"outline\" class=\"col-md-4 col-lg-4 my-3\">\r\n                        <mat-label>Thời gian làm việc</mat-label>\r\n                        <select matNativeControl ngModel name=\"workingTimeId\">\r\n                            <option *ngFor=\"let wt of workingTime\" [value]=\"wt.id\">{{wt.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <div class=\"col-md-6 col-lg-3 my-3\" style=\"margin-left: 380px\">\r\n                        <button type=\"submit\" class=\"btn btn-lg btn-block btn-light btn-custom btn-outline-info\"\r\n                                id=\"contact-submit\" style=\"margin-top: 10px;\">\r\n                            Search\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n            <div class=\"filter-result\">\r\n                <div *ngFor=\"let rcm of recruitmentNews\"\r\n                     class=\"job-box d-md-flex align-items-center justify-content-between mb-30\">\r\n                    <div class=\"job-left my-4 d-md-flex align-items-center flex-wrap\">\r\n                        <div class=\"img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex\">\r\n                            <img src=\"{{rcm.avatar}}\" alt=\"\">\r\n                        </div>\r\n                        <div class=\"job-content\">\r\n                            <h5 class=\"text-center text-md-left\">{{rcm.title}}</h5>\r\n                            <ul class=\"d-md-flex flex-wrap text-capitalize ff-open-sans\">\r\n                                <li class=\"mr-md-4\">\r\n                                    <i class=\"zmdi zmdi-pin mr-2\"></i> {{rcm.cityName}}\r\n                                </li>\r\n                                <li class=\"mr-md-4\" *ngIf=\"check == true\">\r\n                                    <i class=\"zmdi zmdi-money mr-2\"></i> {{rcm.salary}}\r\n                                </li>\r\n                                <li class=\"mr-md-4\" *ngIf=\"check == false\">\r\n                                    <i class=\"zmdi zmdi-money mr-2\"></i> Lương XXX\r\n                                </li>\r\n                                <li class=\"mr-md-4\">\r\n                                    <i class=\"zmdi zmdi-time mr-2\"></i> {{rcm.workingTimeName}}\r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"job-right my-4 flex-shrink-0\">\r\n                        <button *ngIf=\"checkUser\" mat-stroked-button color=\"primary\" (click)=\"openDialogApply(rcm.id)\">Ứng tuyển</button>\r\n                    </div>\r\n                    <div class=\"job-right my-4 flex-shrink-0\">\r\n                        <button *ngIf=\"checkUser\" mat-stroked-button color=\"primary\" (click)=\"openDialogApplyNow(rcm.id)\"\r\n                                >Ứng tuyển ngay\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"page-navigation-area\">\r\n                    <nav aria-label=\"Page navigation example text-center\">\r\n                        <ul class=\"pagination\">\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link page-links\" (click)=\"leftPage()\">\r\n                                    <i class='bx bx-chevrons-left'></i>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" (click)=\"rightPage()\">\r\n                                    <i class='bx bx-chevrons-right'></i>\r\n                                </a>\r\n                            </li>\r\n                        </ul>\r\n                    </nav>\r\n                </div>\r\n            </div>\r\n            <!--                <mat-paginator [pageSizeOptions]=\"[5,15,30,90]\" [length]=\"totalElements\"-->\r\n            <!--                               (page)=\"nextPage($event)\"></mat-paginator>-->\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- Testimonials -->\r\n<div class=\"testimonials-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"section-title\">\r\n                    <h2>Team Members</h2>\r\n                    <p>People Who are Behind the Achievements</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/111.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 139px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Tiến Long</h2>\r\n                                    <span>Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>If you don’t do wild things while you’re young, you will have nothing to smile about when\r\n                            you’re old.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/222.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 140px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Đỗ Nam Khánh</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>It’s better to cross the line and suffer the consequences than to just stare at the line for\r\n                            the rest of your life.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/333.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 155px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Đình Lộc</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>Learn from yesterday, live for today, hope for tomorrow. The important is to not stop\r\n                            questioning.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/444.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: auto\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Văn Định</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>Don’t cry over the past, it’s gone. Don’t stress about the future, it hasn’t arrived. Live in\r\n                            the present and make it beautiful.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"page-navigation-area\">\r\n                    <nav aria-label=\"Page navigation example text-center\">\r\n                        <ul class=\"pagination\">\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link page-links\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-left'></i>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"page-item active\">\r\n                                <a class=\"page-link\" href=\"#\">1</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">2</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">3</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-right'></i>\r\n                                </a>\r\n                            </li>\r\n                        </ul>\r\n                    </nav>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Testimonials -->\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<!-- End Banner Area -->\r\n\r\n<div class=\"container\">\r\n    <div style=\"margin-top: 155px\" class=\"row\">\r\n        <div class=\"col-lg-10 mx-auto mb-4\">\r\n            <div class=\"section-title text-center \">\r\n                <h3 style=\"font-size: 50px\" class=\"top-c-sep\">Danh sách việc làm</h3>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-lg-10 mx-auto\">\r\n            <form class=\"career-form\" #form=\"ngForm\"\r\n                  (ngSubmit)=\"ngSubmit(form)\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12 col-lg-12 my-3\">\r\n                        <div class=\"input-group position-relative\" style=\"margin-top: 10px;\">\r\n                            <input type=\"text\" name=\"title\" class=\"form-control\" placeholder=\"Nhập vào tên công việc, tên công ty, tên thành phố...\" id=\"keywords\" [(ngModel)]=\"searchJob.title\">\r\n                        </div>\r\n                    </div>\r\n                    <a class=\"btn btn-link\"  style=\"color:#4e63d7;margin-left: -450px\" *ngIf=\"!advancedForm\" (click)=\" advancedForm = !advancedForm\" >Tìm kiếm nâng cao</a>\r\n                    <a class=\"btn btn-link\"  style=\"color:#4e63d7;margin-left: -490px\" *ngIf=\"advancedForm\" (click)=\" advancedForm = !advancedForm\" >Đóng</a>\r\n                    <mat-form-field *ngIf=\"advancedForm\" appearance=\"outline\" class=\"col-md-6 col-lg-6 my-3\">\r\n                        <mat-label>Thành phố</mat-label>\r\n                        <select matNativeControl ngModel name=\"cityId\">\r\n                            <option *ngFor=\"let ct of city\" [value]=\"ct.id\">{{ct.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-form-field  *ngIf=\"advancedForm\" appearance=\"outline\" class=\"col-md-6 col-lg-6 my-3\">\r\n                        <mat-label>Lĩnh vực</mat-label>\r\n                        <select matNativeControl ngModel name=\"fieldId\">\r\n                            <option *ngFor=\"let field of fields\" [value]=\"field.id\">{{field.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-form-field *ngIf=\"advancedForm\" appearance=\"outline\" class=\"col-md-4 col-lg-4 my-3\">\r\n                        <mat-label>Tên công ty</mat-label>\r\n                        <select matNativeControl ngModel name=\"companyId\">\r\n                            <option *ngFor=\"let com of company\" [value]=\"com.id\">{{com.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-form-field *ngIf=\"advancedForm\" appearance=\"outline\" class=\"col-md-4 col-lg-4 my-3\">\r\n                        <mat-label>Vị trí tuyển dụng</mat-label>\r\n                        <select matNativeControl ngModel name=\"vacancies\">\r\n                            <option *ngFor=\"let vc of vacancies\" [value]=\"vc.id\">{{vc.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-form-field *ngIf=\"advancedForm\" appearance=\"outline\" class=\"col-md-4 col-lg-4 my-3\">\r\n                        <mat-label>Thời gian làm việc</mat-label>\r\n                        <select matNativeControl ngModel name=\"workingTimeId\">\r\n                            <option *ngFor=\"let wt of workingTime\" [value]=\"wt.id\">{{wt.name}}</option>\r\n                        </select>\r\n                    </mat-form-field>\r\n                    <mat-label  *ngIf=\"advancedForm\">Mức lương</mat-label>\r\n                    <mat-slider *ngIf=\"advancedForm\"\r\n                            thumbLabel\r\n                            [displayWith]=\"formatLabel\"\r\n                            tickInterval=\"1000000\"\r\n                            step=\"1000000\"\r\n                            min=\"0\"\r\n                            max=\"20000000\"\r\n                            ngModel\r\n                            name=\"salary\"\r\n                            aria-label=\"units\"></mat-slider>\r\n                    <div class=\"col-md-6 col-lg-3 my-3\" style=\"margin-left: 400px\">\r\n                        <button type=\"submit\" class=\"btn btn-lg btn-block btn-light btn-custom btn-outline-primary\"\r\n                                id=\"contact-submit\" style=\"margin-top: 10px;\">\r\n                            Tìm Kiếm\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n            <div class=\"filter-result\">\r\n                <div *ngFor=\"let rcm of recruitmentNews\"\r\n                     class=\"job-box d-md-flex align-items-center justify-content-between mb-30\">\r\n                    <div class=\"job-left my-4 d-md-flex align-items-center flex-wrap\">\r\n                        <div class=\"img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex\">\r\n                            <img src=\"{{rcm.avatar}}\" alt=\"\">\r\n                        </div>\r\n                        <div class=\"job-content\">\r\n                            <h5 class=\"text-center text-md-left\">{{rcm.title}}</h5>\r\n                            <ul class=\"d-md-flex flex-wrap text-capitalize ff-open-sans\">\r\n                                <li class=\"mr-md-4\">\r\n                                    <i class=\"zmdi zmdi-pin mr-2\"></i> {{rcm.cityName}}\r\n                                </li>\r\n                                <li class=\"mr-md-4\" *ngIf=\"check == true\">\r\n                                    <i class=\"zmdi zmdi-money mr-2\"></i> {{rcm.salary}}\r\n                                </li>\r\n                                <li class=\"mr-md-4\" *ngIf=\"check == false\">\r\n                                    <i class=\"zmdi zmdi-money mr-2\"></i> Lương XXX\r\n                                </li>\r\n                                <li class=\"mr-md-4\">\r\n                                    <i class=\"zmdi zmdi-time mr-2\"></i> {{rcm.workingTimeName}}\r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"job-right my-4 flex-shrink-0\">\r\n                        <button *ngIf=\"checkUser\" mat-stroked-button color=\"primary\" (click)=\"openDialogApply(rcm.id)\">Ứng tuyển</button>\r\n                    </div>\r\n                    <div class=\"job-right my-4 flex-shrink-0\">\r\n                        <button *ngIf=\"checkUser\" mat-stroked-button color=\"primary\" (click)=\"openDialogApplyNow(rcm.id)\"\r\n                                >Ứng tuyển ngay\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"page-navigation-area\">\r\n                    <nav aria-label=\"Page navigation example text-center\">\r\n                        <ul class=\"pagination\">\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link page-links\" (click)=\"leftPage()\">\r\n                                    <i class='bx bx-chevrons-left'></i>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" (click)=\"rightPage()\">\r\n                                    <i class='bx bx-chevrons-right'></i>\r\n                                </a>\r\n                            </li>\r\n                        </ul>\r\n                    </nav>\r\n                </div>\r\n            </div>\r\n            <!--                <mat-paginator [pageSizeOptions]=\"[5,15,30,90]\" [length]=\"totalElements\"-->\r\n            <!--                               (page)=\"nextPage($event)\"></mat-paginator>-->\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- Testimonials -->\r\n<div class=\"testimonials-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"section-title\">\r\n                    <h2>Team Members</h2>\r\n                    <p>People Who are Behind the Achievements</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/111.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 139px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Tiến Long</h2>\r\n                                    <span>Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>If you don’t do wild things while you’re young, you will have nothing to smile about when\r\n                            you’re old.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/222.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 140px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Đỗ Nam Khánh</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>It’s better to cross the line and suffer the consequences than to just stare at the line for\r\n                            the rest of your life.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/333.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: 155px\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Đình Lộc</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>Learn from yesterday, live for today, hope for tomorrow. The important is to not stop\r\n                            questioning.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-6\">\r\n                <div class=\"single-testimonials\">\r\n                    <div class=\"testimonials-head\">\r\n                        <div class=\"row align-items-center\">\r\n                            <div class=\"col-lg-3 col-md-3 col-5\">\r\n                                <div class=\"testimonials-img\">\r\n                                    <img src=\"assets/images/testimonilas/444.jpg\" alt=\"testimonials\"\r\n                                         style=\"width: 150px;height: auto\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-9 col-md-9 col-7\">\r\n                                <div class=\"content\">\r\n                                    <h2>Nguyễn Văn Định</h2>\r\n                                    <span>Co-Founder</span>\r\n                                    <ul class=\"rate\">\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                        <li><i class=\"bx bxs-star\"></i></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div class=\"testimonials-foot\">\r\n                        <p>Don’t cry over the past, it’s gone. Don’t stress about the future, it hasn’t arrived. Live in\r\n                            the present and make it beautiful.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"page-navigation-area\">\r\n                    <nav aria-label=\"Page navigation example text-center\">\r\n                        <ul class=\"pagination\">\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link page-links\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-left'></i>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"page-item active\">\r\n                                <a class=\"page-link\" href=\"#\">1</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">2</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">3</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-right'></i>\r\n                                </a>\r\n                            </li>\r\n                        </ul>\r\n                    </nav>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Testimonials -->\r\n\r\n");
 
 /***/ }),
 
@@ -1527,7 +1788,9 @@ var ActiveStatusComponent = /** @class */ (function () {
             template: _raw_loader_active_status_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
             styles: [_active_status_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _security_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _security_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]])
     ], ActiveStatusComponent);
     return ActiveStatusComponent;
 }());
@@ -1605,6 +1868,32 @@ var RecruitmentNewService = /** @class */ (function () {
 }());
 
 
+
+/***/ }),
+
+/***/ "FqlH":
+/*!****************************************************************!*\
+  !*** ./src/app/company/web-company/web-company.component.scss ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("body {\n  margin-top: 20px;\n}\n\n.member-details {\n  padding-top: 80px;\n  padding-bottom: 80px;\n}\n\n@media (min-width: 992px) {\n  .member-details {\n    padding-top: 100px;\n    padding-bottom: 100px;\n  }\n}\n\n.member-details .member_designation {\n  margin-bottom: 30px;\n}\n\n.member-details .member_designation h2 {\n  margin-bottom: 5px;\n  margin-top: 25px;\n}\n\n@media (min-width: 768px) {\n  .member-details .member_designation h2 {\n    margin-top: 0;\n  }\n}\n\n.member-details .member_designation span {\n  font-style: italic;\n}\n\n.member-details .member_desc li {\n  display: block;\n  float: unset;\n  width: 100%;\n}\n\n.member-details .member_desc li i {\n  color: #0cc652;\n  font-size: 14px;\n}\n\n.member-details .member_desc h4 {\n  margin-top: 40px;\n}\n\n.member-details .member_desc p {\n  margin-top: 10px;\n}\n\n.member-details .member_desc .progress-holder {\n  margin-top: 30px;\n}\n\n.member-details .media-box {\n  margin-bottom: 20px;\n}\n\n@media (min-width: 992px) {\n  .member-details .media-box {\n    margin-bottom: 0;\n  }\n}\n\n.member-details .member_contact {\n  padding: 40px;\n  position: relative;\n  margin-top: 40px;\n}\n\n.member-details .member_contact .media-icon {\n  font-size: 32px;\n  color: #dae0e6;\n  position: relative;\n  width: 30px;\n  text-align: center;\n  float: left;\n  margin-right: 15px;\n}\n\n.member-details .member_contact .media-content {\n  padding-left: 0;\n  float: left;\n}\n\n.member-details .member_contact .media-content h5 {\n  font-size: 15px;\n}\n\n.member-details .member_contact .media-content h5,\n.member-details .member_contact .media-content a {\n  color: #dae0e6;\n}\n\n@media (min-width: 992px) {\n  .member-details .member_contact .social-icons {\n    text-align: right;\n  }\n}\n\n.member-details .member_contact .social-icons .btn-social {\n  width: 40px;\n  height: 40px;\n  line-height: 40px;\n}\n\n.member-details .member_contact .social-icons .btn {\n  background-color: transparent;\n  border: 1px solid;\n  border-color: #999;\n  color: #dae0e6;\n}\n\n.member-details .member_contact .social-icons .btn:hover {\n  background-color: rgba(162, 156, 156, 0.2);\n  border-color: rgba(162, 156, 156, 0.2);\n  opacity: 1;\n}\n\n.bg-image-holder,\n.bg-image {\n  background-size: cover !important;\n  background-position: 50% 0 !important;\n  transition: all 0.3s linear;\n  background: #f5f5f6;\n  position: relative;\n}\n\n.bg-image:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n}\n\n.bg-fixed {\n  background-attachment: fixed;\n}\n\n.bg-image .overlay-content {\n  position: relative;\n  z-index: 5;\n}\n\n.progress-holder {\n  margin-top: 50px;\n}\n\n.progress-holder .barWrapper .progressText {\n  font-size: 15px;\n  color: #222;\n}\n\n.progress-holder .progress {\n  margin-bottom: 25px;\n  margin-top: 10px;\n  overflow: visible;\n  background-color: #f5f5f6;\n}\n\n.progress-holder .progress .progress-bar {\n  position: relative;\n}\n\n.progress-holder .progress .progress-bar:after {\n  position: absolute;\n  content: \"\";\n  width: 1px;\n  height: 33px;\n  background-color: rgba(162, 156, 156, 0.2);\n  top: -8px;\n  right: 0;\n  z-index: 55;\n}\n\n.img-full {\n  width: 100%;\n}\n\np {\n  color: #8b8e93;\n  font-weight: 300;\n  margin-bottom: 0;\n  font-size: 14px;\n  line-height: 26px;\n}\n\n.styled_list {\n  margin-top: 15px;\n  position: relative;\n  display: inline-block;\n}\n\n@media (min-width: 768px) {\n  .styled_list {\n    margin-top: 15px;\n  }\n}\n\n.styled_list li {\n  font-size: 14px;\n  line-height: 30px;\n}\n\n@media (min-width: 768px) {\n  .styled_list li {\n    font-size: 14px;\n    float: left;\n    width: 50%;\n  }\n}\n\n.styled_list li i {\n  margin-right: 10px;\n  font-size: 12px;\n}\n\n.styled_list li a {\n  color: #8b8e93;\n}\n\n@media (min-width: 768px) {\n  .styled_list li a {\n    font-size: 12px;\n  }\n}\n\n@media (min-width: 992px) {\n  .styled_list li a {\n    font-size: 14px;\n  }\n}\n\nol.styled_list {\n  margin-left: 15px;\n}\n\nol.styled_list li {\n  padding-left: 10px;\n}\n\n.icon-box {\n  font-size: 30px;\n  margin-bottom: 33px;\n  display: inline-block;\n  color: #ffffff;\n  height: 65px;\n  width: 65px;\n  line-height: 65px;\n  background-color: #59b73f;\n  text-align: center;\n  border-radius: 0.3rem;\n}\n\n.social-icon-style2 li a {\n  display: inline-block;\n  font-size: 14px;\n  text-align: center;\n  color: #ffffff;\n  background: #051c31;\n  height: 41px;\n  line-height: 41px;\n  width: 41px;\n}\n\n.social-icon-style2 {\n  margin-bottom: 0;\n  display: inline-block;\n  padding-left: 10px;\n  list-style: none;\n}\n\n.social-icon-style2 li {\n  vertical-align: middle;\n  display: inline-block;\n  margin-right: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFx3ZWItY29tcGFueS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUFLLGdCQUFBO0FBRUw7O0FBQUE7RUFDRSxpQkFBQTtFQUNBLG9CQUFBO0FBR0Y7O0FBQUE7RUFDRTtJQUNFLGtCQUFBO0lBQ0EscUJBQUE7RUFHRjtBQUNGOztBQUFBO0VBQ0UsbUJBQUE7QUFFRjs7QUFDQTtFQUNFLGtCQUFBO0VBQ0EsZ0JBQUE7QUFFRjs7QUFDQTtFQUNFO0lBQ0UsYUFBQTtFQUVGO0FBQ0Y7O0FBQ0E7RUFDRSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsY0FBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0FBQ0Y7O0FBRUE7RUFDRSxjQUFBO0VBQ0EsZUFBQTtBQUNGOztBQUVBO0VBQ0UsZ0JBQUE7QUFDRjs7QUFFQTtFQUNFLGdCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBQTtBQUNGOztBQUVBO0VBQ0UsbUJBQUE7QUFDRjs7QUFFQTtFQUNFO0lBQ0UsZ0JBQUE7RUFDRjtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7QUFBRjs7QUFHQTtFQUNFLGVBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUFBRjs7QUFHQTtFQUNFLGVBQUE7RUFDQSxXQUFBO0FBQUY7O0FBR0E7RUFDRSxlQUFBO0FBQUY7O0FBR0E7O0VBRUUsY0FBQTtBQUFGOztBQUdBO0VBQ0U7SUFDRSxpQkFBQTtFQUFGO0FBQ0Y7O0FBR0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0FBREY7O0FBSUE7RUFDRSw2QkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxjQUFBO0FBREY7O0FBSUE7RUFDRSwwQ0FBQTtFQUNBLHNDQUFBO0VBQ0EsVUFBQTtBQURGOztBQUlBOztFQUVFLGlDQUFBO0VBQ0EscUNBQUE7RUFDQSwyQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUFERjs7QUFJQTtFQUNFLFdBQUE7RUFDQSxrQkFBQTtFQUNBLE1BQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSxvQ0FBQTtBQURGOztBQUlBO0VBQ0UsNEJBQUE7QUFERjs7QUFJQTtFQUNFLGtCQUFBO0VBQ0EsVUFBQTtBQURGOztBQUtBO0VBQ0UsZ0JBQUE7QUFGRjs7QUFLQTtFQUNFLGVBQUE7RUFDQSxXQUFBO0FBRkY7O0FBS0E7RUFDRSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSx5QkFBQTtBQUZGOztBQUtBO0VBQ0Usa0JBQUE7QUFGRjs7QUFLQTtFQUNFLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0VBQ0EsMENBQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUNBLFdBQUE7QUFGRjs7QUFLQTtFQUNFLFdBQUE7QUFGRjs7QUFLQTtFQUNFLGNBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLGlCQUFBO0FBRkY7O0FBTUE7RUFDRSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7QUFIRjs7QUFNQTtFQUNFO0lBQ0UsZ0JBQUE7RUFIRjtBQUNGOztBQU1BO0VBQ0UsZUFBQTtFQUNBLGlCQUFBO0FBSkY7O0FBT0E7RUFDRTtJQUNFLGVBQUE7SUFDQSxXQUFBO0lBQ0EsVUFBQTtFQUpGO0FBQ0Y7O0FBT0E7RUFDRSxrQkFBQTtFQUNBLGVBQUE7QUFMRjs7QUFRQTtFQUNFLGNBQUE7QUFMRjs7QUFRQTtFQUNFO0lBQ0UsZUFBQTtFQUxGO0FBQ0Y7O0FBUUE7RUFDRTtJQUNFLGVBQUE7RUFORjtBQUNGOztBQVNBO0VBQ0UsaUJBQUE7QUFQRjs7QUFVQTtFQUNFLGtCQUFBO0FBUEY7O0FBU0E7RUFDRSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxxQkFBQTtFQUNBLGNBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0EseUJBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0FBTkY7O0FBUUE7RUFDRSxxQkFBQTtFQUNBLGVBQUE7RUFDQSxrQkFBQTtFQUNBLGNBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLFdBQUE7QUFMRjs7QUFPQTtFQUNFLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0FBSkY7O0FBT0E7RUFDRSxzQkFBQTtFQUNBLHFCQUFBO0VBQ0EsaUJBQUE7QUFKRiIsImZpbGUiOiJ3ZWItY29tcGFueS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHl7bWFyZ2luLXRvcDoyMHB4O31cclxuXHJcbi5tZW1iZXItZGV0YWlscyB7XHJcbiAgcGFkZGluZy10b3A6IDgwcHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDgwcHhcclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6OTkycHgpIHtcclxuICAubWVtYmVyLWRldGFpbHMge1xyXG4gICAgcGFkZGluZy10b3A6IDEwMHB4O1xyXG4gICAgcGFkZGluZy1ib3R0b206IDEwMHB4XHJcbiAgfVxyXG59XHJcblxyXG4ubWVtYmVyLWRldGFpbHMgLm1lbWJlcl9kZXNpZ25hdGlvbiB7XHJcbiAgbWFyZ2luLWJvdHRvbTogMzBweFxyXG59XHJcblxyXG4ubWVtYmVyLWRldGFpbHMgLm1lbWJlcl9kZXNpZ25hdGlvbiBoMiB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1hcmdpbi10b3A6IDI1cHhcclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6NzY4cHgpIHtcclxuICAubWVtYmVyLWRldGFpbHMgLm1lbWJlcl9kZXNpZ25hdGlvbiBoMiB7XHJcbiAgICBtYXJnaW4tdG9wOiAwXHJcbiAgfVxyXG59XHJcblxyXG4ubWVtYmVyLWRldGFpbHMgLm1lbWJlcl9kZXNpZ25hdGlvbiBzcGFuIHtcclxuICBmb250LXN0eWxlOiBpdGFsaWNcclxufVxyXG5cclxuLm1lbWJlci1kZXRhaWxzIC5tZW1iZXJfZGVzYyBsaSB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgZmxvYXQ6IHVuc2V0O1xyXG4gIHdpZHRoOiAxMDAlXHJcbn1cclxuXHJcbi5tZW1iZXItZGV0YWlscyAubWVtYmVyX2Rlc2MgbGkgaSB7XHJcbiAgY29sb3I6ICMwY2M2NTI7XHJcbiAgZm9udC1zaXplOiAxNHB4XHJcbn1cclxuXHJcbi5tZW1iZXItZGV0YWlscyAubWVtYmVyX2Rlc2MgaDQge1xyXG4gIG1hcmdpbi10b3A6IDQwcHhcclxufVxyXG5cclxuLm1lbWJlci1kZXRhaWxzIC5tZW1iZXJfZGVzYyBwIHtcclxuICBtYXJnaW4tdG9wOiAxMHB4XHJcbn1cclxuXHJcbi5tZW1iZXItZGV0YWlscyAubWVtYmVyX2Rlc2MgLnByb2dyZXNzLWhvbGRlciB7XHJcbiAgbWFyZ2luLXRvcDogMzBweFxyXG59XHJcblxyXG4ubWVtYmVyLWRldGFpbHMgLm1lZGlhLWJveCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogMjBweFxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDo5OTJweCkge1xyXG4gIC5tZW1iZXItZGV0YWlscyAubWVkaWEtYm94IHtcclxuICAgIG1hcmdpbi1ib3R0b206IDBcclxuICB9XHJcbn1cclxuXHJcbi5tZW1iZXItZGV0YWlscyAubWVtYmVyX2NvbnRhY3Qge1xyXG4gIHBhZGRpbmc6IDQwcHg7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIG1hcmdpbi10b3A6IDQwcHhcclxufVxyXG5cclxuLm1lbWJlci1kZXRhaWxzIC5tZW1iZXJfY29udGFjdCAubWVkaWEtaWNvbiB7XHJcbiAgZm9udC1zaXplOiAzMnB4O1xyXG4gIGNvbG9yOiAjZGFlMGU2O1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICB3aWR0aDogMzBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4XHJcbn1cclxuXHJcbi5tZW1iZXItZGV0YWlscyAubWVtYmVyX2NvbnRhY3QgLm1lZGlhLWNvbnRlbnQge1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxuICBmbG9hdDogbGVmdFxyXG59XHJcblxyXG4ubWVtYmVyLWRldGFpbHMgLm1lbWJlcl9jb250YWN0IC5tZWRpYS1jb250ZW50IGg1IHtcclxuICBmb250LXNpemU6IDE1cHhcclxufVxyXG5cclxuLm1lbWJlci1kZXRhaWxzIC5tZW1iZXJfY29udGFjdCAubWVkaWEtY29udGVudCBoNSxcclxuLm1lbWJlci1kZXRhaWxzIC5tZW1iZXJfY29udGFjdCAubWVkaWEtY29udGVudCBhIHtcclxuICBjb2xvcjogI2RhZTBlNlxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDo5OTJweCkge1xyXG4gIC5tZW1iZXItZGV0YWlscyAubWVtYmVyX2NvbnRhY3QgLnNvY2lhbC1pY29ucyB7XHJcbiAgICB0ZXh0LWFsaWduOiByaWdodFxyXG4gIH1cclxufVxyXG5cclxuLm1lbWJlci1kZXRhaWxzIC5tZW1iZXJfY29udGFjdCAuc29jaWFsLWljb25zIC5idG4tc29jaWFsIHtcclxuICB3aWR0aDogNDBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgbGluZS1oZWlnaHQ6IDQwcHhcclxufVxyXG5cclxuLm1lbWJlci1kZXRhaWxzIC5tZW1iZXJfY29udGFjdCAuc29jaWFsLWljb25zIC5idG4ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkO1xyXG4gIGJvcmRlci1jb2xvcjogIzk5OTtcclxuICBjb2xvcjogI2RhZTBlNlxyXG59XHJcblxyXG4ubWVtYmVyLWRldGFpbHMgLm1lbWJlcl9jb250YWN0IC5zb2NpYWwtaWNvbnMgLmJ0bjpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxNjIsIDE1NiwgMTU2LCAwLjIpO1xyXG4gIGJvcmRlci1jb2xvcjogcmdiYSgxNjIsIDE1NiwgMTU2LCAwLjIpO1xyXG4gIG9wYWNpdHk6IDFcclxufVxyXG5cclxuLmJnLWltYWdlLWhvbGRlcixcclxuLmJnLWltYWdlIHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyIWltcG9ydGFudDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiA1MCUgMCFpbXBvcnRhbnQ7XHJcbiAgdHJhbnNpdGlvbjogYWxsIC4zcyBsaW5lYXI7XHJcbiAgYmFja2dyb3VuZDogI2Y1ZjVmNjtcclxuICBwb3NpdGlvbjogcmVsYXRpdmVcclxufVxyXG5cclxuLmJnLWltYWdlOmJlZm9yZSB7XHJcbiAgY29udGVudDogJyc7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogMDtcclxuICBsZWZ0OiAwO1xyXG4gIHJpZ2h0OiAwO1xyXG4gIGJvdHRvbTogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIC43KVxyXG59XHJcblxyXG4uYmctZml4ZWQge1xyXG4gIGJhY2tncm91bmQtYXR0YWNobWVudDogZml4ZWRcclxufVxyXG5cclxuLmJnLWltYWdlIC5vdmVybGF5LWNvbnRlbnQge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICB6LWluZGV4OiA1XHJcbn1cclxuXHJcblxyXG4ucHJvZ3Jlc3MtaG9sZGVyIHtcclxuICBtYXJnaW4tdG9wOiA1MHB4XHJcbn1cclxuXHJcbi5wcm9ncmVzcy1ob2xkZXIgLmJhcldyYXBwZXIgLnByb2dyZXNzVGV4dCB7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG4gIGNvbG9yOiAjMjIyXHJcbn1cclxuXHJcbi5wcm9ncmVzcy1ob2xkZXIgLnByb2dyZXNzIHtcclxuICBtYXJnaW4tYm90dG9tOiAyNXB4O1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgb3ZlcmZsb3c6IHZpc2libGU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2Y1ZjVmNlxyXG59XHJcblxyXG4ucHJvZ3Jlc3MtaG9sZGVyIC5wcm9ncmVzcyAucHJvZ3Jlc3MtYmFyIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmVcclxufVxyXG5cclxuLnByb2dyZXNzLWhvbGRlciAucHJvZ3Jlc3MgLnByb2dyZXNzLWJhcjphZnRlciB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGNvbnRlbnQ6ICcnO1xyXG4gIHdpZHRoOiAxcHg7XHJcbiAgaGVpZ2h0OiAzM3B4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTYyLCAxNTYsIDE1NiwgMC4yKTtcclxuICB0b3A6IC04cHg7XHJcbiAgcmlnaHQ6IDA7XHJcbiAgei1pbmRleDogNTVcclxufVxyXG5cclxuLmltZy1mdWxsIHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxucCB7XHJcbiAgY29sb3I6ICM4YjhlOTM7XHJcbiAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxuICBsaW5lLWhlaWdodDogMjZweDtcclxufVxyXG5cclxuXHJcbi5zdHlsZWRfbGlzdCB7XHJcbiAgbWFyZ2luLXRvcDogMTVweDtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrXHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOjc2OHB4KSB7XHJcbiAgLnN0eWxlZF9saXN0IHtcclxuICAgIG1hcmdpbi10b3A6IDE1cHhcclxuICB9XHJcbn1cclxuXHJcbi5zdHlsZWRfbGlzdCBsaSB7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIGxpbmUtaGVpZ2h0OiAzMHB4XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOjc2OHB4KSB7XHJcbiAgLnN0eWxlZF9saXN0IGxpIHtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgd2lkdGg6IDUwJVxyXG4gIH1cclxufVxyXG5cclxuLnN0eWxlZF9saXN0IGxpIGkge1xyXG4gIG1hcmdpbi1yaWdodDogMTBweDtcclxuICBmb250LXNpemU6IDEycHhcclxufVxyXG5cclxuLnN0eWxlZF9saXN0IGxpIGEge1xyXG4gIGNvbG9yOiAjOGI4ZTkzXHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOjc2OHB4KSB7XHJcbiAgLnN0eWxlZF9saXN0IGxpIGEge1xyXG4gICAgZm9udC1zaXplOiAxMnB4XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDo5OTJweCkge1xyXG4gIC5zdHlsZWRfbGlzdCBsaSBhIHtcclxuICAgIGZvbnQtc2l6ZTogMTRweFxyXG4gIH1cclxufVxyXG5cclxub2wuc3R5bGVkX2xpc3Qge1xyXG4gIG1hcmdpbi1sZWZ0OiAxNXB4XHJcbn1cclxuXHJcbm9sLnN0eWxlZF9saXN0IGxpIHtcclxuICBwYWRkaW5nLWxlZnQ6IDEwcHhcclxufVxyXG4uaWNvbi1ib3gge1xyXG4gIGZvbnQtc2l6ZTogMzBweDtcclxuICBtYXJnaW4tYm90dG9tOiAzM3B4O1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBjb2xvcjogI2ZmZmZmZjtcclxuICBoZWlnaHQ6IDY1cHg7XHJcbiAgd2lkdGg6IDY1cHg7XHJcbiAgbGluZS1oZWlnaHQ6IDY1cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzU5YjczZjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogMC4zcmVtO1xyXG59XHJcbi5zb2NpYWwtaWNvbi1zdHlsZTIgbGkgYSB7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgY29sb3I6ICNmZmZmZmY7XHJcbiAgYmFja2dyb3VuZDogIzA1MWMzMTtcclxuICBoZWlnaHQ6IDQxcHg7XHJcbiAgbGluZS1oZWlnaHQ6IDQxcHg7XHJcbiAgd2lkdGg6IDQxcHg7XHJcbn1cclxuLnNvY2lhbC1pY29uLXN0eWxlMiB7XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbn1cclxuXHJcbi5zb2NpYWwtaWNvbi1zdHlsZTIgbGkge1xyXG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG59XHJcbiJdfQ== */");
+
+/***/ }),
+
+/***/ "H2Zj":
+/*!***********************************************************!*\
+  !*** ./src/app/user/apply-list/apply-list.component.scss ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("body {\n  background-color: #f8f9fa !important;\n}\n\n.p-4 {\n  padding: 1.5rem !important;\n}\n\n.mb-0, .my-0 {\n  margin-bottom: 0 !important;\n}\n\n.shadow-sm {\n  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n\n/* user-dashboard-info-box */\n\n.user-dashboard-info-box .candidates-list .thumb {\n  margin-right: 20px;\n}\n\n.user-dashboard-info-box .candidates-list .thumb img {\n  width: 80px;\n  height: 80px;\n  -o-object-fit: cover;\n  object-fit: cover;\n  overflow: hidden;\n  border-radius: 50%;\n}\n\n.user-dashboard-info-box .title {\n  display: flex;\n  align-items: center;\n  padding: 30px 0;\n}\n\n.user-dashboard-info-box .candidates-list td {\n  vertical-align: middle;\n}\n\n.user-dashboard-info-box td li {\n  margin: 0 4px;\n}\n\n.user-dashboard-info-box .table thead th {\n  border-bottom: none;\n}\n\n.table.manage-candidates-top th {\n  border: 0;\n}\n\n.user-dashboard-info-box .candidate-list-favourite-time .candidate-list-favourite {\n  margin-bottom: 10px;\n}\n\n.table.manage-candidates-top {\n  min-width: 650px;\n}\n\n.user-dashboard-info-box .candidate-list-details ul {\n  color: #969696;\n}\n\n/* Candidate List */\n\n.candidate-list {\n  background: #ffffff;\n  display: flex;\n  border-bottom: 1px solid #eeeeee;\n  align-items: center;\n  padding: 20px;\n  transition: all 0.3s ease-in-out;\n}\n\n.candidate-list:hover {\n  box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);\n  position: relative;\n  z-index: 99;\n}\n\n.candidate-list:hover a.candidate-list-favourite {\n  color: #e74c3c;\n  box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);\n}\n\n.candidate-list .candidate-list-image {\n  margin-right: 25px;\n  flex: 0 0 80px;\n  border: none;\n}\n\n.candidate-list .candidate-list-image img {\n  width: 80px;\n  height: 80px;\n  -o-object-fit: cover;\n  object-fit: cover;\n}\n\n.candidate-list-title {\n  margin-bottom: 5px;\n}\n\n.candidate-list-details ul {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 0px;\n}\n\n.candidate-list-details ul li {\n  margin: 5px 10px 5px 0px;\n  font-size: 13px;\n}\n\n.candidate-list .candidate-list-favourite-time {\n  margin-left: auto;\n  text-align: center;\n  font-size: 13px;\n  flex: 0 0 90px;\n}\n\n.candidate-list .candidate-list-favourite-time span {\n  display: block;\n  margin: 0 auto;\n}\n\n.candidate-list .candidate-list-favourite-time .candidate-list-favourite {\n  display: inline-block;\n  position: relative;\n  height: 40px;\n  width: 40px;\n  line-height: 40px;\n  border: 1px solid #eeeeee;\n  border-radius: 100%;\n  text-align: center;\n  transition: all 0.3s ease-in-out;\n  margin-bottom: 20px;\n  font-size: 16px;\n  color: #646f79;\n}\n\n.candidate-list .candidate-list-favourite-time .candidate-list-favourite:hover {\n  background: #ffffff;\n  color: #e74c3c;\n}\n\n.candidate-banner .candidate-list:hover {\n  position: inherit;\n  box-shadow: inherit;\n  z-index: inherit;\n}\n\n.bg-white {\n  background-color: #ffffff !important;\n}\n\n.p-4 {\n  padding: 1.5rem !important;\n}\n\n.mb-0, .my-0 {\n  margin-bottom: 0 !important;\n}\n\n.shadow-sm {\n  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n\n.user-dashboard-info-box .candidates-list .thumb {\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxhcHBseS1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usb0NBQUE7QUFDRjs7QUFDQTtFQUNFLDBCQUFBO0FBRUY7O0FBQUE7RUFDRSwyQkFBQTtBQUdGOztBQURBO0VBQ0UsOERBQUE7QUFJRjs7QUFEQSw0QkFBQTs7QUFDQTtFQUNFLGtCQUFBO0FBSUY7O0FBRkE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG9CQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0FBS0Y7O0FBRkE7RUFHRSxhQUFBO0VBR0EsbUJBQUE7RUFDQSxlQUFBO0FBS0Y7O0FBRkE7RUFDRSxzQkFBQTtBQUtGOztBQUZBO0VBQ0UsYUFBQTtBQUtGOztBQUZBO0VBQ0UsbUJBQUE7QUFLRjs7QUFGQTtFQUNFLFNBQUE7QUFLRjs7QUFGQTtFQUNFLG1CQUFBO0FBS0Y7O0FBRkE7RUFDRSxnQkFBQTtBQUtGOztBQUZBO0VBQ0UsY0FBQTtBQUtGOztBQUZBLG1CQUFBOztBQUNBO0VBQ0UsbUJBQUE7RUFHQSxhQUFBO0VBQ0EsZ0NBQUE7RUFHQSxtQkFBQTtFQUNBLGFBQUE7RUFFQSxnQ0FBQTtBQUtGOztBQUhBO0VBRUUsbURBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7QUFNRjs7QUFKQTtFQUNFLGNBQUE7RUFFQSxxREFBQTtBQU9GOztBQUpBO0VBQ0Usa0JBQUE7RUFHQSxjQUFBO0VBQ0EsWUFBQTtBQU9GOztBQUxBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxvQkFBQTtFQUNBLGlCQUFBO0FBUUY7O0FBTEE7RUFDRSxrQkFBQTtBQVFGOztBQUxBO0VBR0UsYUFBQTtFQUVBLGVBQUE7RUFDQSxrQkFBQTtBQVFGOztBQU5BO0VBQ0Usd0JBQUE7RUFDQSxlQUFBO0FBU0Y7O0FBTkE7RUFDRSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUdBLGNBQUE7QUFTRjs7QUFQQTtFQUNFLGNBQUE7RUFDQSxjQUFBO0FBVUY7O0FBUkE7RUFDRSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtFQUNBLHlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtFQUVBLGdDQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtBQVdGOztBQVRBO0VBQ0UsbUJBQUE7RUFDQSxjQUFBO0FBWUY7O0FBVEE7RUFDRSxpQkFBQTtFQUVBLG1CQUFBO0VBQ0EsZ0JBQUE7QUFZRjs7QUFUQTtFQUNFLG9DQUFBO0FBWUY7O0FBVkE7RUFDRSwwQkFBQTtBQWFGOztBQVhBO0VBQ0UsMkJBQUE7QUFjRjs7QUFaQTtFQUNFLDhEQUFBO0FBZUY7O0FBWkE7RUFDRSxrQkFBQTtBQWVGIiwiZmlsZSI6ImFwcGx5LWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5e1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNmOGY5ZmEhaW1wb3J0YW50XHJcbn1cclxuLnAtNCB7XHJcbiAgcGFkZGluZzogMS41cmVtIWltcG9ydGFudDtcclxufVxyXG4ubWItMCwgLm15LTAge1xyXG4gIG1hcmdpbi1ib3R0b206IDAhaW1wb3J0YW50O1xyXG59XHJcbi5zaGFkb3ctc20ge1xyXG4gIGJveC1zaGFkb3c6IDAgLjEyNXJlbSAuMjVyZW0gcmdiYSgwLDAsMCwuMDc1KSFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi8qIHVzZXItZGFzaGJvYXJkLWluZm8tYm94ICovXHJcbi51c2VyLWRhc2hib2FyZC1pbmZvLWJveCAuY2FuZGlkYXRlcy1saXN0IC50aHVtYiB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG59XHJcbi51c2VyLWRhc2hib2FyZC1pbmZvLWJveCAuY2FuZGlkYXRlcy1saXN0IC50aHVtYiBpbWcge1xyXG4gIHdpZHRoOiA4MHB4O1xyXG4gIGhlaWdodDogODBweDtcclxuICAtby1vYmplY3QtZml0OiBjb3ZlcjtcclxuICBvYmplY3QtZml0OiBjb3ZlcjtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxufVxyXG5cclxuLnVzZXItZGFzaGJvYXJkLWluZm8tYm94IC50aXRsZSB7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XHJcbiAgZGlzcGxheTogLW1zLWZsZXhib3g7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAtd2Via2l0LWJveC1hbGlnbjogY2VudGVyO1xyXG4gIC1tcy1mbGV4LWFsaWduOiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nOiAzMHB4IDA7XHJcbn1cclxuXHJcbi51c2VyLWRhc2hib2FyZC1pbmZvLWJveCAuY2FuZGlkYXRlcy1saXN0IHRkIHtcclxuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG59XHJcblxyXG4udXNlci1kYXNoYm9hcmQtaW5mby1ib3ggdGQgbGkge1xyXG4gIG1hcmdpbjogMCA0cHg7XHJcbn1cclxuXHJcbi51c2VyLWRhc2hib2FyZC1pbmZvLWJveCAudGFibGUgdGhlYWQgdGgge1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcbi50YWJsZS5tYW5hZ2UtY2FuZGlkYXRlcy10b3AgdGgge1xyXG4gIGJvcmRlcjogMDtcclxufVxyXG5cclxuLnVzZXItZGFzaGJvYXJkLWluZm8tYm94IC5jYW5kaWRhdGUtbGlzdC1mYXZvdXJpdGUtdGltZSAuY2FuZGlkYXRlLWxpc3QtZmF2b3VyaXRlIHtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcblxyXG4udGFibGUubWFuYWdlLWNhbmRpZGF0ZXMtdG9wIHtcclxuICBtaW4td2lkdGg6IDY1MHB4O1xyXG59XHJcblxyXG4udXNlci1kYXNoYm9hcmQtaW5mby1ib3ggLmNhbmRpZGF0ZS1saXN0LWRldGFpbHMgdWwge1xyXG4gIGNvbG9yOiAjOTY5Njk2O1xyXG59XHJcblxyXG4vKiBDYW5kaWRhdGUgTGlzdCAqL1xyXG4uY2FuZGlkYXRlLWxpc3Qge1xyXG4gIGJhY2tncm91bmQ6ICNmZmZmZmY7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XHJcbiAgZGlzcGxheTogLW1zLWZsZXhib3g7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2VlZWVlZTtcclxuICAtd2Via2l0LWJveC1hbGlnbjogY2VudGVyO1xyXG4gIC1tcy1mbGV4LWFsaWduOiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nOiAyMHB4O1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XHJcbn1cclxuLmNhbmRpZGF0ZS1saXN0OmhvdmVyIHtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IDBweCAwcHggMzRweCA0cHggcmdiYSgzMywgMzcsIDQxLCAwLjA2KTtcclxuICBib3gtc2hhZG93OiAwcHggMHB4IDM0cHggNHB4IHJnYmEoMzMsIDM3LCA0MSwgMC4wNik7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIHotaW5kZXg6IDk5O1xyXG59XHJcbi5jYW5kaWRhdGUtbGlzdDpob3ZlciBhLmNhbmRpZGF0ZS1saXN0LWZhdm91cml0ZSB7XHJcbiAgY29sb3I6ICNlNzRjM2M7XHJcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAtMXB4IDRweCAxMHB4IDFweCByZ2JhKDI0LCAxMTEsIDIwMSwgMC4xKTtcclxuICBib3gtc2hhZG93OiAtMXB4IDRweCAxMHB4IDFweCByZ2JhKDI0LCAxMTEsIDIwMSwgMC4xKTtcclxufVxyXG5cclxuLmNhbmRpZGF0ZS1saXN0IC5jYW5kaWRhdGUtbGlzdC1pbWFnZSB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAyNXB4O1xyXG4gIC13ZWJraXQtYm94LWZsZXg6IDA7XHJcbiAgLW1zLWZsZXg6IDAgMCA4MHB4O1xyXG4gIGZsZXg6IDAgMCA4MHB4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4uY2FuZGlkYXRlLWxpc3QgLmNhbmRpZGF0ZS1saXN0LWltYWdlIGltZyB7XHJcbiAgd2lkdGg6IDgwcHg7XHJcbiAgaGVpZ2h0OiA4MHB4O1xyXG4gIC1vLW9iamVjdC1maXQ6IGNvdmVyO1xyXG4gIG9iamVjdC1maXQ6IGNvdmVyO1xyXG59XHJcblxyXG4uY2FuZGlkYXRlLWxpc3QtdGl0bGUge1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5cclxuLmNhbmRpZGF0ZS1saXN0LWRldGFpbHMgdWwge1xyXG4gIGRpc3BsYXk6IC13ZWJraXQtYm94O1xyXG4gIGRpc3BsYXk6IC1tcy1mbGV4Ym94O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLW1zLWZsZXgtd3JhcDogd3JhcDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luLWJvdHRvbTogMHB4O1xyXG59XHJcbi5jYW5kaWRhdGUtbGlzdC1kZXRhaWxzIHVsIGxpIHtcclxuICBtYXJnaW46IDVweCAxMHB4IDVweCAwcHg7XHJcbiAgZm9udC1zaXplOiAxM3B4O1xyXG59XHJcblxyXG4uY2FuZGlkYXRlLWxpc3QgLmNhbmRpZGF0ZS1saXN0LWZhdm91cml0ZS10aW1lIHtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxM3B4O1xyXG4gIC13ZWJraXQtYm94LWZsZXg6IDA7XHJcbiAgLW1zLWZsZXg6IDAgMCA5MHB4O1xyXG4gIGZsZXg6IDAgMCA5MHB4O1xyXG59XHJcbi5jYW5kaWRhdGUtbGlzdCAuY2FuZGlkYXRlLWxpc3QtZmF2b3VyaXRlLXRpbWUgc3BhbiB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbn1cclxuLmNhbmRpZGF0ZS1saXN0IC5jYW5kaWRhdGUtbGlzdC1mYXZvdXJpdGUtdGltZSAuY2FuZGlkYXRlLWxpc3QtZmF2b3VyaXRlIHtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGhlaWdodDogNDBweDtcclxuICB3aWR0aDogNDBweDtcclxuICBsaW5lLWhlaWdodDogNDBweDtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjZWVlZWVlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgY29sb3I6ICM2NDZmNzk7XHJcbn1cclxuLmNhbmRpZGF0ZS1saXN0IC5jYW5kaWRhdGUtbGlzdC1mYXZvdXJpdGUtdGltZSAuY2FuZGlkYXRlLWxpc3QtZmF2b3VyaXRlOmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG4gIGNvbG9yOiAjZTc0YzNjO1xyXG59XHJcblxyXG4uY2FuZGlkYXRlLWJhbm5lciAuY2FuZGlkYXRlLWxpc3Q6aG92ZXIge1xyXG4gIHBvc2l0aW9uOiBpbmhlcml0O1xyXG4gIC13ZWJraXQtYm94LXNoYWRvdzogaW5oZXJpdDtcclxuICBib3gtc2hhZG93OiBpbmhlcml0O1xyXG4gIHotaW5kZXg6IGluaGVyaXQ7XHJcbn1cclxuXHJcbi5iZy13aGl0ZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50O1xyXG59XHJcbi5wLTQge1xyXG4gIHBhZGRpbmc6IDEuNXJlbSFpbXBvcnRhbnQ7XHJcbn1cclxuLm1iLTAsIC5teS0wIHtcclxuICBtYXJnaW4tYm90dG9tOiAwIWltcG9ydGFudDtcclxufVxyXG4uc2hhZG93LXNtIHtcclxuICBib3gtc2hhZG93OiAwIC4xMjVyZW0gLjI1cmVtIHJnYmEoMCwwLDAsLjA3NSkhaW1wb3J0YW50O1xyXG59XHJcblxyXG4udXNlci1kYXNoYm9hcmQtaW5mby1ib3ggLmNhbmRpZGF0ZXMtbGlzdCAudGh1bWIge1xyXG4gIG1hcmdpbi1yaWdodDogMjBweDtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -1995,6 +2284,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_cv_cv_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../service/cv/cv.service */ "cxox");
 /* harmony import */ var _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../service/workExp/work-exp.service */ "fAU0");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _dialog_CV_dialog_edit_cv_dialog_edit_cv_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../dialog/CV/dialog-edit-cv/dialog-edit-cv.component */ "lIeo");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2014,30 +2305,107 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var EditCvComponent = /** @class */ (function () {
-    function EditCvComponent(tokenService, userService, skillService, cvService, workExpService, route, dialog) {
+    function EditCvComponent(tokenService, userService, skillService, cvService, workExpService, route, router, dialog, fb, token) {
         this.tokenService = tokenService;
         this.userService = userService;
         this.skillService = skillService;
         this.cvService = cvService;
         this.workExpService = workExpService;
         this.route = route;
+        this.router = router;
         this.dialog = dialog;
+        this.fb = fb;
+        this.token = token;
+        this.user = { account: null, phone: "", name: '' };
+        this.cvForm = this.fb.group({
+            expYear: [],
+            salaryExpectation: [],
+            fileCV: [],
+            userId: this.token.getIdGuest(),
+            skills: this.fb.array([]),
+            workExps: this.fb.array([])
+        });
     }
+    Object.defineProperty(EditCvComponent.prototype, "skills", {
+        get: function () {
+            return this.cvForm.get('skills');
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(EditCvComponent.prototype, "workExps", {
+        get: function () {
+            return this.cvForm.get('workExps');
+        },
+        enumerable: false,
+        configurable: true
+    });
+    EditCvComponent.prototype.onUpLoadAvatar = function (event) {
+        this.cvForm.value.fileCV = event;
+    };
     EditCvComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.idUser = this.route.snapshot.params['id'];
+        this.userService.getUserById(this.idUser).subscribe(function (data) {
+            _this.user = data;
+        });
         this.cvService.findByUserId(this.idUser).subscribe(function (data) {
-            _this.cv = data;
+            data.skills.forEach(function (item) {
+                _this.skills.push(_this.fb.group({
+                    id: [''],
+                    name: [''],
+                    proficiency: ['']
+                }));
+            });
+            data.workExps.forEach(function (item) {
+                _this.workExps.push(_this.fb.group({
+                    id: [''],
+                    title: [''],
+                    startDate: [''],
+                    endDate: [''],
+                    content: ['']
+                }));
+            });
+            _this.cvForm.patchValue(data);
         });
     };
+    EditCvComponent.prototype.onUpdate = function () {
+        var _this = this;
+        console.log(this.cvForm.value);
+        this.cvService.updateCV(this.tokenService.getIdGuest(), this.cvForm.value).subscribe(function (data) {
+            var dialogRef = _this.dialog.open(_dialog_CV_dialog_edit_cv_dialog_edit_cv_component__WEBPACK_IMPORTED_MODULE_11__["DialogEditCvComponent"]);
+            dialogRef.afterClosed().subscribe(function (result) {
+                _this.cvForm.reset();
+                _this.router.navigate(['detail-cv', _this.tokenService.getIdGuest()]);
+            });
+        });
+    };
+    EditCvComponent.prototype.addSkill = function () {
+        var skillForm = this.fb.group({
+            id: [''],
+            name: [''],
+            proficiency: ['50%']
+        });
+        this.skills.push(skillForm);
+    };
+    EditCvComponent.prototype.deleteSkill = function (index) {
+        this.skills.removeAt(index);
+    };
     EditCvComponent.prototype.addWorkExp = function () {
-        var workExp = { content: "aaaa", cvId: this.cv.id, endDate: null, id: null, startDate: null, title: "" };
-        this.cv.workExps.push(workExp);
+        var workExpForm = this.fb.group({
+            id: [''],
+            title: [''],
+            startDate: [''],
+            endDate: [''],
+            content: ['']
+        });
+        this.workExps.push(workExpForm);
     };
     EditCvComponent.prototype.deleteWorkExp = function (index) {
-        var workExpDel = this.cv.workExps.splice(index, 1);
-        // const dialog = this.dialog.openDialogs(DialogComponent);
+        this.workExps.removeAt(index);
     };
     EditCvComponent.ctorParameters = function () { return [
         { type: _security_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"] },
@@ -2046,7 +2414,10 @@ var EditCvComponent = /** @class */ (function () {
         { type: _service_cv_cv_service__WEBPACK_IMPORTED_MODULE_7__["CVService"] },
         { type: _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_8__["WorkExpService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
-        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormBuilder"] },
+        { type: _security_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"] }
     ]; };
     EditCvComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -2060,7 +2431,10 @@ var EditCvComponent = /** @class */ (function () {
             _service_cv_cv_service__WEBPACK_IMPORTED_MODULE_7__["CVService"],
             _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_8__["WorkExpService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
-            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormBuilder"],
+            _security_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"]])
     ], EditCvComponent);
     return EditCvComponent;
 }());
@@ -2277,6 +2651,9 @@ var CompanyService = /** @class */ (function () {
     CompanyService.prototype.fidAllCompanyByStatus = function (status) {
         return this.http.get(this.apiServerUrl + "/company/findByStatus/" + status);
     };
+    CompanyService.prototype.findByRecuitmentNewNeed = function () {
+        return this.http.get("http://localhost:8080/company/findByRecuitmentNewNeed");
+    };
     CompanyService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
     ]; };
@@ -2290,6 +2667,19 @@ var CompanyService = /** @class */ (function () {
 }());
 
 
+
+/***/ }),
+
+/***/ "Ki41":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user/apply-list/apply-list.component.html ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Start Page Title Area -->\r\n<div class=\"page-title-area\" style=\"height: 439px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>DANH SÁCH ỨNG TUYỂN CỦA BẠN</h2>\r\n            <ul>\r\n                <li>\r\n                    <a href=\"index.html\">\r\n                        Home\r\n                    </a>\r\n                </li>\r\n\r\n                <li class=\"active\">Blog</li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Page Title Area -->\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css\" integrity=\"sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=\" crossorigin=\"anonymous\" />\r\n<div class=\"container mt-3 mb-4\">\r\n    <div class=\"col-lg-12 mt-4 mt-lg-0\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\" >\r\n                <div class=\"user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm\">\r\n                    <table class=\"table manage-candidates-top mb-0\">\r\n                        <thead>\r\n                        <tr>\r\n                            <th>Thông tin tuyển dụng</th>\r\n                            <th class=\"text-center\">Trạng thái</th>\r\n                            <th class=\"action text-right\">Hoạt động</th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                        <tr class=\"candidates-list\" *ngFor=\"let apply of applis\">\r\n                            <td class=\"title\">\r\n                                <div class=\"thumb\">\r\n                                    <img class=\"img-fluid\" src=\"{{apply.recuitmentNew.company.avatar}}\" alt=\"\">\r\n                                </div>\r\n                                <div class=\"candidate-list-details\">\r\n                                    <div class=\"candidate-list-info\">\r\n                                        <div class=\"candidate-list-title\">\r\n                                            <h5 class=\"mb-0\"><a (click)=\"openDialogDetails(apply.recuitmentNew.id)\">{{apply.recuitmentNew.title}}</a></h5>\r\n                                        </div>\r\n                                        <div class=\"candidate-list-option\">\r\n                                            <ul class=\"list-unstyled\">\r\n                                                <li><i class=\"fas fa-filter pr-1\"></i>{{apply.recuitmentNew.field.name}}</li>\r\n                                                <li><i class=\"fas fa-map-marker-alt pr-1\"></i>{{apply.recuitmentNew.city.name}}</li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </td>\r\n                            <td class=\"candidate-list-favourite-time text-center\">\r\n                                <a class=\"candidate-list-favourite order-2 text-danger\" href=\"#\"><i class=\"fas fa-heart\"></i></a>\r\n                                <span class=\"candidate-list-time order-1\">{{apply.status}}</span>\r\n                            </td>\r\n                            <td>\r\n                                <ul class=\"list-unstyled mb-0 d-flex justify-content-end\">\r\n                                    <li><a class=\"text-primary\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"view\" (click)=\"openDialogDetails(apply.recuitmentNew.id)\"><i class=\"far fa-eye\"></i></a></li>\r\n                                </ul>\r\n                            </td>\r\n                        </tr>\r\n\r\n                        </tbody>\r\n                    </table>\r\n                    <div class=\"text-center mt-3 mt-sm-3\">\r\n                        <mat-paginator [pageSizeOptions]=\"[3,6,15,30,90]\"\r\n                                       [length]=\"totalElements\"\r\n                                       (page)=\"nextPage($event)\">\r\n                        </mat-paginator>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -2359,6 +2749,19 @@ var httpInterceptorProvider = [
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1cGRhdGUtcmVjcnVpdG1lbnRuZXctY29tcGFueS5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "NSQK":
+/*!*****************************************************************!*\
+  !*** ./src/app/dialog/dialog-match/dialog-match.component.scss ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkaWFsb2ctbWF0Y2guY29tcG9uZW50LnNjc3MifQ== */");
 
 /***/ }),
 
@@ -2446,6 +2849,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dialog_dialogApplyFail_dialog_apply_fail_dialog_apply_fail_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component */ "NUjO");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ "tyNb");
 /* harmony import */ var _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../service/apply/apply.service */ "j6QF");
+/* harmony import */ var _model_forwardApply__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../model/forwardApply */ "pm72");
+/* harmony import */ var _service_apply_forward_apply_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../service/apply/forward-apply.service */ "9wQv");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2470,8 +2875,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var HomepageComponent = /** @class */ (function () {
-    function HomepageComponent(companyService, rcms, tokenService, dialog, userService, router, applyService) {
+    function HomepageComponent(companyService, rcms, tokenService, dialog, userService, router, applyService, forwardApplyService, recruitmentNewService) {
         var _this = this;
         this.companyService = companyService;
         this.rcms = rcms;
@@ -2480,15 +2887,17 @@ var HomepageComponent = /** @class */ (function () {
         this.userService = userService;
         this.router = router;
         this.applyService = applyService;
+        this.forwardApplyService = forwardApplyService;
+        this.recruitmentNewService = recruitmentNewService;
         this.companyHot = [];
         this.recruimentNew = [];
+        this.RecuitmentNewNeed = [];
         this.totalElements = 0;
         this.checkLogin = false;
         this.checkUser = false;
+        this.searchKey = "";
         this.companyService.fidAllCompanyByStatus(4).subscribe(function (data) {
-            console.log(data);
             _this.companyHot = data;
-            console.log(_this.companyHot);
         });
         this.checklogin();
     }
@@ -2497,13 +2906,10 @@ var HomepageComponent = /** @class */ (function () {
         if (this.tokenService.getTokenKey()) {
             this.idGuest = this.tokenService.getIdGuest();
             for (var i = 0; i < this.tokenService.getRoleKey().length; i++) {
-                console.log(this.tokenService.getRoleKey()[i]);
                 if (this.tokenService.getRoleKey()[i] == "USER") {
                     this.userService.getUserById(this.idGuest).subscribe(function (data) {
                         if (data) {
-                            console.log("hello");
                             _this.checkUser = true;
-                            console.log(data);
                         }
                     });
                 }
@@ -2516,9 +2922,17 @@ var HomepageComponent = /** @class */ (function () {
             this.checkUser = true;
         }
     };
+    HomepageComponent.prototype.findByRecuitmentNewNeed = function () {
+        var _this = this;
+        this.companyService.findByRecuitmentNewNeed().subscribe(function (data) {
+            _this.RecuitmentNewNeed = data;
+            console.log(_this.RecuitmentNewNeed);
+        });
+    };
     HomepageComponent.prototype.ngOnInit = function () {
         this.pageRecruiment({ page: 0, size: 4 });
         this.checkUserCurrent();
+        this.findByRecuitmentNewNeed();
     };
     HomepageComponent.prototype.checklogin = function () {
         if (this.tokenService.getTokenKey()) {
@@ -2529,13 +2943,10 @@ var HomepageComponent = /** @class */ (function () {
         var _this = this;
         this.rcms.pageRecruitmentNew(nextPage).subscribe(function (data) {
             _this.recruimentNew = data['content'];
-            console.log(_this.recruimentNew);
             _this.totalElements = data['totalElements'];
-            console.log(_this.totalElements);
         });
     };
     HomepageComponent.prototype.nextPage = function (event) {
-        console.log(event);
         var request = {};
         request['page'] = event.pageIndex.toString();
         request['size'] = event.pageSize.toString();
@@ -2569,6 +2980,13 @@ var HomepageComponent = /** @class */ (function () {
                         if (data2.message == "CREATE") {
                             var dialogRef1 = _this.dialog.open(_dialog_dialogApplyFail_dialog_apply_dialog_apply_component__WEBPACK_IMPORTED_MODULE_11__["DialogApplyComponent"]);
                             dialogRef1.afterClosed().subscribe(function (result) {
+                                _this.recruitmentNewService.getRecruitmentNewById(id).subscribe(function (data3) {
+                                    _this.recruitmentNew = data3;
+                                    _this.forwardApply = new _model_forwardApply__WEBPACK_IMPORTED_MODULE_15__["ForwardApply"](_this.tokenService.getIdGuest(), Number(_this.recruitmentNew.company.id));
+                                    _this.forwardApplyService.forwardApply(_this.forwardApply).subscribe(function (data4) {
+                                        console.log('sau khi bam nut--->', data4);
+                                    });
+                                });
                                 console.log('ressult sau khi bam nut --> ', result);
                                 if (result == false) {
                                 }
@@ -2588,6 +3006,16 @@ var HomepageComponent = /** @class */ (function () {
             console.log('The dialog was closed');
         });
     };
+    HomepageComponent.prototype.ngSubmit = function (f) {
+        console.log(f.value);
+        this.searchKey = f.value.searchKey;
+        if (this.searchKey == "") {
+            this.router.navigate(["list-recruitmentnew-user/xxx"]);
+        }
+        else {
+            this.router.navigate(["list-recruitmentnew-user/" + this.searchKey]);
+        }
+    };
     HomepageComponent.ctorParameters = function () { return [
         { type: _service_company_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"] },
         { type: _service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_4__["RecruitmentNewService"] },
@@ -2595,7 +3023,9 @@ var HomepageComponent = /** @class */ (function () {
         { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] },
         { type: _user_service_user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"] },
-        { type: _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_14__["ApplyService"] }
+        { type: _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_14__["ApplyService"] },
+        { type: _service_apply_forward_apply_service__WEBPACK_IMPORTED_MODULE_16__["ForwardApplyService"] },
+        { type: _service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_4__["RecruitmentNewService"] }
     ]; };
     HomepageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -2609,7 +3039,9 @@ var HomepageComponent = /** @class */ (function () {
             _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"],
             _user_service_user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_13__["Router"],
-            _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_14__["ApplyService"]])
+            _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_14__["ApplyService"],
+            _service_apply_forward_apply_service__WEBPACK_IMPORTED_MODULE_16__["ForwardApplyService"],
+            _service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_4__["RecruitmentNewService"]])
     ], HomepageComponent);
     return HomepageComponent;
 }());
@@ -2644,12 +3076,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_create_cv_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./create-cv.component.html */ "waWb");
 /* harmony import */ var _create_cv_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-cv.component.scss */ "tlmV");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _model_cv__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../model/cv */ "TbLi");
-/* harmony import */ var _model_workExp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../model/workExp */ "RF47");
-/* harmony import */ var _service_cv_cv_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../service/cv/cv.service */ "cxox");
-/* harmony import */ var _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../service/workExp/work-exp.service */ "fAU0");
-/* harmony import */ var _service_skill_skill_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../service/skill/skill.service */ "6YXc");
-/* harmony import */ var _security_token_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../security/token.service */ "zdrf");
+/* harmony import */ var _service_cv_cv_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../service/cv/cv.service */ "cxox");
+/* harmony import */ var _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../service/workExp/work-exp.service */ "fAU0");
+/* harmony import */ var _service_skill_skill_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../service/skill/skill.service */ "6YXc");
+/* harmony import */ var _security_token_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../security/token.service */ "zdrf");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
+/* harmony import */ var _dialog_CV_dialog_create_cv_dialog_create_cv_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../dialog/CV/dialog-create-cv/dialog-create-cv.component */ "/Vn9");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _dialog_CV_dialog_no_create_dialog_no_create_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../dialog/CV/dialog-no-create/dialog-no-create.component */ "81uI");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2668,118 +3103,102 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var CreateCvComponent = /** @class */ (function () {
-    function CreateCvComponent(cvService, workExpService, skillService, token) {
+    function CreateCvComponent(cvService, workExpService, skillService, token, fb, dialog, router, tokenService) {
         this.cvService = cvService;
         this.workExpService = workExpService;
         this.skillService = skillService;
         this.token = token;
-        this.data = {
-            fileCv: ''
-        };
+        this.fb = fb;
+        this.dialog = dialog;
+        this.router = router;
+        this.tokenService = tokenService;
         this.status = "Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản.";
-        this.errorCV1 = {
-            message: "no_file_cv"
+        this.error1 = {
+            message: "user_da_ton_tai"
         };
-        this.errorCV2 = {
-            message: "no_SalaryExpectation_cv"
-        };
-        this.errorSkill1 = {
-            message: "no_name_skill"
-        };
-        this.errorWorkExp1 = {
-            message: "no_title"
-        };
-        this.errorWorkExp2 = {
-            message: "no_start_date"
-        };
-        this.errorWorkExp3 = {
-            message: "no_end_date"
-        };
-        this.success = {
-            message: "yes"
-        };
+        this.check = false;
+        this.cvForm = this.fb.group({
+            expYear: [],
+            salaryExpectation: [],
+            fileCV: [],
+            userId: this.token.getIdGuest(),
+            skills: this.fb.array([]),
+            workExps: this.fb.array([])
+        });
     }
     CreateCvComponent.prototype.ngOnInit = function () {
     };
+    Object.defineProperty(CreateCvComponent.prototype, "skills", {
+        get: function () {
+            return this.cvForm.get('skills');
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CreateCvComponent.prototype, "workExps", {
+        get: function () {
+            return this.cvForm.get("workExps");
+        },
+        enumerable: false,
+        configurable: true
+    });
     CreateCvComponent.prototype.onUpLoadAvatar = function (event) {
-        this.data.fileCv = event;
+        this.cvForm.value.fileCV = event;
     };
-    CreateCvComponent.prototype.ngSubmit = function (form) {
+    CreateCvComponent.prototype.ngSubmit = function () {
         var _this = this;
-        var user = {
-            id: this.token.getIdGuest()
-        };
-        this.cv = new _model_cv__WEBPACK_IMPORTED_MODULE_3__["Cv"](this.data.expYear, this.data.fileCv, this.data.salaryExpectation, user);
-        this.cvService.createCV(this.cv).subscribe(function (data1) {
-            if (JSON.stringify(data1) == JSON.stringify(_this.errorCV1)) {
-                _this.status = 'Vui lòng Up-load file CV!';
+        this.cvService.createCV(this.cvForm.value).subscribe(function (data) {
+            if (JSON.stringify(data) == JSON.stringify(_this.error1)) {
+                var dialogRef = _this.dialog.open(_dialog_CV_dialog_no_create_dialog_no_create_component__WEBPACK_IMPORTED_MODULE_11__["DialogNoCreateComponent"]);
+                dialogRef.afterClosed().subscribe(function (result) {
+                    _this.cvForm.reset();
+                    _this.router.navigate(['detail-cv', _this.tokenService.getIdGuest()]);
+                });
             }
-            if (JSON.stringify(data1) == JSON.stringify(_this.errorCV2)) {
-                _this.status = 'Vui lòng nhập mức lương mong muốn!';
-            }
-            if (JSON.stringify(data1) == JSON.stringify(_this.success)) {
-                _this.status = 'Tạo mới CV thành công!';
-            }
-            _this.idCV = data1.id;
-            _this.createWorkExp();
-            // this.createSkill();
-        }, function (error) { return alert(error); });
-    };
-    // tạo mới workExp vào cv
-    CreateCvComponent.prototype.createWorkExp = function () {
-        var _this = this;
-        this.cv.id = this.idCV;
-        var cvID = {
-            id: this.idCV
-        };
-        this.workExp = new _model_workExp__WEBPACK_IMPORTED_MODULE_4__["WorkExp"](this.data.content, this.data.endDate, this.data.startDate, this.data.title, cvID);
-        this.workExpService.createWorkExp(this.workExp).subscribe(function (data2) {
-            if (JSON.stringify(data2) == JSON.stringify(_this.errorWorkExp1)) {
-                _this.status = 'Vui lòng nhập kinh nghiệm bản thân!';
-            }
-            if (JSON.stringify(data2) == JSON.stringify(_this.errorWorkExp2)) {
-                _this.status = 'Vui lòng nhập ngày bắt đầu!';
-            }
-            if (JSON.stringify(data2) == JSON.stringify(_this.errorWorkExp3)) {
-                _this.status = 'Vui lòng nhập ngày kết thúc!';
+            else {
+                var dialogRef = _this.dialog.open(_dialog_CV_dialog_create_cv_dialog_create_cv_component__WEBPACK_IMPORTED_MODULE_9__["DialogCreateCvComponent"]);
+                dialogRef.afterClosed().subscribe(function (result) {
+                    _this.cvForm.reset();
+                    _this.router.navigate(['detail-cv', _this.tokenService.getIdGuest()]);
+                });
             }
         });
     };
-    // //tạo mới skil vào cv
-    //   createSkill(){
-    //     this.cv.id = this.idCV;
-    //     const cvID = {
-    //     id: this.idCV
-    //   };
-    //
-    //   this.skill = new Skill(this.data.name,cvID)
-    //   this.skillService.createSkill(this.skill).subscribe(data3 =>{
-    //
-    //     if (JSON.stringify(data3) == JSON.stringify(this.errorSkill1)) {
-    //       this.status = 'Vui lòng nhập kinh nghiệm làm việc!';
-    //     }
-    //   })
-    // }
-    //tạo mới skil vào cv
-    CreateCvComponent.prototype.createSkill = function () {
-        var _this = this;
-        this.cv.id = this.idCV;
-        var cvID = {
-            id: this.idCV
-        };
-        // this.skill = new Skill(this.data.name,cvID)
-        this.skillService.createSkill(this.skill).subscribe(function (data3) {
-            if (JSON.stringify(data3) == JSON.stringify(_this.errorSkill1)) {
-                _this.status = 'Vui lòng nhập kinh nghiệm làm việc!';
-            }
+    CreateCvComponent.prototype.addSkill = function () {
+        var skillForm = this.fb.group({
+            name: [''],
+            proficiency: ['50%']
         });
+        this.skills.push(skillForm);
+    };
+    CreateCvComponent.prototype.deleteSkill = function (index) {
+        this.skills.removeAt(index);
+    };
+    CreateCvComponent.prototype.addWorkExp = function () {
+        var workExpForm = this.fb.group({
+            title: [''],
+            startDate: [''],
+            endDate: [''],
+            content: ['']
+        });
+        this.workExps.push(workExpForm);
+    };
+    CreateCvComponent.prototype.deleteWorkExp = function (index) {
+        this.workExps.removeAt(index);
     };
     CreateCvComponent.ctorParameters = function () { return [
-        { type: _service_cv_cv_service__WEBPACK_IMPORTED_MODULE_5__["CVService"] },
-        { type: _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_6__["WorkExpService"] },
-        { type: _service_skill_skill_service__WEBPACK_IMPORTED_MODULE_7__["SkillService"] },
-        { type: _security_token_service__WEBPACK_IMPORTED_MODULE_8__["TokenService"] }
+        { type: _service_cv_cv_service__WEBPACK_IMPORTED_MODULE_3__["CVService"] },
+        { type: _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_4__["WorkExpService"] },
+        { type: _service_skill_skill_service__WEBPACK_IMPORTED_MODULE_5__["SkillService"] },
+        { type: _security_token_service__WEBPACK_IMPORTED_MODULE_6__["TokenService"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] },
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"] },
+        { type: _security_token_service__WEBPACK_IMPORTED_MODULE_6__["TokenService"] }
     ]; };
     CreateCvComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -2787,10 +3206,14 @@ var CreateCvComponent = /** @class */ (function () {
             template: _raw_loader_create_cv_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
             styles: [_create_cv_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
         }),
-        __metadata("design:paramtypes", [_service_cv_cv_service__WEBPACK_IMPORTED_MODULE_5__["CVService"],
-            _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_6__["WorkExpService"],
-            _service_skill_skill_service__WEBPACK_IMPORTED_MODULE_7__["SkillService"],
-            _security_token_service__WEBPACK_IMPORTED_MODULE_8__["TokenService"]])
+        __metadata("design:paramtypes", [_service_cv_cv_service__WEBPACK_IMPORTED_MODULE_3__["CVService"],
+            _service_workExp_work_exp_service__WEBPACK_IMPORTED_MODULE_4__["WorkExpService"],
+            _service_skill_skill_service__WEBPACK_IMPORTED_MODULE_5__["SkillService"],
+            _security_token_service__WEBPACK_IMPORTED_MODULE_6__["TokenService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"],
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"],
+            _security_token_service__WEBPACK_IMPORTED_MODULE_6__["TokenService"]])
     ], CreateCvComponent);
     return CreateCvComponent;
 }());
@@ -2808,7 +3231,7 @@ var CreateCvComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page-title-area\" style=\"height: 200px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>Sign Up Company</h2>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<section class=\"signup-area\" style=\"margin: 10px\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-12\">\r\n                <div class=\"signup-form\">\r\n                    <form>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-12\">\r\n                                <mat-card class=\"text-center\">\r\n                                    <form #form=\"ngForm\"\r\n                                          (ngSubmit)=\"form.form.valid && ngSubmit(form)\" novalidate>\r\n                                        <!--                                        <mat-error class=\"alert alert-primary\">{{status}}</mat-error>-->\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Tài khoản</mat-label>\r\n                                            <input matInput placeholder=\"Nhập tài khoản\" name=\"username\"\r\n                                                   [(ngModel)]=\"data.username\" #username=\"ngModel\" required email>\r\n                                            <mat-icon color=\"black\" matSuffix>account_circle</mat-icon>\r\n                                            <mat-error *ngIf=\"username?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                            <mat-error *ngIf=\"username?.hasError('email')\">Nhập đúng định dạng @\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Tên công ty</mat-label>\r\n                                            <input matInput placeholder=\"Nhập tên công ty\" name=\"name\"\r\n                                                   [(ngModel)]=\"data.name\" #name=\"ngModel\" required>\r\n                                            <mat-icon color=\"black\" matSuffix>business</mat-icon>\r\n                                            <mat-error *ngIf=\"name?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Mô tả</mat-label>\r\n                                            <input matInput placeholder=\"Mô tả\" name=\"description\"\r\n                                                   [(ngModel)]=\"data.description\" #description=\"ngModel\"\r\n                                                   requiredrequired>\r\n                                            <mat-icon color=\"black\" matSuffix>description</mat-icon>\r\n                                            <mat-error *ngIf=\"description?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Địa chỉ</mat-label>\r\n                                            <input matInput placeholder=\"Nhập địa chỉ\" name=\"address\"\r\n                                                   [(ngModel)]=\"data.address\">\r\n                                            <mat-icon color=\"black\" matSuffix>home</mat-icon>\r\n                                            <!--            <mat-error *ngIf=\"form.controls.username?.errors?.required\">Phải điền thông tin</mat-error>-->\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Số lượng nhân viên</mat-label>\r\n                                            <mat-icon color=\"black\" matSuffix>people_alt</mat-icon>\r\n                                            <input matInput placeholder=\"Nhập số lượng nhân viên\"\r\n                                                   name=\"employeeQuantity\" [(ngModel)]=\"data.employeeQuantity\">\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Link Google Map</mat-label>\r\n                                            <input matInput placeholder=\"Link\" name=\"linkMap\"\r\n                                                   [(ngModel)]=\"data.linkMap\">\r\n                                            <mat-icon color=\"black\" matSuffix>location_on</mat-icon>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field appearance=\"outline\" style=\"width: 350px\">\r\n                                            <mat-label>Chọn thành phố</mat-label>\r\n                                            <mat-select [(ngModel)]=\"data.city\" name=\"city\">\r\n                                                <mat-option *ngFor=\"let city of cities\"\r\n                                                            [value]=\"city.id\">{{city.name}}</mat-option>\r\n                                            </mat-select>\r\n                                            <mat-icon color=\"black\" matSuffix>apartment</mat-icon>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Số điện thoại</mat-label>\r\n                                            <input matInput placeholder=\"Số điện thoại\" name=\"phone\"\r\n                                                   [(ngModel)]=\"data.phone\">\r\n                                            <!--            <mat-error *ngIf=\"form.controls.username?.errors?.required\">Phải điền thông tin</mat-error>-->\r\n                                            <mat-icon color=\"black\" matSuffix>phone</mat-icon>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <app-upload-image (giveURLtoCreate)=\"onUpLoadAvatar($event)\">Ảnh\r\n                                        </app-upload-image>\r\n\r\n                                        <button mat-raised-button class=\"btn btn-primary\">Đăng ký</button>\r\n                                        <br>\r\n                                        <p></p>\r\n                                        <a routerLink=\"register-user\">Tạo tài khoản ứng viên</a>\r\n                                    </form>\r\n                                </mat-card>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page-title-area\" style=\"height: 200px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>Đăng Ký Công Ty</h2>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<section class=\"signup-area\" style=\"margin: 10px\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-12\">\r\n                <div class=\"signup-form\">\r\n                    <form>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-12\">\r\n                                <mat-card class=\"text-center\">\r\n                                    <form #form=\"ngForm\"\r\n                                          (ngSubmit)=\"form.form.valid && ngSubmit(form)\" novalidate>\r\n                                        <!--                                        <mat-error class=\"alert alert-primary\">{{status}}</mat-error>-->\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Tài khoản</mat-label>\r\n                                            <input matInput placeholder=\"Nhập tài khoản\" name=\"username\"\r\n                                                   [(ngModel)]=\"data.username\" #username=\"ngModel\" required email>\r\n                                            <mat-icon color=\"black\" matSuffix>account_circle</mat-icon>\r\n                                            <mat-error *ngIf=\"username?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                            <mat-error *ngIf=\"username?.hasError('email')\">Nhập đúng định dạng @\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Tên công ty</mat-label>\r\n                                            <input matInput placeholder=\"Nhập tên công ty\" name=\"name\"\r\n                                                   [(ngModel)]=\"data.name\" #name=\"ngModel\" required>\r\n                                            <mat-icon color=\"black\" matSuffix>business</mat-icon>\r\n                                            <mat-error *ngIf=\"name?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Mô tả</mat-label>\r\n                                            <input matInput placeholder=\"Mô tả\" name=\"description\"\r\n                                                   [(ngModel)]=\"data.description\" #description=\"ngModel\"\r\n                                                   requiredrequired>\r\n                                            <mat-icon color=\"black\" matSuffix>description</mat-icon>\r\n                                            <mat-error *ngIf=\"description?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Địa chỉ</mat-label>\r\n                                            <input matInput placeholder=\"Nhập địa chỉ\" name=\"address\"\r\n                                                   [(ngModel)]=\"data.address\">\r\n                                            <mat-icon color=\"black\" matSuffix>home</mat-icon>\r\n                                            <!--            <mat-error *ngIf=\"form.controls.username?.errors?.required\">Phải điền thông tin</mat-error>-->\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Số lượng nhân viên</mat-label>\r\n                                            <mat-icon color=\"black\" matSuffix>people_alt</mat-icon>\r\n                                            <input matInput placeholder=\"Nhập số lượng nhân viên\"\r\n                                                   name=\"employeeQuantity\" [(ngModel)]=\"data.employeeQuantity\">\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Link Google Map</mat-label>\r\n                                            <input matInput placeholder=\"Link\" name=\"linkMap\"\r\n                                                   [(ngModel)]=\"data.linkMap\">\r\n                                            <mat-icon color=\"black\" matSuffix>location_on</mat-icon>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field appearance=\"outline\" style=\"width: 350px\">\r\n                                            <mat-label>Chọn thành phố</mat-label>\r\n                                            <mat-select [(ngModel)]=\"data.city\" name=\"city\">\r\n                                                <mat-option *ngFor=\"let city of cities\"\r\n                                                            [value]=\"city.id\">{{city.name}}</mat-option>\r\n                                            </mat-select>\r\n                                            <mat-icon color=\"black\" matSuffix>apartment</mat-icon>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Số điện thoại</mat-label>\r\n                                            <input matInput placeholder=\"Số điện thoại\" name=\"phone\"\r\n                                                   [(ngModel)]=\"data.phone\">\r\n                                            <!--            <mat-error *ngIf=\"form.controls.username?.errors?.required\">Phải điền thông tin</mat-error>-->\r\n                                            <mat-icon color=\"black\" matSuffix>phone</mat-icon>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <app-upload-image (giveURLtoCreate)=\"onUpLoadAvatar($event)\">Ảnh\r\n                                        </app-upload-image>\r\n\r\n                                        <button mat-raised-button class=\"btn btn-primary\">Đăng ký</button>\r\n                                        <br>\r\n                                        <p></p>\r\n                                        <a routerLink=\"register-user\">Tạo tài khoản ứng viên</a>\r\n                                    </form>\r\n                                </mat-card>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -2834,7 +3257,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page-title-area\" style=\"height: 200px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>Sign Up User</h2>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<section class=\"signup-area\" style=\"margin: 10px\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-12\">\r\n                <div class=\"signup-form\">\r\n                    <form>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-12\">\r\n                                <mat-card class=\"text-center\">\r\n                                    <form class=\"create-category\" #form=\"ngForm\"\r\n                                          (ngSubmit)=\"form.form.valid && ngSubmit(form)\" novalidate>\r\n                                        <!--                                        <mat-error class=\"alert alert-primary\">{{status}}</mat-error>-->\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Tài khoản</mat-label>\r\n                                            <input matInput placeholder=\"username\" name=\"username\"\r\n                                                   [(ngModel)]=\"data.username\" #username=\"ngModel\" required email>\r\n                                            <mat-icon color=\"black\" matSuffix>account_circle</mat-icon>\r\n                                            <mat-error *ngIf=\"username?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                            <mat-error *ngIf=\"username?.hasError('email')\">Nhập đúng định dạng @\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Tên người dùng</mat-label>\r\n                                            <input matInput placeholder=\"username\" name=\"name\" [(ngModel)]=\"data.name\"\r\n                                                   #name=\"ngModel\" required>\r\n                                            <mat-icon color=\"black\" matSuffix>badge</mat-icon>\r\n                                            <mat-error *ngIf=\"name?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Số điện thoại</mat-label>\r\n                                            <input matInput placeholder=\"phone\" name=\"phone\" [(ngModel)]=\"data.phone\"\r\n                                                   #phone=\"ngModel\">\r\n                                            <mat-icon color=\"black\" matSuffix>dialpad</mat-icon>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Mật khẩu</mat-label>\r\n                                            <input matInput placeholder=\"password\" name=\"password\"\r\n                                                   [(ngModel)]=\"data.password\" #password=\"ngModel\" required\r\n                                                   [type]=\"hide ? 'password' : 'text'\">\r\n                                            <button mat-icon-button matSuffix (click)=\"hide = !hide\"\r\n                                                    [attr.aria-label]=\"'Hide password'\"\r\n                                                    [attr.aria-pressed]=\"hide\">\r\n                                                <mat-icon\r\n                                                        color=\"black\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n                                            </button>\r\n                                            <mat-error *ngIf=\"password?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Nhập lại mật khẩu</mat-label>\r\n                                            <input matInput placeholder=\"confirmpassword\" name=\"confirmpassword\"\r\n                                                   [(ngModel)]=\"data.confirmpassword\" #confirmpassword=\"ngModel\"\r\n                                                   [type]=\"hide1 ? 'password' : 'text'\">\r\n                                            <button mat-icon-button matSuffix (click)=\"hide1 = !hide1\"\r\n                                                    [attr.aria-label]=\"'Hide password'\"\r\n                                                    [attr.aria-pressed]=\"hide1\">\r\n                                                <mat-icon\r\n                                                        color=\"black\">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n                                            </button>\r\n                                        </mat-form-field>\r\n                                        <p>\r\n                                            <span matBadge=\"\" matBadgeSize=\"large\" *ngIf=\"checkPassword()\">Mật khẩu chính xác</span>\r\n                                        </p>\r\n                                        <p>\r\n                                            <span matBadge=\"\" matBadgeSize=\"large\" *ngIf=\"checkPassword() == false\">Mật khẩu không giống nhau</span>\r\n                                        </p>\r\n                                        <br>\r\n                                        <button mat-raised-button color=\"black\">Đăng ký</button>\r\n                                        <br>\r\n                                        <p></p>\r\n                                        <a routerLink=\"/register-company\">Tạo tài khoản doanh nghiệp</a>\r\n                                    </form>\r\n                                </mat-card>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page-title-area\" style=\"height: 200px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>Đăng Ký Ứng Viên</h2>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<section class=\"signup-area\" style=\"margin: 10px\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-12\">\r\n                <div class=\"signup-form\">\r\n                    <form>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-12\">\r\n                                <mat-card class=\"text-center\">\r\n                                    <form class=\"create-category\" #form=\"ngForm\"\r\n                                          (ngSubmit)=\"form.form.valid && ngSubmit(form)\" novalidate>\r\n                                        <!--                                        <mat-error class=\"alert alert-primary\">{{status}}</mat-error>-->\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Tài khoản</mat-label>\r\n                                            <input matInput placeholder=\"username\" name=\"username\"\r\n                                                   [(ngModel)]=\"data.username\" #username=\"ngModel\" required email>\r\n                                            <mat-icon color=\"black\" matSuffix>account_circle</mat-icon>\r\n                                            <mat-error *ngIf=\"username?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                            <mat-error *ngIf=\"username?.hasError('email')\">Nhập đúng định dạng @\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Tên người dùng</mat-label>\r\n                                            <input matInput placeholder=\"username\" name=\"name\" [(ngModel)]=\"data.name\"\r\n                                                   #name=\"ngModel\" required>\r\n                                            <mat-icon color=\"black\" matSuffix>badge</mat-icon>\r\n                                            <mat-error *ngIf=\"name?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Số điện thoại</mat-label>\r\n                                            <input matInput placeholder=\"phone\" name=\"phone\" [(ngModel)]=\"data.phone\"\r\n                                                   #phone=\"ngModel\">\r\n                                            <mat-icon color=\"black\" matSuffix>dialpad</mat-icon>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Mật khẩu</mat-label>\r\n                                            <input matInput placeholder=\"password\" name=\"password\"\r\n                                                   [(ngModel)]=\"data.password\" #password=\"ngModel\" required\r\n                                                   [type]=\"hide ? 'password' : 'text'\">\r\n                                            <button mat-icon-button matSuffix (click)=\"hide = !hide\"\r\n                                                    [attr.aria-label]=\"'Hide password'\"\r\n                                                    [attr.aria-pressed]=\"hide\">\r\n                                                <mat-icon\r\n                                                        color=\"black\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n                                            </button>\r\n                                            <mat-error *ngIf=\"password?.hasError('required')\">Không được bỏ trống\r\n                                            </mat-error>\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field style=\"width: 350px\" appearance=\"outline\">\r\n                                            <mat-label>Nhập lại mật khẩu</mat-label>\r\n                                            <input matInput placeholder=\"confirmpassword\" name=\"confirmpassword\"\r\n                                                   [(ngModel)]=\"data.confirmpassword\" #confirmpassword=\"ngModel\"\r\n                                                   [type]=\"hide1 ? 'password' : 'text'\">\r\n                                            <button mat-icon-button matSuffix (click)=\"hide1 = !hide1\"\r\n                                                    [attr.aria-label]=\"'Hide password'\"\r\n                                                    [attr.aria-pressed]=\"hide1\">\r\n                                                <mat-icon\r\n                                                        color=\"black\">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n                                            </button>\r\n                                        </mat-form-field>\r\n                                        <p>\r\n                                            <span matBadge=\"\" matBadgeSize=\"large\" *ngIf=\"checkPassword()\">Mật khẩu chính xác</span>\r\n                                        </p>\r\n                                        <p>\r\n                                            <span matBadge=\"\" matBadgeSize=\"large\" *ngIf=\"checkPassword() == false\">Mật khẩu không giống nhau</span>\r\n                                        </p>\r\n                                        <br>\r\n                                        <button mat-raised-button color=\"black\">Đăng ký</button>\r\n                                        <br>\r\n                                        <p></p>\r\n                                        <a routerLink=\"/register-company\">Tạo tài khoản doanh nghiệp</a>\r\n                                    </form>\r\n                                </mat-card>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -2929,31 +3352,6 @@ var ChangePasswordComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_security_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]])
     ], ChangePasswordComponent);
     return ChangePasswordComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "RF47":
-/*!**********************************!*\
-  !*** ./src/app/model/workExp.ts ***!
-  \**********************************/
-/*! exports provided: WorkExp */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkExp", function() { return WorkExp; });
-var WorkExp = /** @class */ (function () {
-    function WorkExp(content, endDate, startDate, title, cv) {
-        this.content = content;
-        this.endDate = endDate;
-        this.startDate = startDate;
-        this.title = title;
-        this.cv = cv;
-    }
-    return WorkExp;
 }());
 
 
@@ -3083,30 +3481,6 @@ var AppComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "TbLi":
-/*!*****************************!*\
-  !*** ./src/app/model/cv.ts ***!
-  \*****************************/
-/*! exports provided: Cv */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cv", function() { return Cv; });
-var Cv = /** @class */ (function () {
-    function Cv(expYear, fileCV, salaryExpectation, user) {
-        this.expYear = expYear;
-        this.fileCV = fileCV;
-        this.salaryExpectation = salaryExpectation;
-        this.user = user;
-    }
-    return Cv;
-}());
-
-
-
-/***/ }),
-
 /***/ "UVmH":
 /*!*********************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/company/recruitmentnew/update-recruitmentnew-company/update-recruitmentnew-company.component.html ***!
@@ -3117,6 +3491,32 @@ var Cv = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<!-- Start Page Title Area -->\r\n<div class=\"page-title-area\" style=\"height: 439px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>SỬA TIN TUYỂN DỤNG</h2>\r\n            <ul>\r\n                <li>\r\n                    <a href=\"index.html\">\r\n                        Trang chủ\r\n                    </a>\r\n                </li>\r\n\r\n                <li>Tìm kiếm</li>\r\n\r\n                <li class=\"active\">Đăng nhập</li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Page Title Area -->\r\n<!--create-recruitmentnew-->\r\n<section class=\"signup-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-12\">\r\n                <div class=\"signup-form\">\r\n                    <div class=\"section-tittle text-center\">\r\n                        <h2>Cập nhật</h2>\r\n                        <p>Cập nhật tin tuyển dụng</p>\r\n                    </div>\r\n                    <form (ngSubmit)=\"onUpdate()\" novalidate>\r\n                        <div class=\"row\">\r\n                            <mat-error class=\"alert alert-primary\" style=\"text-align: center\">{{status}}</mat-error>\r\n\r\n                            <!--tiêu đề-->\r\n                            <div class=\"col-md-12 col-sm-12\">\r\n                                <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                                    <mat-label>Tiêu Đề:</mat-label>\r\n                                    <input matInput placeholder=\"Tiêu đề ...\" name=\"title\"\r\n                                           [(ngModel)]=\"recruitmentNew.title\">\r\n                                    <mat-icon color=\"#051242\" matSuffix>subtitles</mat-icon>\r\n                                </mat-form-field>\r\n                            </div>\r\n\r\n                            <!--Thời Gian Làm Việc-->\r\n                            <div class=\"col-md-6 col-sm-6\">\r\n                                <mat-form-field appearance=\"outline\">\r\n                                    <mat-label>Thời Gian Làm Việc</mat-label>\r\n                                    <mat-select [(value)]=\"recruitmentNew.workingTime.id\">\r\n                                        <mat-option *ngFor=\"let workingTime of workingTimes\"\r\n                                                    [value]=\"workingTime.id\">{{workingTime.name}}</mat-option>\r\n                                    </mat-select>\r\n                                </mat-form-field>\r\n                            </div>\r\n\r\n                            <!--Lĩnh Vực Công Việc-->\r\n                            <div class=\"col-md-6 col-sm-6\">\r\n                                <mat-form-field appearance=\"outline\">\r\n                                    <mat-label>Lĩnh Vực Công Việc</mat-label>\r\n                                    <mat-select [(value)]=\"recruitmentNew.field.id\">\r\n                                        <mat-option *ngFor=\"let field of fields\"\r\n                                                    [value]=\"field.id\">{{field.name}}</mat-option>\r\n                                    </mat-select>\r\n                                </mat-form-field>\r\n                            </div>\r\n\r\n                            <!-- Vị Trí Tuyển Dụng-->\r\n                            <mat-form-field appearance=\"outline\">\r\n                                <mat-label>Vị Trí Tuyển Dụng</mat-label>\r\n                                <mat-select [(value)]=\"recruitmentNew.vacancies.id\" style=\"width: 100%\">\r\n                                    <mat-option *ngFor=\"let vacancies of vacancies1\"\r\n                                                [value]=\"vacancies.id\">{{vacancies.name}}</mat-option>\r\n                                </mat-select>\r\n                            </mat-form-field>\r\n\r\n                            <!--hạn nộp hồ sơ-->\r\n                            <mat-form-field appearance=\"outline\">\r\n                                <mat-label>Hạn nộp hồ sơ</mat-label>\r\n                                <input matInput [matDatepicker]=\"picker\" [(ngModel)]=\"recruitmentNew.expDate\">\r\n                                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                <mat-datepicker #picker></mat-datepicker>\r\n                            </mat-form-field>\r\n\r\n                            <!--description-->\r\n                            <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                                <mat-label>Mô tả:</mat-label>\r\n                                <input matInput placeholder=\"Mô tả ...\" name=\"title\"\r\n                                       [(ngModel)]=\"recruitmentNew.description\">\r\n                                <mat-icon color=\"#051242\" matSuffix>subtitles</mat-icon>\r\n                            </mat-form-field>\r\n\r\n                            <!--số lượng nhân sự -->\r\n                            <div class=\"col-md-6 col-sm-6\">\r\n                                <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                                    <mat-label>Số Lượng Ứng Tuyển :</mat-label>\r\n                                    <input matInput placeholder=\"Số lượng ...\" name=\"quantity\"\r\n                                           [(ngModel)]=\"recruitmentNew.quantity\"\r\n                                           #quantity=\"ngModel\" required>\r\n                                    <mat-icon color=\"#051242\" matSuffix>person_add_alt</mat-icon>\r\n                                    <mat-error *ngIf=\"quantity.hasError('required')\">Bắt buộc phải nhập số lượng người\r\n                                        ứng tuyển\r\n                                    </mat-error>\r\n                                </mat-form-field>\r\n                            </div>\r\n\r\n                            <!--mức lương -->\r\n                            <div class=\"col-md-6 col-sm-6\">\r\n                                <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                                    <mat-label>Mức Lương:</mat-label>\r\n                                    <input matInput placeholder=\"Mức Lương...\" name=\"description\"\r\n                                           [(ngModel)]=\"recruitmentNew.salary\"\r\n                                           #salary=\"ngModel\" required>\r\n                                    <mat-icon color=\"#051242\" matSuffix>local_atm</mat-icon>\r\n                                    <mat-error *ngIf=\"salary.hasError('required')\">Viết mức lương\r\n                                    </mat-error>\r\n                                </mat-form-field>\r\n                            </div>\r\n\r\n                            <!--giới tính-->\r\n                            <mat-form-field appearance=\"outline\">\r\n                                <mat-label>Giới Tính Tuyển Dụng</mat-label>\r\n                                <mat-select [(value)]=\"recruitmentNew.gender\" style=\"width: 100%\" name=\"gender\">\r\n                                    <mat-option *ngFor=\"let gen of gender\" [value]=\"gen.id\">{{gen.name}}</mat-option>\r\n                                </mat-select>\r\n                            </mat-form-field>\r\n\r\n\r\n                            <!--nơi làm việc-->\r\n                            <mat-form-field appearance=\"outline\">\r\n                                <mat-label>Nơi Làm Việc</mat-label>\r\n                                <mat-select [(ngModel)]=\"recruitmentNew.city.id\" style=\"width: 100%\" name=\"city\">\r\n                                    <mat-option *ngFor=\"let city of cities\" [value]=\"city.id\">{{city.name}}</mat-option>\r\n                                </mat-select>\r\n                            </mat-form-field>\r\n\r\n                        </div>\r\n                        <div class=\"col-12 text-center\">\r\n                            <button type=\"submit\" mat-stroked-button\r\n                                    class=\"mat-button-toggle-group btn-outline-primary\">\r\n                                Cập nhật\r\n                                <mat-icon matSuffix>edit</mat-icon>\r\n                            </button>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n\r\n<!--create-recruitmentnew-->\r\n");
+
+/***/ }),
+
+/***/ "UjLF":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/upload/upload-file/upload-file.component.html ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <div class=\"input-group col-lg-12 col-sm-12\">\r\n        <mat-label class=\"input-group-text\" for=\"inputGroupFile01\">File CV</mat-label>\r\n        <input type=\"file\" class=\"form-control\" id=\"inputGroupFile01\" (change)=\"onFileChanged($event)\">\r\n        <mat-spinner [diameter]=\"40\" class=\"text-center\" *ngIf=\"checkUpLoadFile\"></mat-spinner>\r\n    </div>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "UuER":
+/*!********************************************************************!*\
+  !*** ./src/app/company/apply-company/apply-company.component.scss ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("body {\n  background-color: #f8f9fa !important;\n}\n\n.p-4 {\n  padding: 1.5rem !important;\n}\n\n.mb-0, .my-0 {\n  margin-bottom: 0 !important;\n}\n\n.shadow-sm {\n  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n\n/* user-dashboard-info-box */\n\n.user-dashboard-info-box .candidates-list .thumb {\n  margin-right: 20px;\n}\n\n.user-dashboard-info-box .candidates-list .thumb img {\n  width: 80px;\n  height: 80px;\n  -o-object-fit: cover;\n  object-fit: cover;\n  overflow: hidden;\n  border-radius: 50%;\n}\n\n.user-dashboard-info-box .title {\n  display: flex;\n  align-items: center;\n  padding: 30px 0;\n}\n\n.user-dashboard-info-box .candidates-list td {\n  vertical-align: middle;\n}\n\n.user-dashboard-info-box td li {\n  margin: 0 4px;\n}\n\n.user-dashboard-info-box .table thead th {\n  border-bottom: none;\n}\n\n.table.manage-candidates-top th {\n  border: 0;\n}\n\n.user-dashboard-info-box .candidate-list-favourite-time .candidate-list-favourite {\n  margin-bottom: 10px;\n}\n\n.table.manage-candidates-top {\n  min-width: 650px;\n}\n\n.user-dashboard-info-box .candidate-list-details ul {\n  color: #969696;\n}\n\n/* Candidate List */\n\n.candidate-list {\n  background: #ffffff;\n  display: flex;\n  border-bottom: 1px solid #eeeeee;\n  align-items: center;\n  padding: 20px;\n  transition: all 0.3s ease-in-out;\n}\n\n.candidate-list:hover {\n  box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);\n  position: relative;\n  z-index: 99;\n}\n\n.candidate-list:hover a.candidate-list-favourite {\n  color: #e74c3c;\n  box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);\n}\n\n.candidate-list .candidate-list-image {\n  margin-right: 25px;\n  flex: 0 0 80px;\n  border: none;\n}\n\n.candidate-list .candidate-list-image img {\n  width: 80px;\n  height: 80px;\n  -o-object-fit: cover;\n  object-fit: cover;\n}\n\n.candidate-list-title {\n  margin-bottom: 5px;\n}\n\n.candidate-list-details ul {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 0px;\n}\n\n.candidate-list-details ul li {\n  margin: 5px 10px 5px 0px;\n  font-size: 13px;\n}\n\n.candidate-list .candidate-list-favourite-time {\n  margin-left: auto;\n  text-align: center;\n  font-size: 13px;\n  flex: 0 0 90px;\n}\n\n.candidate-list .candidate-list-favourite-time span {\n  display: block;\n  margin: 0 auto;\n}\n\n.candidate-list .candidate-list-favourite-time .candidate-list-favourite {\n  display: inline-block;\n  position: relative;\n  height: 40px;\n  width: 40px;\n  line-height: 40px;\n  border: 1px solid #eeeeee;\n  border-radius: 100%;\n  text-align: center;\n  transition: all 0.3s ease-in-out;\n  margin-bottom: 20px;\n  font-size: 16px;\n  color: #646f79;\n}\n\n.candidate-list .candidate-list-favourite-time .candidate-list-favourite:hover {\n  background: #ffffff;\n  color: #e74c3c;\n}\n\n.candidate-banner .candidate-list:hover {\n  position: inherit;\n  box-shadow: inherit;\n  z-index: inherit;\n}\n\n.bg-white {\n  background-color: #ffffff !important;\n}\n\n.p-4 {\n  padding: 1.5rem !important;\n}\n\n.mb-0, .my-0 {\n  margin-bottom: 0 !important;\n}\n\n.shadow-sm {\n  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n\n.user-dashboard-info-box .candidates-list .thumb {\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxhcHBseS1jb21wYW55LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usb0NBQUE7QUFDRjs7QUFDQTtFQUNFLDBCQUFBO0FBRUY7O0FBQUE7RUFDRSwyQkFBQTtBQUdGOztBQURBO0VBQ0UsOERBQUE7QUFJRjs7QUFEQSw0QkFBQTs7QUFDQTtFQUNFLGtCQUFBO0FBSUY7O0FBRkE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG9CQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0FBS0Y7O0FBRkE7RUFHRSxhQUFBO0VBR0EsbUJBQUE7RUFDQSxlQUFBO0FBS0Y7O0FBRkE7RUFDRSxzQkFBQTtBQUtGOztBQUZBO0VBQ0UsYUFBQTtBQUtGOztBQUZBO0VBQ0UsbUJBQUE7QUFLRjs7QUFGQTtFQUNFLFNBQUE7QUFLRjs7QUFGQTtFQUNFLG1CQUFBO0FBS0Y7O0FBRkE7RUFDRSxnQkFBQTtBQUtGOztBQUZBO0VBQ0UsY0FBQTtBQUtGOztBQUZBLG1CQUFBOztBQUNBO0VBQ0UsbUJBQUE7RUFHQSxhQUFBO0VBQ0EsZ0NBQUE7RUFHQSxtQkFBQTtFQUNBLGFBQUE7RUFFQSxnQ0FBQTtBQUtGOztBQUhBO0VBRUUsbURBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7QUFNRjs7QUFKQTtFQUNFLGNBQUE7RUFFQSxxREFBQTtBQU9GOztBQUpBO0VBQ0Usa0JBQUE7RUFHQSxjQUFBO0VBQ0EsWUFBQTtBQU9GOztBQUxBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxvQkFBQTtFQUNBLGlCQUFBO0FBUUY7O0FBTEE7RUFDRSxrQkFBQTtBQVFGOztBQUxBO0VBR0UsYUFBQTtFQUVBLGVBQUE7RUFDQSxrQkFBQTtBQVFGOztBQU5BO0VBQ0Usd0JBQUE7RUFDQSxlQUFBO0FBU0Y7O0FBTkE7RUFDRSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUdBLGNBQUE7QUFTRjs7QUFQQTtFQUNFLGNBQUE7RUFDQSxjQUFBO0FBVUY7O0FBUkE7RUFDRSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtFQUNBLHlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtFQUVBLGdDQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtBQVdGOztBQVRBO0VBQ0UsbUJBQUE7RUFDQSxjQUFBO0FBWUY7O0FBVEE7RUFDRSxpQkFBQTtFQUVBLG1CQUFBO0VBQ0EsZ0JBQUE7QUFZRjs7QUFUQTtFQUNFLG9DQUFBO0FBWUY7O0FBVkE7RUFDRSwwQkFBQTtBQWFGOztBQVhBO0VBQ0UsMkJBQUE7QUFjRjs7QUFaQTtFQUNFLDhEQUFBO0FBZUY7O0FBWkE7RUFDRSxrQkFBQTtBQWVGIiwiZmlsZSI6ImFwcGx5LWNvbXBhbnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5e1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNmOGY5ZmEhaW1wb3J0YW50XHJcbn1cclxuLnAtNCB7XHJcbiAgcGFkZGluZzogMS41cmVtIWltcG9ydGFudDtcclxufVxyXG4ubWItMCwgLm15LTAge1xyXG4gIG1hcmdpbi1ib3R0b206IDAhaW1wb3J0YW50O1xyXG59XHJcbi5zaGFkb3ctc20ge1xyXG4gIGJveC1zaGFkb3c6IDAgLjEyNXJlbSAuMjVyZW0gcmdiYSgwLDAsMCwuMDc1KSFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi8qIHVzZXItZGFzaGJvYXJkLWluZm8tYm94ICovXHJcbi51c2VyLWRhc2hib2FyZC1pbmZvLWJveCAuY2FuZGlkYXRlcy1saXN0IC50aHVtYiB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG59XHJcbi51c2VyLWRhc2hib2FyZC1pbmZvLWJveCAuY2FuZGlkYXRlcy1saXN0IC50aHVtYiBpbWcge1xyXG4gIHdpZHRoOiA4MHB4O1xyXG4gIGhlaWdodDogODBweDtcclxuICAtby1vYmplY3QtZml0OiBjb3ZlcjtcclxuICBvYmplY3QtZml0OiBjb3ZlcjtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxufVxyXG5cclxuLnVzZXItZGFzaGJvYXJkLWluZm8tYm94IC50aXRsZSB7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XHJcbiAgZGlzcGxheTogLW1zLWZsZXhib3g7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAtd2Via2l0LWJveC1hbGlnbjogY2VudGVyO1xyXG4gIC1tcy1mbGV4LWFsaWduOiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nOiAzMHB4IDA7XHJcbn1cclxuXHJcbi51c2VyLWRhc2hib2FyZC1pbmZvLWJveCAuY2FuZGlkYXRlcy1saXN0IHRkIHtcclxuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG59XHJcblxyXG4udXNlci1kYXNoYm9hcmQtaW5mby1ib3ggdGQgbGkge1xyXG4gIG1hcmdpbjogMCA0cHg7XHJcbn1cclxuXHJcbi51c2VyLWRhc2hib2FyZC1pbmZvLWJveCAudGFibGUgdGhlYWQgdGgge1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcbi50YWJsZS5tYW5hZ2UtY2FuZGlkYXRlcy10b3AgdGgge1xyXG4gIGJvcmRlcjogMDtcclxufVxyXG5cclxuLnVzZXItZGFzaGJvYXJkLWluZm8tYm94IC5jYW5kaWRhdGUtbGlzdC1mYXZvdXJpdGUtdGltZSAuY2FuZGlkYXRlLWxpc3QtZmF2b3VyaXRlIHtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcblxyXG4udGFibGUubWFuYWdlLWNhbmRpZGF0ZXMtdG9wIHtcclxuICBtaW4td2lkdGg6IDY1MHB4O1xyXG59XHJcblxyXG4udXNlci1kYXNoYm9hcmQtaW5mby1ib3ggLmNhbmRpZGF0ZS1saXN0LWRldGFpbHMgdWwge1xyXG4gIGNvbG9yOiAjOTY5Njk2O1xyXG59XHJcblxyXG4vKiBDYW5kaWRhdGUgTGlzdCAqL1xyXG4uY2FuZGlkYXRlLWxpc3Qge1xyXG4gIGJhY2tncm91bmQ6ICNmZmZmZmY7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XHJcbiAgZGlzcGxheTogLW1zLWZsZXhib3g7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2VlZWVlZTtcclxuICAtd2Via2l0LWJveC1hbGlnbjogY2VudGVyO1xyXG4gIC1tcy1mbGV4LWFsaWduOiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nOiAyMHB4O1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XHJcbn1cclxuLmNhbmRpZGF0ZS1saXN0OmhvdmVyIHtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IDBweCAwcHggMzRweCA0cHggcmdiYSgzMywgMzcsIDQxLCAwLjA2KTtcclxuICBib3gtc2hhZG93OiAwcHggMHB4IDM0cHggNHB4IHJnYmEoMzMsIDM3LCA0MSwgMC4wNik7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIHotaW5kZXg6IDk5O1xyXG59XHJcbi5jYW5kaWRhdGUtbGlzdDpob3ZlciBhLmNhbmRpZGF0ZS1saXN0LWZhdm91cml0ZSB7XHJcbiAgY29sb3I6ICNlNzRjM2M7XHJcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAtMXB4IDRweCAxMHB4IDFweCByZ2JhKDI0LCAxMTEsIDIwMSwgMC4xKTtcclxuICBib3gtc2hhZG93OiAtMXB4IDRweCAxMHB4IDFweCByZ2JhKDI0LCAxMTEsIDIwMSwgMC4xKTtcclxufVxyXG5cclxuLmNhbmRpZGF0ZS1saXN0IC5jYW5kaWRhdGUtbGlzdC1pbWFnZSB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAyNXB4O1xyXG4gIC13ZWJraXQtYm94LWZsZXg6IDA7XHJcbiAgLW1zLWZsZXg6IDAgMCA4MHB4O1xyXG4gIGZsZXg6IDAgMCA4MHB4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4uY2FuZGlkYXRlLWxpc3QgLmNhbmRpZGF0ZS1saXN0LWltYWdlIGltZyB7XHJcbiAgd2lkdGg6IDgwcHg7XHJcbiAgaGVpZ2h0OiA4MHB4O1xyXG4gIC1vLW9iamVjdC1maXQ6IGNvdmVyO1xyXG4gIG9iamVjdC1maXQ6IGNvdmVyO1xyXG59XHJcblxyXG4uY2FuZGlkYXRlLWxpc3QtdGl0bGUge1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5cclxuLmNhbmRpZGF0ZS1saXN0LWRldGFpbHMgdWwge1xyXG4gIGRpc3BsYXk6IC13ZWJraXQtYm94O1xyXG4gIGRpc3BsYXk6IC1tcy1mbGV4Ym94O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLW1zLWZsZXgtd3JhcDogd3JhcDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luLWJvdHRvbTogMHB4O1xyXG59XHJcbi5jYW5kaWRhdGUtbGlzdC1kZXRhaWxzIHVsIGxpIHtcclxuICBtYXJnaW46IDVweCAxMHB4IDVweCAwcHg7XHJcbiAgZm9udC1zaXplOiAxM3B4O1xyXG59XHJcblxyXG4uY2FuZGlkYXRlLWxpc3QgLmNhbmRpZGF0ZS1saXN0LWZhdm91cml0ZS10aW1lIHtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxM3B4O1xyXG4gIC13ZWJraXQtYm94LWZsZXg6IDA7XHJcbiAgLW1zLWZsZXg6IDAgMCA5MHB4O1xyXG4gIGZsZXg6IDAgMCA5MHB4O1xyXG59XHJcbi5jYW5kaWRhdGUtbGlzdCAuY2FuZGlkYXRlLWxpc3QtZmF2b3VyaXRlLXRpbWUgc3BhbiB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbn1cclxuLmNhbmRpZGF0ZS1saXN0IC5jYW5kaWRhdGUtbGlzdC1mYXZvdXJpdGUtdGltZSAuY2FuZGlkYXRlLWxpc3QtZmF2b3VyaXRlIHtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGhlaWdodDogNDBweDtcclxuICB3aWR0aDogNDBweDtcclxuICBsaW5lLWhlaWdodDogNDBweDtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjZWVlZWVlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgY29sb3I6ICM2NDZmNzk7XHJcbn1cclxuLmNhbmRpZGF0ZS1saXN0IC5jYW5kaWRhdGUtbGlzdC1mYXZvdXJpdGUtdGltZSAuY2FuZGlkYXRlLWxpc3QtZmF2b3VyaXRlOmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG4gIGNvbG9yOiAjZTc0YzNjO1xyXG59XHJcblxyXG4uY2FuZGlkYXRlLWJhbm5lciAuY2FuZGlkYXRlLWxpc3Q6aG92ZXIge1xyXG4gIHBvc2l0aW9uOiBpbmhlcml0O1xyXG4gIC13ZWJraXQtYm94LXNoYWRvdzogaW5oZXJpdDtcclxuICBib3gtc2hhZG93OiBpbmhlcml0O1xyXG4gIHotaW5kZXg6IGluaGVyaXQ7XHJcbn1cclxuXHJcbi5iZy13aGl0ZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50O1xyXG59XHJcbi5wLTQge1xyXG4gIHBhZGRpbmc6IDEuNXJlbSFpbXBvcnRhbnQ7XHJcbn1cclxuLm1iLTAsIC5teS0wIHtcclxuICBtYXJnaW4tYm90dG9tOiAwIWltcG9ydGFudDtcclxufVxyXG4uc2hhZG93LXNtIHtcclxuICBib3gtc2hhZG93OiAwIC4xMjVyZW0gLjI1cmVtIHJnYmEoMCwwLDAsLjA3NSkhaW1wb3J0YW50O1xyXG59XHJcblxyXG4udXNlci1kYXNoYm9hcmQtaW5mby1ib3ggLmNhbmRpZGF0ZXMtbGlzdCAudGh1bWIge1xyXG4gIG1hcmdpbi1yaWdodDogMjBweDtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -3142,7 +3542,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- Start Page Title Area -->\r\n<div class=\"page-title-area\" style=\"height: 439px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>DANH SÁCH CÁC CÔNG TY</h2>\r\n            <ul>\r\n                <li>\r\n                    <a href=\"index.html\">\r\n                        Home\r\n                    </a>\r\n                </li>\r\n\r\n                <li>Blog</li>\r\n\r\n                <li class=\"active\">Blog</li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Page Title Area -->\r\n\r\n\r\n<!-- Blog Area -->\r\n<section class=\"home-blog-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"section-title\">\r\n            <span>Home</span>\r\n            <h2>TOP CÔNG TY</h2>\r\n            <p>Nơi bạn sẽ được trải nghiệm, thử thách bản thân tại những Top Công ty hàng đầu Việt Nam.</p>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-4 col-md-6\" *ngFor=\"let company of company\">\r\n                <div class=\"single-blog\">\r\n                    <div class=\"blog-img\">\r\n                        <a href=\"blog-details.html\">\r\n                            <img src=\"{{company.avatar}}\" alt=\"blog\" style=\"width: 100%;height: 100%\">\r\n                        </a>\r\n                    </div>\r\n\r\n                    <div class=\"content\">\r\n                        <ul>\r\n                            <li>\r\n                               {{company.codeCompany}}\r\n                            </li>\r\n                            <li>\r\n                                <a href=\"#\">{{company.address}}</a>\r\n                            </li>\r\n                        </ul>\r\n\r\n                        <a href=\"blog-details.html\">\r\n                            <h3>{{company.name}}</h3>\r\n                        </a>\r\n                        <p>{{company.description}}</p>\r\n\r\n                        <a href=\"blog-details.html\" class=\"line-bnt\">Chi tiết</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n<!--            test trang-->\r\n            <div class=\"col-lg-4 col-md-6\">\r\n                <div class=\"single-blog\">\r\n                    <div class=\"blog-img\">\r\n                        <a href=\"blog-details.html\">\r\n                         <img src=\"../../../assets/logo/logo-dep-muong-thanh.jpg\" alt=\"blog\" style=\"width: 100%;height: 100%\" >\r\n                        </a>\r\n                    </div>\r\n\r\n                    <div class=\"content\">\r\n                        <ul>\r\n                            <li>\r\n                                MTH15234\r\n                            </li>\r\n                            <li>\r\n                                <a href=\"#\">Hải Phòng</a>\r\n                            </li>\r\n                        </ul>\r\n\r\n                        <a href=\"blog-details.html\">\r\n                            <h3>MƯỜNG THANH</h3>\r\n                        </a>\r\n                        <p>Chuỗi khách sạn tư nhân lớn nhất Đông Dương.</p>\r\n\r\n                        <a href=\"blog-details.html\" class=\"line-bnt\">Chi tiết</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"col-lg-4 col-md-6\">\r\n                <div class=\"single-blog\">\r\n                    <div class=\"blog-img\">\r\n                        <a href=\"blog-details.html\">\r\n                      <img src=\"../../../assets/logo/logo-dep-viettel.jpg\" alt=\"blog\" style=\"width: 100%;height: 100%\">\r\n                        </a>\r\n                    </div>\r\n\r\n                    <div class=\"content\">\r\n                        <ul>\r\n                            <li>\r\n                                VTS15639\r\n                            </li>\r\n                            <li>\r\n                                <a href=\"#\">Nha Trang</a>\r\n                            </li>\r\n                        </ul>\r\n\r\n                        <a href=\"blog-details.html\">\r\n                            <h3>VIETTEL TELECOM</h3>\r\n                        </a>\r\n                        <p>Tập đoàn Công nghiệp – Viễn thông Quân đội</p>\r\n\r\n                        <a href=\"blog-details.html\" class=\"line-bnt\">Chi tiết</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-lg-4 col-md-6\">\r\n                <div class=\"single-blog\">\r\n                    <div class=\"blog-img\">\r\n                        <a href=\"blog-details.html\">\r\n                            <img src=\"../../../assets/logo/logo-dep-mb-bank.jpg\" alt=\"blog\" style=\"width: 100%;height: 100%\">\r\n                        </a>\r\n                    </div>\r\n\r\n                    <div class=\"content\">\r\n                        <ul>\r\n                            <li>\r\n                                MBB16879\r\n                            </li>\r\n                            <li>\r\n                                <a href=\"#\">Phú Quốc</a>\r\n                            </li>\r\n                        </ul>\r\n\r\n                        <a href=\"blog-details.html\">\r\n                            <h3>MB BANK</h3>\r\n                        </a>\r\n                        <p>Ngân hàng Quân đội</p>\r\n\r\n                        <a href=\"blog-details.html\" class=\"line-bnt\">Chi tiết</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n<!--    test trang-->\r\n\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"page-navigation-area\">\r\n                    <nav aria-label=\"Page navigation example text-center\">\r\n                        <ul class=\"pagination\">\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link page-links\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-left'></i>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"page-item active\">\r\n                                <a class=\"page-link\" href=\"#\">1</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">2</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">3</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-right'></i>\r\n                                </a>\r\n                            </li>\r\n                        </ul>\r\n                    </nav>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n<!-- End Blog Area -->\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Start Page Title Area -->\r\n<div class=\"page-title-area\" style=\"height: 439px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>DANH SÁCH CÁC CÔNG TY</h2>\r\n            <ul>\r\n                <li>\r\n                    <a href=\"index.html\">\r\n                        Home\r\n                    </a>\r\n                </li>\r\n\r\n                <li>Blog</li>\r\n\r\n                <li class=\"active\">Blog</li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Page Title Area -->\r\n\r\n\r\n<!-- Blog Area -->\r\n<section class=\"home-blog-area ptb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"section-title\">\r\n            <span>Home</span>\r\n            <h2>TOP CÔNG TY</h2>\r\n            <p>Nơi bạn sẽ được trải nghiệm, thử thách bản thân tại những Top Công ty hàng đầu Việt Nam.</p>\r\n        </div>\r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-4 col-md-6\" *ngFor=\"let company of company\">\r\n                <div class=\"single-blog\">\r\n                    <div class=\"blog-img\">\r\n                        <a [routerLink]=\"['/web-company/', company.id]\">\r\n                            <img src=\"{{company.avatar}}\" alt=\"blog\" style=\"width: 100%;height: 100%\">\r\n                        </a>\r\n                    </div>\r\n\r\n                    <div class=\"content\">\r\n                        <ul>\r\n                            <li>\r\n                               {{company.codeCompany}}\r\n                            </li>\r\n                            <li>\r\n                                <a>{{company.address}}</a>\r\n                            </li>\r\n                        </ul>\r\n\r\n                        <a [routerLink]=\"['/web-company/', company.id]\">\r\n                            <h3>{{company.name}}</h3>\r\n                        </a>\r\n                        <p>{{company.description}}</p>\r\n\r\n                         <a [routerLink]=\"['/web-company/', company.id]\" class=\"line-bnt\">Chi tiết</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n<!--            test trang-->\r\n            <div class=\"col-lg-4 col-md-6\">\r\n                <div class=\"single-blog\">\r\n                    <div class=\"blog-img\">\r\n                        <a href=\"blog-details.html\">\r\n                         <img src=\"../../../assets/logo/logo-dep-muong-thanh.jpg\" alt=\"blog\" style=\"width: 100%;height: 100%\" >\r\n                        </a>\r\n                    </div>\r\n\r\n                    <div class=\"content\">\r\n                        <ul>\r\n                            <li>\r\n                                MTH15234\r\n                            </li>\r\n                            <li>\r\n                                <a href=\"#\">Hải Phòng</a>\r\n                            </li>\r\n                        </ul>\r\n\r\n                        <a href=\"blog-details.html\">\r\n                            <h3>MƯỜNG THANH</h3>\r\n                        </a>\r\n                        <p>Chuỗi khách sạn tư nhân lớn nhất Đông Dương.</p>\r\n\r\n                        <a href=\"blog-details.html\" class=\"line-bnt\">Chi tiết</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"col-lg-4 col-md-6\">\r\n                <div class=\"single-blog\">\r\n                    <div class=\"blog-img\">\r\n                        <a href=\"blog-details.html\">\r\n                      <img src=\"../../../assets/logo/logo-dep-viettel.jpg\" alt=\"blog\" style=\"width: 100%;height: 100%\">\r\n                        </a>\r\n                    </div>\r\n\r\n                    <div class=\"content\">\r\n                        <ul>\r\n                            <li>\r\n                                VTS15639\r\n                            </li>\r\n                            <li>\r\n                                <a href=\"#\">Nha Trang</a>\r\n                            </li>\r\n                        </ul>\r\n\r\n                        <a href=\"blog-details.html\">\r\n                            <h3>VIETTEL TELECOM</h3>\r\n                        </a>\r\n                        <p>Tập đoàn Công nghiệp – Viễn thông Quân đội</p>\r\n\r\n                        <a href=\"blog-details.html\" class=\"line-bnt\">Chi tiết</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-lg-4 col-md-6\">\r\n                <div class=\"single-blog\">\r\n                    <div class=\"blog-img\">\r\n                        <a href=\"blog-details.html\">\r\n                            <img src=\"../../../assets/logo/logo-dep-mb-bank.jpg\" alt=\"blog\" style=\"width: 100%;height: 100%\">\r\n                        </a>\r\n                    </div>\r\n\r\n                    <div class=\"content\">\r\n                        <ul>\r\n                            <li>\r\n                                MBB16879\r\n                            </li>\r\n                            <li>\r\n                                <a href=\"#\">Phú Quốc</a>\r\n                            </li>\r\n                        </ul>\r\n\r\n                        <a href=\"blog-details.html\">\r\n                            <h3>MB BANK</h3>\r\n                        </a>\r\n                        <p>Ngân hàng Quân đội</p>\r\n\r\n                        <a href=\"blog-details.html\" class=\"line-bnt\">Chi tiết</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n<!--    test trang-->\r\n\r\n            <div class=\"col-lg-12\">\r\n                <div class=\"page-navigation-area\">\r\n                    <nav aria-label=\"Page navigation example text-center\">\r\n                        <ul class=\"pagination\">\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link page-links\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-left'></i>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"page-item active\">\r\n                                <a class=\"page-link\" href=\"#\">1</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">2</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">3</a>\r\n                            </li>\r\n                            <li class=\"page-item\">\r\n                                <a class=\"page-link\" href=\"#\">\r\n                                    <i class='bx bx-chevrons-right'></i>\r\n                                </a>\r\n                            </li>\r\n                        </ul>\r\n                    </nav>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n<!-- End Blog Area -->\r\n");
 
 /***/ }),
 
@@ -3156,6 +3556,110 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZWdpc3Rlci11c2VyLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "Wu36":
+/*!******************************************************************!*\
+  !*** ./src/app/company/apply-company/apply-company.component.ts ***!
+  \******************************************************************/
+/*! exports provided: ApplyCompanyComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplyCompanyComponent", function() { return ApplyCompanyComponent; });
+/* harmony import */ var _raw_loader_apply_company_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./apply-company.component.html */ "hzLh");
+/* harmony import */ var _apply_company_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apply-company.component.scss */ "UuER");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/apply/apply.service */ "j6QF");
+/* harmony import */ var _security_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../security/token.service */ "zdrf");
+/* harmony import */ var _model_changeStatusApply__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../model/changeStatusApply */ "uRAZ");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var ApplyCompanyComponent = /** @class */ (function () {
+    function ApplyCompanyComponent(applyService, tokenService) {
+        this.applyService = applyService;
+        this.tokenService = tokenService;
+        this.applyList = [];
+        this.totalElements = 0;
+        this.notify = null;
+    }
+    ApplyCompanyComponent.prototype.ngOnInit = function () {
+        this.pageCategory({ page: 0, size: 3 });
+    };
+    ApplyCompanyComponent.prototype.pageCategory = function (nextPage) {
+        var _this = this;
+        this.idCompany = this.tokenService.getIdGuest();
+        this.applyService.pageCompany(nextPage, this.idCompany).subscribe(function (data) {
+            _this.applyList = data['content'];
+            console.log(_this.applyList);
+            _this.totalElements = data['totalElements'];
+            console.log(_this.totalElements);
+        });
+    };
+    ApplyCompanyComponent.prototype.nextPage = function (event) {
+        console.log(event);
+        var request = {};
+        request['page'] = event.pageIndex.toString();
+        request['size'] = event.pageSize.toString();
+        this.pageCategory(request);
+    };
+    ApplyCompanyComponent.prototype.apcept = function (id) {
+        var _this = this;
+        // @ts-ignore
+        var event = undefined;
+        var changeStatus = new _model_changeStatusApply__WEBPACK_IMPORTED_MODULE_5__["ChangeStatusApply"](id, 1);
+        this.applyService.apply(changeStatus).subscribe(function (data) {
+            _this.notify = data.message;
+            _this.pageCategory(event);
+        });
+    };
+    ApplyCompanyComponent.prototype.reject = function (id) {
+        var _this = this;
+        var changeStatus = new _model_changeStatusApply__WEBPACK_IMPORTED_MODULE_5__["ChangeStatusApply"](id, 0);
+        this.applyService.apply(changeStatus).subscribe(function (data) {
+            _this.notify = data.message;
+            _this.pageCategory(event);
+        });
+    };
+    ApplyCompanyComponent.prototype.checkAccept = function (status) {
+        if (status == "APCEPT" || status == "REJECT") {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    ApplyCompanyComponent.ctorParameters = function () { return [
+        { type: _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_3__["ApplyService"] },
+        { type: _security_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"] }
+    ]; };
+    ApplyCompanyComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-apply-company',
+            template: _raw_loader_apply_company_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+            styles: [_apply_company_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+        }),
+        __metadata("design:paramtypes", [_service_apply_apply_service__WEBPACK_IMPORTED_MODULE_3__["ApplyService"], _security_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"]])
+    ], ApplyCompanyComponent);
+    return ApplyCompanyComponent;
+}());
+
+
 
 /***/ }),
 
@@ -3182,6 +3686,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-12\" style=\"margin-top: 20px\">\r\n            <mat-card style=\"margin: 50px 0\">\r\n                <h4 class=\"alert alert-dark\">Bạn đã tạo mới tài khoản thành công.Vui lòng check Mail!</h4>\r\n                <button mat-raised-button color=\"warn\" [mat-dialog-close]=\"false\">Đóng</button>\r\n            </mat-card>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "Yd1Z":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/dialog/CV/dialog-create-cv/dialog-create-cv.component.html ***!
+  \******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-12\" style=\"margin-top: 20px\">\r\n            <mat-card style=\"margin: 50px 0\">\r\n                <h4 class=\"alert alert-dark\">Hồ sơ của bạn đã tạo thành công!</h4>\r\n                <button mat-raised-button color=\"warn\" [mat-dialog-close]=\"false\">Đóng</button>\r\n            </mat-card>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -3413,6 +3930,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _company_list_company_list_company_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./company/list-company/list-company.component */ "r+ec");
 /* harmony import */ var _user_active_status_active_status_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./user/active-status/active-status.component */ "FgHN");
 /* harmony import */ var _dialog_apply_now_apply_now_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./dialog/apply-now/apply-now.component */ "0jf1");
+/* harmony import */ var _company_web_company_web_company_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./company/web-company/web-company.component */ "ad86");
+/* harmony import */ var _angular_material_slider__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! @angular/material/slider */ "5RNC");
+/* harmony import */ var _user_apply_list_apply_list_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./user/apply-list/apply-list.component */ "r+kn");
+/* harmony import */ var _dialog_CV_dialog_create_cv_dialog_create_cv_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./dialog/CV/dialog-create-cv/dialog-create-cv.component */ "/Vn9");
+/* harmony import */ var _dialog_CV_dialog_edit_cv_dialog_edit_cv_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./dialog/CV/dialog-edit-cv/dialog-edit-cv.component */ "lIeo");
+/* harmony import */ var _upload_upload_file_upload_file_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./upload/upload-file/upload-file.component */ "uIEu");
+/* harmony import */ var _company_apply_company_apply_company_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./company/apply-company/apply-company.component */ "Wu36");
+/* harmony import */ var _dialog_CV_dialog_no_create_dialog_no_create_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./dialog/CV/dialog-no-create/dialog-no-create.component */ "81uI");
+/* harmony import */ var _dialog_dialog_match_dialog_match_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./dialog/dialog-match/dialog-match.component */ "erfy");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3473,12 +3999,21 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
+
+
+
+
 var appRoutes = [
     { path: 'register-user', component: _user_register_user_register_user_component__WEBPACK_IMPORTED_MODULE_39__["RegisterUserComponent"] },
     { path: 'register-company', component: _company_register_company_register_company_component__WEBPACK_IMPORTED_MODULE_30__["RegisterCompanyComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_27__["LoginComponent"] },
     { path: 'list-recruitmentnew-company', component: _company_recruitmentnew_list_recruitmentnew_company_list_recruitmentnew_company_component__WEBPACK_IMPORTED_MODULE_29__["ListRecruitmentnewCompanyComponent"] },
-    { path: 'list-recruitmentnew-user', component: _user_recruitmentnew_list_recruitment_user_list_recruitment_user_component__WEBPACK_IMPORTED_MODULE_41__["ListRecruitmentUserComponent"] },
+    { path: 'list-recruitmentnew-user/:id', component: _user_recruitmentnew_list_recruitment_user_list_recruitment_user_component__WEBPACK_IMPORTED_MODULE_41__["ListRecruitmentUserComponent"] },
     { path: 'list-company', component: _company_list_company_list_company_component__WEBPACK_IMPORTED_MODULE_51__["ListCompanyComponent"] },
     { path: 'detail-company', component: _company_detail_company_detail_company_component__WEBPACK_IMPORTED_MODULE_28__["DetailCompanyComponent"] },
     { path: 'change-password', component: _account_change_password_change_password_component__WEBPACK_IMPORTED_MODULE_32__["ChangePasswordComponent"] },
@@ -3489,7 +4024,10 @@ var appRoutes = [
     { path: 'update-recruitmentnew/:id', component: _company_recruitmentnew_update_recruitmentnew_company_update_recruitmentnew_company_component__WEBPACK_IMPORTED_MODULE_36__["UpdateRecruitmentnewCompanyComponent"] },
     { path: 'register-user', component: _user_register_user_register_user_component__WEBPACK_IMPORTED_MODULE_39__["RegisterUserComponent"] },
     { path: 'active-status/:id', component: _user_active_status_active_status_component__WEBPACK_IMPORTED_MODULE_52__["ActiveStatusComponent"] },
+    { path: 'apply-list', component: _user_apply_list_apply_list_component__WEBPACK_IMPORTED_MODULE_56__["ApplyListComponent"] },
     { path: 'home', component: _homepage_homepage_component__WEBPACK_IMPORTED_MODULE_49__["HomepageComponent"] },
+    { path: 'web-company/:id', component: _company_web_company_web_company_component__WEBPACK_IMPORTED_MODULE_54__["WebCompanyComponent"] },
+    { path: 'apply-company', component: _company_apply_company_apply_company_component__WEBPACK_IMPORTED_MODULE_60__["ApplyCompanyComponent"] },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 var AppModule = /** @class */ (function () {
@@ -3523,9 +4061,18 @@ var AppModule = /** @class */ (function () {
                 _dialog_dialogCreateCompany_dialog_create_company_dialog_create_company_component__WEBPACK_IMPORTED_MODULE_50__["DialogCreateCompanyComponent"],
                 _company_list_company_list_company_component__WEBPACK_IMPORTED_MODULE_51__["ListCompanyComponent"],
                 _user_active_status_active_status_component__WEBPACK_IMPORTED_MODULE_52__["ActiveStatusComponent"],
-                _dialog_apply_now_apply_now_component__WEBPACK_IMPORTED_MODULE_53__["ApplyNowComponent"]
+                _dialog_apply_now_apply_now_component__WEBPACK_IMPORTED_MODULE_53__["ApplyNowComponent"],
+                _company_web_company_web_company_component__WEBPACK_IMPORTED_MODULE_54__["WebCompanyComponent"],
+                _user_apply_list_apply_list_component__WEBPACK_IMPORTED_MODULE_56__["ApplyListComponent"],
+                _dialog_CV_dialog_create_cv_dialog_create_cv_component__WEBPACK_IMPORTED_MODULE_57__["DialogCreateCvComponent"],
+                _dialog_CV_dialog_edit_cv_dialog_edit_cv_component__WEBPACK_IMPORTED_MODULE_58__["DialogEditCvComponent"],
+                _upload_upload_file_upload_file_component__WEBPACK_IMPORTED_MODULE_59__["UploadFileComponent"],
+                _company_apply_company_apply_company_component__WEBPACK_IMPORTED_MODULE_60__["ApplyCompanyComponent"],
+                _dialog_CV_dialog_no_create_dialog_no_create_component__WEBPACK_IMPORTED_MODULE_61__["DialogNoCreateComponent"],
+                _dialog_dialog_match_dialog_match_component__WEBPACK_IMPORTED_MODULE_62__["DialogMatchComponent"]
             ],
             imports: [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_16__["ReactiveFormsModule"],
                 _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_34__["MatDatepickerModule"],
                 _angular_material_core__WEBPACK_IMPORTED_MODULE_37__["MatNativeDateModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_16__["FormsModule"],
@@ -3543,7 +4090,7 @@ var AppModule = /** @class */ (function () {
                 projects_ngx_audio_player_src_public_api__WEBPACK_IMPORTED_MODULE_12__["NgxAudioPlayerModule"],
                 _angular_fire_storage__WEBPACK_IMPORTED_MODULE_17__["AngularFireStorageModule"],
                 _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_19__["environment"].firebaseConfig),
-                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(appRoutes, { useHash: false }), _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__["MatFormFieldModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_16__["ReactiveFormsModule"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_20__["MatProgressSpinnerModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_21__["MatPaginatorModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_22__["MatTableModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_23__["MatDialogModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_33__["MatSelectModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_34__["MatDatepickerModule"], _angular_material_badge__WEBPACK_IMPORTED_MODULE_40__["MatBadgeModule"]
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(appRoutes, { useHash: false }), _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__["MatFormFieldModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_16__["ReactiveFormsModule"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_20__["MatProgressSpinnerModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_21__["MatPaginatorModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_22__["MatTableModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_23__["MatDialogModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_33__["MatSelectModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_34__["MatDatepickerModule"], _angular_material_badge__WEBPACK_IMPORTED_MODULE_40__["MatBadgeModule"], _angular_material_slider__WEBPACK_IMPORTED_MODULE_55__["MatSliderModule"]
             ],
             providers: [_security_auth_interceptor__WEBPACK_IMPORTED_MODULE_24__["httpInterceptorProvider"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -3615,6 +4162,121 @@ var DialogComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "aQA9":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/company/web-company/web-company.component.html ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\" rel=\"stylesheet\">\r\n<div class=\"container\">\r\n    <section class=\"member-details\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-3 col-md-4\">\r\n                    <div class=\"card border-0 shadow\">\r\n                        <img src=\"{{companyCurrent.avatar}}\" alt=\"...\">\r\n                        <div class=\"card-body p-1-9 p-xl-5\">\r\n                            <div class=\"mb-4\">\r\n                                <h3 class=\"h4 mb-0\">{{companyCurrent.name}}</h3>\r\n                                <span class=\"text-primary\">MSDN: {{companyCurrent.codeCompany}}</span>\r\n                            </div>\r\n                            <ul class=\"list-unstyled mb-4\">\r\n                                <li class=\"mb-3\"><a href=\"#!\"><i\r\n                                        class=\"far fa-envelope display-25 me-3 text-secondary\"></i>{{companyCurrent.account.username}}</a>\r\n                                </li>\r\n                                <li class=\"mb-3\"><a href=\"#!\"><i\r\n                                        class=\"fas fa-mobile-alt display-25 me-3 text-secondary\"></i>{{companyCurrent.phone}}\r\n                                </a></li>\r\n                                <li><a href=\"#!\"><i\r\n                                        class=\"fas fa-map-marker-alt display-25 me-3 text-secondary\"></i>{{companyCurrent.address}}\r\n                                </a></li>\r\n                            </ul>\r\n                            <ul class=\"social-icon-style2 ps-0\">\r\n                                <li><a href=\"#!\" class=\"rounded-3\"><i class=\"fab fa-facebook-f\"></i></a></li>\r\n                                <li><a href=\"#!\" class=\"rounded-3\"><i class=\"fab fa-twitter\"></i></a></li>\r\n                                <li><a href=\"#!\" class=\"rounded-3\"><i class=\"fab fa-youtube\"></i></a></li>\r\n                                <li><a href=\"#!\" class=\"rounded-3\"><i class=\"fab fa-linkedin-in\"></i></a></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-9 col-md-8\">\r\n                    <div class=\"member_desc\">\r\n                        <h4 style=\"font-style: italic\">{{companyCurrent.name}}</h4>\r\n                        <p>\r\n                            {{companyCurrent.description}}\r\n                        </p>\r\n                    </div>\r\n                    <div class=\"bg-image \"\r\n                         style=\"background-image: url('https://www.bootdey.com/img/Content/bg_element.jpg');\">\r\n                        <div class=\"member_contact\">\r\n                            <div class=\"row\">\r\n                                <div class=\"col-lg-4  mb-3 mb-lg-0\">\r\n                                    <div class=\"media-box\">\r\n                                        <div class=\"media-icon\">\r\n                                            <i class=\"fa fa-tablet\" aria-hidden=\"true\"></i>\r\n                                        </div>\r\n                                        <div class=\"media-content\">\r\n                                            <h5>Phone</h5>\r\n                                            <p><a href=\"\">{{companyCurrent.phone}}</a></p>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-lg-4  mb-3 mb-lg-0\">\r\n                                    <div class=\"media-box\">\r\n                                        <div class=\"media-icon\">\r\n                                            <i class=\"fa fa-envelope-o\" aria-hidden=\"true\"></i>\r\n                                        </div>\r\n                                        <div class=\"media-content\">\r\n                                            <h5>Email</h5>\r\n                                            <p><a href=\"\">{{companyCurrent.account.username}}</a></p>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-lg-4\">\r\n                                    <div class=\"social-icons\">\r\n                                        <button class=\"btn btn-social outlined\"><i class=\"fa fa-facebook-f\"></i>\r\n                                        </button>\r\n                                        <button class=\"btn btn-social outlined\"><i class=\"fa fa-twitter\"></i></button>\r\n                                        <button class=\"btn btn-social outlined\"><i class=\"fa fa-linkedin\"></i></button>\r\n                                        <button class=\"btn btn-social outlined\"><i class=\"fa fa-pinterest-p\"></i>\r\n                                        </button>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"member_desc\">\r\n                        <section class=\"home-service-area ptb-100\">\r\n                            <div class=\"container\">\r\n                                <div class=\"section-title\">\r\n                                    <span>Smart Services</span>\r\n                                    <h2>Tuyển Dụng</h2>\r\n                                    <p> Khi bạn gặp khó khăn hay bế tắc trong công việc thì đừng oán trách số phận. Điều bạn học được khi gặp trắc trở chính là kinh nghiệm\r\n                                        và bài học để lần sau không bao giờ mắc phải nữa.</p>\r\n                                      <p>- Bill Gates (Chủ tịch tập đoàn Microsoft) - </p>\r\n                                </div>\r\n\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-lg-4 col-sm-6\" *ngFor=\"let rcm of recruitmentNews\">\r\n                                        <div class=\"single-service\">\r\n                                            <div class=\"service-img\">\r\n                                                <img src=\"{{companyCurrent.avatar}}\" alt=\"service\">\r\n                                            </div>\r\n                                            <div class=\"service-content\">\r\n                                                <h3>{{rcm.title}}</h3>\r\n                                                <p><b>Nơi làm việc:</b> {{rcm.city.name}}</p>\r\n                                                <p><b>Thời gian làm việc:</b> {{rcm.workingTime.name}}</p>\r\n                                                <p><b>Ngày ứng tuyển:</b> {{rcm.expDate}}</p>\r\n                                                <a class=\"line-bnt\"\r\n                                                   (click)=\"openDialogApply(rcm.id)\"><span\r\n                                                        class=\"btn btn-link\">Chi tiết</span>\r\n                                                </a>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </section>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </section>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "ad86":
+/*!**************************************************************!*\
+  !*** ./src/app/company/web-company/web-company.component.ts ***!
+  \**************************************************************/
+/*! exports provided: WebCompanyComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebCompanyComponent", function() { return WebCompanyComponent; });
+/* harmony import */ var _raw_loader_web_company_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./web-company.component.html */ "aQA9");
+/* harmony import */ var _web_company_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web-company.component.scss */ "FqlH");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _service_company_company_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/company/company.service */ "KXKP");
+/* harmony import */ var _security_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../security/token.service */ "zdrf");
+/* harmony import */ var _service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../service/recruitmentNew/recruitment-new.service */ "FmPh");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
+/* harmony import */ var _user_apply_recruitmentnew_apply_recruitmentnew_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../user/apply-recruitmentnew/apply-recruitmentnew.component */ "6aLj");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "tyNb");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+var WebCompanyComponent = /** @class */ (function () {
+    function WebCompanyComponent(companyService, tokenService, activeRouter, recruitmentNewService, dialog) {
+        var _this = this;
+        this.companyService = companyService;
+        this.tokenService = tokenService;
+        this.activeRouter = activeRouter;
+        this.recruitmentNewService = recruitmentNewService;
+        this.dialog = dialog;
+        this.recruitmentNews = [];
+        this.id = 0;
+        this.sub = this.activeRouter.paramMap.subscribe(function (paramMap) {
+            _this.id = Number(paramMap.get('id'));
+            _this.emailCompany = tokenService.getNameKey();
+            _this.companyService.getCompanyNameById(_this.id).subscribe(function (data) {
+                console.log(data);
+                _this.companyCurrent = data;
+            });
+        });
+    }
+    WebCompanyComponent.prototype.ngOnInit = function () {
+        this.getListRecruitmentNew();
+    };
+    WebCompanyComponent.prototype.getListRecruitmentNew = function () {
+        var _this = this;
+        this.recruitmentNewService.showAllListRecruitmentNew(this.id).subscribe(function (listRN) {
+            _this.recruitmentNews = listRN;
+            console.log(listRN);
+        });
+    };
+    WebCompanyComponent.prototype.openDialogApply = function (id) {
+        var dialogRef = this.dialog.open(_user_apply_recruitmentnew_apply_recruitmentnew_component__WEBPACK_IMPORTED_MODULE_7__["ApplyRecruitmentnewComponent"], {
+            data: {
+                id: id
+            }
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log('The dialog was closed');
+        });
+    };
+    WebCompanyComponent.ctorParameters = function () { return [
+        { type: _service_company_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"] },
+        { type: _security_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
+        { type: _service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_5__["RecruitmentNewService"] },
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
+    ]; };
+    WebCompanyComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-web-company',
+            template: _raw_loader_web_company_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+            styles: [_web_company_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+        }),
+        __metadata("design:paramtypes", [_service_company_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"],
+            _security_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
+            _service_recruitmentNew_recruitment_new_service__WEBPACK_IMPORTED_MODULE_5__["RecruitmentNewService"],
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
+    ], WebCompanyComponent);
+    return WebCompanyComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "bFRz":
 /*!*****************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component.html ***!
@@ -3676,7 +4338,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
 var environment = {
     production: true,
-    apiBaseUrl: 'http://42.114.166.139:8080',
+    apiBaseUrl: 'https://c0821h1-findjob.herokuapp.com',
     firebaseConfig: {
         apiKey: "AIzaSyD8-xixCVrK-1RrA6G-Ob5j88HoD72s0g0",
         authDomain: "employee-app-f2600.firebaseapp.com",
@@ -3722,7 +4384,10 @@ var CVService = /** @class */ (function () {
         this.apiServerUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiBaseUrl;
     }
     CVService.prototype.createCV = function (cv) {
-        return this.http.post(this.apiServerUrl + "/CV", cv);
+        return this.http.post(this.apiServerUrl + "/CV/createCV", cv);
+    };
+    CVService.prototype.updateCV = function (userId, cv) {
+        return this.http.put(this.apiServerUrl + "/CV/" + userId, cv);
     };
     CVService.prototype.findByUserId = function (id) {
         return this.http.get(this.apiServerUrl + "/CV/user/" + id);
@@ -3915,6 +4580,19 @@ var VacanciesService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "e6NR":
+/*!****************************************************************************!*\
+  !*** ./src/app/dialog/CV/dialog-no-create/dialog-no-create.component.scss ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkaWFsb2ctbm8tY3JlYXRlLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
 /***/ "ean+":
 /*!*************************************************************************************************!*\
   !*** ./src/app/company/recruitmentnew/create-recruitmentnew/create-recruitmentnew.component.ts ***!
@@ -4089,6 +4767,52 @@ var CreateRecruitmentnewComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "erfy":
+/*!***************************************************************!*\
+  !*** ./src/app/dialog/dialog-match/dialog-match.component.ts ***!
+  \***************************************************************/
+/*! exports provided: DialogMatchComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogMatchComponent", function() { return DialogMatchComponent; });
+/* harmony import */ var _raw_loader_dialog_match_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./dialog-match.component.html */ "v1pD");
+/* harmony import */ var _dialog_match_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dialog-match.component.scss */ "NSQK");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DialogMatchComponent = /** @class */ (function () {
+    function DialogMatchComponent() {
+    }
+    DialogMatchComponent.prototype.ngOnInit = function () {
+    };
+    DialogMatchComponent.ctorParameters = function () { return []; };
+    DialogMatchComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-dialog-match',
+            template: _raw_loader_dialog_match_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+            styles: [_dialog_match_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogMatchComponent);
+    return DialogMatchComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "fAU0":
 /*!*****************************************************!*\
   !*** ./src/app/service/workExp/work-exp.service.ts ***!
@@ -4190,7 +4914,6 @@ var HeaderComponent = /** @class */ (function () {
             for (var i = 0; i < this.tokenService.getRoleKey().length; i++) {
                 if (this.tokenService.getRoleKey()[i] == "COMPANY") {
                     this.companyService.getCompanyNameById(this.idGuest).subscribe(function (data) {
-                        console.log(data);
                         _this.company = data;
                         _this.checkRole = "COMPANY";
                         _this.name = _this.company.name;
@@ -4198,7 +4921,6 @@ var HeaderComponent = /** @class */ (function () {
                 }
                 if (this.tokenService.getRoleKey()[i] == "USER") {
                     this.userService.getUserById(this.idGuest).subscribe(function (data) {
-                        console.log(data);
                         _this.user = data;
                         _this.checkRole = "USER";
                         _this.name = _this.user.name;
@@ -4345,6 +5067,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "hzLh":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/company/apply-company/apply-company.component.html ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"page-title-area\" style=\"height: 200px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>Danh sách nhân viên ứng tuyển</h2>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"container mt-3 mb-4\">\r\n    <mat-error class=\"text-center\" *ngIf=\"notify != null\">{{notify}}</mat-error>\r\n    <div class=\"col-lg-12 mt-4 mt-lg-0\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n                <div class=\"user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm\">\r\n                    <table class=\"table manage-candidates-top mb-0\">\r\n                        <thead>\r\n                        <tr>\r\n                            <th>Thông tin người ứng tuyển</th>\r\n                            <th class=\"text-center\">Trạng thái</th>\r\n                            <th class=\"action text-right\">Hoạt động</th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                        <tr class=\"candidates-list\" *ngFor=\"let apply of applyList\">\r\n                            <td class=\"title\">\r\n                                <div class=\"thumb\">\r\n                                    <img class=\"img-fluid\" src=\"{{apply.avatar}}\" alt=\"\">\r\n                                </div>\r\n                                <div class=\"candidate-list-details\">\r\n                                    <div class=\"candidate-list-info\">\r\n                                        <div class=\"candidate-list-title\">\r\n                                            <h5 class=\"mb-0\"><a [routerLink]=\"['/detail-cv/',apply.userId]\">{{apply.nameUser}}</a></h5>\r\n                                        </div>\r\n                                        <div class=\"candidate-list-option\">\r\n                                            <ul class=\"list-unstyled\">\r\n                                                <li><i class=\"fas fa-briefcase\"></i> {{apply.title}}</li>\r\n                                                <li><i class=\"fas fa-user-tie\"></i>{{apply.vacanciesName}}</li>\r\n                                                <li><i class=\"far fa-clock\"></i> {{apply.date}}</li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </td>\r\n                            <td class=\"candidate-list-favourite-time text-center\">\r\n                                <a class=\"candidate-list-favourite order-2 text-danger\" href=\"#\"><i class=\"fas fa-heart\"></i></a>\r\n                                <span class=\"candidate-list-time order-1\">{{apply.status}}</span>\r\n                            </td>\r\n                            <td>\r\n                                <ul class=\"list-unstyled mb-0 d-flex justify-content-end\">\r\n                                    <button *ngIf=\"checkAccept(apply.status)\" (click)=\"apcept(apply.id)\" mat-raised-button color=\"primary\">Duyệt</button>\r\n                                    <button *ngIf=\"checkAccept(apply.status)\" (click)=\"reject(apply.id)\"  mat-raised-button color=\"warn\">Từ chối</button>\r\n                                </ul>\r\n                            </td>\r\n                        </tr>\r\n                        </tbody>\r\n                    </table>\r\n                    <div class=\"text-center mt-3 mt-sm-3\">\r\n\r\n<!--                            <mat-paginator [length]=\"totalElements\"-->\r\n<!--                                           [pageSize]=\"3\"-->\r\n<!--                                           [pageSizeOptions]=\"[3, 6, 9, 12]\"-->\r\n<!--                                           (page)=\"nextPage($event)\"-->\r\n<!--                                           aria-label=\"Select page\">-->\r\n<!--                            </mat-paginator>-->\r\n                        <mat-paginator [pageSizeOptions]=\"[3,6,9,12,15]\"\r\n                                       [length]=\"totalElements\"\r\n                                       (page)=\"nextPage($event)\">\r\n                        </mat-paginator>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+
+/***/ }),
+
 /***/ "in5m":
 /*!**********************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html ***!
@@ -4391,6 +5126,17 @@ var ApplyService = /** @class */ (function () {
     ApplyService.prototype.createCV = function (apply) {
         return this.http.post(this.apiServerUrl + "/applies", apply);
     };
+    ApplyService.prototype.pageCompany = function (request, id) {
+        var params = request;
+        return this.http.get(this.apiServerUrl + "/applies/findAllByCompanyID/" + id, { params: params });
+    };
+    ApplyService.prototype.apply = function (changeStatusApply) {
+        return this.http.post("http://localhost:8080/applies/changeStatusApply", changeStatusApply);
+    };
+    ApplyService.prototype.pageApply = function (nextPage, id) {
+        var params = nextPage;
+        return this.http.get(this.apiServerUrl + "/applies/showAllApply/" + id, { params: params });
+    };
     ApplyService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
     ]; };
@@ -4429,7 +5175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- Header Area -->\r\n<header class=\"header-area\">\r\n    <div class=\"container\">\r\n        <div class=\"row align-items-center\">\r\n            <div class=\"col-lg-2 col-sm-0\">\r\n                <div class=\"logo\">\r\n                    <a href=\"index.html\"><img src=\"assets/images/logo.png\" alt=\"logo\"></a>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-8 col-sm-8 text-right pr-0\">\r\n                <div class=\"header-content-right\">\r\n                    <ul class=\"header-contact\">\r\n                        <li><a href=\"tel:+1123456789\"><i class=\"bx bxs-phone-call\"></i> 024 62538829</a></li>\r\n                        <li><a href=\"mailto:hello@paso.com\"><i class=\"bx bxs-envelope\"></i> info@codegym.vn</a></li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-2 col-sm-4 text-right pl-0\">\r\n                <div class=\"header-content-right\">\r\n                    <ul class=\"header-social\">\r\n                        <li>\r\n                            <a href=\"#\" target=\"_blank\"><i class=\"bx bxl-facebook\"></i></a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"#\" target=\"_blank\"><i class=\"bx bxl-twitter\"></i></a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"#\" target=\"_blank\"> <i class=\"bx bxs-envelope\"></i></a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"#\" target=\"_blank\"> <i class=\"bx bxl-youtube\"></i></a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>\r\n<!-- End Header Area -->\r\n\r\n<!--Navbar Area -->\r\n<div class=\"navbar-area\">\r\n    <div class=\"mobile-nav\">\r\n        <a href=\"index.html\" class=\"logo\">\r\n            <img src=\"assets/images/logo.png\" alt=\"logo\">\r\n        </a>\r\n    </div>\r\n    <div class=\"main-nav\" style=\"background: #051242\">\r\n        <div class=\"container\">\r\n            <nav class=\"navbar navbar-expand-md navbar-light\">\r\n                <div class=\"collapse navbar-collapse mean-menu\" id=\"navbarSupportedContent\">\r\n                    <ul class=\"navbar-nav text-left\">\r\n                        <li class=\"nav-item\">\r\n                            <!--                            <a *ngIf=\"checkRole == 'COMPANY'\" routerLink=\"list-recruitmentnew-company\"-->\r\n                            <!--                               class=\"nav-link dropdown-toggle active\">Trang chủ</a>-->\r\n                            <a routerLink=\"home\"\r\n                               class=\"nav-link dropdown-toggle active\">Trang chủ</a>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'USER'\" class=\"nav-item\">\r\n                            <a routerLink=\"/list-recruitmentnew-user\" class=\"nav-link\">Việc làm</a>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'COMPANY'\" class=\"nav-item\">\r\n                            <a routerLink=\"list-recruitmentnew-company\" class=\"nav-link\">Quản lý bài đăng</a>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'COMPANY'\" class=\"nav-item\">\r\n                            <a class=\"nav-link dropdown-toggle\">Bài Đăng</a>\r\n                            <ul class=\"dropdown-menu\">\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"/create-recruitmentnew\" class=\"nav-link\">Viết Bài Đăng</a>\r\n                                </li>\r\n                                <li class=\"nav-item\">\r\n                                    <a href=\"case-details.html\" class=\"nav-link\">Case Studies Details</a>\r\n                                </li>\r\n                            </ul>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'USER'\" class=\"nav-item\">\r\n                            <a class=\"nav-link dropdown-toggle\">Hồ Sơ Ứng Tuyển</a>\r\n                            <ul class=\"dropdown-menu\">\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"create-cv\" class=\"nav-link\">Viết Hồ Sơ Ứng Tuyển</a>\r\n                                </li>\r\n                                <li class=\"nav-item\">\r\n                                    <a [routerLink]=\"['/detail-cv/', idGuest]\" class=\"nav-link\">Hồ sơ của bạn</a>\r\n                                </li>\r\n                            </ul>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'COMPANY'\" class=\"nav-item\">\r\n                            <a routerLink=\"list-recruitmentnew-user\" class=\"nav-link\">Việc làm</a>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'USER'||'COMPANY'\" class=\"nav-item\">\r\n                            <a class=\"nav-link dropdown-toggle\">Công ty</a>\r\n                            <ul class=\"dropdown-menu\">\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"list-company\" class=\"nav-link\">Danh sách công ty</a>\r\n                                </li>\r\n                            </ul>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n\r\n                <div *ngIf=\"!checkLogin\">\r\n                    <a routerLink=\"/login\" class=\"box-btn\">Đăng nhập</a>\r\n                </div>\r\n                <div *ngIf=\"checkLogin\" class=\"nav-btn dropdown\">\r\n                    <button class=\"btn btn-secondary dropdown-toggle\" style=\"background: #007bff\" type=\"button\"\r\n                            id=\"dropdownMenuButton1\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">{{name}}\r\n                    </button>\r\n\r\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton1\" *ngIf=\"checkRole == 'COMPANY'\">\r\n                        <li><a class=\"dropdown-item\" routerLink=\"detail-company\">Quản lý hồ sơ</a></li>\r\n                        <li><a class=\"dropdown-item\" routerLink=\"change-password\">Đổi mật khẩu</a></li>\r\n                        <li><a class=\"dropdown-item\" (click)=\"logOut()\">Đăng xuất</a></li>\r\n                    </ul>\r\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton1\" *ngIf=\"checkRole == 'USER'\">\r\n                        <li><a class=\"dropdown-item\" routerLink=\"detail-user\">Quản lý hồ sơ</a></li>\r\n                        <li><a class=\"dropdown-item\" routerLink=\"change-password\">Đổi mật khẩu</a></li>\r\n                        <li><a class=\"dropdown-item\" (click)=\"logOut()\">Đăng xuất</a></li>\r\n                    </ul>\r\n                </div>\r\n            </nav>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- End Navbar Area -->\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Header Area -->\r\n<header class=\"header-area\">\r\n    <div class=\"container\">\r\n        <div class=\"row align-items-center\">\r\n            <div class=\"col-lg-2 col-sm-0\">\r\n                <div class=\"logo\">\r\n                    <a href=\"index.html\"><img src=\"assets/images/logo.png\" alt=\"logo\"></a>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-8 col-sm-8 text-right pr-0\">\r\n                <div class=\"header-content-right\">\r\n                    <ul class=\"header-contact\">\r\n                        <li><a href=\"tel:+1123456789\"><i class=\"bx bxs-phone-call\"></i> 024 62538829</a></li>\r\n                        <li><a href=\"mailto:hello@paso.com\"><i class=\"bx bxs-envelope\"></i> info@codegym.vn</a></li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-2 col-sm-4 text-right pl-0\">\r\n                <div class=\"header-content-right\">\r\n                    <ul class=\"header-social\">\r\n                        <li>\r\n                            <a href=\"#\" target=\"_blank\"><i class=\"bx bxl-facebook\"></i></a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"#\" target=\"_blank\"><i class=\"bx bxl-twitter\"></i></a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"#\" target=\"_blank\"> <i class=\"bx bxs-envelope\"></i></a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"#\" target=\"_blank\"> <i class=\"bx bxl-youtube\"></i></a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>\r\n<!-- End Header Area -->\r\n\r\n<!--Navbar Area -->\r\n<div class=\"navbar-area\">\r\n    <div class=\"mobile-nav\">\r\n        <a href=\"index.html\" class=\"logo\">\r\n            <img src=\"assets/images/logo.png\" alt=\"logo\">\r\n        </a>\r\n    </div>\r\n    <div class=\"main-nav\" style=\"background: #051242\">\r\n        <div class=\"container\">\r\n            <nav class=\"navbar navbar-expand-md navbar-light\">\r\n                <div class=\"collapse navbar-collapse mean-menu\" id=\"navbarSupportedContent\">\r\n                    <ul class=\"navbar-nav text-left\">\r\n                        <li class=\"nav-item\">\r\n                            <!--                            <a *ngIf=\"checkRole == 'COMPANY'\" routerLink=\"list-recruitmentnew-company\"-->\r\n                            <!--                               class=\"nav-link dropdown-toggle active\">Trang chủ</a>-->\r\n                            <a routerLink=\"home\"\r\n                               class=\"nav-link dropdown-toggle active\">Trang chủ</a>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'USER'\" class=\"nav-item\">\r\n                            <a routerLink=\"/list-recruitmentnew-user/xxx\" class=\"nav-link\">Việc làm</a>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'COMPANY'\" class=\"nav-item\">\r\n                            <a class=\"nav-link dropdown-toggle\">Việc làm</a>\r\n                            <ul class=\"dropdown-menu\">\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"/list-recruitmentnew-user/xxx\" class=\"nav-link\">Danh sách việc làm</a>\r\n                                </li>\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"/apply-company\" class=\"nav-link\">Danh sách ứng tuyển</a>\r\n                                </li>\r\n                            </ul>\r\n                        </li>\r\n\r\n\r\n                        <li *ngIf=\"checkRole == 'COMPANY'\" class=\"nav-item\">\r\n                            <a class=\"nav-link dropdown-toggle\">Bài Đăng</a>\r\n                            <ul class=\"dropdown-menu\">\r\n                                <li *ngIf=\"checkRole == 'COMPANY'\" class=\"nav-item\">\r\n                                    <a routerLink=\"list-recruitmentnew-company\" class=\"nav-link\">Quản lý bài đăng</a>\r\n                                </li>\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"/create-recruitmentnew\" class=\"nav-link\">Viết Bài Đăng</a>\r\n                                </li>\r\n\r\n                            </ul>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'USER'\" class=\"nav-item\">\r\n                            <a class=\"nav-link dropdown-toggle\">Hồ Sơ Ứng Tuyển</a>\r\n                            <ul class=\"dropdown-menu\">\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"create-cv\"  class=\"nav-link\">Viết Hồ Sơ Ứng Tuyển</a>\r\n                                </li>\r\n                                <li class=\"nav-item\">\r\n                                    <a [routerLink]=\"['/detail-cv/', idGuest]\" class=\"nav-link\">Hồ sơ của bạn</a>\r\n                                </li>\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"apply-list\" class=\"nav-link\">Dách sách ứng tuyển</a>\r\n                                </li>\r\n                            </ul>\r\n                        </li>\r\n                        <li *ngIf=\"checkRole == 'USER'||'COMPANY'\" class=\"nav-item\">\r\n                            <a class=\"nav-link dropdown-toggle\">Công ty</a>\r\n                            <ul class=\"dropdown-menu\">\r\n                                <li class=\"nav-item\">\r\n                                    <a routerLink=\"list-company\" class=\"nav-link\">Danh sách công ty</a>\r\n                                </li>\r\n                            </ul>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n\r\n                <div *ngIf=\"!checkLogin\">\r\n                    <a routerLink=\"/login\" class=\"box-btn\">Đăng nhập</a>\r\n                </div>\r\n                <div *ngIf=\"checkLogin\" class=\"nav-btn dropdown\">\r\n                    <button class=\"btn btn-secondary dropdown-toggle\" style=\"background: #007bff\" type=\"button\"\r\n                            id=\"dropdownMenuButton1\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">{{name}}\r\n                    </button>\r\n\r\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton1\" *ngIf=\"checkRole == 'COMPANY'\">\r\n                        <li><a class=\"dropdown-item\" routerLink=\"detail-company\">Quản lý hồ sơ</a></li>\r\n                        <li><a class=\"dropdown-item\" routerLink=\"change-password\">Đổi mật khẩu</a></li>\r\n                        <li><a class=\"dropdown-item\" (click)=\"logOut()\">Đăng xuất</a></li>\r\n                    </ul>\r\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton1\" *ngIf=\"checkRole == 'USER'\">\r\n                        <li><a class=\"dropdown-item\" [routerLink]=\"['/detail-cv/', idGuest]\" >Quản lý hồ sơ</a></li>\r\n                        <li><a class=\"dropdown-item\" routerLink=\"change-password\">Đổi mật khẩu</a></li>\r\n                        <li><a class=\"dropdown-item\" (click)=\"logOut()\">Đăng xuất</a></li>\r\n                    </ul>\r\n                </div>\r\n            </nav>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- End Navbar Area -->\r\n");
 
 /***/ }),
 
@@ -4465,7 +5211,53 @@ var User = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n  <div class=\"input-group mb-3\" style=\"width: 350px;margin-left: 40px\">\r\n    <label class=\"input-group-text\" for=\"inputGroupFile01\">Ảnh</label>\r\n    <input type=\"file\" class=\"form-control\" id=\"inputGroupFile01\" (change)=\"onFileChanged($event)\">\r\n    <mat-spinner [diameter]=\"40\" class=\"text-center\" *ngIf=\"checkUpLoadFile\"></mat-spinner>\r\n<!--    <button *ngIf=\"downloadURL? !selectFile : selectFile\" mat-stroked-button color=\"accent\" class=\"mat-button-toggle-group btn-outline-success\">Upload</button>-->\r\n<!--    <img *ngIf=\"downloadURL\" style=\"width: 300px\" [src]=\"downloadURL\">-->\r\n  </div>\r\n<!--  <input type=\"file\" >-->\r\n\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <div class=\"input-group mb-3\" style=\"width: 350px;margin-left: 40px\">\r\n        <label class=\"input-group-text\" for=\"inputGroupFile01\">Ảnh</label>\r\n        <input type=\"file\" class=\"form-control\" id=\"inputGroupFile01\" (change)=\"onFileChanged($event)\">\r\n        <mat-spinner [diameter]=\"40\" class=\"text-center\" *ngIf=\"checkUpLoadFile\"></mat-spinner>\r\n    </div>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "lIeo":
+/*!**********************************************************************!*\
+  !*** ./src/app/dialog/CV/dialog-edit-cv/dialog-edit-cv.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: DialogEditCvComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogEditCvComponent", function() { return DialogEditCvComponent; });
+/* harmony import */ var _raw_loader_dialog_edit_cv_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./dialog-edit-cv.component.html */ "1vL1");
+/* harmony import */ var _dialog_edit_cv_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dialog-edit-cv.component.scss */ "CZ5x");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DialogEditCvComponent = /** @class */ (function () {
+    function DialogEditCvComponent() {
+    }
+    DialogEditCvComponent.prototype.ngOnInit = function () {
+    };
+    DialogEditCvComponent.ctorParameters = function () { return []; };
+    DialogEditCvComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-dialog-edit-cv',
+            template: _raw_loader_dialog_edit_cv_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+            styles: [_dialog_edit_cv_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogEditCvComponent);
+    return DialogEditCvComponent;
+}());
+
+
 
 /***/ }),
 
@@ -4482,6 +5274,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "m1uw":
+/*!****************************************************************************!*\
+  !*** ./src/app/dialog/CV/dialog-create-cv/dialog-create-cv.component.scss ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkaWFsb2ctY3JlYXRlLWN2LmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
 /***/ "n2qO":
 /*!**************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user/CV/detail-cv/detail-cv.component.html ***!
@@ -4491,7 +5296,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" style=\"margin-top: 100px\">\r\n    <div class=\"row\">\r\n        <div class=\"col-lg-3 \">\r\n            <div class=\"card left-profile-card\">\r\n                <div class=\"card-body\">\r\n                    <div class=\"text-center\">\r\n                        <img src=\"https://bootdey.com/img/Content/avatar/avatar2.png\" alt=\"\" class=\"user-profile\">\r\n                        <h3>{{cv.fullName}}</h3>\r\n                        <div class=\"d-flex align-items-center justify-content-center mb-3\">\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"personal-info\">\r\n                        <h3>Thông tin cá nhân</h3>\r\n                        <ul class=\"personal-list\">\r\n                            <li><i class=\"fas fa-briefcase \"></i><span>{{cv.expYear}}</span></li>\r\n                            <li><i class=\"fas fa-map-marker-alt \"></i><span>{{cv.salaryExpectation}}</span></li>\r\n                            <li><i class=\"far fa-envelope \"></i><span>{{cv.username}}</span></li>\r\n                            <li><i class=\"fas fa-mobile \"></i><span>{{cv.phone}}</span></li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"skill\">\r\n                        <h3>Kỹ năng</h3>\r\n                        <div *ngFor=\"let skill of cv.skills\">\r\n                            <p>{{skill.name}}</p>\r\n                            <div class=\"progress mb-3\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [style.width]=\"skill.proficiency\"\r\n                                     [style.background]=\"'rgb(5 18 66)'\" aria-valuenow=\"50\" aria-valuemin=\"0\"\r\n                                     aria-valuemax=\"100\"></div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-lg-9\">\r\n            <div class=\"card right-profile-card\">\r\n                <div class=\"card-header alert-primary d-flex\">\r\n                    <h2>Kinh nghiệm cá nhân</h2>\r\n                    <a [routerLink]=\"['/update-cv/', idUser]\">Sửa hồ sơ</a>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div class=\"tab-content\" id=\"pills-tabContent\">\r\n                        <div class=\"tab-pane fade show active\" id=\"pills-home\" role=\"tabpanel\"\r\n                             aria-labelledby=\"pills-home-tab\">\r\n                            <div *ngFor=\"let workExp of cv.workExps\" class=\"work-container\">\r\n                                <h3>{{workExp.title}}</h3>\r\n                                <h4><i class=\"far fa-calendar-alt\"></i>{{workExp.startDate}} to <span\r\n                                        class=\"badge badge-info\">{{workExp.endDate}}</span></h4>\r\n                                <p>{{workExp.content}}</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" style=\"margin-top: 100px\">\r\n    <div class=\"row\">\r\n        <div class=\"col-lg-3 \">\r\n            <div class=\"card left-profile-card\">\r\n                <div class=\"card-body\">\r\n                    <div class=\"text-center\">\r\n                        <img src=\"https://bootdey.com/img/Content/avatar/avatar2.png\" alt=\"\" class=\"user-profile\">\r\n                        <h3>{{cv?.fullName}}</h3>\r\n                        <div class=\"d-flex align-items-center justify-content-center mb-3\">\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                            <i class=\"fas fa-star text-info\"></i>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"personal-info\">\r\n                        <h3>Thông tin cá nhân</h3>\r\n                        <ul class=\"personal-list\">\r\n                            <li><i class=\"fas fa-briefcase \"></i><span><b>Năm kinh nghiệm: </b>{{cv?.expYear}}</span></li>\r\n                            <li><i class=\"fas fa-map-marker-alt \"></i><span><b>Lương mong muốn: </b>{{cv?.salaryExpectation}}</span></li>\r\n                            <li><i class=\"far fa-envelope \"></i><span>{{cv?.username}}</span></li>\r\n                            <li><i class=\"fas fa-mobile \"></i><span>{{cv?.phone}}</span></li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"skill\">\r\n                        <h3>Kỹ năng</h3>\r\n                        <div *ngFor=\"let skill of cv?.skills\">\r\n                            <p>{{skill.name}}</p>\r\n                            <div class=\"progress mb-3\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [style.width]=\"skill.proficiency\"\r\n                                     [style.background]=\"'rgb(5 18 66)'\" aria-valuenow=\"50\" aria-valuemin=\"0\"\r\n                                     aria-valuemax=\"100\"></div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-lg-9\">\r\n            <div class=\"card right-profile-card\">\r\n                <div class=\"card-header alert-primary d-flex justify-content-between\">\r\n                    <h2>Kinh nghiệm cá nhân</h2>\r\n                    <a class=\"btn btn-light\" *ngIf=\"checkRole == 'USER'\" [routerLink]=\"['/update-cv/', idUser]\">Sửa hồ sơ</a>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div class=\"tab-content\" id=\"pills-tabContent\">\r\n                        <div class=\"tab-pane fade show active\" id=\"pills-home\" role=\"tabpanel\"\r\n                             aria-labelledby=\"pills-home-tab\">\r\n                            <div *ngFor=\"let workExp of cv?.workExps\" class=\"work-container\">\r\n                                <h3>{{workExp.title}}</h3>\r\n                                <h4><i class=\"far fa-calendar-alt\"></i>{{workExp.startDate}} to <span\r\n                                        class=\"badge badge-info\">{{workExp.endDate}}</span></h4>\r\n                                <p>{{workExp.content}}</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -4791,7 +5596,9 @@ var DetailCompanyComponent = /** @class */ (function () {
             template: _raw_loader_detail_company_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
             styles: [_detail_company_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _service_company_company_service__WEBPACK_IMPORTED_MODULE_4__["CompanyService"], _security_token_service__WEBPACK_IMPORTED_MODULE_5__["TokenService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _service_company_company_service__WEBPACK_IMPORTED_MODULE_4__["CompanyService"],
+            _security_token_service__WEBPACK_IMPORTED_MODULE_5__["TokenService"]])
     ], DetailCompanyComponent);
     return DetailCompanyComponent;
 }());
@@ -4815,6 +5622,28 @@ var ChangePassword = /** @class */ (function () {
         this.password = password;
     }
     return ChangePassword;
+}());
+
+
+
+/***/ }),
+
+/***/ "pm72":
+/*!***************************************!*\
+  !*** ./src/app/model/forwardApply.ts ***!
+  \***************************************/
+/*! exports provided: ForwardApply */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForwardApply", function() { return ForwardApply; });
+var ForwardApply = /** @class */ (function () {
+    function ForwardApply(idUser, idCompany) {
+        this.idUser = idUser;
+        this.idCompany = idCompany;
+    }
+    return ForwardApply;
 }());
 
 
@@ -4861,6 +5690,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _list_company_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list-company.component.scss */ "AzJW");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _service_company_company_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/company/company.service */ "KXKP");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4874,10 +5704,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ListCompanyComponent = /** @class */ (function () {
-    function ListCompanyComponent(companyService) {
+    function ListCompanyComponent(companyService, activeRouter) {
         this.companyService = companyService;
+        this.activeRouter = activeRouter;
         this.company = [];
+        this.id = 0;
     }
     ListCompanyComponent.prototype.ngOnInit = function () {
         this.getListCompany();
@@ -4889,7 +5722,8 @@ var ListCompanyComponent = /** @class */ (function () {
         });
     };
     ListCompanyComponent.ctorParameters = function () { return [
-        { type: _service_company_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"] }
+        { type: _service_company_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
     ]; };
     ListCompanyComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -4897,9 +5731,103 @@ var ListCompanyComponent = /** @class */ (function () {
             template: _raw_loader_list_company_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
             styles: [_list_company_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
         }),
-        __metadata("design:paramtypes", [_service_company_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"]])
+        __metadata("design:paramtypes", [_service_company_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], ListCompanyComponent);
     return ListCompanyComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "r+kn":
+/*!*********************************************************!*\
+  !*** ./src/app/user/apply-list/apply-list.component.ts ***!
+  \*********************************************************/
+/*! exports provided: ApplyListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplyListComponent", function() { return ApplyListComponent; });
+/* harmony import */ var _raw_loader_apply_list_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./apply-list.component.html */ "Ki41");
+/* harmony import */ var _apply_list_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apply-list.component.scss */ "H2Zj");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/apply/apply.service */ "j6QF");
+/* harmony import */ var _security_token_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../security/token.service */ "zdrf");
+/* harmony import */ var _company_recruitmentnew_detail_recruitmentnew_detail_recruitmentnew_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component */ "wR/+");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var ApplyListComponent = /** @class */ (function () {
+    function ApplyListComponent(applyService, token, dialog) {
+        this.applyService = applyService;
+        this.token = token;
+        this.dialog = dialog;
+        this.applis = [];
+        this.totalElements = 0;
+    }
+    ApplyListComponent.prototype.ngOnInit = function () {
+        this.pageApply({ page: 0, size: 3 });
+    };
+    ApplyListComponent.prototype.pageApply = function (nextPage) {
+        var _this = this;
+        this.idGuest = this.token.getIdGuest();
+        this.applyService.pageApply(nextPage, this.idGuest).subscribe(function (data) {
+            _this.applis = data['content'];
+            _this.totalElements = data['totalElements'];
+            console.log(data);
+        });
+    };
+    ApplyListComponent.prototype.nextPage = function (event) {
+        var request = {};
+        request['page'] = event.pageIndex.toString();
+        request['size'] = event.pageSize.toString();
+        this.pageApply(request);
+    };
+    ApplyListComponent.prototype.openDialogDetails = function (id) {
+        var _this = this;
+        var dialogRef = this.dialog.open(_company_recruitmentnew_detail_recruitmentnew_detail_recruitmentnew_component__WEBPACK_IMPORTED_MODULE_5__["DetailRecruitmentnewComponent"], {
+            data: {
+                id: id
+            }
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            _this.pageApply({ page: 0, size: 3 });
+            console.log('The dialog was closed');
+        });
+    };
+    ApplyListComponent.ctorParameters = function () { return [
+        { type: _service_apply_apply_service__WEBPACK_IMPORTED_MODULE_3__["ApplyService"] },
+        { type: _security_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"] },
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
+    ]; };
+    ApplyListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-apply-list',
+            template: _raw_loader_apply_list_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+            styles: [_apply_list_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+        }),
+        __metadata("design:paramtypes", [_service_apply_apply_service__WEBPACK_IMPORTED_MODULE_3__["ApplyService"],
+            _security_token_service__WEBPACK_IMPORTED_MODULE_4__["TokenService"],
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
+    ], ApplyListComponent);
+    return ApplyListComponent;
 }());
 
 
@@ -5006,6 +5934,131 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjcmVhdGUtY3YuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "uIEu":
+/*!*************************************************************!*\
+  !*** ./src/app/upload/upload-file/upload-file.component.ts ***!
+  \*************************************************************/
+/*! exports provided: UploadFileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadFileComponent", function() { return UploadFileComponent; });
+/* harmony import */ var _raw_loader_upload_file_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! raw-loader!./upload-file.component.html */ "UjLF");
+/* harmony import */ var _upload_file_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./upload-file.component.scss */ "uP7J");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var UploadFileComponent = /** @class */ (function () {
+    function UploadFileComponent(afStorage) {
+        this.afStorage = afStorage;
+        this.checkUpLoadFile = false;
+        this.giveURLtoCreate = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+    }
+    UploadFileComponent.prototype.ngOnInit = function () {
+    };
+    UploadFileComponent.prototype.onFileChanged = function (event) {
+        this.selectFile = event.target.files[0];
+        this.onUpLoad();
+    };
+    UploadFileComponent.prototype.onUpLoad = function () {
+        var _this = this;
+        this.checkUpLoadFile = true;
+        var id = Math.random().toString(36).substring(2);
+        this.ref = this.afStorage.ref(id);
+        this.ref.put(this.selectFile).then(function (snapshot) {
+            return snapshot.ref.getDownloadURL();
+        }).then(function (downloadURL) {
+            _this.checkUpLoadFile = false;
+            _this.downloadURL = downloadURL;
+            _this.giveURLtoCreate.emit(_this.downloadURL);
+            console.log(_this.downloadURL);
+            return downloadURL;
+        }).catch(function (error) {
+            console.log('Fail Upload ' + error);
+        });
+    };
+    UploadFileComponent.ctorParameters = function () { return [
+        { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_3__["AngularFireStorage"] }
+    ]; };
+    UploadFileComponent.propDecorators = {
+        giveURLtoCreate: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Output"] }]
+    };
+    UploadFileComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-upload-file',
+            template: _raw_loader_upload_file_component_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+            styles: [_upload_file_component_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+        }),
+        __metadata("design:paramtypes", [_angular_fire_storage__WEBPACK_IMPORTED_MODULE_3__["AngularFireStorage"]])
+    ], UploadFileComponent);
+    return UploadFileComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "uP7J":
+/*!***************************************************************!*\
+  !*** ./src/app/upload/upload-file/upload-file.component.scss ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1cGxvYWQtZmlsZS5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "uRAZ":
+/*!********************************************!*\
+  !*** ./src/app/model/changeStatusApply.ts ***!
+  \********************************************/
+/*! exports provided: ChangeStatusApply */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangeStatusApply", function() { return ChangeStatusApply; });
+var ChangeStatusApply = /** @class */ (function () {
+    function ChangeStatusApply(id, status) {
+        this.id = id;
+        this.status = status;
+    }
+    return ChangeStatusApply;
+}());
+
+
+
+/***/ }),
+
+/***/ "v1pD":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/dialog/dialog-match/dialog-match.component.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-12\" style=\"margin-top: 20px\">\r\n            <mat-card style=\"margin: 50px 0\">\r\n                <h4 class=\"alert alert-dark\">Bạn đã ứng tuyển công việc này rồi</h4>\r\n                <button mat-raised-button color=\"warn\" [mat-dialog-close]=\"false\">Đóng</button>\r\n            </mat-card>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -5192,7 +6245,7 @@ var DetailRecruitmentnewComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- Start Page Title Area -->\r\n<div class=\"page-title-area\" style=\"height: 439px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>Hồ Sơ Ứng Tuyển</h2>\r\n            <ul>\r\n                <li>\r\n                    <a routerLink=\"list-recruitmentnew-user\">\r\n                        Home\r\n                    </a>\r\n                </li>\r\n\r\n                <li>Pages</li>\r\n\r\n                <li class=\"active\">FAQ</li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Page Title Area -->\r\n\r\n\r\n<p></p>\r\n\r\n<!-- Home Contact Area -->\r\n<section class=\"home-contact-area home-2-contact pb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"section-title\">\r\n            <span></span>\r\n            <h2>Hãy Bắt Đầu Tạo CV Ngay Hôm Nay!</h2>\r\n            <p style=\"color: red\">{{status}}</p>\r\n        </div>\r\n        <div class=\"content\">\r\n            <form id=\"contactForm\" class=\"create-category\" #form=\"ngForm\"\r\n                  (ngSubmit)=\"form.form.valid && ngSubmit(form)\" novalidate>\r\n                <div class=\"row\">\r\n\r\n                    <div class=\"col-lg-6 col-sm-6\">\r\n                        <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                            <mat-label>Năm kinh nghiệm</mat-label>\r\n                            <input matInput placeholder=\"Nhập năm kinh nghiệm\" name=\"expYear\"\r\n                                   [(ngModel)]=\"data.expYear\" #expYear=\"ngModel\" required>\r\n                            <mat-icon color=\"black\" matSuffix>business_center</mat-icon>\r\n                            <mat-error *ngIf=\"expYear?.hasError('required')\">Không được bỏ trống\r\n                            </mat-error>\r\n                        </mat-form-field>\r\n                    </div>\r\n\r\n                    <div class=\"col-lg-6 col-sm-6\">\r\n                        <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                            <mat-label>Lương mong muốn</mat-label>\r\n                            <input matInput placeholder=\"Nhập lương mong muốn\" name=\"salaryExpectation\"\r\n                                   [(ngModel)]=\"data.salaryExpectation\" #salaryExpectation=\"ngModel\" required>\r\n                            <mat-icon color=\"black\" matSuffix>monetization_on</mat-icon>\r\n                            <mat-error *ngIf=\"salaryExpectation?.hasError('required')\">Không được bỏ trống\r\n                            </mat-error>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-lg-12 col-sm-12\">\r\n                        <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                            <mat-label>Kỹ năng làm việc</mat-label>\r\n                            <input matInput placeholder=\"Nhập kỹ năng làm việc\" name=\"name\"\r\n                                   [(ngModel)]=\"data.name\" #name=\"ngModel\" required>\r\n                            <mat-icon color=\"black\" matSuffix>stream</mat-icon>\r\n                            <mat-error *ngIf=\"name?.hasError('required')\">Không được bỏ trống\r\n                            </mat-error>\r\n                        </mat-form-field>\r\n                    </div>\r\n\r\n                    <!--                    //------------------------------------------------------------------------>\r\n                    <p style=\"text-align: center;color: red\">Kinh nghiệm bản thân</p>\r\n\r\n                    <div class=\"col-lg-4 col-sm-4\">\r\n                        <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                            <mat-label>Công việc</mat-label>\r\n                            <input matInput placeholder=\"Nhập kinh nghiệm làm việc\" name=\"title\"\r\n                                   [(ngModel)]=\"data.title\" #title=\"ngModel\" required>\r\n                            <mat-icon color=\"black\" matSuffix>workspace_premium</mat-icon>\r\n                            <mat-error *ngIf=\"title?.hasError('required')\">Không được bỏ trống\r\n                            </mat-error>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-lg-4 col-sm-4\">\r\n                        <mat-form-field appearance=\"outline\" style=\"width: 100%\">\r\n                            <mat-label>Ngày bắt đầu công việc</mat-label>\r\n                            <input matInput [matDatepicker]=\"picker\" [(ngModel)]=\"data.startDate\">\r\n                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                            <mat-datepicker #picker></mat-datepicker>\r\n                        </mat-form-field>\r\n                    </div>\r\n\r\n                    <div class=\"col-lg-4 col-sm-4\">\r\n                        <mat-form-field appearance=\"outline\" style=\"width: 100%\">\r\n                            <mat-label>Ngày kết thúc công việc</mat-label>\r\n                            <input matInput [matDatepicker]=\"picker1\" [(ngModel)]=\"data.endDate\">\r\n                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                            <mat-datepicker #picker1></mat-datepicker>\r\n                        </mat-form-field>\r\n                    </div>\r\n\r\n                    <div class=\"col-lg-12 col-sm-12\">\r\n                        <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                            <mat-label>Nội dung</mat-label>\r\n                            <input matInput placeholder=\"Nội dung\" name=\"title\"\r\n                                   [(ngModel)]=\"data.content\" #content=\"ngModel\">\r\n                            <mat-icon color=\"black\" matSuffix>sort</mat-icon>\r\n                        </mat-form-field>\r\n                    </div>\r\n\r\n                    <!------------------------------------------------------------------------------------------------------------------->\r\n                    <div class=\"col-lg-12 col-sm-12\">\r\n                        <mat-form-field appearance=\"outline\" style=\"width: 50%\">\r\n                            <input matInput\r\n                                   hidden\r\n                                   placeholder=\"Placeholder\">\r\n                            <app-upload-image  style=\"width: 100%\" (giveURLtoCreate)=\"onUpLoadAvatar($event)\"></app-upload-image >\r\n                            <mat-icon color=\"black\" matSuffix>add_photo_alternate</mat-icon>\r\n                        </mat-form-field>\r\n                    </div>\r\n\r\n\r\n                    <button class=\"default-btn page-btn box-btn\">\r\n                        Submit\r\n                    </button>\r\n                    <div id=\"msgSubmit\" class=\"h3 text-center hidden\"></div>\r\n                    <div class=\"clearfix\"></div>\r\n\r\n                </div>\r\n\r\n            </form>\r\n        </div>\r\n    </div>\r\n</section>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Start Page Title Area -->\r\n<div class=\"page-title-area\" style=\"height: 439px\">\r\n    <div class=\"container\">\r\n        <div class=\"page-title-content\">\r\n            <h2>Hồ Sơ Ứng Tuyển</h2>\r\n            <ul>\r\n                <li>\r\n                    <a routerLink=\"list-recruitmentnew-user/xxx\">\r\n                        Home\r\n                    </a>\r\n                </li>\r\n\r\n                <li>Pages</li>\r\n\r\n                <li class=\"active\">FAQ</li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-shape\">\r\n        <div class=\"shape1\">\r\n            <img src=\"assets/images/shape/1.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape3\">\r\n            <img src=\"assets/images/shape/3.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape4\">\r\n            <img src=\"assets/images/shape/4.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape5\">\r\n            <img src=\"assets/images/shape/5.png\" alt=\"shape\">\r\n        </div>\r\n        <div class=\"shape6\">\r\n            <img src=\"assets/images/shape/6.png\" alt=\"shape\">\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- End Page Title Area -->\r\n\r\n\r\n<p></p>\r\n\r\n<!-- Home Contact Area -->\r\n<section class=\"home-contact-area home-2-contact pb-100\">\r\n    <div class=\"container\">\r\n        <div class=\"section-title\">\r\n            <span></span>\r\n            <h2>Hãy Bắt Đầu Tạo CV Ngay Hôm Nay!</h2>\r\n            <p style=\"color: red\">{{status}}</p>\r\n        </div>\r\n        <div class=\"content\" style=\"margin-left: 130px;margin-right: 130px;\">\r\n            <form [formGroup]=\"cvForm\" (ngSubmit)=\"ngSubmit()\" id=\"contactForm\" class=\"create-category\"\r\n                  novalidate>\r\n                <div id=\"container\" class=\"row\">\r\n                    <div class=\"col-lg-6 col-sm-6\">\r\n                        <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                            <!--                            NĂM KINH NGHIỆM-->\r\n                            <mat-label>Năm kinh nghiệm</mat-label>\r\n                            <input matInput placeholder=\"Nhập năm kinh nghiệm\" formControlName=\"expYear\">\r\n                            <mat-icon color=\"black\" matSuffix>business_center</mat-icon>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <!--LƯƠNG MONG MUỐN-->\r\n                    <div class=\"col-lg-6 col-sm-6\">\r\n                        <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                            <mat-label>Lương mong muốn</mat-label>\r\n                            <input matInput placeholder=\"Nhập lương mong muốn\" formControlName=\"salaryExpectation\">\r\n                            <mat-icon color=\"black\" matSuffix>monetization_on</mat-icon>\r\n                        </mat-form-field>\r\n                    </div>\r\n\r\n                    <!--                    KĨ NĂNG CÁ NHÂN-->\r\n                    <p style=\"text-align: center;color: #3e8acc\">Kỹ năng cá nhân</p>\r\n                    <div formArrayName=\"skills\">\r\n                        <div style=\"border: 1px solid black\">\r\n                            <ng-container formArrayName=\"skills\">\r\n                                <ng-container *ngFor=\"let skillForm of skills.controls; let i = index\">\r\n                                    <div [formGroup]=\"skillForm\">\r\n                                        <div class=\"col-lg-12 col-sm-12\">\r\n                                            <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                                                <mat-label>Kỹ năng làm việc</mat-label>\r\n                                                <input formControlName=\"name\" matInput\r\n                                                       placeholder=\"Nhập kỹ năng làm việc\">\r\n                                                <mat-icon color=\"black\" matSuffix>stream</mat-icon>\r\n                                            </mat-form-field>\r\n                                        </div>\r\n                                        <div class=\"col-lg-12 col-sm-12\">\r\n                                            <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                                                <mat-label>Mức độ thành thạo</mat-label>\r\n                                                <input formControlName=\"proficiency\" matInput\r\n                                                       placeholder=\"Nhập mức độ làm việc\">\r\n                                                <mat-icon color=\"black\" matSuffix>stream</mat-icon>\r\n                                            </mat-form-field>\r\n                                        </div>\r\n                                        <button style=\"width: 50px; height: 50px; padding: 0; margin-bottom: 20px\"\r\n                                                (click)=\"deleteSkill(i)\" mat-raised-button>\r\n                                            Xóa\r\n                                        </button>\r\n                                    </div>\r\n                                </ng-container>\r\n                            </ng-container>\r\n                        </div>\r\n\r\n                        <button style=\"width: 200px; height: 50px; padding: 0; margin-bottom: 20px\" type=\"button\"\r\n                                (click)=\"addSkill()\"\r\n                                mat-raised-button>\r\n                            Thêm kỹ năng mới\r\n                        </button>\r\n                    </div>\r\n\r\n                    <!--                    //------------------------------------------------------------------------>\r\n                    <p style=\"text-align: center;color: #3e8acc\">Kinh nghiệm bản thân</p>\r\n                    <div formArrayName=\"workExps\">\r\n                        <div style=\"border: 1px solid black\">\r\n                            <ng-container formControlName=\"workExps\">\r\n                                <ng-container *ngFor=\"let workExpForm of workExps.controls; let i = index\">\r\n                                    <div [formGroup]=\"workExpForm\">\r\n                                        <div class=\"col-lg-12 col-sm-12\">\r\n                                            <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                                                <mat-label>Công việc</mat-label>\r\n                                                <input formControlName=\"title\" matInput\r\n                                                       placeholder=\"Nhập kinh nghiệm làm việc\">\r\n                                                <mat-icon color=\"black\" matSuffix>workspace_premium</mat-icon>\r\n                                            </mat-form-field>\r\n                                        </div>\r\n                                        <div class=\"col-lg-12 col-sm-12\">\r\n                                            <mat-form-field appearance=\"outline\" style=\"width: 100%\">\r\n                                                <mat-label>Ngày bắt đầu công việc</mat-label>\r\n                                                <input formControlName=\"startDate\" matInput [matDatepicker]=\"picker\">\r\n                                                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                                <mat-datepicker #picker></mat-datepicker>\r\n                                            </mat-form-field>\r\n                                        </div>\r\n                                        <div class=\"col-lg-12 col-sm-12\">\r\n                                            <mat-form-field appearance=\"outline\" style=\"width: 100%\">\r\n                                                <mat-label>Ngày kết thúc công việc</mat-label>\r\n                                                <input formControlName=\"endDate\" matInput [matDatepicker]=\"picker1\">\r\n                                                <mat-datepicker-toggle matSuffix\r\n                                                                       [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                                <mat-datepicker #picker1></mat-datepicker>\r\n                                            </mat-form-field>\r\n                                        </div>\r\n                                        <div class=\"col-lg-12 col-sm-12\">\r\n                                            <mat-form-field style=\"width: 100%\" appearance=\"outline\">\r\n                                                <mat-label>Nội dung</mat-label>\r\n                                                <input formControlName=\"content\" matInput placeholder=\"Nội dung\">\r\n                                                <mat-icon color=\"black\" matSuffix>sort</mat-icon>\r\n                                            </mat-form-field>\r\n                                        </div>\r\n                                        <button style=\"width: 50px; height: 50px; padding: 0; margin-bottom: 20px\"\r\n                                                (click)=\"deleteWorkExp(i)\" mat-raised-button>\r\n                                            Xóa\r\n                                        </button>\r\n                                    </div>\r\n                                </ng-container>\r\n                            </ng-container>\r\n                        </div>\r\n                        <button type=\"button\" style=\"width: 200px; height: 50px; padding: 0; margin-bottom: 20px\"\r\n                                (click)=\"addWorkExp()\"\r\n                                mat-raised-button>\r\n                            Thêm kinh nghiệm mới\r\n                        </button>\r\n                    </div>\r\n\r\n                    <div class=\"file-cv col-lg-12 col-sm-12\">\r\n                        <mat-form-field appearance=\"outline\" style=\"width: 50%\">\r\n                            <input matInput\r\n                                   hidden\r\n                                   placeholder=\"Placeholder\">\r\n                            <app-upload-file style=\"width: 100%\"\r\n                                              (giveURLtoCreate)=\"onUpLoadAvatar($event)\"></app-upload-file>\r\n                            <mat-icon color=\"black\" matSuffix>add_photo_alternate</mat-icon>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <button type=\"submit\" class=\"default-btn page-btn box-btn\">\r\n                        Tạo CV\r\n                    </button>\r\n                    <div id=\"msgSubmit\" class=\"h3 text-center hidden\"></div>\r\n                    <div class=\"clearfix\"></div>\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -5308,13 +6361,9 @@ var TokenService = /** @class */ (function () {
     TokenService.prototype.getRoleKey = function () {
         // @ts-ignore
         var roles = [];
-        console.log('ROLE_KEY ---> ', sessionStorage.getItem(ROLE_KEY));
-        // @ts-ignore
-        console.log('ROLE KEY SAU KHI PARSE ==> ', JSON.parse(sessionStorage.getItem(ROLE_KEY)));
         if (sessionStorage.getItem(TOKEN_KEY)) {
             // @ts-ignore
             JSON.parse(sessionStorage.getItem(ROLE_KEY)).forEach(function (role) {
-                console.log('ROLE SAU KHI FOR EARCH ---> ', role);
                 roles.push(role.authority);
             });
         }
