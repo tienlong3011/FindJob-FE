@@ -84,7 +84,7 @@
                                     <i class="zmdi zmdi-pin mr-2"></i> {{rcm.cityName}}
                                 </li>
                                 <li class="mr-md-4" *ngIf="check == true">
-                                    <i class="zmdi zmdi-money mr-2"></i> {{rcm.salary}}
+                                    <i class="zmdi zmdi-money mr-2"></i> {{rcm.salary | currency:'VND' : true : '1.0-0': 'en-US' }}
                                 </li>
                                 <li class="mr-md-4" *ngIf="check == false">
                                     <i class="zmdi zmdi-money mr-2"></i> Lương XXX

@@ -47,4 +47,7 @@ export class RecruitmentNewService {
   searchByObj(searchJob: SearchJob): Observable<any>{
     return this.http.post(`${this.apiServerUrl}/recruitment/findByObj`,searchJob);
   }
+  getAll(): Observable<any []>{
+    return this.http.get<any []>(`${this.apiServerUrl}/recruitment/list`)
+  }
 }

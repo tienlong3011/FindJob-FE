@@ -1,5 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import en from '@angular/common/locales/en';
+registerLocaleData(en);
 import {Routes, RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
@@ -51,6 +53,8 @@ import {CreateCvComponent} from './user/CV/create-cv/create-cv.component';
 import {ApplyRecruitmentnewComponent} from './user/apply-recruitmentnew/apply-recruitmentnew.component';
 import {DialogApplyFailComponent} from './dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
 import {DialogApplyComponent} from './dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
+import { ListAccountComponent } from './admin/list-account/list-account.component';
+import {LockUnlockRecruimentComponent} from './admin/lock-unlock-recruiment/lock-unlock-recruiment.component';
 import {DetailCvComponent} from './user/CV/detail-cv/detail-cv.component';
 import {EditCvComponent} from './user/CV/edit-cv/edit-cv.component';
 import {DetailRecruitmentnewComponent} from './company/recruitmentnew/detail-recruitmentnew/detail-recruitmentnew.component';
@@ -68,6 +72,8 @@ import {UploadFileComponent} from './upload/upload-file/upload-file.component';
 import {ApplyCompanyComponent} from './company/apply-company/apply-company.component';
 import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-create.component';
 import { DialogMatchComponent } from './dialog/dialog-match/dialog-match.component';
+import {registerLocaleData} from '@angular/common';
+
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -87,9 +93,12 @@ export const appRoutes: Routes = [
   {path: 'active-status/:id', component: ActiveStatusComponent},
   {path: 'apply-list', component: ApplyListComponent},
   {path: 'home', component: HomepageComponent},
+  {path: 'list-account', component: ListAccountComponent},
+  {path: 'lockUnlockAdmin', component: LockUnlockRecruimentComponent},
   {path: 'web-company/:id', component: WebCompanyComponent},
   {path: 'apply-company', component: ApplyCompanyComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'}
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+
 ];
 
 @NgModule({
@@ -119,6 +128,8 @@ export const appRoutes: Routes = [
     DialogCreateCompanyComponent,
     ListCompanyComponent,
     ActiveStatusComponent,
+    ListAccountComponent,
+    LockUnlockRecruimentComponent,
     ApplyNowComponent,
     WebCompanyComponent,
     ApplyListComponent,
@@ -150,7 +161,7 @@ export const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatDialogModule, MatSelectModule, MatDatepickerModule, MatBadgeModule, MatSliderModule
   ],
-  providers: [httpInterceptorProvider],
+  providers: [httpInterceptorProvider,{provide: LOCALE_ID, useValue: "en-US"}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
