@@ -20,4 +20,8 @@ export class AccountService {
     // @ts-ignore
     return this.http.put(`${this.apiServerUrl}/editStatusAccount/${id}`);
   }
+
+  showAllAdminRecruitment(): Observable<any> {
+    return this.http.get(`${environment.apiBaseUrl}/recruitment/list`)
+  }
 }

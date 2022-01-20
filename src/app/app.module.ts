@@ -57,6 +57,7 @@ import { ActiveStatusComponent } from './user/active-status/active-status.compon
 // @ts-ignore
 import { ListCompomentAdminComponent } from './admin/list-company-admin/list-compoment-admin.component';
 import { ListAccountComponent } from './admin/list-account/list-account.component';
+import {LockUnlockRecruimentComponent} from './admin/lock-unlock-recruiment/lock-unlock-recruiment.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -76,7 +77,9 @@ export const appRoutes: Routes = [
   {path: 'active-status/:id', component: ActiveStatusComponent},
   {path: 'home', component: HomepageComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'list-account', component: ListAccountComponent}
+  {path: 'list-account', component: ListAccountComponent},
+  {path: 'lockUnlockAdmin', component: LockUnlockRecruimentComponent},
+
 ];
 
 @NgModule({
@@ -107,6 +110,7 @@ export const appRoutes: Routes = [
     ListCompanyComponent,
     ActiveStatusComponent,
     ListAccountComponent,
+    LockUnlockRecruimentComponent
   ],
   imports: [
     MatDatepickerModule,

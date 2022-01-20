@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
             });
           }
           if (this.tokenService.getRoleKey()[i] == 'ADMIN') {
-            this.router.navigate(['list-account']).then(() => {
+            this.router.navigate(['home']).then(() => {
               window.location.reload();
             });
           }

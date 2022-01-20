@@ -37,27 +37,32 @@ export class HeaderComponent implements OnInit {
     if (this.tokenService.getTokenKey()) {
       this.checkLogin = true;
       this.idGuest = this.tokenService.getIdGuest();
-      for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
-        if (this.tokenService.getRoleKey()[i] == 'COMPANY') {
-          this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
-            console.log(data);
-            this.company = data;
-            this.checkRole = 'COMPANY';
-            this.name = this.company.name;
-          });
-        }
-        if (this.tokenService.getRoleKey()[i] == 'USER') {
-          this.userService.getUserById(this.idGuest).subscribe(data => {
-            console.log(data);
-            this.user = data;
-            this.checkRole = 'USER';
-            this.name = this.user.name;
-          });
-        }
-        if (this.tokenService.getTokenKey()[i] == 'ADMIN') {
-          this.checkRole = 'ADMIN';
+      if (this.idGuest == -10) {
+        this.checkRole = 'ADMIN';
+        this.name = "ADMIN"
+      }
+      else {
+        for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
+          if (this.tokenService.getRoleKey()[i] == 'COMPANY') {
+            this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
+              console.log(data);
+              this.company = data;
+              this.checkRole = 'COMPANY';
+              this.name = this.company.name;
+            });
+          }
+          if (this.tokenService.getRoleKey()[i] == 'USER') {
+            this.userService.getUserById(this.idGuest).subscribe(data => {
+              console.log(data);
+              this.user = data;
+              this.checkRole = 'USER';
+              this.name = this.user.name;
+            });
+          }
+
         }
       }
+
     }
   }
 

@@ -56,6 +56,12 @@
                             <a routerLink="home"
                                class="nav-link dropdown-toggle active">Trang chủ</a>
                         </li>
+                        <li *ngIf="checkRole == 'ADMIN'" class="nav-item">
+                            <a routerLink="/list-account" class="nav-link">Quản lý tài khoản</a>
+                        </li>
+                        <li *ngIf="checkRole == 'ADMIN'" class="nav-item">
+                            <a routerLink="/lockUnlockAdmin" class="nav-link">Quản lý tin tuyển dụng</a>
+                        </li>
                         <li *ngIf="checkRole == 'USER'" class="nav-item">
                             <a routerLink="/list-recruitmentnew-user" class="nav-link">Việc làm</a>
                         </li>
@@ -84,6 +90,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li *ngIf="checkRole == 'COMPANY'" class="nav-item">
                             <a routerLink="list-recruitmentnew-user" class="nav-link">Việc làm</a>
                         </li>
