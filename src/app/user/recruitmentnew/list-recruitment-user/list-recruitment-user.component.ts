@@ -25,6 +25,7 @@ import {ApplyService} from '../../../service/apply/apply.service';
 import {DialogApplyComponent} from '../../../dialog/dialogApplyFail/dialog-apply/dialog-apply.component';
 import {DialogApplyFailComponent} from '../../../dialog/dialogApplyFail/dialog-apply-fail/dialog-apply-fail.component';
 import {Subscription} from 'rxjs';
+import {DialogMatchComponent} from '../../../dialog/dialog-match/dialog-match.component';
 
 @Component({
   selector: 'app-list-recruitment-user',
@@ -262,6 +263,12 @@ export class ListRecruitmentUserComponent implements OnInit {
 
                 }
               });
+            }
+            else if(data2.message == "MATCH"){
+              const dialogRef2 = this.dialog.open(DialogMatchComponent);
+              dialogRef2.afterClosed().subscribe(result => {
+
+              })
             }
           })
         }

@@ -67,6 +67,7 @@ import {DialogEditCvComponent} from './dialog/CV/dialog-edit-cv/dialog-edit-cv.c
 import {UploadFileComponent} from './upload/upload-file/upload-file.component';
 import {ApplyCompanyComponent} from './company/apply-company/apply-company.component';
 import { DialogNoCreateComponent } from './dialog/CV/dialog-no-create/dialog-no-create.component';
+import { DialogMatchComponent } from './dialog/dialog-match/dialog-match.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -125,7 +126,8 @@ export const appRoutes: Routes = [
     DialogEditCvComponent,
     UploadFileComponent,
     ApplyCompanyComponent,
-    DialogNoCreateComponent
+    DialogNoCreateComponent,
+    DialogMatchComponent
   ],
   imports: [
     ReactiveFormsModule,
