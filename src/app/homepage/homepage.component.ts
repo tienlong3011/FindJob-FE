@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CompanyService} from '../service/company/company.service';
 import {Company} from '../model/company';
 import {RecruitmentNewService} from '../service/recruitmentNew/recruitment-new.service';
@@ -30,9 +30,11 @@ export class HomepageComponent implements OnInit {
   checkLogin: boolean = false;
   checkUser: boolean = false;
   idGuest: number;
-  searchKey: string = "";
-  forwardApply:ForwardApply;
+  searchKey: string = '';
+  forwardApply: ForwardApply;
   recruitmentNew: RecruitmentNew;
+
+  rcmdate: any[] = [];
 
 
   constructor(private companyService: CompanyService,
@@ -42,44 +44,63 @@ export class HomepageComponent implements OnInit {
               private userService: UserService,
               private router: Router,
               private applyService: ApplyService,
-              private forwardApplyService : ForwardApplyService,
+              private forwardApplyService: ForwardApplyService,
               private recruitmentNewService: RecruitmentNewService
-              ) {
+  ) {
     this.companyService.fidAllCompanyByStatus(4).subscribe(data => {
 
       this.companyHot = data;
 
     });
     this.checklogin();
+    this.checkdate();
   }
 
-  checkUserCurrent(){
-    if(this.tokenService.getTokenKey()){
-      this.idGuest = this.tokenService.getIdGuest();
-      for (let i = 0; i < this.tokenService.getRoleKey().length; i++){
-        if (this.tokenService.getRoleKey()[i] == "USER") {
-          this.userService.getUserById(this.idGuest).subscribe(data => {
-            if(data){
-
-              this.checkUser = true
-
-            }
-          })
+  checkdate() {
+    this.recruitmentNewService.getAll().subscribe(data => {
+      this.rcmdate = data;
+      for (let i = 0; i < this.rcmdate.length; i++) {
+        console.log("hello");
+        const dateRCM = new Date(this.rcmdate[i].expDate);
+        console.log(dateRCM);
+        const today = new Date();
+        console.log(today);
+        // @ts-ignore
+        const c = (today - dateRCM) / (1000 * 3600 * 24);
+        console.log(c);
+        if (c >= 0) {
+          this.recruitmentNewService.changeStatusById(this.rcmdate[i].id).subscribe(data => {
+            console.log(data);
+          });
         }
-        else {
+      }
+    });
+
+  }
+
+  checkUserCurrent() {
+    if (this.tokenService.getTokenKey()) {
+      this.idGuest = this.tokenService.getIdGuest();
+      for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
+        if (this.tokenService.getRoleKey()[i] == 'USER') {
+          this.userService.getUserById(this.idGuest).subscribe(data => {
+            if (data) {
+              this.checkUser = true;
+            }
+          });
+        } else {
           this.checkUser = false;
         }
       }
-    }
-    else {
+    } else {
       this.checkUser = true;
     }
   }
-  findByRecuitmentNewNeed(){
-    this.companyService.findByRecuitmentNewNeed().subscribe(data =>{
+
+  findByRecuitmentNewNeed() {
+    this.companyService.findByRecuitmentNewNeed().subscribe(data => {
       this.RecuitmentNewNeed = data;
-      console.log(this.RecuitmentNewNeed);
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -126,29 +147,28 @@ export class HomepageComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
+      if (result) {
         if (!this.tokenService.getTokenKey()) {
-          this.router.navigate(['login']).then(window.location.reload)
+          this.router.navigate(['login']).then(window.location.reload);
         } else {
           const apply: Apply = new Apply(id, this.tokenService.getIdGuest());
           this.applyService.createCV(apply).subscribe(data2 => {
-            if(data2.message == "CREATE") {
+            if (data2.message == 'CREATE') {
               const dialogRef1 = this.dialog.open(DialogApplyComponent);
               dialogRef1.afterClosed().subscribe(result => {
-                this.recruitmentNewService.getRecruitmentNewById(id).subscribe(data3 =>{
+                this.recruitmentNewService.getRecruitmentNewById(id).subscribe(data3 => {
                   this.recruitmentNew = data3;
-                  this.forwardApply = new ForwardApply(this.tokenService.getIdGuest(),Number(this.recruitmentNew.company.id))
-                  this.forwardApplyService.forwardApply(this.forwardApply).subscribe(data4=>{
-                    console.log('sau khi bam nut--->',data4);
+                  this.forwardApply = new ForwardApply(this.tokenService.getIdGuest(), Number(this.recruitmentNew.company.id));
+                  this.forwardApplyService.forwardApply(this.forwardApply).subscribe(data4 => {
+                    console.log('sau khi bam nut--->', data4);
                   });
-                })
+                });
                 console.log('ressult sau khi bam nut --> ', result);
                 if (result == false) {
 
                 }
-              })
-            }
-            else if(data2.message == "CREATE_FAIL"){
+              });
+            } else if (data2.message == 'CREATE_FAIL') {
               const dialogRef1 = this.dialog.open(DialogApplyFailComponent);
               dialogRef1.afterClosed().subscribe(result => {
                 console.log('ressult sau khi bam nut --> ', result);
@@ -157,7 +177,7 @@ export class HomepageComponent implements OnInit {
                 }
               });
             }
-          })
+          });
         }
       }
       console.log('The dialog was closed');
@@ -165,15 +185,13 @@ export class HomepageComponent implements OnInit {
   }
 
 
-
   ngSubmit(f: any) {
     console.log(f.value);
     this.searchKey = f.value.searchKey;
-    if(this.searchKey == ""){
-      this.router.navigate([`list-recruitmentnew-user/xxx`])
-    }
-    else {
-      this.router.navigate([`list-recruitmentnew-user/${this.searchKey}`])
+    if (this.searchKey == '') {
+      this.router.navigate([`list-recruitmentnew-user/xxx`]);
+    } else {
+      this.router.navigate([`list-recruitmentnew-user/${this.searchKey}`]);
     }
   }
 }
