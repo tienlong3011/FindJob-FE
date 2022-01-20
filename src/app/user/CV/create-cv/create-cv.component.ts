@@ -10,6 +10,7 @@ import {DialogComponent} from "../../../dialog/dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogCreateCvComponent} from "../../../dialog/CV/dialog-create-cv/dialog-create-cv.component";
 import {Router} from "@angular/router";
+import {DialogNoCreateComponent} from '../../../dialog/CV/dialog-no-create/dialog-no-create.component';
 
 @Component({
   selector: 'app-create-cv',
@@ -18,7 +19,9 @@ import {Router} from "@angular/router";
 })
 export class CreateCvComponent implements OnInit {
   status: string = "Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản."
-
+  error1:any = {
+    message: "user_da_ton_tai"
+  }
   constructor(private cvService: CVService,
               private workExpService: WorkExpService,
               private skillService: SkillService,
@@ -57,12 +60,19 @@ export class CreateCvComponent implements OnInit {
 
   ngSubmit() {
     this.cvService.createCV(this.cvForm.value).subscribe(data => {
-      const dialogRef = this.dialog.open(DialogCreateCvComponent);
-
-      dialogRef.afterClosed().subscribe(result => {
-        this.cvForm.reset();
-        this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
-      });
+      if (JSON.stringify(data) == JSON.stringify(this.error1)) {
+        const dialogRef = this.dialog.open(DialogNoCreateComponent);
+        dialogRef.afterClosed().subscribe(result => {
+          this.cvForm.reset();
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+        });
+      } else {
+        const dialogRef = this.dialog.open(DialogCreateCvComponent);
+        dialogRef.afterClosed().subscribe(result => {
+          this.cvForm.reset();
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+        });
+      }
     })
   }
 
