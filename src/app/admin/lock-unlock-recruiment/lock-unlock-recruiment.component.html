@@ -6,15 +6,10 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="banner-content">
-                            <h1>
-                                Chào mừng <span style="font-weight: bold">{{nameCompany}}</span> đến với Paso
-                            </h1>
-                            <p>
-                                {{descriptionCompany}}
-                            </p>
+                           <h1>you are admin</h1>
                             <div class="banner-btn">
-                                <a routerLink="home" class="box-btn">Trang chủ</a>
-                                <a routerLink="/list-recruitmentnew-user/xxx" class="box-btn border-btn">Tìm kiếm</a>
+                                <a href="contact.html" class="box-btn">Contact Us</a>
+                                <a href="about.html" class="box-btn border-btn">Know More</a>
                             </div>
                         </div>
                     </div>
@@ -55,7 +50,7 @@
     <div class="row">
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0;">
-                <h2 style="text-align: center">Danh Sách Bài Đăng Tuyển Dụng</h2>
+                <h2 style="text-align: center">Danh Sách Bài Đăng Tuyển Dụng Dành Cho Admin</h2>
                 <div class="mat-elevation-z8">
                     <table mat-table [dataSource]="dataSource">
 
@@ -68,45 +63,13 @@
                         <!-- Name Column -->
                         <ng-container matColumnDef="title">
                             <th mat-header-cell *matHeaderCellDef>Tiêu đề</th>
-                            <td mat-cell *matCellDef="let element"><a (click)="openDialogDetails(element.id)"><span
-                                    class="btn btn-link">{{element.title}}</span></a></td>
+                            <td mat-cell *matCellDef="let element"><span
+                                    class="btn btn-link">{{element.title}}</span></td>
                         </ng-container>
 
-                        <!-- Name Column -->
-                        <ng-container matColumnDef="expDate">
-                            <th mat-header-cell *matHeaderCellDef>Ngày hết hạn</th>
-                            <td mat-cell *matCellDef="let element"> {{element.expDate}} </td>
-                        </ng-container>
 
-                        <!-- Name Column -->
-                        <ng-container matColumnDef="status">
-                            <th mat-header-cell *matHeaderCellDef>Trạng thái</th>
-                            <td mat-cell *matCellDef="let element"><span *ngIf="element.status==true">UNLOCK</span></td>
-                            <td mat-cell *matCellDef="let element"><span *ngIf="element.status == false">LOCK</span>
-                            </td>
-                        </ng-container>
-
-                        <!--             Symbol Column -->
-                        <ng-container matColumnDef="edit">
-                            <th mat-header-cell *matHeaderCellDef>Sửa</th>
-                            <td mat-cell *matCellDef="let element">
-                                <button [routerLink]="['/update-recruitmentnew/',element.id]" mat-icon-button
-                                        color="primary"
-                                        aria-label="Example icon button with a heart icon" class="btn btn-primary">
-                                    <mat-icon color="primary">edit</mat-icon>
-                                </button>
-                            </td>
-                        </ng-container>
-                        <ng-container matColumnDef="delete">
-                            <th mat-header-cell *matHeaderCellDef>Xóa</th>
-                            <td mat-cell *matCellDef="let element">
-                                <button (click)="openDialog(element.id)" mat-icon-button class="btn btn-danger">
-                                    <mat-icon color="warn">delete</mat-icon>
-                                </button>
-                            </td>
-                        </ng-container>
                         <ng-container matColumnDef="editStatus">
-                            <th mat-header-cell *matHeaderCellDef> Mở khóa/Khóa</th>
+                            <th mat-header-cell *matHeaderCellDef> UnLock/Lock</th>
                             <td mat-cell *matCellDef="let element">
                                 <button (click)=changeStatus(element.id) *ngIf="element.status" mat-icon-button
                                         class="btn btn-danger">
@@ -123,7 +86,7 @@
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
 
-                    <mat-paginator [pageSizeOptions]="[3, 10, 20, 30]"
+                    <mat-paginator [pageSizeOptions]="[6, 10, 20, 30]"
                                    showFirstLastButtons
                                    aria-label="Select page of periodic elements">
                     </mat-paginator>

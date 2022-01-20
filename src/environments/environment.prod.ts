@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    apiBaseUrl: 'https://c0821h1-findjob.herokuapp.com',
+    apiBaseUrl: 'http://localhost:8080',
     firebaseConfig: {
         apiKey: "AIzaSyD8-xixCVrK-1RrA6G-Ob5j88HoD72s0g0",
         authDomain: "employee-app-f2600.firebaseapp.com",

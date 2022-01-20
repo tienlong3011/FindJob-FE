@@ -42,7 +42,7 @@ export class ListRecruitmentUserComponent implements OnInit {
   check: boolean = false;
   checkUser: boolean = false;
   idGuest: number;
-  advancedForm:boolean = false;
+  advancedForm: boolean = false;
   sub: Subscription;
   searchKey: string;
 
@@ -51,8 +51,6 @@ export class ListRecruitmentUserComponent implements OnInit {
   company: any[] = [];
   vacancies: Vacancies[] = [];
   workingTime: WorkingTime[] = [];
-
-
 
 
   constructor(private recruitmentNewService: RecruitmentNewService,
@@ -67,52 +65,72 @@ export class ListRecruitmentUserComponent implements OnInit {
               private router: Router,
               private applyService: ApplyService,
               private activeRouter: ActivatedRoute
-              ) {
-    this.sub = this.activeRouter.paramMap.subscribe((paramMap: ParamMap)=> {
+  ) {
+    this.sub = this.activeRouter.paramMap.subscribe((paramMap: ParamMap) => {
       this.searchKey = (paramMap.get('id'));
-      if(paramMap.get('id') == "xxx"){
+      if (paramMap.get('id') == 'xxx') {
         this.searchKey = null;
       }
       console.log(this.searchKey);
-    })
-    this.searchJob = new SearchJob(this.searchKey, null, null, null, null, null, 0, 3,null);
+    });
+    this.searchJob = new SearchJob(this.searchKey, null, null, null, null, null, 0, 3, null);
     this.recruitmentNewService.searchByObj(this.searchJob).subscribe(data => {
       this.recruitmentNews = data.data;
       this.totalSize = data.totalRecord;
       console.log(this.recruitmentNews);
+      // this.checkdate();
+
     });
+
     this.getAllCity();
     this.getAllField();
     this.getAllCompany();
     this.getAllVacancies();
     this.getAllWorkingTime();
   }
+
+  // checkdate() {
+  //   for (let i = 0; i < this.recruitmentNews.length; i++) {
+  //     const dateRCM = new Date(this.recruitmentNews[i].expDate);
+  //     console.log(dateRCM);
+  //     const today = new Date();
+  //     console.log(today);
+  //     // @ts-ignore
+  //     const c = (today - dateRCM) / (1000 * 3600 * 24);
+  //     console.log(c);
+  //     if (c >= 0) {
+  //       this.recruitmentNewService.changeStatusById(this.recruitmentNews[i].id).subscribe(data => {
+  //         console.log(data);
+  //       });
+  //     }
+  //   }
+  // }
+
   formatLabel(value: number) {
     if (value >= 1000000) {
       return Math.round(value / 1000000) + 'tr';
     }
     return value;
   }
-  checkUserCurrent(){
-    if(this.tokenService.getTokenKey()){
+
+  checkUserCurrent() {
+    if (this.tokenService.getTokenKey()) {
       this.idGuest = this.tokenService.getIdGuest();
-      for (let i = 0; i < this.tokenService.getRoleKey().length; i++){
+      for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
         console.log(this.tokenService.getRoleKey()[i]);
-        if (this.tokenService.getRoleKey()[i] == "USER") {
+        if (this.tokenService.getRoleKey()[i] == 'USER') {
           this.userService.getUserById(this.idGuest).subscribe(data => {
-            if(data){
-              console.log("hello");
-              this.checkUser = true
+            if (data) {
+              console.log('hello');
+              this.checkUser = true;
               console.log(data);
             }
-          })
-        }
-        else {
+          });
+        } else {
           this.checkUser = false;
         }
       }
-    }
-    else {
+    } else {
       this.checkUser = true;
     }
   }
@@ -135,15 +153,17 @@ export class ListRecruitmentUserComponent implements OnInit {
       this.company = data;
     });
   }
-  getAllVacancies(){
-    this.vacanciesService.showAll().subscribe(data =>{
+
+  getAllVacancies() {
+    this.vacanciesService.showAll().subscribe(data => {
       this.vacancies = data;
-    })
+    });
   }
-  getAllWorkingTime(){
-    this.workingTimeService.showAll().subscribe(data =>{
+
+  getAllWorkingTime() {
+    this.workingTimeService.showAll().subscribe(data => {
       this.workingTime = data;
-    })
+    });
   }
 
 
@@ -155,7 +175,7 @@ export class ListRecruitmentUserComponent implements OnInit {
   pagination() {
     this.start = this.pageCurrent * this.pageSize;
     console.log(this.start);
-    this.searchJob = new SearchJob(this.searchJob.title, this.searchJob.cityId, this.searchJob.fieldId, this.searchJob.companyId, this.searchJob.vacancies, this.searchJob.workingTimeId, this.start, this.pageSize,this.searchJob.salary);
+    this.searchJob = new SearchJob(this.searchJob.title, this.searchJob.cityId, this.searchJob.fieldId, this.searchJob.companyId, this.searchJob.vacancies, this.searchJob.workingTimeId, this.start, this.pageSize, this.searchJob.salary);
     console.log(this.searchJob);
     this.recruitmentNewService.searchByObj(this.searchJob).subscribe(data => {
       this.recruitmentNews = data.data;
@@ -169,42 +189,42 @@ export class ListRecruitmentUserComponent implements OnInit {
       this.pagination();
     }
   }
-  checkLogin(){
-    if(this.tokenService.getTokenKey()){
+
+  checkLogin() {
+    if (this.tokenService.getTokenKey()) {
       this.check = true;
     }
   }
 
   rightPage() {
-    if(this.pageCurrent * this.pageSize >= this.totalSize){
+    if (this.pageCurrent * this.pageSize >= this.totalSize) {
 
-    }
-    else {
+    } else {
       this.pageCurrent = this.pageCurrent + 1;
       this.pagination();
     }
   }
 
   ngSubmit(form) {
-    if(form.value.title == ""){
+    if (form.value.title == '') {
       form.value.title = null;
     }
-    if(form.value.cityId == ""){
+    if (form.value.cityId == '') {
       form.value.cityId = null;
     }
-    if(form.value.fieldId == ""){
+    if (form.value.fieldId == '') {
       form.value.fieldId = null;
     }
-    if(form.value.companyId == ""){
+    if (form.value.companyId == '') {
       form.value.companyId = null;
     }
-    if(form.value.vacancies == ""){
+    if (form.value.vacancies == '') {
       form.value.vacancies = null;
     }
-    if(form.value.workingTimeId == ""){
+    if (form.value.workingTimeId == '') {
       form.value.workingTimeId = null;
     }
-    if(form.value.salary == 0){
+    if (form.value.salary == 0) {
       form.value.salary = null;
     }
     console.log(form.value);
@@ -215,7 +235,7 @@ export class ListRecruitmentUserComponent implements OnInit {
     this.searchJob.vacancies = form.value.vacancies;
     this.searchJob.workingTimeId = form.value.workingTime;
     this.searchJob.salary = form.value.salary;
-    this.start = 0 ;
+    this.start = 0;
     this.pageCurrent = 0;
     this.pagination();
     form.reset();
@@ -224,7 +244,7 @@ export class ListRecruitmentUserComponent implements OnInit {
 
   openDialogApply(id) {
     const dialogRef = this.dialog.open(ApplyRecruitmentnewComponent, {
-      data : {
+      data: {
         id: id
       }
     });
@@ -235,27 +255,26 @@ export class ListRecruitmentUserComponent implements OnInit {
 
   openDialogApplyNow(id) {
     const dialogRef = this.dialog.open(ApplyNowComponent, {
-      data : {
+      data: {
         id: id
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
+      if (result) {
         if (!this.tokenService.getTokenKey()) {
-          this.router.navigate(['login']).then(window.location.reload)
+          this.router.navigate(['login']).then(window.location.reload);
         } else {
           const apply: Apply = new Apply(id, this.tokenService.getIdGuest());
           this.applyService.createCV(apply).subscribe(data2 => {
-            if(data2.message == "CREATE") {
+            if (data2.message == 'CREATE') {
               const dialogRef1 = this.dialog.open(DialogApplyComponent);
               dialogRef1.afterClosed().subscribe(result => {
                 console.log('ressult sau khi bam nut --> ', result);
                 if (result == false) {
 
                 }
-              })
-            }
-            else if(data2.message == "CREATE_FAIL"){
+              });
+            } else if (data2.message == 'CREATE_FAIL') {
               const dialogRef1 = this.dialog.open(DialogApplyFailComponent);
               dialogRef1.afterClosed().subscribe(result => {
                 console.log('ressult sau khi bam nut --> ', result);
@@ -263,14 +282,13 @@ export class ListRecruitmentUserComponent implements OnInit {
 
                 }
               });
-            }
-            else if(data2.message == "MATCH"){
+            } else if (data2.message == 'MATCH') {
               const dialogRef2 = this.dialog.open(DialogMatchComponent);
               dialogRef2.afterClosed().subscribe(result => {
 
-              })
+              });
             }
-          })
+          });
         }
       }
       console.log('The dialog was closed');
