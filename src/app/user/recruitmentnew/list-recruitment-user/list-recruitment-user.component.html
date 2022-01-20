@@ -51,6 +51,7 @@
                             <option *ngFor="let wt of workingTime" [value]="wt.id">{{wt.name}}</option>
                         </select>
                     </mat-form-field>
+                    <mat-label  *ngIf="advancedForm">Mức lương</mat-label>
                     <mat-slider *ngIf="advancedForm"
                             thumbLabel
                             [displayWith]="formatLabel"
@@ -61,10 +62,10 @@
                             ngModel
                             name="salary"
                             aria-label="units"></mat-slider>
-                    <div class="col-md-6 col-lg-3 my-3" style="margin-left: 350px">
+                    <div class="col-md-6 col-lg-3 my-3" style="margin-left: 400px">
                         <button type="submit" class="btn btn-lg btn-block btn-light btn-custom btn-outline-primary"
                                 id="contact-submit" style="margin-top: 10px;">
-                            Search
+                            Tìm Kiếm
                         </button>
                     </div>
                 </div>
