@@ -23,7 +23,7 @@ export class ApplyService {
   }
 
   apply(changeStatusApply: ChangeStatusApply): Observable<any>{
-    return this.http.post<any>("http://localhost:8080/applies/changeStatusApply",changeStatusApply);
+    return this.http.post<any>(`${this.apiServerUrl}/applies/changeStatusApply`,changeStatusApply);
   }
 
   pageApply(nextPage,id : number){
