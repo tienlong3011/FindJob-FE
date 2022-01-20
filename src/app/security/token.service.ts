@@ -57,13 +57,9 @@ export class TokenService {
   public getRoleKey(): string[]{
     // @ts-ignore
     const roles = [];
-    console.log('ROLE_KEY ---> ',sessionStorage.getItem(ROLE_KEY));
-    // @ts-ignore
-    console.log('ROLE KEY SAU KHI PARSE ==> ', JSON.parse(sessionStorage.getItem(ROLE_KEY)));
     if(sessionStorage.getItem(TOKEN_KEY)){
       // @ts-ignore
       JSON.parse(sessionStorage.getItem(ROLE_KEY)).forEach(role =>{
-        console.log('ROLE SAU KHI FOR EARCH ---> ', role);
         roles.push(role.authority);
       })
     }

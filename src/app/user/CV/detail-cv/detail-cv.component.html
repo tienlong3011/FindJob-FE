@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="user-profile">
-                        <h3>{{cv.fullName}}</h3>
+                        <h3>{{cv?.fullName}}</h3>
                         <div class="d-flex align-items-center justify-content-center mb-3">
                             <i class="fas fa-star text-info"></i>
                             <i class="fas fa-star text-info"></i>
@@ -17,15 +17,15 @@
                     <div class="personal-info">
                         <h3>Thông tin cá nhân</h3>
                         <ul class="personal-list">
-                            <li><i class="fas fa-briefcase "></i><span>{{cv.expYear}}</span></li>
-                            <li><i class="fas fa-map-marker-alt "></i><span>{{cv.salaryExpectation}}</span></li>
-                            <li><i class="far fa-envelope "></i><span>{{cv.username}}</span></li>
-                            <li><i class="fas fa-mobile "></i><span>{{cv.phone}}</span></li>
+                            <li><i class="fas fa-briefcase "></i><span>{{cv?.expYear}}</span></li>
+                            <li><i class="fas fa-map-marker-alt "></i><span>{{cv?.salaryExpectation}}</span></li>
+                            <li><i class="far fa-envelope "></i><span>{{cv?.username}}</span></li>
+                            <li><i class="fas fa-mobile "></i><span>{{cv?.phone}}</span></li>
                         </ul>
                     </div>
                     <div class="skill">
                         <h3>Kỹ năng</h3>
-                        <div *ngFor="let skill of cv.skills">
+                        <div *ngFor="let skill of cv?.skills">
                             <p>{{skill.name}}</p>
                             <div class="progress mb-3">
                                 <div class="progress-bar" role="progressbar" [style.width]="skill.proficiency"
@@ -47,7 +47,7 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                              aria-labelledby="pills-home-tab">
-                            <div *ngFor="let workExp of cv.workExps" class="work-container">
+                            <div *ngFor="let workExp of cv?.workExps" class="work-container">
                                 <h3>{{workExp.title}}</h3>
                                 <h4><i class="far fa-calendar-alt"></i>{{workExp.startDate}} to <span
                                         class="badge badge-info">{{workExp.endDate}}</span></h4>

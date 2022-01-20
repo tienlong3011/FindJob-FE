@@ -58,6 +58,9 @@ import { ApplyNowComponent } from './dialog/apply-now/apply-now.component';
 import { WebCompanyComponent } from './company/web-company/web-company.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { ApplyListComponent } from './user/apply-list/apply-list.component';
+import { DialogCreateCvComponent } from './dialog/CV/dialog-create-cv/dialog-create-cv.component';
+import { DialogEditCvComponent } from './dialog/CV/dialog-edit-cv/dialog-edit-cv.component';
+import { UploadFileComponent } from './upload/upload-file/upload-file.component';
 
 export const appRoutes: Routes = [
   {path: 'register-user', component: RegisterUserComponent},
@@ -110,7 +113,11 @@ export const appRoutes: Routes = [
     ActiveStatusComponent,
     ApplyNowComponent,
     WebCompanyComponent,
-    ApplyListComponent
+    ApplyListComponent,
+    DialogCreateCvComponent,
+    DialogEditCvComponent,
+    UploadFileComponent,
+
   ],
   imports: [
     ReactiveFormsModule,

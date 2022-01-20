@@ -4,7 +4,7 @@ import {User} from "../../../model/user";
 import {UserService} from "../../service/user.service";
 import {Skill} from "../../../model/skill";
 import {SkillService} from "../../../service/skill/skill.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CVService} from "../../../service/cv/cv.service";
 import {Cv} from "../../../model/cv";
 import {WorkExp} from "../../../model/workExp";
@@ -14,6 +14,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../../../dialog/dialog.component";
 import {WorkExpDTO} from "../../../model/dto/work-exp-dto";
 import {FormArray, FormBuilder} from "@angular/forms";
+import {DialogCreateCvComponent} from "../../../dialog/CV/dialog-create-cv/dialog-create-cv.component";
+import {DialogEditCvComponent} from "../../../dialog/CV/dialog-edit-cv/dialog-edit-cv.component";
 
 @Component({
   selector: 'app-edit-cv',
@@ -21,7 +23,7 @@ import {FormArray, FormBuilder} from "@angular/forms";
   styleUrls: ['./edit-cv.component.scss']
 })
 export class EditCvComponent implements OnInit {
-  user: User;
+  user: User = {account: null, phone: "", name: ''};
 
   idUser: number;
 
@@ -42,6 +44,7 @@ export class EditCvComponent implements OnInit {
               private cvService: CVService,
               private workExpService: WorkExpService,
               private route: ActivatedRoute,
+              private router: Router,
               private dialog: MatDialog,
               private fb: FormBuilder,
               private token: TokenService
@@ -56,6 +59,10 @@ export class EditCvComponent implements OnInit {
     return this.cvForm.get("workExps") as FormArray;
   }
 
+  onUpLoadAvatar(event: any) {
+    this.cvForm.value.fileCV = event;
+  }
+
   ngOnInit(): void {
     this.idUser = this.route.snapshot.params['id'];
 
@@ -66,12 +73,14 @@ export class EditCvComponent implements OnInit {
     this.cvService.findByUserId(this.idUser).subscribe((data: CvDTO) => {
       data.skills.forEach(item => {
         this.skills.push(this.fb.group({
+          id: [''],
           name: [''],
           proficiency: ['']
         }));
       })
       data.workExps.forEach(item => {
         this.workExps.push(this.fb.group({
+          id: [''],
           title: [''],
           startDate: [''],
           endDate: [''],
@@ -79,33 +88,46 @@ export class EditCvComponent implements OnInit {
         }))
       })
       this.cvForm.patchValue(data);
-      console.log("data", data);
     });
   }
 
-  // addSkill() {
-  //   const skillForm = this.fb.group({
-  //     name: [''],
-  //     proficiency: ['50%']
-  //   })
-  //   this.skills.push(skillForm);
-  // }
-  //
-  // deleteSkill(index: number) {
-  //   this.skills.removeAt(index);
-  // }
-  //
-  // addWorkExp() {
-  //   const workExpForm = this.fb.group({
-  //     title: [''],
-  //     startDate: [''],
-  //     endDate: [''],
-  //     content: ['']
-  //   })
-  //   this.workExps.push(workExpForm);
-  // }
-  //
-  // deleteWorkExp(index: number) {
-  //   this.workExps.removeAt(index);
-  // }
+  onUpdate() {
+    console.log(this.cvForm.value)
+    this.cvService.updateCV(this.tokenService.getIdGuest(), this.cvForm.value).subscribe(data => {
+      const dialogRef = this.dialog.open(DialogEditCvComponent);
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.cvForm.reset();
+        this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+      });
+    })
+  }
+
+  addSkill() {
+    const skillForm = this.fb.group({
+      id: [''],
+      name: [''],
+      proficiency: ['50%']
+    })
+    this.skills.push(skillForm);
+  }
+
+  deleteSkill(index: number) {
+    this.skills.removeAt(index);
+  }
+
+  addWorkExp() {
+    const workExpForm = this.fb.group({
+      id: [''],
+      title: [''],
+      startDate: [''],
+      endDate: [''],
+      content: ['']
+    })
+    this.workExps.push(workExpForm);
+  }
+
+  deleteWorkExp(index: number) {
+    this.workExps.removeAt(index);
+  }
 }

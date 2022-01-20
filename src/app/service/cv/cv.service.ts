@@ -19,6 +19,10 @@ export class CVService {
     return this.http.post<CvDTO>(`${this.apiServerUrl}/CV/createCV`, cv)
   }
 
+  updateCV(userId: number, cv: CvDTO): Observable<CvDTO> {
+    return this.http.put<CvDTO>(`${this.apiServerUrl}/CV/${userId}`, cv)
+  }
+
   findByUserId(id: number): Observable<CvDTO> {
     return this.http.get<CvDTO>(`${this.apiServerUrl}/CV/user/${id}`)
   }

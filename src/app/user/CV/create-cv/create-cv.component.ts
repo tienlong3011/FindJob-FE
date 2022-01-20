@@ -6,6 +6,10 @@ import {AuthService} from '../../../security/auth.service';
 import {TokenService} from '../../../security/token.service';
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {CvDTO} from "../../../model/dto/cv-dto";
+import {DialogComponent} from "../../../dialog/dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogCreateCvComponent} from "../../../dialog/CV/dialog-create-cv/dialog-create-cv.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-cv',
@@ -19,7 +23,10 @@ export class CreateCvComponent implements OnInit {
               private workExpService: WorkExpService,
               private skillService: SkillService,
               private token: TokenService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private dialog: MatDialog,
+              private router: Router,
+              private tokenService: TokenService) {
   }
 
   ngOnInit(): void {
@@ -50,7 +57,12 @@ export class CreateCvComponent implements OnInit {
 
   ngSubmit() {
     this.cvService.createCV(this.cvForm.value).subscribe(data => {
-      console.log("CV sau khi submit", data);
+      const dialogRef = this.dialog.open(DialogCreateCvComponent);
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.cvForm.reset();
+        this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+      });
     })
   }
 
