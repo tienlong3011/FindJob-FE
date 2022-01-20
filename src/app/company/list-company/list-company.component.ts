@@ -3,6 +3,8 @@ import {CompanyService} from '../../service/company/company.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {RecruitmentNew} from '../../model/recruitmentNew';
 import {Company} from '../../model/company';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-list-company',
@@ -11,7 +13,10 @@ import {Company} from '../../model/company';
 })
 export class ListCompanyComponent implements OnInit {
   company: Company[] = [];
-  constructor(private companyService: CompanyService
+  id: number=0;
+  sub: Subscription;
+  constructor(private companyService: CompanyService,
+              private activeRouter: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -24,5 +29,6 @@ export class ListCompanyComponent implements OnInit {
       this.company = listCompany;
     });
   }
+
 
 }

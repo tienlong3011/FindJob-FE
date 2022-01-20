@@ -1,53 +1,4 @@
-<section class="banner-area">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="banner-content">
-                            <h1>
-                                Awesome App For Your Modern Lifestyle
-                            </h1>
-                            <p>
-                                Never frown, even when you are sad, because you never know who is falling in love with
-                                your smile
-                            </p>
-                            <div class="banner-btn">
-                                <a href="contact.html" class="box-btn">Contact Us</a>
-                                <a href="about.html" class="box-btn border-btn">Know More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="banner-img">
-                            <img src="../../../../assets/images/home-bg-1-img.png" alt="banner-img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="home-shape">
-        <div class="shape1">
-            <img src="../../../../assets/images/shape/1.png" alt="shape">
-        </div>
-        <div class="shape2">
-            <img src="../../../../assets/images/shape/2.png" alt="shape">
-        </div>
-        <div class="shape3">
-            <img src="../../../../assets/images/shape/3.png" alt="shape">
-        </div>
-        <div class="shape4">
-            <img src="../../../../assets/images/shape/4.png" alt="shape">
-        </div>
-        <div class="shape5">
-            <img src="../../../../assets/images/shape/5.png" alt="shape">
-        </div>
-        <div class="shape6">
-            <img src="../../../../assets/images/shape/6.png" alt="shape">
-        </div>
-    </div>
-</section>
+
 <!-- End Banner Area -->
 
 <div class="container">
@@ -65,45 +16,56 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 my-3">
                         <div class="input-group position-relative" style="margin-top: 10px;">
-                            <input type="text" name="title" class="form-control" placeholder="Nhập vào từ khóa..."
-                                   id="keywords" ngModel>
+                            <input type="text" name="title" class="form-control" placeholder="Nhập vào tên công việc, tên công ty, tên thành phố..." id="keywords" [(ngModel)]="searchJob.title">
                         </div>
                     </div>
-
-                    <mat-form-field appearance="outline" class="col-md-6 col-lg-6 my-3">
+                    <a class="btn btn-link"  style="color:#4e63d7;margin-left: -450px" *ngIf="!advancedForm" (click)=" advancedForm = !advancedForm" >Tìm kiếm nâng cao</a>
+                    <a class="btn btn-link"  style="color:#4e63d7;margin-left: -490px" *ngIf="advancedForm" (click)=" advancedForm = !advancedForm" >Đóng</a>
+                    <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-6 col-lg-6 my-3">
                         <mat-label>Thành phố</mat-label>
                         <select matNativeControl ngModel name="cityId">
                             <option *ngFor="let ct of city" [value]="ct.id">{{ct.name}}</option>
                         </select>
                     </mat-form-field>
-                    <mat-form-field appearance="outline" class="col-md-6 col-lg-6 my-3">
+                    <mat-form-field  *ngIf="advancedForm" appearance="outline" class="col-md-6 col-lg-6 my-3">
                         <mat-label>Lĩnh vực</mat-label>
                         <select matNativeControl ngModel name="fieldId">
                             <option *ngFor="let field of fields" [value]="field.id">{{field.name}}</option>
                         </select>
                     </mat-form-field>
-                    <mat-form-field appearance="outline" class="col-md-4 col-lg-4 my-3">
+                    <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-4 col-lg-4 my-3">
                         <mat-label>Tên công ty</mat-label>
                         <select matNativeControl ngModel name="companyId">
                             <option *ngFor="let com of company" [value]="com.id">{{com.name}}</option>
                         </select>
                     </mat-form-field>
-                    <mat-form-field appearance="outline" class="col-md-4 col-lg-4 my-3">
+                    <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-4 col-lg-4 my-3">
                         <mat-label>Vị trí tuyển dụng</mat-label>
                         <select matNativeControl ngModel name="vacancies">
                             <option *ngFor="let vc of vacancies" [value]="vc.id">{{vc.name}}</option>
                         </select>
                     </mat-form-field>
-                    <mat-form-field appearance="outline" class="col-md-4 col-lg-4 my-3">
+                    <mat-form-field *ngIf="advancedForm" appearance="outline" class="col-md-4 col-lg-4 my-3">
                         <mat-label>Thời gian làm việc</mat-label>
                         <select matNativeControl ngModel name="workingTimeId">
                             <option *ngFor="let wt of workingTime" [value]="wt.id">{{wt.name}}</option>
                         </select>
                     </mat-form-field>
-                    <div class="col-md-6 col-lg-3 my-3" style="margin-left: 380px">
-                        <button type="submit" class="btn btn-lg btn-block btn-light btn-custom btn-outline-info"
+                    <mat-label  *ngIf="advancedForm">Mức lương</mat-label>
+                    <mat-slider *ngIf="advancedForm"
+                            thumbLabel
+                            [displayWith]="formatLabel"
+                            tickInterval="1000000"
+                            step="1000000"
+                            min="0"
+                            max="20000000"
+                            ngModel
+                            name="salary"
+                            aria-label="units"></mat-slider>
+                    <div class="col-md-6 col-lg-3 my-3" style="margin-left: 400px">
+                        <button type="submit" class="btn btn-lg btn-block btn-light btn-custom btn-outline-primary"
                                 id="contact-submit" style="margin-top: 10px;">
-                            Search
+                            Tìm Kiếm
                         </button>
                     </div>
                 </div>

@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit {
       for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
         if (this.tokenService.getRoleKey()[i] == "COMPANY") {
           this.companyService.getCompanyNameById(this.idGuest).subscribe(data => {
-            console.log(data);
             this.company = data;
             this.checkRole = "COMPANY";
             this.name = this.company.name;
@@ -47,7 +46,6 @@ export class HeaderComponent implements OnInit {
         }
         if (this.tokenService.getRoleKey()[i] == "USER") {
           this.userService.getUserById(this.idGuest).subscribe(data => {
-            console.log(data);
             this.user = data;
             this.checkRole = "USER";
             this.name = this.user.name;

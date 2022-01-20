@@ -17,7 +17,7 @@
                 <p><b>Địa điểm làm việc:</b> {{recruitmentNew.city.name}} </p>
                 <p><b>Trạng thái tin tuyển dụng:</b> {{recruitmentNew.status}} </p>
                 <button mat-button mat-dialog-close="" color="warn" style="margin-right: 10px">Thoát</button>
-                <button mat-raised-button color="accent" (click)="applyRecruitmentNewNow()">Ứng tuyển</button>
+                <button mat-raised-button color="accent" *ngIf="checkLogin && checkUser" (click)="applyRecruitmentNewNow()">Ứng tuyển</button>
             </div>
         </div>
     </div>

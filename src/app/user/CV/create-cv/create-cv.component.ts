@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {Cv} from '../../../model/cv';
-import {WorkExp} from '../../../model/workExp';
-import {Skill} from '../../../model/skill';
+import {Component, OnInit} from '@angular/core';
 import {CVService} from '../../../service/cv/cv.service';
 import {WorkExpService} from '../../../service/workExp/work-exp.service';
 import {SkillService} from '../../../service/skill/skill.service';
 import {AuthService} from '../../../security/auth.service';
 import {TokenService} from '../../../security/token.service';
+import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {CvDTO} from "../../../model/dto/cv-dto";
+import {DialogComponent} from "../../../dialog/dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogCreateCvComponent} from "../../../dialog/CV/dialog-create-cv/dialog-create-cv.component";
+import {Router} from "@angular/router";
+import {DialogNoCreateComponent} from '../../../dialog/CV/dialog-no-create/dialog-no-create.component';
 
 @Component({
   selector: 'app-create-cv',
@@ -14,119 +18,87 @@ import {TokenService} from '../../../security/token.service';
   styleUrls: ['./create-cv.component.scss']
 })
 export class CreateCvComponent implements OnInit {
-  data : any={
-    fileCv: ''
-  };
-  status:string = "Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản."
-  cv: Cv;
-  workExp:WorkExp;
-  skill: Skill;
-  idCV: number;
-
-  errorCV1:any = {
-    message: "no_file_cv"
-  }
-  errorCV2:any = {
-    message: "no_SalaryExpectation_cv"
-  }
-  errorSkill1:any = {
-    message: "no_name_skill"
-  }
-  errorWorkExp1:any = {
-    message: "no_title"
-  }
-  errorWorkExp2:any = {
-    message: "no_start_date"
-  }
-  errorWorkExp3:any = {
-    message: "no_end_date"
-  }
-  success:any = {
-    message: "yes"
+  status: string = "Vui lòng bổ sung các thông tin dưới đây để hoàn tất tài khoản."
+  error1:any = {
+    message: "user_da_ton_tai"
   }
   constructor(private cvService: CVService,
               private workExpService: WorkExpService,
               private skillService: SkillService,
-              private token: TokenService) { }
+              private token: TokenService,
+              private fb: FormBuilder,
+              private dialog: MatDialog,
+              private router: Router,
+              private tokenService: TokenService) {
+  }
 
   ngOnInit(): void {
   }
 
+  check = false;
+
+  cvForm = this.fb.group({
+    expYear: [],
+    salaryExpectation: [],
+    fileCV: [],
+    userId: this.token.getIdGuest(),
+    skills: this.fb.array([]),
+    workExps: this.fb.array([])
+  })
+
+  get skills() {
+    return this.cvForm.get('skills') as FormArray;
+  }
+
+  get workExps() {
+    return this.cvForm.get("workExps") as FormArray;
+  }
+
   onUpLoadAvatar(event: any) {
-    this.data.fileCv = event;
+    this.cvForm.value.fileCV = event;
   }
 
-  ngSubmit(form:any) {
-    const user = {
-      id: this.token.getIdGuest()
-    }
-    this.cv = new Cv(this.data.expYear,this.data.fileCv,this.data.salaryExpectation,user);
-    this.cvService.createCV(this.cv).subscribe(data1 =>{
-      if (JSON.stringify(data1) == JSON.stringify(this.errorCV1)) {
-        this.status = 'Vui lòng Up-load file CV!';
-      }
-      if (JSON.stringify(data1) == JSON.stringify(this.errorCV2)) {
-        this.status = 'Vui lòng nhập mức lương mong muốn!';
-      }
-      if(JSON.stringify(data1)==JSON.stringify(this.success)){
-        this.status = 'Tạo mới CV thành công!'
-      }
-      this.idCV = data1.id;
-      this.createWorkExp();
-      // this.createSkill();
-    },error => alert(error));
-  }
-
-  // tạo mới workExp vào cv
-    createWorkExp(){
-      this.cv.id = this.idCV;
-      const cvID = {
-      id: this.idCV
-    };
-    this.workExp = new WorkExp(this.data.content,this.data.endDate,this.data.startDate,this.data.title,cvID)
-    this.workExpService.createWorkExp(this.workExp).subscribe(data2 =>{
-      if (JSON.stringify(data2) == JSON.stringify(this.errorWorkExp1)) {
-        this.status = 'Vui lòng nhập kinh nghiệm bản thân!';
-      }
-      if (JSON.stringify(data2) == JSON.stringify(this.errorWorkExp2)) {
-        this.status = 'Vui lòng nhập ngày bắt đầu!';
-      }
-      if (JSON.stringify(data2) == JSON.stringify(this.errorWorkExp3)) {
-        this.status = 'Vui lòng nhập ngày kết thúc!';
+  ngSubmit() {
+    this.cvService.createCV(this.cvForm.value).subscribe(data => {
+      if (JSON.stringify(data) == JSON.stringify(this.error1)) {
+        const dialogRef = this.dialog.open(DialogNoCreateComponent);
+        dialogRef.afterClosed().subscribe(result => {
+          this.cvForm.reset();
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+        });
+      } else {
+        const dialogRef = this.dialog.open(DialogCreateCvComponent);
+        dialogRef.afterClosed().subscribe(result => {
+          this.cvForm.reset();
+          this.router.navigate(['detail-cv', this.tokenService.getIdGuest()])
+        });
       }
     })
   }
 
-  // //tạo mới skil vào cv
-  //   createSkill(){
-  //     this.cv.id = this.idCV;
-  //     const cvID = {
-  //     id: this.idCV
-  //   };
-  //
-  //   this.skill = new Skill(this.data.name,cvID)
-  //   this.skillService.createSkill(this.skill).subscribe(data3 =>{
-  //
-  //     if (JSON.stringify(data3) == JSON.stringify(this.errorSkill1)) {
-  //       this.status = 'Vui lòng nhập kinh nghiệm làm việc!';
-  //     }
-  //   })
-  // }
-
-  //tạo mới skil vào cv
-    createSkill(){
-      this.cv.id = this.idCV;
-      const cvID = {
-      id: this.idCV
-    };
-
-    // this.skill = new Skill(this.data.name,cvID)
-    this.skillService.createSkill(this.skill).subscribe(data3 =>{
-
-      if (JSON.stringify(data3) == JSON.stringify(this.errorSkill1)) {
-        this.status = 'Vui lòng nhập kinh nghiệm làm việc!';
-      }
+  addSkill() {
+    const skillForm = this.fb.group({
+      name: [''],
+      proficiency: ['50%']
     })
+    this.skills.push(skillForm);
   }
 
+  deleteSkill(index: number) {
+    this.skills.removeAt(index);
+  }
+
+  addWorkExp() {
+    const workExpForm = this.fb.group({
+      title: [''],
+      startDate: [''],
+      endDate: [''],
+      content: ['']
+    })
+    this.workExps.push(workExpForm);
+  }
+
+  deleteWorkExp(index: number) {
+    this.workExps.removeAt(index);
+  }
 }
