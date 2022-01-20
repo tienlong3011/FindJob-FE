@@ -21,6 +21,8 @@ export class DetailCvComponent implements OnInit {
 
   idUser: number;
 
+  checkRole: string;
+
   constructor(private tokenService: TokenService,
               private userService: UserService,
               private skillService: SkillService,
@@ -34,5 +36,12 @@ export class DetailCvComponent implements OnInit {
     this.cvService.findByUserId(this.idUser).subscribe((data: CvDTO) => {
       this.cv = data;
     });
+    for (let i = 0; i < this.tokenService.getRoleKey().length; i++) {
+      if (this.tokenService.getRoleKey()[i] == "USER") {
+        this.userService.getUserById(this.tokenService.getIdGuest()).subscribe(data => {
+          this.checkRole = "USER";
+        })
+      }
+    }
   }
 }

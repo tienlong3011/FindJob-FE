@@ -41,7 +41,7 @@
             <div class="card right-profile-card">
                 <div class="card-header alert-primary d-flex justify-content-between">
                     <h2>Kinh nghiệm cá nhân</h2>
-                    <a class="btn btn-light" [routerLink]="['/update-cv/', idUser]">Sửa hồ sơ</a>
+                    <a class="btn btn-light" *ngIf="checkRole == 'USER'" [routerLink]="['/update-cv/', idUser]">Sửa hồ sơ</a>
                 </div>
                 <div class="card-body">
                     <div class="tab-content" id="pills-tabContent">

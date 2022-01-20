@@ -19,17 +19,14 @@
                         <div class="personal-info">
                             <h3>Thông tin cá nhân</h3>
                             <ul class="personal-list">
-<<<<<<< HEAD
                                 <li><h6>Năm kinh nghiệm</h6></li>
                                 <li><i class="fas fa-briefcase "></i>
                                     <input formControlName="expYear">
-=======
                                 <li><i class="fas fa-briefcase "></i><span
                                         formControlName="expYear"><b>Năm kinh nghiệm:</b> {{cvForm.value.expYear}}</span>
                                 </li>
                                 <li><i class="fas fa-map-marker-alt "></i><span
                                         formControlName="salaryExpectation"><b>Lương mong muốn:</b> {{cvForm.value.salaryExpectation}}</span>
->>>>>>> 4b03958a0a982d98cf81b3492e47079f275ee66b
                                 </li>
                                 <li><h6>Lương mong muốn</h6></li>
                                 <li><i class="fas fa-money-bill-wave"></i>
@@ -59,7 +56,8 @@
                                 </div>
                             </ng-container>
                         </ng-container>
-                        <button color="primary" style="width: 200px; height: 50px; padding: 0; margin: 0 auto" type="button"
+                        <button color="primary" style="width: 200px; height: 50px; padding: 0; margin: 0 auto"
+                                type="button"
                                 (click)="addSkill()"
                                 mat-raised-button>
                             Thêm kỹ năng mới
@@ -69,8 +67,9 @@
             </div>
             <div class="col-lg-9">
                 <div class="card right-profile-card">
-                    <div class="card-header alert-primary d-flex">
+                    <div class="card-header alert-primary d-flex justify-content-between">
                         <h2>Kinh nghiệm cá nhân</h2>
+                        <a color="#f8f9fa" style="font-size: 16px" mat-raised-button [routerLink]="['/detail-cv/', tokenService.getIdGuest()]">Quay lại</a>
                     </div>
                     <div class="card-body">
                         <div class="tab-content" id="pills-tabContent">
@@ -100,13 +99,15 @@
                                             </h4>
                                             <mat-form-field style="width: 100%" appearance="fill">
                                                 <mat-label>Nội dung</mat-label>
-                                                <textarea formControlName="content" matInput placeholder="..."></textarea>
+                                                <textarea formControlName="content" matInput
+                                                          placeholder="..."></textarea>
                                             </mat-form-field>
                                         </div>
                                     </ng-container>
                                 </ng-container>
                                 <div class="text-center">
-                                    <button color="primary" type="button" style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px"
+                                    <button color="primary" type="button"
+                                            style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px"
                                             (click)="addWorkExp()"
                                             mat-raised-button>
                                         Thêm kinh nghiệm mới
@@ -122,7 +123,7 @@
                                    hidden
                                    placeholder="Placeholder">
                             <app-upload-file formControlName="fileCV" style="width: 100%"
-                                              (giveURLtoCreate)="onUpLoadAvatar($event)"></app-upload-file>
+                                             (giveURLtoCreate)="onUpLoadAvatar($event)"></app-upload-file>
                             <mat-icon color="black" matSuffix>add_photo_alternate</mat-icon>
                         </mat-form-field>
                     </div>
@@ -130,7 +131,8 @@
             </div>
         </div>
         <div class="text-center" style="margin: 10px 0">
-            <button mat-raised-button color="primary" type="submit" style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px">
+            <button mat-raised-button color="primary" type="submit"
+                    style="width: 200px; height: 50px; padding: 0; margin-bottom: 20px">
                 Cập nhật
             </button>
         </div>
