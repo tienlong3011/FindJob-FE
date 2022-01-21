@@ -4480,7 +4480,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
 var environment = {
     production: true,
-    apiBaseUrl: 'http://localhost:8080',
+    apiBaseUrl: 'https://c0821h1-findjob.herokuapp.com',
     firebaseConfig: {
         apiKey: "AIzaSyD8-xixCVrK-1RrA6G-Ob5j88HoD72s0g0",
         authDomain: "employee-app-f2600.firebaseapp.com",
