@@ -1417,7 +1417,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    apiBaseUrl: 'https://c0821h1-findjob.herokuapp.com',
+    apiBaseUrl: 'https://c821h1.herokuapp.com',
     firebaseConfig: {
         apiKey: "AIzaSyD8-xixCVrK-1RrA6G-Ob5j88HoD72s0g0",
         authDomain: "employee-app-f2600.firebaseapp.com",
@@ -4480,7 +4480,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
 var environment = {
     production: true,
-    apiBaseUrl: 'https://c0821h1-findjob.herokuapp.com',
+    apiBaseUrl: 'https://c821h1.herokuapp.com',
     firebaseConfig: {
         apiKey: "AIzaSyD8-xixCVrK-1RrA6G-Ob5j88HoD72s0g0",
         authDomain: "employee-app-f2600.firebaseapp.com",
